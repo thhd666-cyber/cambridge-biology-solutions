@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>反応速度論（Reaction Kinetics）完全マスター解説</title>
+  <meta name="description" content="IB Chemistry / A-Level 化学における反応速度論（Reaction Kinetics）全26ページ徹底解説。速度式、反応次数、半減期、アーレニウスの式、律速段階(RDS)、触媒メカニズム、演習問題とシミュレーター。">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- MathJax for TeX rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #080c14;
+      --bg-card: rgba(20, 29, 47, 0.75);
+      --bg-card-hover: rgba(28, 40, 64, 0.85);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(244, 63, 94, 0.4);
+      
+      --primary: #f4395e;
+      --primary-light: #fb7185;
+      --primary-glow: rgba(244, 57, 94, 0.25);
+      
+      --cyan: #06b6d4;
+      --indigo: #6366f1;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.75;
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(244, 57, 94, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 70%, rgba(99, 102, 241, 0.08) 0%, transparent 45%);
+      background-attachment: fixed;
+      padding-bottom: 80px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Hero */
+    header {
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .badge-rose {
+      background: rgba(244, 57, 94, 0.15);
+      color: var(--primary-light);
+      border: 1px solid var(--border-highlight);
+    }
+
+    .badge-cyan {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--cyan);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+
+    h1 {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #fb7185 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    /* TOC Nav */
+    .toc-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .toc-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .toc-link:hover {
+      color: #fff;
+      border-color: var(--primary);
+      background: var(--primary-glow);
+    }
+
+    /* Sections & Cards */
+    section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 28px;
+      background: linear-gradient(to bottom, var(--primary), var(--indigo));
+      border-radius: 4px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 24px;
+      transition: var(--transition);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* Formula Box */
+    .formula-box {
+      background: linear-gradient(135deg, rgba(244, 57, 94, 0.12) 0%, rgba(99, 102, 241, 0.08) 100%);
+      border: 1px solid var(--border-highlight);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .formula-large {
+      font-size: 1.7rem;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .formula-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    /* Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: rgba(30, 41, 59, 0.8);
+      color: var(--text-main);
+      font-weight: 600;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-main);
+    }
+
+    /* Accordion */
+    .accordion-item {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.6);
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      padding: 16px 20px;
+      background: rgba(30, 41, 59, 0.5);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #fff;
+      transition: var(--transition);
+    }
+
+    .accordion-header:hover {
+      background: rgba(30, 41, 59, 0.9);
+    }
+
+    .accordion-body {
+      padding: 20px;
+      display: none;
+      border-top: 1px solid var(--border-color);
+      line-height: 1.8;
+    }
+
+    .accordion-body.open {
+      display: block;
+    }
+
+    .step-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.78rem;
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-right: 8px;
+    }
+
+    /* Callout */
+    .callout {
+      border-left: 4px solid var(--primary);
+      background: rgba(244, 57, 94, 0.08);
+      padding: 18px 22px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 20px 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--primary-light);
+      margin-bottom: 6px;
+    }
+
+    /* Simulator */
+    .sim-container {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 32px;
+    }
+
+    @media (max-width: 868px) {
+      .sim-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .control-group {
+      margin-bottom: 18px;
+    }
+
+    .control-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .control-value {
+      font-family: 'Outfit', monospace;
+      color: var(--cyan);
+    }
+
+    input[type="range"], select {
+      width: 100%;
+      padding: 6px;
+      background: #1e293b;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: #fff;
+      outline: none;
+    }
+
+    canvas {
+      width: 100%;
+      height: 230px;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: var(--radius-sm);
+      margin-top: 12px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Hero Header -->
+    <header>
+      <div class="badge-container">
+        <span class="badge badge-rose">IB Chemistry HL / A-Level</span>
+        <span class="badge badge-cyan">Reaction Kinetics (反応速度論)</span>
+      </div>
+      <h1>反応速度論（Reaction Kinetics）完全マスター解説</h1>
+      <p class="hero-subtitle">
+        化学反応が「どれくらいの速さで起こり、何がそのスピードを支配しているのか」を解明する学問。<br>
+        速度式・反応次数・半減期・アーレニウスの式・律速段階（RDS）・触媒メカニズム、そして演習問題の完全日本語解説！
+      </p>
+
+      <!-- TOC Nav -->
+      <nav class="toc-bar">
+        <a href="#rate-and-law" class="toc-link">1. 反応速度と速度式</a>
+        <a href="#order" class="toc-link">2. 反応次数とグラフ判別</a>
+        <a href="#half-life" class="toc-link">3. 半減期 ($t_{1/2}$)</a>
+        <a href="#arrhenius" class="toc-link">4. 速度定数とアーレニウス式</a>
+        <a href="#rds" class="toc-link">5. 律速段階(RDS) & 中間体</a>
+        <a href="#catalysts" class="toc-link">6. 触媒の作用機構</a>
+        <a href="#problems" class="toc-link">7. 演習問題完全解説</a>
+        <a href="#simulator" class="toc-link">8. リアルタイム計算機</a>
+      </nav>
+    </header>
+
+    <!-- SECTION 1: 反応速度と速度法則 -->
+    <section id="rate-and-law">
+      <h2 class="section-title">1. 反応速度 (Rate of Reaction) と速度法則 (Rate Law)</h2>
+      <div class="card">
+        <p>
+          <strong>反応速度（Rate of Reaction）</strong>とは、<strong>「単位時間あたりにおける反応物または生成物の濃度の変化量」</strong>です。
+        </p>
+
+        <!-- Rate Definition Box -->
+        <div class="formula-box">
+          <div class="formula-large">
+            $$\text{Rate} = \frac{\Delta [\text{濃度}]}{\Delta t}$$
+          </div>
+          <div class="formula-desc">単位時間あたりの濃度変化率（単位: $\text{mol dm}^{-3}\text{s}^{-1}$ または $\text{M s}^{-1}$）</div>
+        </div>
+
+        <p style="margin-top: 14px; color: var(--text-muted);">
+          一般の化学反応 $A + B \rightarrow \text{生成物}$ について、時間経過に伴い反応物 $A, B$ は減少（負の変化）し、生成物は増加（正の変化）するため、次のように定義されます：
+        </p>
+
+        <div style="background: rgba(0,0,0,0.3); padding: 16px; border-radius: var(--radius-sm); margin: 16px 0; text-align: center;">
+          $$\text{Rate} = -\frac{\Delta [A]}{\Delta t} = -\frac{\Delta [B]}{\Delta t} = +\frac{\Delta [\text{生成物}]}{\Delta t}$$
+        </div>
+
+        <h3 style="color: #fff; margin-top: 28px; margin-bottom: 12px;">速度法則（Rate Law / 速度式）</h3>
+        <p style="color: var(--text-muted);">
+          反応速度は、各反応物の濃度の累乗の積に比例します。反応 $A + B \rightarrow \text{生成物}$ に対する速度式は以下のように表されます：
+        </p>
+
+        <div class="formula-box">
+          <div class="formula-large">
+            $$\text{Rate} = k [A]^m [B]^n$$
+          </div>
+        </div>
+
+        <!-- Key Variables Grid -->
+        <div class="grid-2" style="margin-top: 20px;">
+          <div style="background: rgba(255, 255, 255, 0.03); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+            <h4 style="color: var(--primary-light); margin-bottom: 8px;">速度定数 $k$ (Rate Constant)</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              ・反応の固有の速さを示す比例定数。<br>
+              ・<strong>温度に強く依存</strong>する（温度上昇で指数関数的に増加）。<br>
+              ・反応物の**濃度には依存しない**。
+            </p>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.03); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+            <h4 style="color: var(--cyan); margin-bottom: 8px;">反応次数 $m, n$ (Reaction Orders)</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              ・各反応物の濃度変化が速度に与える影響度。<br>
+              ・⚠️ <strong>重要: 反応次数は実験データによってのみ決定される！</strong>（化学反応式の係数から推測することは不可能）
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: 反応次数と判定法 -->
+    <section id="order">
+      <h2 class="section-title">2. 反応次数 (Order of Reaction) とグラフによる解明</h2>
+      <div class="card">
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+          反応次数には <strong>0次 (Zero order)</strong>、<strong>1次 (First order)</strong>、<strong>2次 (Second order)</strong> などがあります。全体反応次数（Overall order）は各反応物の次数の和 ($m + n + \dots$) です。
+        </p>
+
+        <!-- Order Comparison Grid -->
+        <div class="grid-3">
+          <!-- 0th order -->
+          <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-md); padding: 20px;">
+            <h3 style="color: var(--emerald); margin-bottom: 8px;">0次反応 ($\text{Rate} \propto [A]^0$)</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">
+              ・濃度の変化が反応速度に<strong>全く影響を与えない</strong>。<br>
+              ・濃度を2倍にしても、速度は1倍（変化なし）。
+            </p>
+            <div style="font-size: 0.85rem; background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 6px;">
+              $[A] \text{-} t \text{ グラフ}$: 直線的に減少（傾き = $-k$）<br>
+              $\text{Rate - } [A] \text{ グラフ}$: 水平な直線
+            </div>
+          </div>
+
+          <!-- 1st order -->
+          <div style="background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: var(--radius-md); padding: 20px;">
+            <h3 style="color: var(--cyan); margin-bottom: 8px;">1次反応 ($\text{Rate} \propto [A]^1$)</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">
+              ・反応速度が濃度に<strong>正比例</strong>する。<br>
+              ・濃度を2倍にすると、速度も<strong>2倍</strong> ($2^1 = 2$)。
+            </p>
+            <div style="font-size: 0.85rem; background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 6px;">
+              $[A] \text{-} t \text{ グラフ}$: 指数関数的に減衰（半減期一定）<br>
+              $\text{Rate - } [A] \text{ グラフ}$: 原点を通る傾き一定の直線
+            </div>
+          </div>
+
+          <!-- 2nd order -->
+          <div style="background: rgba(244, 57, 94, 0.08); border: 1px solid rgba(244, 57, 94, 0.3); border-radius: var(--radius-md); padding: 20px;">
+            <h3 style="color: var(--primary-light); margin-bottom: 8px;">2次反応 ($\text{Rate} \propto [A]^2$)</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">
+              ・反応速度が濃度の<strong>2乗に比例</strong>する。<br>
+              ・濃度を2倍にすると、速度は<strong>4倍</strong> ($2^2 = 4$)。
+            </p>
+            <div style="font-size: 0.85rem; background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 6px;">
+              $[A] \text{-} t \text{ グラフ}$: 急激に落ち込み、低濃度で伸びる<br>
+              $\text{Rate - } [A] \text{ グラフ}$: 上向きの放物線
+            </div>
+          </div>
+        </div>
+
+        <!-- Rate Constant Units Table -->
+        <h3 style="color: #fff; margin-top: 32px; margin-bottom: 12px;">反応次数と速度定数 $k$ の単位（スライド5ページ対応）</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          速度定数 $k$ の単位は、公式 $k = (\text{mol dm}^{-3})^{1-n} \text{s}^{-1}$（$n$ は全体反応次数）で導出できます。
+        </p>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>反応次数 $n$</th>
+                <th>速度式 (Rate Equation)</th>
+                <th>速度定数 $k$ の単位 (Unit of $k$)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>0次 (Zero order)</strong></td>
+                <td>$\text{Rate} = k$</td>
+                <td>$\text{mol dm}^{-3}\text{s}^{-1}$</td>
+              </tr>
+              <tr>
+                <td><strong>1次 (First order)</strong></td>
+                <td>$\text{Rate} = k[A]$</td>
+                <td>$\text{s}^{-1}$</td>
+              </tr>
+              <tr>
+                <td><strong>2次 (Second order)</strong></td>
+                <td>$\text{Rate} = k[A]^2$ または $\text{Rate} = k[A][B]$</td>
+                <td>$\text{mol}^{-1}\text{dm}^3\text{s}^{-1}$</td>
+              </tr>
+              <tr>
+                <td><strong>3次 (Third order)</strong></td>
+                <td>$\text{Rate} = k[A]^2[B]$</td>
+                <td>$\text{mol}^{-2}\text{dm}^6\text{s}^{-1}$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: 半減期 -->
+    <section id="half-life">
+      <h2 class="section-title">3. 半減期 (Half-Life, $t_{1/2}$) の特性</h2>
+      <div class="card">
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+          <strong>半減期（$t_{1/2}$）</strong>とは、反応物の濃度が初期値の<strong>半分（$50\%$）に減少するのにかかる時間</strong>です。
+        </p>
+
+        <div class="grid-3">
+          <div style="background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <h4 style="color: var(--emerald); margin-bottom: 8px;">0次反応の半減期</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              濃度が減少するにつれて<strong>半減期も短くなる</strong>。<br>
+              ($t_{1/2} \propto [A]_0$)
+            </p>
+          </div>
+
+          <div style="background: rgba(99, 102, 241, 0.12); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-highlight);">
+            <h4 style="color: var(--primary-light); margin-bottom: 8px;">🌟 1次反応の半減期（最頻出！）</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              半減期は<strong>初期濃度にかかわらず常に一定</strong>！<br>
+              $$t_{1/2} = \frac{\ln 2}{k} \approx \frac{0.693}{k}$$
+            </p>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <h4 style="color: var(--rose); margin-bottom: 8px;">2次反応の半減期</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              反応が進んで濃度が下がると<strong>半減期は長くなる</strong>。<br>
+              ($t_{1/2} = \frac{1}{k[A]_0}$)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: 速度定数とアーレニウスの式 -->
+    <section id="arrhenius">
+      <h2 class="section-title">4. 温度と速度定数 — アーレニウスの式 (Arrhenius Equation)</h2>
+      <div class="card">
+        <p style="color: var(--text-muted);">
+          一般に、<strong>「温度が $10^\circ\text{C}$ 上昇すると、反応速度は約2倍になる」</strong>と言われています。
+        </p>
+        <p style="margin-top: 8px; color: var(--text-muted);">
+          これには2つの理由があります：<br>
+          1. 分子の運動速度が上がり、衝突頻度（Collision frequency）が増加するため。<br>
+          2. <strong>活性化エネルギー（$E_a$）以上のエネルギーを持つ分子の割合が爆発的に増加するため</strong>（マクスウェル・ボルツマン分布）。
+        </p>
+
+        <!-- Arrhenius Formula Box -->
+        <div class="formula-box">
+          <div class="formula-large">
+            $$k = A e^{-\frac{E_a}{RT}} \quad \implies \quad \ln k = -\left(\frac{E_a}{R}\right)\left(\frac{1}{T}\right) + \ln A$$
+          </div>
+          <div class="formula-desc">アーレニウスの式（指数形式 ＆ 自然対数直線形式）</div>
+        </div>
+
+        <div class="grid-2" style="margin-top: 24px;">
+          <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: var(--radius-md);">
+            <h4 style="color: #fff; margin-bottom: 10px;">記号の意味と単位</h4>
+            <ul style="font-size: 0.9rem; color: var(--text-muted); padding-left: 20px; line-height: 1.9;">
+              <li>$\ln k$ : 速度定数 $k$ の自然対数</li>
+              <li>$A$ : 頻度因子（Frequency factor / 衝突の向きと頻度）</li>
+              <li>$E_a$ : 活性化エネルギー [$\text{J mol}^{-1}$]</li>
+              <li>$R$ : 気体定数 [$8.31 \text{ J K}^{-1}\text{mol}^{-1}$]</li>
+              <li>$T$ : 絶対温度 [$\text{Kelvin, K}$]</li>
+            </ul>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: var(--radius-md);">
+            <h4 style="color: var(--cyan); margin-bottom: 10px;">📊 アーレニウスプロット ($\ln k$ vs $\frac{1}{T}$)</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              縦軸に $\ln k$、横軸に $\frac{1}{T}$ をプロットすると直線関係が得られます：<br>
+              ・<strong>直線の傾き (Slope)</strong> $= -\frac{E_a}{R}$<br>
+              ・<strong>$y$ 切片 (Intercept)</strong> $= \ln A$<br><br>
+              ※傾きに気体定数 $R = 8.31$ を掛けることで、活性化エネルギー $E_a$ を実験的に求めることができます！
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: 律速段階(RDS)と中間体 -->
+    <section id="rds">
+      <h2 class="section-title">5. 律速段階 (Rate-Determining Step, RDS) と反応中間体</h2>
+      <div class="card">
+        <p style="color: var(--text-muted);">
+          ほとんどの化学反応は、単一のステップではなく複数の素過程（Elementary steps）が連なる<strong>反応機構（Reaction mechanism）</strong>を通って進みます。
+        </p>
+
+        <div class="callout">
+          <div class="callout-title">🐢 律速段階 (Rate-Determining Step / RDS) とは？</div>
+          <p style="color: var(--text-main); font-size: 0.95rem;">
+            一連の素過程の中で<strong>「最も反応速度が遅いステップ」</strong>のことです。<br>
+            全体の反応速度は、この最も遅いステップ（ボトルネック）によって完全に支配されます！<br>
+            <strong>★重要規則: 速度式には、RDS（およびそれ以前のステップ）に登場する反応物のみが現れます。</strong>
+          </p>
+        </div>
+
+        <div class="grid-2" style="margin-top: 24px;">
+          <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <h4 style="color: var(--amber); margin-bottom: 8px;">反応中間体 (Intermediate)</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              ・あるステップで生成され、直後のステップで消費される物質。<br>
+              ・素過程を足し合わせると相殺されるため、<strong>全体化学方程式には現れない</strong>。<br>
+              ・熱力学的に谷底に位置し、<strong>有限の寿命を持つ実在の物質</strong>。
+            </p>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <h4 style="color: var(--primary-light); margin-bottom: 8px;">遷移状態 (Transition State)</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              ・結合の開裂と形成が同時に起こっている極めて不安定なエネルギーの山の頂点。<br>
+              ・一瞬しか存在せず、<strong>単離することは絶対にできない</strong>。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: 触媒の作用機構 -->
+    <section id="catalysts">
+      <h2 class="section-title">6. 触媒の定義と作用機構（不均一触媒 ＆ 均一触媒）</h2>
+      <div class="card">
+        <p style="color: var(--text-muted);">
+          <strong>触媒（Catalyst）</strong>は、それ自身は反応の前後で変化（消費）することなく、<strong>活性化エネルギー ($E_a$) がより低い「別の反応経路」を提供する</strong>ことで、化学反応の速度を著しく増大させる物質です。
+        </p>
+
+        <div class="grid-2" style="margin-top: 24px;">
+          <!-- Heterogeneous -->
+          <div style="background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: var(--radius-md); padding: 22px;">
+            <h3 style="color: var(--cyan); margin-bottom: 10px;">不均一触媒 (Heterogeneous Catalyst)</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              反応物とは<strong>異なる相（通常は気体・液体反応物に対する固体触媒）</strong>で作用する触媒。反応は触媒の表面で起こります。
+            </p>
+            <h4 style="color: #fff; font-size: 0.95rem; margin-top: 12px; margin-bottom: 6px;">作用の2大ステップ:</h4>
+            <ol style="font-size: 0.88rem; color: var(--text-muted); padding-left: 20px;">
+              <li><strong>吸着 (Adsorption)</strong>: 反応物が触媒表面に付着し、結合が弱まることで活性化エネルギーが低下。</li>
+              <li><strong>脱離 (Desorption)</strong>: 生成物が触媒表面から離れて気体/液体中へ放出される。</li>
+            </ol>
+            <p style="font-size: 0.85rem; color: var(--cyan); margin-top: 10px;">
+              例: 鉄(Fe)触媒によるハーバー・ボッシュ法（アンモニア合成）、自動車の排ガス浄化用触媒コンバーター (Pt/Pd/Rh)
+            </p>
+          </div>
+
+          <!-- Homogeneous -->
+          <div style="background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: var(--radius-md); padding: 22px;">
+            <h3 style="color: var(--indigo); margin-bottom: 10px;">均一触媒 (Homogeneous Catalyst)</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              反応物と<strong>同じ相（水溶液中のイオン同士など）</strong>で作用する触媒。反応物と過渡的な**中間化合物（Intermediate）**を形成して反応を仲介します。
+            </p>
+            <h4 style="color: #fff; font-size: 0.95rem; margin-top: 12px; margin-bottom: 6px;">実例: ヨウ化物イオンとペルオキソ二硫酸塩</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+              $\text{S}_2\text{O}_8^{2-} + 2\text{I}^- \rightarrow 2\text{SO}_4^{2-} + \text{I}_2$<br>
+              陰イオン同士の反発により本来は極めて遅いが、$\text{Fe}^{2+}/\text{Fe}^{3+}$ イオンが介在することで静電反発を回避し、劇的に加速！
+            </p>
+            <p style="font-size: 0.85rem; color: var(--indigo); margin-top: 10px;">
+              例: 酸性雨の形成において $\text{NO}_x$ が $\text{SO}_2$ から $\text{SO}_3$ への酸化を触媒
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: 演習問題完全解説 -->
+    <section id="problems">
+      <h2 class="section-title">7. スライド掲載・演習問題の完全解答と詳細解説</h2>
+      <div class="card">
+
+        <!-- Question 1 (Slide 10) -->
+        <h3 style="color: #fff; margin-bottom: 12px;">【演習問題 1】過酸化水素とヨウ化物イオンの反応（スライド10ページ）</h3>
+        <p style="color: var(--text-muted); margin-bottom: 14px;">
+          反応: $\text{H}_2\text{O}_2(aq) + 2\text{I}^-(aq) + 2\text{H}^+(aq) \rightarrow 2\text{H}_2\text{O}(l) + \text{I}_2(aq)$<br>
+          速度式: $\text{Rate} = k [\text{H}_2\text{O}_2] [\text{I}^-]$
+        </p>
+
+        <!-- Table Data -->
+        <div class="table-wrapper" style="margin-bottom: 20px;">
+          <table>
+            <thead>
+              <tr>
+                <th>実験 (Exp)</th>
+                <th>$[\text{H}_2\text{O}_2]$ ($\text{mol dm}^{-3}$)</th>
+                <th>$[\text{I}^-]$ ($\text{mol dm}^{-3}$)</th>
+                <th>$[\text{H}^+]$ ($\text{mol dm}^{-3}$)</th>
+                <th>初期速度 ($\text{mol dm}^{-3}\text{s}^{-1}$)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>0.0200</td>
+                <td>0.0100</td>
+                <td>0.0100</td>
+                <td>$3.50 \times 10^{-6}$</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>0.0300</td>
+                <td>0.0100</td>
+                <td>0.0100</td>
+                <td>$5.30 \times 10^{-6}$</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>0.0050</td>
+                <td>0.0200</td>
+                <td>0.0200</td>
+                <td>$1.75 \times 10^{-6}$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Accordion Q1a -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><span class="step-badge">問題 1a</span> 実験2および実験3のデータから速度定数 $k$ を計算せよ。</span>
+            <span>▼</span>
+          </div>
+          <div class="accordion-body">
+            <p><strong>【解説・解答】</strong></p>
+            <p>速度式 $k = \frac{\text{Rate}}{[\text{H}_2\text{O}_2] [\text{I}^-]}$ に代入します。</p>
+            <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: var(--radius-sm); margin: 10px 0;">
+              <strong>実験 2:</strong><br>
+              $$k = \frac{5.30 \times 10^{-6}}{0.0300 \times 0.0100} = \frac{5.30 \times 10^{-6}}{3.0 \times 10^{-4}} \approx 1.77 \times 10^{-2} \text{ mol}^{-1}\text{dm}^3\text{s}^{-1}$$<br>
+              <strong>実験 3:</strong><br>
+              $$k = \frac{1.75 \times 10^{-6}}{0.0050 \times 0.0200} = \frac{1.75 \times 10^{-6}}{1.0 \times 10^{-4}} = 1.75 \times 10^{-2} \text{ mol}^{-1}\text{dm}^3\text{s}^{-1}$$
+            </div>
+            <p style="color: var(--emerald);">平均値としておよそ $1.76 \times 10^{-2} \text{ mol}^{-1}\text{dm}^3\text{s}^{-1}$ となります。</p>
+          </div>
+        </div>
+
+        <!-- Accordion Q1b & c -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><span class="step-badge">問題 1b & 1c</span> 1次反応の半減期 $t_{1/2}$ と速度定数 $k$ の計算</span>
+            <span>▼</span>
+          </div>
+          <div class="accordion-body">
+            <p><strong>【問題1b】半減期 $t_{1/2} = 480\text{ s}$ のときの速度定数 $k$:</strong></p>
+            <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: var(--radius-sm); margin: 8px 0;">
+              $$k = \frac{0.693}{t_{1/2}} = \frac{0.693}{480} \approx 1.44 \times 10^{-3} \text{ s}^{-1}$$
+            </div>
+            <p style="margin-top: 14px;"><strong>【問題1c】$k = 9.63 \times 10^{-5} \text{ s}^{-1}$ のときの半減期 $t_{1/2}$:</strong></p>
+            <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: var(--radius-sm); margin: 8px 0;">
+              $$t_{1/2} = \frac{0.693}{k} = \frac{0.693}{9.63 \times 10^{-5}} \approx 7196 \text{ s} \quad (\approx 120 \text{ 分})$$
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 2 (Slide 17) -->
+        <h3 style="color: #fff; margin-top: 32px; margin-bottom: 12px;">【演習問題 2】エタナールの二量化反応（スライド17ページ）</h3>
+        <p style="color: var(--text-muted); margin-bottom: 14px;">
+          反応: $2\text{CH}_3\text{CHO} \rightarrow \text{CH}_3\text{CH(OH)}\text{CH}_2\text{CHO}$
+        </p>
+
+        <!-- Table Data 2 -->
+        <div class="table-wrapper" style="margin-bottom: 20px;">
+          <table>
+            <thead>
+              <tr>
+                <th>$[\text{CH}_3\text{CHO}]$ ($\text{mol dm}^{-3}$)</th>
+                <th>$[\text{OH}^-]$ ($\text{mol dm}^{-3}$)</th>
+                <th>初期反応速度（相対値）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0.10</td>
+                <td>0.015</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>0.20</td>
+                <td>0.015</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>0.40</td>
+                <td>0.030</td>
+                <td>8</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Accordion Q2 -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><span class="step-badge">問題 2解答</span> (i)〜(iv) 各設定の導出ステップ</span>
+            <span>▼</span>
+          </div>
+          <div class="accordion-body">
+            <p><strong>(i) $\text{CH}_3\text{CHO}$ に関する反応次数:</strong></p>
+            <p style="color: var(--text-muted);">
+              ・$[\text{OH}^-]$ を $0.015$ に固定し、$[\text{CH}_3\text{CHO}]$ を $0.10 \rightarrow 0.20$（2倍）にすると、速度は $1 \rightarrow 2$（2倍）になります。<br>
+              ・速度は正比例するため、<strong>1次 (First order)</strong> です。
+            </p>
+
+            <p style="margin-top: 12px;"><strong>(ii) $\text{OH}^-$ に関する反応次数:</strong></p>
+            <p style="color: var(--text-muted);">
+              ・実験2から実験3にかけて、$[\text{CH}_3\text{CHO}]$ は $0.20 \rightarrow 0.40$（2倍）、$[\text{OH}^-]$ は $0.015 \rightarrow 0.030$（2倍）となり、速度は $2 \rightarrow 8$（4倍）になりました。<br>
+              ・$\text{CH}_3\text{CHO}$ が1次であるため濃度2倍で速度2倍に寄与しています。残りの2倍分の増加は $[\text{OH}^-]$ が2倍になったことによるため、$[\text{OH}^-]$ に関しても<strong>1次 (First order)</strong> です。
+            </p>
+
+            <p style="margin-top: 12px;"><strong>(iii) 全体速度式 (Overall Rate Equation):</strong></p>
+            <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: var(--radius-sm); margin: 6px 0;">
+              $$\text{Rate} = k [\text{CH}_3\text{CHO}] [\text{OH}^-]$$
+            </div>
+
+            <p style="margin-top: 12px;"><strong>(iv) 速度定数 $k$ の単位:</strong></p>
+            <p style="color: var(--emerald); font-weight: 700;">
+              全体次数が 2次（$1+1=2$）のため、単位は $\text{mol}^{-1}\text{dm}^3\text{s}^{-1}$ です。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 8: リアルタイムシミュレーター -->
+    <section id="simulator">
+      <h2 class="section-title">8. リアルタイム反応速度 ＆ アーレニウスシミュレーター</h2>
+      <div class="card" style="border-color: var(--border-highlight); box-shadow: 0 0 25px var(--primary-glow);">
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+          反応次数・速度定数・濃度のスライダーを動かして、反応速度の変化や時間経過による濃度の減衰グラフをインタラクティブに観察しましょう！
+        </p>
+
+        <div class="sim-container">
+          <!-- Controls -->
+          <div>
+            <div class="control-group">
+              <label class="control-label"><span>反応次数の選択</span></label>
+              <select id="sim-order" onchange="updateSim()">
+                <option value="0">0次反応 (Zero Order: Rate = k)</option>
+                <option value="1" selected>1次反応 (First Order: Rate = k[A])</option>
+                <option value="2">2次反応 (Second Order: Rate = k[A]²)</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>速度定数 $k$</span>
+                <span class="control-value" id="val-sim-k">0.050</span>
+              </div>
+              <input type="range" id="input-sim-k" min="0.01" max="0.20" step="0.005" value="0.05" oninput="updateSim()">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>初期濃度 $[A]_0$</span>
+                <span class="control-value" id="val-sim-a">1.00 M</span>
+              </div>
+              <input type="range" id="input-sim-a" min="0.2" max="2.0" step="0.1" value="1.0" oninput="updateSim()">
+            </div>
+          </div>
+
+          <!-- Result & Canvas -->
+          <div style="background: rgba(15,23,42,0.9); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="text-align: center; margin-bottom: 12px;">
+              <div style="font-size: 0.85rem; color: var(--text-muted);">計算された初期速度 (Initial Rate)</div>
+              <div style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--primary-light);" id="sim-rate-display">0.0500 M/s</div>
+              <div style="font-size: 0.85rem; color: var(--cyan);" id="sim-halflife-display">半減期 t1/2 = 13.86 秒</div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">📉 濃度 $[A]$ vs 時間 $t$ の減衰曲線</div>
+              <canvas id="simCanvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Reaction Kinetics Complete Explanation Module &copy; IB Chemistry / A-Level Chemistry</p>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript logic -->
+  <script>
+    function toggleAccordion(header) {
+      const body = header.nextElementSibling;
+      const isOpen = body.classList.contains('open');
+      document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+      if (!isOpen) body.classList.add('open');
+    }
+
+    const simOrderSelect = document.getElementById('sim-order');
+    const inputSimK = document.getElementById('input-sim-k');
+    const inputSimA = document.getElementById('input-sim-a');
+
+    const valSimK = document.getElementById('val-sim-k');
+    const valSimA = document.getElementById('val-sim-a');
+    const simRateDisplay = document.getElementById('sim-rate-display');
+    const simHalflifeDisplay = document.getElementById('sim-halflife-display');
+
+    const canvas = document.getElementById('simCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function updateSim() {
+      const order = parseInt(simOrderSelect.value);
+      const k = parseFloat(inputSimK.value);
+      const a0 = parseFloat(inputSimA.value);
+
+      valSimK.textContent = k.toFixed(3);
+      valSimA.textContent = `${a0.toFixed(2)} M`;
+
+      let rate = 0;
+      let halfLifeText = "";
+
+      if (order === 0) {
+        rate = k;
+        const thalf = a0 / (2 * k);
+        halfLifeText = `半減期 t1/2 = ${thalf.toFixed(2)} 秒 (濃度に比例)`;
+      } else if (order === 1) {
+        rate = k * a0;
+        const thalf = 0.693 / k;
+        halfLifeText = `半減期 t1/2 = ${thalf.toFixed(2)} 秒 (一定)`;
+      } else if (order === 2) {
+        rate = k * a0 * a0;
+        const thalf = 1 / (k * a0);
+        halfLifeText = `半減期 t1/2 = ${thalf.toFixed(2)} 秒 (濃度に反比例)`;
+      }
+
+      simRateDisplay.textContent = `${rate.toFixed(4)} M/s`;
+      simHalflifeDisplay.textContent = halfLifeText;
+
+      drawSimCurve(order, k, a0);
+    }
+
+    function drawSimCurve(order, k, a0) {
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * window.devicePixelRatio || 500;
+      canvas.height = rect.height * window.devicePixelRatio || 230;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+
+      const w = rect.width;
+      const h = rect.height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      const maxT = 60; // 60 seconds
+      const maxA = Math.max(a0 * 1.1, 2.0);
+
+      const mapX = (t) => (t / maxT) * (w - 50) + 35;
+      const mapY = (a) => h - 25 - (a / maxA) * (h - 40);
+
+      // Grid
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(35, 10); ctx.lineTo(35, h - 25);
+      ctx.moveTo(35, h - 25); ctx.lineTo(w - 10, h - 25);
+      ctx.stroke();
+
+      ctx.fillStyle = '#64748b';
+      ctx.font = '10px Inter, sans-serif';
+      ctx.fillText('0s', mapX(0) - 5, h - 10);
+      ctx.fillText('30s', mapX(30) - 8, h - 10);
+      ctx.fillText('60s', mapX(60) - 10, h - 10);
+      ctx.fillText('0', 20, mapY(0) + 3);
+      ctx.fillText(`${a0.toFixed(1)}M`, 5, mapY(a0) + 3);
+
+      // Plot curve
+      ctx.beginPath();
+      ctx.strokeStyle = '#f4395e';
+      ctx.lineWidth = 2.5;
+
+      for (let t = 0; t <= maxT; t += 0.5) {
+        let conc = a0;
+        if (order === 0) {
+          conc = Math.max(0, a0 - k * t);
+        } else if (order === 1) {
+          conc = a0 * Math.exp(-k * t);
+        } else if (order === 2) {
+          conc = a0 / (1 + k * a0 * t);
+        }
+
+        const x = mapX(t);
+        const y = mapY(conc);
+
+        if (t === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+
+    window.addEventListener('load', updateSim);
+    window.addEventListener('resize', updateSim);
+  </script>
+</body>
+</html>

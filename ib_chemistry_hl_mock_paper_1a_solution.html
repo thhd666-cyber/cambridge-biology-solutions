@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>化学 上級レベル（HL） 試験問題 1A 完全解答・詳細解説集（全40問）</title>
+  <meta name="description" content="化学 上級レベル（HL / IB Chemistry / A-Level）模擬問題 第1回 試験問題1A（全40問）の完全解答、詳細な理論的解説、立式計算、化学反応メカニズム、インタラクティブ模試ナビゲーター。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- MathJax for chemical and mathematical formulas -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #070a13;
+      --bg-card: rgba(15, 23, 42, 0.82);
+      --bg-card-hover: rgba(24, 36, 64, 0.95);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(56, 189, 248, 0.4);
+
+      /* Theme Accents */
+      --cyan: #38bdf8;
+      --indigo: #818cf8;
+      --emerald: #34d399;
+      --amber: #fbbf24;
+      --rose: #f43f5e;
+      --purple: #c084fc;
+
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.8;
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 90% 15%, rgba(129, 140, 248, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(52, 211, 153, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+      padding-bottom: 100px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Hero Section */
+    header {
+      padding: 60px 0 35px;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 5px 16px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-chemistry {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    .badge-hl {
+      background: rgba(192, 132, 252, 0.15);
+      color: #c084fc;
+      border: 1px solid rgba(192, 132, 252, 0.35);
+    }
+
+    .badge-score {
+      background: rgba(52, 211, 153, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.35);
+    }
+
+    h1 {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ffffff 30%, #38bdf8 70%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      max-width: 860px;
+      margin: 0 auto 30px;
+    }
+
+    /* Scoreboard & Overview Card */
+    .overview-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    }
+
+    .overview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .overview-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Answers Quick Grid (40 Questions Table) */
+    .answer-key-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .key-box {
+      background: rgba(11, 18, 30, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .key-box:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+    }
+
+    .key-q-num {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .key-ans-letter {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #34d399;
+    }
+
+    /* Filter Toolbar */
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
+      border-color: transparent;
+      color: white;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+    }
+
+    /* Question Cards */
+    .question-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .question-card:hover {
+      border-color: rgba(255, 255, 255, 0.14);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42);
+    }
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      gap: 12px;
+    }
+
+    .q-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .q-num-badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .q-topic-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tag-stoichiometry { background: rgba(56, 189, 248, 0.15); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .tag-atomic { background: rgba(192, 132, 252, 0.15); color: #d8b4fe; border: 1px solid rgba(192, 132, 252, 0.3); }
+    .tag-bonding { background: rgba(52, 211, 153, 0.15); color: #6ee7b7; border: 1px solid rgba(52, 211, 153, 0.3); }
+    .tag-energetics { background: rgba(251, 191, 36, 0.15); color: #fde047; border: 1px solid rgba(251, 191, 36, 0.3); }
+    .tag-kinetics { background: rgba(244, 63, 94, 0.15); color: #fca5a5; border: 1px solid rgba(244, 63, 94, 0.3); }
+    .tag-equilibrium { background: rgba(129, 140, 248, 0.15); color: #a5b4fc; border: 1px solid rgba(129, 140, 248, 0.3); }
+    .tag-acidbase { background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3); }
+    .tag-redox { background: rgba(14, 165, 233, 0.15); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.3); }
+    .tag-organic { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .tag-transition { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    .q-text {
+      font-size: 1.05rem;
+      color: #ffffff;
+      margin-bottom: 18px;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    /* Options List */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .option-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.94rem;
+      color: #cbd5e1;
+      transition: var(--transition);
+    }
+
+    .option-letter {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      flex-shrink: 0;
+    }
+
+    .option-item.correct-choice {
+      background: rgba(52, 211, 153, 0.15);
+      border-color: #34d399;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .option-item.correct-choice .option-letter {
+      background: #34d399;
+      color: #064e3b;
+      font-weight: 900;
+    }
+
+    /* Explanation Section */
+    .explanation-box {
+      background: rgba(11, 18, 32, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 4px solid #34d399;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 20px 24px;
+      margin-top: 14px;
+    }
+
+    .expl-heading {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #34d399;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .expl-body {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      line-height: 1.75;
+    }
+
+    .formula-highlight {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-family: 'JetBrains Mono', monospace;
+      color: #38bdf8;
+      overflow-x: auto;
+    }
+
+    .key-point-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(251, 191, 36, 0.15);
+      color: #fbbf24;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-right: 6px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="badge-container">
+        <span class="badge badge-chemistry"><i data-lucide="flask-conical" style="width:14px;height:14px;"></i> 化学 (Chemistry)</span>
+        <span class="badge badge-hl"><i data-lucide="award" style="width:14px;height:14px;"></i> 上級レベル (HL)</span>
+        <span class="badge badge-score"><i data-lucide="check-circle" style="width:14px;height:14px;"></i> 全40問・40点満点解説</span>
+      </div>
+      <h1>化学 上級レベル（HL） 試験問題 1A<br>模擬問題 第1回 完全解答・詳細解説</h1>
+      <p class="subtitle">
+        全40問の選択肢、正解の導出ロジック、計算過程、化学反応機構、重要理論を完全網羅した体系的解説集。
+      </p>
+    </header>
+
+    <!-- Overview & Quick Navigation Card -->
+    <div class="overview-card">
+      <div class="overview-header">
+        <div class="overview-title">
+          <i data-lucide="grid" style="color: #38bdf8;"></i> 正解一覧＆クイックジャンプ
+        </div>
+        <span style="font-size: 0.85rem; color: #94a3b8;">各問をクリックすると解説へジャンプします</span>
+      </div>
+
+      <div class="answer-key-grid" id="quickNavGrid">
+        <!-- 1 to 40 populated via HTML -->
+      </div>
+    </div>
+
+    <!-- Questions Container -->
+    <div id="questionsContainer">
+      <!-- 40 Questions Detailed Below -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 化学 上級レベル（HL） 試験問題 1A 完全解答・詳細解説シリーズ | All Rights Reserved</p>
+    </footer>
+  </div>
+
+  <!-- Detailed Questions Data and Generator Script -->
+  <script>
+    // 40 Questions Full Database
+    const questionsData = [
+      {
+        num: 1,
+        topic: "物質の分離・精製",
+        tagClass: "tag-stoichiometry",
+        text: "分別蒸留（分留）によって分離するのに最も適した混合物を、次の中から選びなさい。",
+        options: [
+          "A. 溶解度が温度によって変化する固体と液体の混合物",
+          "B. 溶けない固体と液体の混合物",
+          "C. 沸点の異なる 2 つの混和性の液体の混合物",
+          "D. 粒子の大きさが異なる 2 つの固体の混合物"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>分別蒸留（Fractional distillation / 分留）は、互いに完全に混ざり合う（混和性の）2つ以上の液体混合物を、それぞれの<strong>沸点（Boiling point）の差</strong>を利用して気化・凝縮を繰り返して分離する操作です（例：水とエタノール、原油の精製など）。<br>・A は再結晶（Recrystallization）<br>・B はろ過（Filtration）<br>・D はふるい分け（Sieving）や溶解度の差による分離が適しています。"
+      },
+      {
+        num: 2,
+        topic: "原子構造と同位体",
+        tagClass: "tag-atomic",
+        text: "元素の同位体 ¹²C と ¹³C について、正しい記述を次の中から選びなさい。",
+        options: [
+          "A. 陽子の数が異なる",
+          "B. 電子の数が異なる",
+          "C. 中性子の数が異なり、物理的性質がわずかに異なる",
+          "D. 化学的性質が大きく異なる"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>同位体（Isotopes）は原子番号（陽子数＝6、電子数＝6）が等しく、<strong>中性子数（質量数）が異なる</strong>原子同士です。<br>・電子配置が完全に同一であるため、<strong>化学的性質はほぼ同一</strong>です。<br>・質量が異なるため、密度、融点、沸点、拡散速度などの<strong>物理的性質にわずかな差</strong>が生じます。"
+      },
+      {
+        num: 3,
+        topic: "イオン化エネルギーと周期性",
+        tagClass: "tag-atomic",
+        text: "次の表はある元素 Z の逐次的イオン化エネルギー(kJ/mol)を示す。第一 590、第二 1145、第三 4912、第四 6491、第五 8153。Z の安定な酸化物の式を選びなさい。",
+        options: [
+          "A. Z₂O",
+          "B. ZO",
+          "C. Z₂O₃",
+          "D. ZO₂"
+        ],
+        answer: "B",
+        explanation: "<strong>【解説】</strong><br>逐次イオン化エネルギーの数値の変化を確認します：<br>・$IE_1 = 590\\text{ kJ/mol}$<br>・$IE_2 = 1145\\text{ kJ/mol}$<br>・$IE_3 = 4912\\text{ kJ/mol}$（ここで約4.3倍へ急激にジャンプ！）<br>第2イオン化エネルギーと第3イオン化エネルギーの間で数値が急増していることから、Z は最外殻に2個の価電子をもち、3個目の電子はより内側の閉殻から引き抜かれることが分かります。したがって Z は<strong>第2族元素（アルカリ土類金属）</strong>であり、安定な陽イオンは $\\text{Z}^{2+}$ です。<br>酸化物イオンは $\\text{O}^{2-}$ であるため、形成される安定な酸化物は $\\mathbf{ZO}$（1:1）となります。"
+      },
+      {
+        num: 4,
+        topic: "化学量論・物質量",
+        tagClass: "tag-stoichiometry",
+        text: "ある容器に 40 g のアルゴンと 8.0 g のヘリウムが入っている。ヘリウム原子の数に対するアルゴン原子の数の比を選びなさい。（Ar=40、He=4.0）",
+        options: [
+          "A. 0.25",
+          "B. 0.50",
+          "C. 2.0",
+          "D. 4.0"
+        ],
+        answer: "B",
+        explanation: "<strong>【解説】</strong><br>それぞれの原子の物質量（モル数）を計算します：<br>$$n(\\text{Ar}) = \\frac{40\\text{ g}}{40\\text{ g/mol}} = 1.0\\text{ mol}$$<br>$$n(\\text{He}) = \\frac{8.0\\text{ g}}{4.0\\text{ g/mol}} = 2.0\\text{ mol}$$<br>ヘリウム原子の数に対するアルゴン原子の数の比は：<br>$$\\frac{n(\\text{Ar})}{n(\\text{He})} = \\frac{1.0\\text{ mol}}{2.0\\text{ mol}} = \\mathbf{0.50}$$"
+      },
+      {
+        num: 5,
+        topic: "理想気体の状態方程式",
+        tagClass: "tag-stoichiometry",
+        text: "一定体積のタンクに、圧力 40 kPa・温度 300 K で理想気体の分子が N 個入っている。そのうち 1/4 の分子を除去し、温度を 500 K に変えた。この気体の新しい圧力(kPa)を選びなさい。",
+        options: [
+          "A. 30",
+          "B. 40",
+          "C. 50",
+          "D. 60"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>体積 $V$ が一定であるため、理想気体の状態方程式 $PV = nRT$ より、圧力 $P$ は物質量 $n$ と絶対温度 $T$ の積に比例します（$P \\propto nT$）。<br>・分子が $1/4$ 除去されたため、残った分子数は $n' = \\frac{3}{4}N$<br>・温度は $T' = 500\\text{ K}$ に変化<br>新しい圧力 $P'$ は：<br>$$P' = P_1 \\times \\frac{n'}{n_1} \\times \\frac{T'}{T_1} = 40\\text{ kPa} \\times \\frac{3}{4} \\times \\frac{500\\text{ K}}{300\\text{ K}} = 40 \\times \\frac{3}{4} \\times \\frac{5}{3} = 40 \\times \\frac{5}{4} = \\mathbf{50\\text{ kPa}}$$"
+      },
+      {
+        num: 6,
+        topic: "化学結合・イオン結晶",
+        tagClass: "tag-bonding",
+        text: "カルシウムイオンとリン酸イオンから形成される化合物の式を、次の中から選びなさい。",
+        options: [
+          "A. CaPO₄",
+          "B. Ca₂PO₄",
+          "C. Ca₃(PO₄)₂",
+          "D. Ca(PO₄)₂"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>・カルシウムイオン：$\\text{Ca}^{2+}$（2価の陽イオン）<br>・リン酸イオン：$\\text{PO}_4^{3-}$（3価の陰イオン）<br>化合物全体として電気的に中性となる最小の整数比は：<br>$$3 \\times (+2) + 2 \\times (-3) = 0 \\implies \\mathbf{\\text{Ca}_3(\\text{PO}_4)_2}$$"
+      },
+      {
+        num: 7,
+        topic: "共鳴構造と電子の非局在化",
+        tagClass: "tag-bonding",
+        text: "すべての化学種で電子の非局在化（共鳴）がみられる組み合わせを、次の中から選びなさい。",
+        options: [
+          "A. C₆H₆、CO₃²⁻、O₃",
+          "B. CH₄、CO₂、H₂O",
+          "C. C₂H₆、NH₃、HCl",
+          "D. CH₃OH、N₂、Cl₂"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>電子の非局在化（Delocalized electrons）は、複数の原子間にまたがって $\\pi$ 電子が広がっている状態（共鳴構造をもつ化学種）で生じます。<br>・$\\text{C}_6\\text{H}_6$（ベンゼン）：6個の炭素環全体に非局在化した環状 $\\pi$ 電子雲をもつ。<br>・$\\text{CO}_3^{2-}$（炭酸イオン）：3本の $\\text{C}-\\text{O}$ 結合長がすべて等しく、1.33重結合の共鳴ハイブリッド。<br>・$\\text{O}_3$（オゾン）：2本の $\\text{O}-\\text{O}$ 結合が等価な1.5重結合であり、共鳴構造をもつ。<br>したがって A のすべての化学種で非局在化がみられます。"
+      },
+      {
+        num: 8,
+        topic: "VSEPR理論・分子構造",
+        tagClass: "tag-bonding",
+        text: "XeF₄ の中心原子まわりの分子形状を、次の中から選びなさい。",
+        options: [
+          "A. 正四面体形",
+          "B. 平面正方形",
+          "C. 四角錐形",
+          "D. 正八面体形"
+        ],
+        answer: "B",
+        explanation: "<strong>【解説】</strong><br>$\\text{XeF}_4$（四フッ化キセノン）の中心原子 $\\text{Xe}$ の電子配置：<br>・$\\text{Xe}$ の価電子数 $= 8$<br>・$\\text{F}$ 原子の共有電子 $= 4$（単結合 4本）<br>・非共有電子対（ローンペア）$= \\frac{8 - 4}{2} = 2$ 対<br>電子対の総数（立体数 / Steric number）$= 4 + 2 = 6$（八面体形電子配置）。<br>2対の非共有電子対は互いの反発を最小化するため上下の軸方向（180°対向）に位置し、4つの $\\text{F}$ 原子が赤道面上に正方形を形成するため、分子形状は<strong>平面正方形（Square planar）</strong>となります。"
+      },
+      {
+        num: 9,
+        topic: "ルイス構造と形式電荷",
+        tagClass: "tag-bonding",
+        text: "形式電荷を考慮したとき、二酸化炭素 CO₂（O=C=O）の最も望ましいルイス構造における各原子の形式電荷の組み合わせとして正しいものを選びなさい。",
+        options: [
+          "A. すべての原子が 0",
+          "B. C：+1、各 O：−0.5",
+          "C. C：0、一方の O：+1、他方の O：−1",
+          "D. C：−1、各 O：+0.5"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>形式電荷（Formal charge）の計算式：<br>$$\\text{形式電荷} = (\\text{最外殻価電子数}) - (\\text{非結合電子数}) - \\frac{1}{2}(\\text{結合電子数})$$<br>$\\text{O}=\\text{C}=\\text{O}$ の構造において：<br>・炭素 $\\text{C}$：$4 - 0 - 4 = 0$<br>・各酸素 $\\text{O}$（2対の非共有電子対と1つの二重結合）：$6 - 4 - 2 = 0$<br>すべての原子の形式電荷が 0 となり、形式電荷の大きさが最小であるため最も望ましい安定なルイス構造です。"
+      },
+      {
+        num: 10,
+        topic: "共有結合と電子対",
+        tagClass: "tag-bonding",
+        text: "二酸化炭素分子 O=C=O について、非結合電子対の数と π 結合を形成している電子の数の正しい組み合わせを選びなさい。",
+        options: [
+          "A. 非結合 4 対 ／ π 電子 4 個",
+          "B. 非結合 4 対 ／ π 電子 2 個",
+          "C. 非結合 2 対 ／ π 電子 4 個",
+          "D. 非結合 2 対 ／ π 電子 2 個"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>・二酸化炭素 $\\text{O}=\\text{C}=\\text{O}$ では、両端の各酸素原子に 2対ずつ非共有電子対が存在するため、<strong>非結合電子対は合計 4対（8個）</strong>。<br>・2つの $\\text{C}=\\text{O}$ 二重結合はそれぞれ $1\\sigma$ 結合と $1\\pi$ 結合から構成されるため、分子全体で $\\pi$ 結合は 2本あり、$\\pi$ 結合を形成する電子は <strong>4個</strong> です。"
+      },
+      {
+        num: 11,
+        topic: "金属結合の性質",
+        tagClass: "tag-bonding",
+        text: "金属が展性（たたくと広がる性質）を示す理由の説明として最も適切なものを、次の中から選びなさい。",
+        options: [
+          "A. 金属結合が非常に弱いから",
+          "B. 共有結合が方向性をもつから",
+          "C. 陽イオンの層が自由電子に支えられて互いに滑ることができるから",
+          "D. イオン結合が強いから"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>金属結合は、正に帯電した金属陽イオンの規則正しい格子と、その間を自由に移動する「自由電子の海」との間の等方的な静電引力です。<br>外力が加わって陽イオンの層が互いに滑って位置がずれても、非局在化した自由電子が常に陽イオン同士を媒介して結合を維持するため、結合が破壊されずに変形（展性・延性）します。"
+      },
+      {
+        num: 12,
+        topic: "重合反応・ポリマー",
+        tagClass: "tag-organic",
+        text: "あるプラスチックの繰り返し単位は –CH₂–CHCl– である。このプラスチックのモノマーを、次の中から選びなさい。",
+        options: [
+          "A. CH₃CH₂Cl",
+          "B. CH₂=CHCl",
+          "C. CH₂=CH₂",
+          "D. CHCl=CHCl"
+        ],
+        answer: "B",
+        explanation: "<strong>【解説】</strong><br>繰り返し単位が $[-\\text{CH}_2-\\text{CHCl}-]_n$ であるプラスチックはポリ塩化ビニル（PVC）です。付加重合によってこのポリマーを形成する単量体（モノマー）は、二重結合をもつ<strong>塩化ビニル（クロロエテン：$\\text{CH}_2=\\text{CHCl}$）</strong>です。"
+      },
+      {
+        num: 13,
+        topic: "遷移金属錯体の呈色",
+        tagClass: "tag-transition",
+        text: "水和した銅(II)イオンが青色に見える理由を、次の中から選びなさい。",
+        options: [
+          "A. 分裂した d 軌道間を電子が昇位する際に赤色（補色）の光を吸収するため",
+          "B. d 軌道間を電子が昇位する際に青色の光を吸収するため",
+          "C. すべての可視光を反射するため",
+          "D. d 軌道がすべて空だから"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>水和銅(II)イオン $[\\text{Cu}(\\text{H}_2\\text{O})_6]^{2+}$ では、水分子（配位子）の配位場によって $3d$ 軌道がエネルギーの異なる2つの準位（$t_{2g}$ と $e_g$）に分裂します。<br>可視光が照射されると、$d$ 電子が分裂した軌道間を遷移（$d-d$ 遷移）する際に<strong>赤色〜橙色領域の光を吸収</strong>します。その結果、吸収されずに透過・反射された<strong>補色（青色）</strong>が観察されます。"
+      },
+      {
+        num: 14,
+        topic: "官能基と有機化合物",
+        tagClass: "tag-organic",
+        text: "アルコール（ヒドロキシ基）をもつ分子を、次の中から選びなさい。",
+        options: [
+          "A. CH₃OCH₃",
+          "B. CH₃COCH₃",
+          "C. CH₃CH₂OH",
+          "D. CH₃COOH"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>・A：$\\text{CH}_3\\text{OCH}_3$ はジメチルエーテル（エーテル結合 $-\\text{O}-$）<br>・B：$\\text{CH}_3\\text{COCH}_3$ はアセトン（カルボニル基 $>\\text{C}=\\text{O}$）<br>・C：$\\text{CH}_3\\text{CH}_2\\text{OH}$ はエタノール（ヒドロキシ基 $-\\text{OH}$ をもつアルコール）<br>・D：$\\text{CH}_3\\text{COOH}$ は酢酸（カルボキシ基 $-\\text{COOH}$）"
+      },
+      {
+        num: 15,
+        topic: "周期表のブロック構造",
+        tagClass: "tag-atomic",
+        text: "周期表のブロック（s, p, d, f）によって元素が分類される基準となる特性を、次の中から選びなさい。",
+        options: [
+          "A. 原子番号",
+          "B. 原子量",
+          "C. 電子配置（最後に入る電子の副殻）",
+          "D. 反応性"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>周期表の元素ブロック（sブロック、pブロック、dブロック、fブロック）は、構造原理（オーフバウの原理）において<strong>基底状態の原子で最もエネルギーの高い電子（最後に追加される電子）が収容されている副殻（Subshell）</strong>の種類に基づいて分類されています。"
+      },
+      {
+        num: 16,
+        topic: "dブロック元素の酸化数",
+        tagClass: "tag-transition",
+        text: "最も多くの異なる酸化状態を示す d ブロック元素を、次の中から選びなさい。",
+        options: [
+          "A. Sc",
+          "B. Mn",
+          "C. Zn",
+          "D. Cu"
+        ],
+        answer: "B",
+        explanation: "<strong>【解説】</strong><br>マンガン $\\text{Mn}$（電子配置 $[\\text{Ar}]3d^5 4s^2$）は、不対 $3d$ 電子と $4s$ 電子の数が最大であり、$+2, +3, +4, +5, +6, +7$ という<strong>最も多彩で多くの酸化状態</strong>を示します（例：$\\text{Mn}^{2+}, \\text{MnO}_2, \\text{MnO}_4^{2-}, \\text{MnO}_4^-$ など）。<br>・Sc は $+3$ のみ<br>・Zn は $+2$ のみ<br>・Cu は $+1, +2$"
+      },
+      {
+        num: 17,
+        topic: "環境化学・温室効果ガス",
+        tagClass: "tag-bonding",
+        text: "すべての温室効果ガスに共通する性質を、次の中から選びなさい。",
+        options: [
+          "A. 極性をもたない対称な分子である",
+          "B. 紫外放射を吸収する",
+          "C. 赤外放射を吸収する",
+          "D. 化石燃料の燃焼でのみ生じる"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>温室効果ガス（$\\text{CO}_2, \\text{H}_2\\text{O}, \\text{CH}_4, \\text{N}_2\\text{O}, \\text{O}_3$ 等）の共通する本質的性質は、分子の熱振動（伸縮振動・変角振動）に伴って双極子モーメントの変化を生じ、地表から放射される<strong>赤外放射（熱線 / Infrared radiation）を吸収</strong>して大気を保温することです。"
+      },
+      {
+        num: 18,
+        topic: "¹H NMR スペクトル",
+        tagClass: "tag-organic",
+        text: "エタノール CH₃CH₂OH の ¹H NMR スペクトルに現れるシグナル（ピーク群）の数を、次の中から選びなさい。",
+        options: [
+          "A. 1",
+          "B. 2",
+          "C. 3",
+          "D. 4"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>エタノール $\\text{CH}_3-\\text{CH}_2-\\text{OH}$ 分子中の水素原子の化学環境（等価なプロトン群）は次の <strong>3種類</strong> 存在します：<br>1. メチル基の水素（$-\\text{CH}_3$：3個、三重線）<br>2. メチレン基の水素（$-\\text{CH}_2-$：2個、四重線）<br>3. ヒドロキシ基の水素（$-\\text{OH}$：1個、単一線）<br>したがって、シグナルの総数は <strong>3</strong> です。"
+      },
+      {
+        num: 19,
+        topic: "質量分析法 (MS)",
+        tagClass: "tag-organic",
+        text: "プロパン-1-オール（C₃H₈O）の質量スペクトルにおける分子イオンピークの m/z の値を、次の中から選びなさい。",
+        options: [
+          "A. 44",
+          "B. 58",
+          "C. 60",
+          "D. 74"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>プロパン-1-オール $\\text{C}_3\\text{H}_8\\text{O}$ の相対分子質量（$M_r$）：<br>$$M_r = (3 \\times 12.01) + (8 \\times 1.01) + 16.00 = 36.03 + 8.08 + 16.00 = 60.11 \\approx 60$$<br>一価の分子イオン $[\\text{M}]^{+\\bullet}$ の質量電荷比 $m/z$ はその分子量に等しく、$\\mathbf{60}$ となります。"
+      },
+      {
+        num: 20,
+        topic: "熱化学・反応エンタルピー",
+        tagClass: "tag-energetics",
+        text: "あるコーヒーカップ熱量計の実験で、反応の進行にともない生成物のポテンシャルエネルギーが反応物より低かった。溶液の温度変化と反応の種類の正しい組み合わせを選びなさい。",
+        options: [
+          "A. 温度上昇・発熱反応",
+          "B. 温度上昇・吸熱反応",
+          "C. 温度降下・発熱反応",
+          "D. 温度降下・吸熱反応"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>・生成物のポテンシャルエネルギーが反応物より低い場合、系から外界（溶液）へ熱エネルギーが放出されるため、エンタルピー変化は $\\Delta H < 0$（<strong>発熱反応：Exothermic</strong>）です。<br>・放出された熱によって水溶液の熱エネルギーが増加するため、溶液の<strong>温度は上昇</strong>します。"
+      },
+      {
+        num: 21,
+        topic: "ヘスの法則",
+        tagClass: "tag-energetics",
+        text: "次のデータを用いて、反応 C(s) + 2H₂(g) → CH₄(g) のエンタルピー変化(kJ/mol)を選びなさい。 C(s) + O₂ → CO₂ ΔH=−394、 H₂ + ½O₂ → H₂O ΔH=−286、 CH₄ + 2O₂ → CO₂ + 2H₂O ΔH=−890",
+        options: [
+          "A. −76",
+          "B. −210",
+          "C. −1256",
+          "D. +76"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>ヘスの法則（燃焼エンタルピーからの生成エンタルピー計算）：<br>$$\\Delta H = \\sum \\Delta H_c(\\text{反応物}) - \\sum \\Delta H_c(\\text{生成物})$$<br>$$\\Delta H = \\Delta H_1 + 2\\Delta H_2 - \\Delta H_3$$<br>$$\\Delta H = (-394) + 2(-286) - (-890) = -394 - 572 + 890 = -966 + 890 = \\mathbf{-76\\text{ kJ/mol}}$$"
+      },
+      {
+        num: 22,
+        topic: "エネルギー資源",
+        tagClass: "tag-energetics",
+        text: "再生可能なエネルギー源を、次の中から選びなさい。",
+        options: [
+          "A. 石油",
+          "B. 石炭",
+          "C. 太陽光",
+          "D. 天然ガス"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>太陽光（Solar energy）は自然界の循環によって無尽蔵に供給される<strong>再生可能エネルギー（Renewable energy）</strong>です。石油、石炭、天然ガスは数億年かけて形成された化石燃料であり、一度消費すると枯渇する非再生可能エネルギーです。"
+      },
+      {
+        num: 23,
+        topic: "ボルン・ハーバーサイクル",
+        tagClass: "tag-energetics",
+        text: "イオン結合性化合物を生成するボルン・ハーバーサイクルにおいて、吸熱過程であるものをすべて選びなさい。 I 昇華（原子化）エンタルピー II 第一電子親和力 III 第一イオン化エネルギー",
+        options: [
+          "A. I と II のみ",
+          "B. I と III のみ",
+          "C. II と III のみ",
+          "D. I、II および III"
+        ],
+        answer: "B",
+        explanation: "<strong>【解説】</strong><br>・I 昇華（原子化）エンタルピー：金属結晶の金属結合を切り離して気体原子にするため<strong>吸熱（$\\Delta H > 0$）</strong>。<br>・II 第一電子親和力：気体の中性非金属原子が1個の電子を受け取って一価の陰イオンになる過程は、通常エネルギーが放出されるため<strong>発熱（$\\Delta H < 0$）</strong>。<br>・III 第一イオン化エネルギー：原子核の引力に逆らって電子を1個引き抜くため<strong>吸熱（$\\Delta H > 0$）</strong>。<br>したがって吸熱過程は <strong>I と III</strong> です。"
+      },
+      {
+        num: 24,
+        topic: "化学平衡とギブズ自由エネルギー",
+        tagClass: "tag-equilibrium",
+        text: "反応系が平衡に近づくときの正しい記述を、次の中から選びなさい。",
+        options: [
+          "A. ギブズエネルギー変化 ΔG がゼロに近づく",
+          "B. 反応商 Q は一定のまま変化しない",
+          "C. 平衡定数 K が増加する",
+          "D. 正反応の速度が増加する"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>化学反応は系のギブズ自由エネルギー $G$ が極小となる方向へ自発的に進行します。反応が平衡に達したとき、任意の変化に対するギブズエネルギー変化は $\\Delta G = 0$ となります。したがって、反応系が平衡に近づくにつれて <strong>$\\Delta G$ は 0 に近づきます</strong>。<br>（※平衡定数 $K$ は温度のみに依存し変化しません。反応商 $Q$ は $K$ に近づくように変化します。）"
+      },
+      {
+        num: 25,
+        topic: "燃焼分析・気体の化学量論",
+        tagClass: "tag-stoichiometry",
+        text: "20 cm³ の気体炭化水素 CₓHᵧ が完全燃焼した。水蒸気が凝縮すると気体の体積は 60 cm³ となり、これは二酸化炭素であった。凝縮した水蒸気の体積は 80 cm³ であった。すべて同温・同圧で測定。この炭化水素の分子式を選びなさい。",
+        options: [
+          "A. CH₄",
+          "B. C₂H₆",
+          "C. C₃H₈",
+          "D. C₄H₁₀"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>同温・同圧において、気体の体積比は物質量比（モル比）に等しい（アボガドロの法則）。<br>燃焼反応式：<br>$$\\text{C}_x\\text{H}_y + \\left(x + \\frac{y}{4}\\right)\\text{O}_2 \\rightarrow x\\text{CO}_2 + \\frac{y}{2}\\text{H}_2\\text{O}$$<br>・$\\text{C}_x\\text{H}_y : \\text{CO}_2 = 20 : 60 = 1 : x \\implies x = 3$<br>・$\\text{C}_x\\text{H}_y : \\text{H}_2\\text{O} = 20 : 80 = 1 : \\frac{y}{2} \\implies \\frac{y}{2} = 4 \\implies y = 8$<br>よって分子式は $\\mathbf{\\text{C}_3\\text{H}_8}$（プロパン）です。"
+      },
+      {
+        num: 26,
+        topic: "反応速度・エネルギー図",
+        tagClass: "tag-kinetics",
+        text: "あるエネルギープロファイルで、反応物の準位を X、遷移状態の頂点を Y、生成物の準位を Z とする（発熱反応で X > Z）。正反応の活性化エネルギーの正しい表し方を選びなさい。",
+        options: [
+          "A. Y − X",
+          "B. Y − Z",
+          "C. Z − X",
+          "D. X − Z"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>正反応の活性化エネルギー（$E_a$）は、<strong>反応物のエネルギー準位（X）から遷移状態の頂点（Y）までのエネルギー差</strong>として定義されます。<br>したがって、活性化エネルギーは $\\mathbf{Y - X}$ です。<br>（※ $Y - Z$ は逆反応の活性化エネルギー、$Z - X$ は反応エンタルピー $\\Delta H$ です。）"
+      },
+      {
+        num: 27,
+        topic: "衝突理論と温度効果",
+        tagClass: "tag-kinetics",
+        text: "温度を上げると反応速度が大きくなる主な理由を、次の中から選びなさい。",
+        options: [
+          "A. 活性化エネルギー以上のエネルギーをもつ分子（衝突）の割合が増えるから",
+          "B. 分子の衝突頻度だけが増えるから",
+          "C. 活性化エネルギーが小さくなるから",
+          "D. 結合が弱くなるから"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>マクスウェル・ボルツマン分布に従い、温度が上昇すると分子の運動エネルギー分布曲線全体が高エネルギー側へ広がり、<strong>活性化エネルギー $E_a$ 以上の運動エネルギーをもつ分子の割合（有効衝突の割合）が指数関数的に増大する</strong>ことが、反応速度が劇的に加速する主因です。<br>（※温度上昇による衝突頻度自体の増加は約 $2\\%$ 程度であり、反応速度の上昇を説明する主要因ではありません。また活性化エネルギー $E_a$ 自体は触媒を加えない限り変化しません。）"
+      },
+      {
+        num: 28,
+        topic: "化学平衡の法則",
+        tagClass: "tag-equilibrium",
+        text: "反応 N₂(g) + 3H₂(g) ⇌ 2NH₃(g) の平衡定数 Kc の式として正しいものを選びなさい。",
+        options: [
+          "A. [NH₃]² / ([N₂][H₂]³)",
+          "B. [N₂][H₂]³ / [NH₃]²",
+          "C. [NH₃] / ([N₂][H₂])",
+          "D. 2[NH₃] / (3[N₂][H₂])"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>化学平衡の法則（質量作用の法則）より、平衡定数 $K_c$ は生成物の濃度の係数乗の積を、反応物の濃度の係数乗の積で割ったものです：<br>$$K_c = \\mathbf{\\frac{[\\text{NH}_3]^2}{[\\text{N}_2][\\text{H}_2]^3}}$$"
+      },
+      {
+        num: 29,
+        topic: "多段階反応と中間体",
+        tagClass: "tag-kinetics",
+        text: "2 段階反応のエネルギープロファイルには、2 つの極大（山）と、その間の極小（谷）がある。谷にあたる点 Y と、山にあたる点 X の正しい記述を選びなさい。",
+        options: [
+          "A. X は遷移状態、Y は中間体",
+          "B. X は中間体、Y は遷移状態",
+          "C. X も Y も遷移状態",
+          "D. X も Y も中間体"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>多段階反応のエネルギープロファイルにおいて：<br>・エネルギー極大（山 X）：結合の切断と生成の途上にある最もエネルギーの高い不安定な状態で、単離不能な <strong>遷移状態（Transition State）</strong>。<br>・エネルギー極小（谷 Y）：各段階の間に生じる局所的に安定な化学種で、実在する <strong>反応中間体（Intermediate）</strong>。"
+      },
+      {
+        num: 30,
+        topic: "平衡定数の計算",
+        tagClass: "tag-equilibrium",
+        text: "反応 A(g) + B(g) ⇌ 2C(g) が平衡にあり、[A]=0.50、[B]=0.50、[C]=1.0 mol/dm³ である。平衡定数の値を選びなさい。",
+        options: [
+          "A. 0.25",
+          "B. 1",
+          "C. 2",
+          "D. 4"
+        ],
+        answer: "D",
+        explanation: "<strong>【解説】</strong><br>平衡定数 $K_c$ の式に平衡濃度を代入します：<br>$$K_c = \\frac{[\\text{C}]^2}{[\\text{A}][\\text{B}]} = \\frac{(1.0)^2}{(0.50) \\times (0.50)} = \\frac{1.0}{0.25} = \\mathbf{4}$$"
+      },
+      {
+        num: 31,
+        topic: "アーレニウスの式・立体因子",
+        tagClass: "tag-kinetics",
+        text: "一定温度で、頻度因子（前指数因子）A が最も大きいと予想される反応を、次の中から選びなさい。",
+        options: [
+          "A. H(g) + H(g) → H₂(g)",
+          "B. 2NOCl(g) → 2NO(g) + Cl₂(g)",
+          "C. CH₃Br + OH⁻ → CH₃OH + Br⁻",
+          "D. C₂H₄ + H₂ → C₂H₆"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>アーレニウスの式の頻度因子 $A$ は、衝突頻度 $Z$ と衝突の幾何学的配向の確率を表す<strong>立体因子（Steric factor: $P$）</strong>の積（$A = P \\cdot Z$）です。<br>単原子ラジカル同士の再結合反応 $\\text{H(g)} + \\text{H(g)} \\rightarrow \\text{H}_2\\text{(g)}$ は球対称であるため衝突の向きに一切の制約がなく（$P \\approx 1$）、複雑な配向を必要とする多原子分子間の反応に比べて頻度因子 $A$ が最大となります。"
+      },
+      {
+        num: 32,
+        topic: "酸・塩基の定義",
+        tagClass: "tag-acidbase",
+        text: "プロトン（H⁺）の移動を伴う反応をすべて選びなさい。 I Zn(s)+2HCl(aq)→ZnCl₂(aq)+H₂(g) II NaOH(aq)+HCl(aq)→NaCl(aq)+H₂O(l) III CaCO₃(s)+2HCl(aq)→CaCl₂(aq)+H₂O(l)+CO₂(g)",
+        options: [
+          "A. I と II のみ",
+          "B. I と III のみ",
+          "C. II と III のみ",
+          "D. I、II および III"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>・I：$\\text{Zn} + 2\\text{H}^+ \\rightarrow \\text{Zn}^{2+} + \\text{H}_2$ は亜鉛から水素イオンへの電子移動（酸化還元反応 / Redox）であり、ブレンステッド・ローリー酸塩基反応ではありません。<br>・II：$\\text{OH}^- + \\text{H}^+ \\rightarrow \\text{H}_2\\text{O}$ は塩酸から水酸化物イオンへのプロトン移動（中和反応）。<br>・III：$\\text{CO}_3^{2-} + 2\\text{H}^+ \\rightarrow \\text{H}_2\\text{CO}_3 \\rightarrow \\text{H}_2\\text{O} + \\text{CO}_2$ は塩酸から炭酸イオンへのプロトン移動（弱酸の遊離）。<br>したがって、プロトン移動を伴うのは <strong>II と III</strong> です。"
+      },
+      {
+        num: 33,
+        topic: "酸塩基指示薬の平衡",
+        tagClass: "tag-acidbase",
+        text: "指示薬 HInd（HInd ⇌ H⁺ + Ind⁻、HInd は色 A、Ind⁻は色 B）を用いて滴定を行う。正しい記述をすべて選びなさい。 I 強塩基性の溶液では色 B が観察される II [HInd] > [Ind⁻] のとき色 B が観察される III 変色域の中央では [HInd] ≒ [Ind⁻] である",
+        options: [
+          "A. I と II のみ",
+          "B. I と III のみ",
+          "C. II と III のみ",
+          "D. I、II および III"
+        ],
+        answer: "B",
+        explanation: "<strong>【解説】</strong><br>指示薬の解離平衡：$\\text{HInd (色A)} \\rightleftharpoons \\text{H}^+ + \\text{Ind}^- \\text{(色B)}$<br>・I：強塩基性溶液では $[\\text{H}^+]$ が極めて低いためルシャトリエの原理により平衡が右に大きく偏り、$[\\text{Ind}^-]$ が優勢となって<strong>色 B</strong> が観察されます（正しい）。<br>・II：$[\\text{HInd}] > [\\text{Ind}^-]$ のときは酸性型が優勢であるため色 A が観察されます（誤り）。<br>・III：変色域の中央（$\\text{pH} = \\text{p}K_{\\text{In}}$）では $[\\text{HInd}] \\approx [\\text{Ind}^-]$ となり、色 A と色 B の中間色が観察されます（正しい）。<br>したがって正しい記述は <strong>I と III</strong> です。"
+      },
+      {
+        num: 34,
+        topic: "二次電池・酸化数",
+        tagClass: "tag-redox",
+        text: "充電式電池の放電時の全体反応 MH + NiO(OH) → M + Ni(OH)₂ について、正しい記述を選びなさい。",
+        options: [
+          "A. Ni の酸化数は +3 から +2 に減少する",
+          "B. Ni の酸化数は変化しない",
+          "C. H の酸化数は −1 から +1 に変化する",
+          "D. M が還元される"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>ニッケル水素電池の正極活物質の酸化数変化：<br>・$\\text{NiO(OH)}$ における $\\text{Ni}$ の酸化数：$\\text{Ni} + (-2) + (-2 + 1) = 0 \\implies \\text{Ni} = \\mathbf{+3}$<br>・$\\text{Ni(OH)}_2$ における $\\text{Ni}$ の酸化数：$\\text{Ni} + 2(-1) = 0 \\implies \\text{Ni} = \\mathbf{+2}$<br>したがって、$\\text{Ni}$ の酸化数は $+3$ から $+2$ へと減少し、還元されています。"
+      },
+      {
+        num: 35,
+        topic: "酸化還元滴定の計算",
+        tagClass: "tag-redox",
+        text: "酸化還元滴定で MnO₄⁻ が Mn²⁺ に還元され、Fe²⁺ が Fe³⁺ に酸化される。25.0 cm³ の 0.10 mol/dm³ Fe²⁺(aq) を滴定するのに必要な 0.020 mol/dm³ MnO₄⁻(aq) の体積(cm³)を選びなさい。",
+        options: [
+          "A. 5.00",
+          "B. 12.5",
+          "C. 25.0",
+          "D. 50.0"
+        ],
+        answer: "C",
+        explanation: "<strong>【解説】</strong><br>半反応式：<br>$$\\text{MnO}_4^- + 8\\text{H}^+ + 5e^- \\rightarrow \\text{Mn}^{2+} + 4\\text{H}_2\\text{O} \\quad (5\\text{電子移動})$$<br>$$\\text{Fe}^{2+} \\rightarrow \\text{Fe}^{3+} + e^- \\quad (1\\text{電子移動})$$<br>全体の酸化還元反応式：<br>$$\\text{MnO}_4^- + 5\\text{Fe}^{2+} + 8\\text{H}^+ \\rightarrow \\text{Mn}^{2+} + 5\\text{Fe}^{3+} + 4\\text{H}_2\\text{O}$$<br>モル比は $\\text{MnO}_4^- : \\text{Fe}^{2+} = 1 : 5$ であるため、<br>$$5 \\times n(\\text{MnO}_4^-) = 1 \\times n(\\text{Fe}^{2+})$$<br>$$5 \\times (0.020\\text{ mol/dm}^3 \\times V) = 0.10\\text{ mol/dm}^3 \\times 25.0\\text{ cm}^3$$<br>$$0.10 \\times V = 2.50 \\implies V = \\mathbf{25.0\\text{ cm}^3}$$"
+      },
+      {
+        num: 36,
+        topic: "フロン類とオゾン層破壊",
+        tagClass: "tag-organic",
+        text: "高層大気でのクロロフルオロカーボン（CFC、フロン類）の反応について、正しい組み合わせを選びなさい。（1 つの塩素ラジカルが多数のオゾン O₃ 分子を分解する）",
+        options: [
+          "A. C–Cl 結合の方が強い ／ 塩素ラジカルは伝播（成長）段階で再生される",
+          "B. C–F 結合の方が強い ／ 塩素ラジカルは伝播（成長）段階で再生される",
+          "C. C–Cl 結合の方が強い ／ 停止段階で塩素分子が再生される",
+          "D. C–F 結合の方が強い ／ 停止段階で塩素分子が再生される"
+        ],
+        answer: "B",
+        explanation: "<strong>【解説】</strong><br>1. 結合エネルギーの比較：$\\text{C}-\\text{F}$ 結合（$\\approx 485\\text{ kJ/mol}$）は $\\text{C}-\\text{Cl}$ 結合（$\\approx 328\\text{ kJ/mol}$）よりも強固です。そのため、成層圏のUV-C光によってより弱い $\\text{C}-\\text{Cl}$ 結合が優先的に光解離して塩素ラジカル $\\text{Cl}^\\bullet$ が生成します（<strong>$\\text{C}-\\text{F}$ 結合の方が強い</strong>）。<br>2. 連鎖機構：オゾン分解の伝播段階において：<br>$$\\text{Cl}^\\bullet + \\text{O}_3 \\rightarrow \\text{ClO}^\\bullet + \\text{O}_2$$<br>$$\\text{ClO}^\\bullet + \\text{O} \\rightarrow \\text{Cl}^\\bullet + \\text{O}_2$$<br>このように <strong>塩素ラジカルは伝播段階で消費された後に再び再生される</strong> ため、1個の $\\text{Cl}^\\bullet$ が触媒として数十万個のオゾン分子を連鎖的に破壊します。"
+      },
+      {
+        num: 37,
+        topic: "ルイス酸・塩基と錯体",
+        tagClass: "tag-acidbase",
+        text: "アンモニア NH₃ の性質を表す用語として不適切なものを、次の中から選びなさい。",
+        options: [
+          "A. ルイス塩基",
+          "B. ブレンステッド・ローリー塩基",
+          "C. 配位子",
+          "D. ルイス酸"
+        ],
+        answer: "D",
+        explanation: "<strong>【解説】</strong><br>アンモニア $\\text{NH}_3$ は窒素原子上に非共有電子対をもちます。<br>・プロトンを受け取る：ブレンステッド・ローリー塩基<br>・電子対を供与する：ルイス塩基<br>・金属イオンに電子対を供与して配位結合する：配位子（リガンド）<br>一方、電子対を受容する<strong>「ルイス酸」としての性質は示さない</strong>ため、D が不適切です。"
+      },
+      {
+        num: 38,
+        topic: "求核置換反応と脱離能",
+        tagClass: "tag-organic",
+        text: "求核置換反応において、最も優れた脱離基となるハロゲン化物イオンを、次の中から選びなさい。",
+        options: [
+          "A. フッ化物イオン",
+          "B. 塩化物イオン",
+          "C. 臭化物イオン",
+          "D. ヨウ化物イオン"
+        ],
+        answer: "D",
+        explanation: "<strong>【解説】</strong><br>脱離基の脱離能（Leaving group ability）は、脱離した陰イオンの塩基性の弱さ（安定性）および炭素-ハロゲン結合の弱さに比例します。<br>・ハロゲン化水素の酸性度は $\\text{HF} < \\text{HCl} < \\text{HBr} < \\text{HI}$ の順に強くなるため、その共役塩基の安定性（塩基性の弱さ）は $\\text{F}^- < \\text{Cl}^- < \\text{Br}^- < \\text{I}^-$ となります。<br>・また $\\text{C}-\\text{I}$ 結合は結合距離が長く結合エネルギーが最も弱いため最も開裂しやすいです。<br>したがって、最も優れた脱離基は <strong>ヨウ化物イオン（$\\text{I}^-$）</strong> です。"
+      },
+      {
+        num: 39,
+        topic: "求核置換反応機構 (SN1)",
+        tagClass: "tag-organic",
+        text: "2-ブロモ-2-メチルプロパン（第三級ハロゲン化物）と水が反応して 2-メチルプロパン-2-オールが生成する反応について、正しい記述を選びなさい。",
+        options: [
+          "A. 反応は 1 段階で進む",
+          "B. カルボカチオン中間体が生成する",
+          "C. 水が臭素原子を攻撃する",
+          "D. 結合のホモリティック（均一）開裂が起こる"
+        ],
+        answer: "B",
+        explanation: "<strong>【解説】</strong><br>第三級ハロゲン化アルキル $(\\text{CH}_3)_3\\text{C}-\\text{Br}$ は立体障害が大きく、また脱離後に生じる第三級カルボカチオン $(\\text{CH}_3)_3\\text{C}^+$ がアルキル基の電子供与性誘起効果と超共役により高度に安定化されるため、<strong>$S_N1$ 反応機構（2段階反応）</strong>で進行します。<br>1. 律速段階：$\\text{C}-\\text{Br}$ 結合がヘテロリティック開裂し、平面構造の<strong>カルボカチオン中間体が生成</strong>する。<br>2. 高速段階：弱い求核剤である水分子 $\\text{H}_2\\text{O}$ がカルボカチオンを攻撃し、脱プロトン化を経てアルコールとなる。"
+      },
+      {
+        num: 40,
+        topic: "求電子芳香族置換反応 (EAS)",
+        tagClass: "tag-organic",
+        text: "NO₂⁺ によるベンゼンのニトロ化において生成する中間体として、正しいものを選びなさい。",
+        options: [
+          "A. 環内に正電荷をもつアレニウムイオン（NO₂ と H が結合した炭素をもつカルボカチオン）",
+          "B. カルバニオン中間体",
+          "C. 炭素ラジカル中間体",
+          "D. 中間体は生成しない"
+        ],
+        answer: "A",
+        explanation: "<strong>【解説】</strong><br>ベンゼンの求電子芳香族置換反応（Electrophilic Aromatic Substitution: EAS）では、強力な求電子剤であるニトロニウムイオン $\\text{NO}_2^+$ がベンゼンの $\\pi$ 電子系を攻撃します。<br>このとき、一時的に芳香族性が失われ、環内の $sp^3$ 炭素に $-\\text{NO}_2$ と $-\\text{H}$ が結合し、残る5つの炭素原子上に正電荷が非局在化した共鳴安定化中間体である <strong>アレニウムイオン（Arenium ion / $\\sigma$ 錯体 / ウィーランド中間体）</strong> が生成します。"
+      }
+    ];
+
+    // Populate Quick Navigation Grid
+    const quickNav = document.getElementById('quickNavGrid');
+    questionsData.forEach(q => {
+      const a = document.createElement('a');
+      a.href = `#q-${q.num}`;
+      a.className = 'key-box';
+      a.innerHTML = `
+        <span class="key-q-num">第 ${q.num} 問</span>
+        <span class="key-ans-letter">${q.answer}</span>
+      `;
+      quickNav.appendChild(a);
+    });
+
+    // Populate Questions Container
+    const container = document.getElementById('questionsContainer');
+    questionsData.forEach(q => {
+      const card = document.createElement('div');
+      card.className = 'question-card';
+      card.id = `q-${q.num}`;
+
+      // Build options HTML
+      let optionsHTML = '';
+      q.options.forEach(opt => {
+        const letter = opt.charAt(0);
+        const isCorrect = letter === q.answer;
+        optionsHTML += `
+          <div class="option-item ${isCorrect ? 'correct-choice' : ''}">
+            <div class="option-letter">${letter}</div>
+            <div>${opt.substring(3)}</div>
+          </div>
+        `;
+      });
+
+      card.innerHTML = `
+        <div class="q-header">
+          <div class="q-title-wrap">
+            <div class="q-num-badge">${q.num}</div>
+            <span class="q-topic-tag ${q.tagClass}">${q.topic}</span>
+          </div>
+          <span style="font-family:'Outfit',sans-serif; font-size:1.1rem; font-weight:800; color:#34d399;">正解: ${q.answer}</span>
+        </div>
+
+        <div class="q-text">${q.text}</div>
+
+        <div class="options-grid">
+          ${optionsHTML}
+        </div>
+
+        <div class="explanation-box">
+          <div class="expl-heading">
+            <i data-lucide="check-circle-2" style="width:16px;height:16px;"></i> 正解と詳細解説
+          </div>
+          <div class="expl-body">
+            ${q.explanation}
+          </div>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>化学全5章 完全解答・全問詳細解説集 | IB & 高校化学</title>
+    <!-- MathJax for rendering latex math -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\(', '\)'], ['$', '$']],
+        displayMath: [['\[', '\]'], ['$$', '$$']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-card: #182234;
+      --bg-card-hover: #1f2d45;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-primary: #38bdf8;
+      --accent-secondary: #818cf8;
+      --accent-success: #34d399;
+      --accent-warning: #fbbf24;
+      --border-color: #334155;
+      --border-light: #475569;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    sidebar {
+      width: 320px;
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0; bottom: 0; left: 0;
+      z-index: 100;
+      overflow-y: auto;
+    }
+
+    .sidebar-header {
+      padding: 24px 20px;
+      border-bottom: 1px solid var(--border-color);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.1));
+    }
+    .sidebar-header h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sidebar-header p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .search-box {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .search-input {
+      width: 100%;
+      padding: 10px 14px;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .search-input:focus {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+
+    .nav-menu {
+      list-style: none;
+      padding: 16px 12px;
+    }
+    .nav-section-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      padding: 8px 12px 4px 12px;
+    }
+    .nav-item { margin-bottom: 4px; }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+    }
+    .nav-link.active {
+      background-color: rgba(56, 189, 248, 0.15);
+      color: var(--accent-primary);
+      font-weight: 600;
+    }
+    .badge-count {
+      font-size: 0.75rem;
+      background-color: var(--bg-primary);
+      padding: 2px 8px;
+      border-radius: 12px;
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+
+    main {
+      flex: 1;
+      margin-left: 320px;
+      padding: 40px 48px;
+      max-width: 1100px;
+    }
+
+    .content-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .content-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+    .content-header p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+
+    .chapter-section {
+      margin-bottom: 56px;
+      scroll-margin-top: 20px;
+    }
+    .chapter-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent-primary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .subsection-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent-secondary);
+      margin: 32px 0 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .q-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.2s;
+    }
+    .q-card:hover { border-color: var(--border-light); }
+
+    .q-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .q-num {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .q-text {
+      font-size: 1.025rem;
+      font-weight: 500;
+      color: var(--text-main);
+      flex: 1;
+      line-height: 1.7;
+    }
+
+    .answer-box {
+      background-color: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+      margin-top: 16px;
+    }
+    .answer-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-success);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .answer-content {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #a7f3d0;
+      line-height: 1.7;
+    }
+
+    details.explanation-accordion {
+      margin-top: 16px;
+      border-top: 1px dashed var(--border-color);
+      padding-top: 14px;
+    }
+    details.explanation-accordion summary {
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent-primary);
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    details.explanation-accordion summary:hover { color: #7dd3fc; }
+
+    .explanation-body {
+      margin-top: 14px;
+      padding: 16px;
+      background-color: var(--bg-primary);
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      border: 1px solid var(--border-color);
+    }
+    .explanation-body p { margin-bottom: 12px; }
+    .explanation-body p:last-child { margin-bottom: 0; }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.9rem;
+    }
+    table.data-table th, table.data-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      text-align: left;
+    }
+    table.data-table th {
+      background-color: var(--bg-secondary);
+      color: var(--accent-primary);
+      font-weight: 600;
+    }
+    table.data-table tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    .formula-block {
+      background-color: #090d16;
+      border-left: 3px solid var(--accent-secondary);
+      padding: 12px 16px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.925rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 12px 0;
+      color: #c7d2fe;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media print {
+      sidebar { display: none; }
+      main { margin-left: 0; padding: 0; }
+      .q-card { break-inside: avoid; border: 1px solid #ccc; background: #fff; color: #000; }
+      details.explanation-accordion[open] .explanation-body { background: #f9f9f9; color: #333; }
+    }
+  </style>
+
+<body>
+
+  <!-- Sidebar Navigation -->
+  <sidebar>
+    <div class="sidebar-header">
+      <h1>化学 完全解答・全解説ナビ</h1>
+      <p>全5章：全問詳細解説（計算過程・概念根拠完備）</p>
+    </div>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" class="search-input" placeholder="問題番号やキーワードでリアルタイム検索...">
+    </div>
+
+    <ul class="nav-menu">
+      <li class="nav-section-title">章一覧</li>
+      <li class="nav-item">
+        <a href="#ch1" class="nav-link active">
+          <span>第1章 物質の粒子的性質</span>
+          <span class="badge-count">全問個別解説付き</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#ch2" class="nav-link">
+          <span>第2章 核の原子</span>
+          <span class="badge-count">全問個別解説付き</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#ch3" class="nav-link">
+          <span>第3章 電子配置</span>
+          <span class="badge-count">全問個別解説付き</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#ch4" class="nav-link">
+          <span>第4章 粒子の数え方：モル</span>
+          <span class="badge-count">全問個別解説付き</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#ch5" class="nav-link">
+          <span>第5章 理想気体</span>
+          <span class="badge-count">全問個別解説付き</span>
+        </a>
+      </li>
+    </ul>
+  </sidebar>
+
+  <!-- Main Content -->
+  <main>
+    <div class="content-header">
+      <h2>化学全5章 完全解答＆全問詳細解説集</h2>
+      <p>すべての練習問題および試験形式問題について、模範解答に加えて「途中の導出計算」「なぜその答えになるかの論理的理由」「重要用語・公式の深掘り解説」を全問に網羅しました。</p>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- CHAPTER 1 -->
+    <!-- ========================================== -->
+    <section id="ch1" class="chapter-section">
+      <h2 class="chapter-title">第1章 物質の粒子的性質</h2>
+
+      <h3 class="subsection-title">練習問題 1.1 元素、化合物、混合物</h3>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.1 問 1</span>
+          <div class="q-text">およそ何種類の異なる元素が存在するか？</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">約118種類（天然には約92種類）</div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>概念解説:</strong> 現在、IUPAC（国際純正・応用化学連合）によって認定され周期表に掲載されている元素の総数は**118種類**です。</p>
+            <p>地球上に自然に存在する「天然元素」は原子番号1番（水素 H）から92番（ウラン U）までの約92種類であり、原子番号93番（ネプツニウム Np）以降の元素は物理実験室の粒子加速器などで人工的に作られた「超ウラン元素」です。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.1 問 2</span>
+          <div class="q-text">
+            a. 25℃で巨大構造として存在する元素を二つ挙げよ。<br>
+            b. 単原子として存在する元素を一つ挙げよ。<br>
+            c. 二原子分子として存在する元素を一つ挙げよ。
+          </div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            a. 炭素（C）、ケイ素（Si） （※鉄 Fe や銅 Cu などの金属元素も可）<br>
+            b. ヘリウム（He） （※アルゴン Ar, ネオン Ne などの18族元素）<br>
+            c. 酸素（O₂） （※水素 H₂, 窒素 N₂, 塩素 Cl₂ など）
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>a. 巨大構造:</strong> 炭素（ダイヤモンド・グラファイト）やケイ素は、原子同士が共有結合によって3次元的に無限に連なる巨大分子構造（共有結合結晶）を作ります。また、FeやCuなどの金属も多数の原子が金属結合で格子を作る巨大構造です。</p>
+            <p><strong>b. 単原子:</strong> 周期表第18族の貴ガス（He, Ne, Ar, Kr, Xe, Rn）は最外殻が閉殻電子配置（8個またはHeの2個）を持ち極めて安定であるため、他の原子と結合せず単独の原子で気体として存在します。</p>
+            <p><strong>c. 二原子分子:</strong> H₂, N₂, O₂, F₂, Cl₂, Br₂, I₂ の7つの非金属元素は、2個の原子が共有結合で結合した二原子分子として室温で存在します。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.1 問 3</span>
+          <div class="q-text">次の化学式のうち、原子を表すものと分子を表すものに分類せよ：<br>a. He &nbsp;&nbsp; b. O₂ &nbsp;&nbsp; c. H₂O &nbsp;&nbsp; d. C</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            【原子】a. He, d. C<br>
+            【分子】b. O₂, c. H₂O
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>分類根拠:</strong></p>
+            <p>・<strong>原子:</strong> 1つの独立した原子記号のみで記述される化学種（He, C）。</p>
+            <p>・<strong>分子:</strong> 2つ以上の原子（同種または異種）が共有結合によって結合した独立した粒子の集合体。O₂ は2個の酸素原子からなる同核二原子分子、H₂O は2個の水素原子と1個の酸素原子からなる異核三原子分子です。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.1 問 4</span>
+          <div class="q-text">次の化学式のうち、元素（単体）を表すものと化合物を表すものに分類せよ：<br>a. He &nbsp;&nbsp; b. O₂ &nbsp;&nbsp; c. H₂O &nbsp;&nbsp; d. C</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            【元素（単体）】a. He, b. O₂, d. C<br>
+            【化合物】c. H₂O
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>定義の区別:</strong></p>
+            <p>・<strong>単体（元素）:</strong> ただ1種類の元素のみから構成される純物質（He, O₂, C）。</p>
+            <p>・<strong>化合物:</strong> 2種類以上の異なる元素原子が一定の質量比・化学比で結合してできている純物質（H₂O は H と O の2種類からなる）。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.1 問 5</span>
+          <div class="q-text">次の文は誤りである。その理由を説明せよ：「元素は原子でできており、化合物は分子でできている」</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">すべての元素が独立した単一の原子で存在するわけではなく（例：酸素O₂やリンP₄は分子を作る）、またすべての化合物が分子でできているわけでもないため（例：塩化ナトリウムNaClはイオン結晶巨大構造であり独立分子を持たない）。</div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>化学的概念の整理:</strong></p>
+            <p>1. 元素（単体）の中にも分子を作るものが多数存在します（例：O₂, N₂, S₈, C₆₀など）。</p>
+            <p>2. 化合物の中にも分子を作らない巨大構造物質が多数存在します（例：イオン結合で連なるNaCl, 共有結合結晶のSiO₂など）。したがって「単体/化合物」と「原子/分子」は全く別の軸の概念分類です。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.1 問 6</span>
+          <div class="q-text">合金の組成が化合物と異なる点を述べよ。</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">合金は混合物であり成分金属の配合比率を任意に変えられるが、化合物は定比例の法則に従い一定の固定された原子比・質量比で結合している。</div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>混合物と化合物の違い:</strong> 黄銅（真鍮：銅と亜鉛）のような合金は、用途に合わせて銅と亜鉛の配合割合（例：60:40や70:30）を自由に変更できます。しかし化合物（例：CuSO₄）は銅・硫黄・酸素の比率が厳密に一定であり、これを定比例の法則（Proustの法則）と呼びます。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.1 問 7</span>
+          <div class="q-text">物理的性質と化学的性質の意味を説明せよ。</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            物理的性質：物質の化学組成や化学変化を伴わずに測定・観察できる性質（融点、沸点、密度、電気伝導性など）。<br>
+            化学的性質：物質が他の物質と化学反応を起こす際に見せる性質（可燃性、酸との反応性、酸化されやすさなど）。
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>水の融点（0℃）や沸点（100℃）は測定しても水（H₂O）のまま変わらないので**物理的性質**です。一方、ナトリウムが水と激しく反応して水素を発生し水酸化ナトリウムになる現象は新しい化学物質が生成するため**化学的性質**です。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.1 問 8</span>
+          <div class="q-text">化学における「純粋」の意味を述べよ。</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">他種の物質（不純物）が一切混ざっておらず、ただ1種類の化学種（単体または化合物）のみから構成されている状態。</div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>日常生活でいう「純粋なオレンジジュース」は100%果汁の意味ですが、化学的には糖分・水・有機酸などの混合物です。化学における「純粋（Pure Substance）」は、H₂O のみ、あるいは NaCl のみというように単一の分子・化学式で表される物質を指します。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.1 問 9</span>
+          <div class="q-text">混合物の成分が元の性質を保持する理由を説明せよ。</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">混合物の成分同士は物理的に交じり合っているだけであり、原子間で新しい化学結合を形成していないため。</div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>鉄粉と硫黄粉末を混ぜただけの混合物は、磁石を近づけると鉄だけが吸い寄せられます。これは鉄と硫黄が電子の共有や移動を行っておらず独自の電子構造を保っているからです。加熱して硫化鉄（FeS）という化合物を作ると、磁石に付かなくなり全く別の物性に変化します。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.1 問 10</span>
+          <div class="q-text">次の物質を「単体」「化合物」「混合物」に分類せよ：<br>空気、塩化ナトリウム水溶液、鉄、水、塩化ナトリウム結晶、塩素ガス、二酸化炭素</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            【単体】鉄（Fe）、塩素ガス（Cl₂）<br>
+            【化合物】水（H₂O）、塩化ナトリウム結晶（NaCl）、二酸化炭素（CO₂）<br>
+            【混合物】空気（N₂, O₂, Ar等の混合気体）、塩化ナトリウム水溶液（NaCl と H₂O の混合物）
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>単体は1種類の原子（Fe, Cl₂）、化合物は複数種の原子が結合した単一純物質（H₂O, NaCl, CO₂）、混合物は複数の純物質が物理的に混ざった状態です。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.1 問 15 - 16</span>
+          <div class="q-text">分離技術（A〜G）と分離対象（1〜7）の正しい組み合わせを選べ。</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            A. 濾過 $
+ightarrow$ 2 液体や溶液からの不溶性固体<br>
+            B. 蒸留 $
+ightarrow$ 6 沸点の大きく異なる液体の混合物<br>
+            C. 蒸発 $
+ightarrow$ 4 溶液からの溶質<br>
+            D. 溶解 $
+ightarrow$ 1 溶媒に対する溶解度が大きく異なる物質の混合物<br>
+            E. 溶媒抽出 $
+ightarrow$ 5 溶媒への溶解度が少し異なる物質の混合物<br>
+            F. ペーパークロマトグラフィー $
+ightarrow$ 3 溶解度や親和性が異なる溶質<br>
+            G. 再結晶 $
+ightarrow$ 7 温度によって溶解度が異なる溶質を含む混合物
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>各分離法の物理的原理:</strong></p>
+            <p>・<strong>濾過:</strong> ろ紙の目より大きな固体を液体から分離。</p>
+            <p>・<strong>蒸留:</strong> 沸点の違いを利用して沸騰・凝縮により液体成分を分離。</p>
+            <p>・<strong>再結晶:</strong> 温度低下に伴う溶解度の急激な減少を利用して結晶化。</p>
+            <p>・<strong>ペーパークロマトグラフィー:</strong> ろ紙への吸着力と溶媒への溶解度の差で移動速度が変化することを利用。</p>
+          </div>
+        </details>
+      </div>
+
+
+      <!-- 1.2 -->
+      <h3 class="subsection-title">練習問題 1.2 気体分子運動論</h3>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.2 問 1</span>
+          <div class="q-text">表 1.1（粒子の配列と運動）を完成させよ。</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答 (表 1.1 完成版)</div>
+          <div class="answer-content">
+            <table class="data-table">
+              <thead>
+                <tr><th>説明</th><th>固体</th><th>液体</th><th>気体</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>粒子の並び方</strong></td><td>規則正しく整列（結晶格子）</td><td>不規則で無秩序</td><td>完全に無秩序（バラバラ）</td></tr>
+                <tr><td><strong>粒子間の距離</strong></td><td>非常に近く密着している</td><td>互いに近接（固体と同程度）</td><td>非常にはなれている（広大）</td></tr>
+                <tr><td><strong>粒子のエネルギー</strong></td><td>低い（振動のみ）</td><td>中程度（並進・回転・振動）</td><td>非常に高い（高速自由運動）</td></tr>
+                <tr><td><strong>粒子の運動</strong></td><td>固定位置を中心に振動のみ</td><td>位置を変えて自由に移動</td><td>全方向に高速直線移動</td></tr>
+                <tr><td><strong>粒子間力</strong></td><td>非常に強い（位置固定）</td><td>中程度（まとめるが可動）</td><td>無視できるほど微小（ほぼ0）</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>気体分子運動論による物質の三態モデル:</strong></p>
+            <p>1. 固体は熱エネルギーが低いため、強い分子間力が熱運動に打ち勝ち、粒子を固定位置（結晶格子）に拘束します。</p>
+            <p>2. 液体は熱エネルギーが増し、分子間力を破って流動できるようになりますが、粒子同士は依然として接しています。</p>
+            <p>3. 気体は熱エネルギーが粒子間引力を完全に凌駕し、粒子同士が遠く離れて空間を高速で飛び回ります。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.2 問 2</span>
+          <div class="q-text">表 1.1 の記述のうち、固体が一定の形状を持ち、液体や気体が一定の形状を持たない理由を説明できるものはどれか？</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content"><strong>粒子の配列（並び方）、粒子の運動、および粒子間力</strong></div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>固体は強い粒子間力によって粒子が固定位置に整列し振動しかできないため、独自の形状を維持します。一方、液体や気体は粒子間力が弱く、粒子が空間内を互いに位置を変えて運動（流動）できるため、容器の形に従って変化します。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.2 問 3</span>
+          <div class="q-text">表 1.1 の記述のうち、一定温度で気体の体積が一定でなく、固体や液体の体積が一定である理由を説明できるものはどれか？</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content"><strong>粒子間の距離（および粒子間力）</strong></div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>固体や液体では粒子同士が隙間なく最接近しているため、外部から圧力を加えてもこれ以上縮みません（非圧縮性）。これに対し、気体では粒子間の距離が非常に大きく大半が空洞（空間）であるため、圧力を加えると容易に収縮し、容器全体に拡散します。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.2 問 4</span>
+          <div class="q-text">
+            粉末は液体のように流れ容器の形に従うが、底に広がらない。<br>
+            a. 粉末が固体であることをどのように説明するか？<br>
+            b. 粉末が液体のように流れる能力をどのように説明するか？
+          </div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            a. 一粒一粒の粉末微粒子自体は一定の形と体積を保持し、圧縮不可能であるため。<br>
+            b. 無数の微小な固体粒子が重力や外力により互いの表面をすべり運動できるため。
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>ミクロな視点では一粒の粉末結晶内原子は強い共有結合/イオン結合で固定された固体です。しかしマクロな視点では粒径が非常に小さいため、顆粒同士が相対的に転がることで液体のような流動性を見せます。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.2 問 5</span>
+          <div class="q-text">温度の SI 単位は何か？</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content"><strong>ケルビン（記号: $\text{K}$）</strong></div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>国際単位系（SI）における熱力学温度の基本単位は**ケルビン（K）**です。度（$^\circ$）は付けません。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.2 問 6</span>
+          <div class="q-text">ケルビン温度計でゼロ K（絶対ゼロ）が意味することは何か？</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">物質を構成する全粒子の熱運動（並進・回転・振動運動）が完全停止する理論上の最低極限温度（$-273.15^\circ\text{C}$）。</div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>温度とは粒子の平均運動エネルギーの巨視的な指標です。運動エネルギーがゼロになる極限状態が $0\text{ K}$ であり、負のケルビン温度は存在しません。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.2 問 7</span>
+          <div class="q-text">表 1.2 を完成させ、ケルビン温度とセルシウス温度の対応を示せ。</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答 (表 1.2 完成版)</div>
+          <div class="answer-content">
+            <table class="data-table">
+              <thead>
+                <tr><th>セルシウス温度 ($^\circ\text{C}$)</th><th>ケルビン温度 ($\text{K}$)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>0</strong></td><td><strong>273</strong></td></tr>
+                <tr><td><strong>100</strong></td><td><strong>373</strong></td></tr>
+                <tr><td><strong>40</strong></td><td><strong>313</strong></td></tr>
+                <tr><td><strong>-199</strong></td><td><strong>74</strong></td></tr>
+                <tr><td><strong>946</strong></td><td><strong>1219</strong></td></tr>
+                <tr><td><strong>-270</strong></td><td><strong>3</strong></td></tr>
+                <tr><td><strong>227</strong></td><td><strong>500</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>変換公式:</strong> $T(\text{K}) = t(^\circ\text{C}) + 273$ （または $t = T - 273$）</p>
+            <div class="formula-block">
+              ・ 0 ℃ + 273 = 273 K<br>
+              ・ 373 K - 273 = 100 ℃<br>
+              ・ 40 ℃ + 273 = 313 K<br>
+              ・ 74 K - 273 = -199 ℃<br>
+              ・ 946 ℃ + 273 = 1219 K<br>
+              ・ 3 K - 273 = -270 ℃<br>
+              ・ 500 K - 273 = 227 ℃
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.2 問 8</span>
+          <div class="q-text">温度は化学計算に使用されることがあり、その際は常にケルビン温度が用いられるが、温度差を求める場合はセルシウスまたはケルビンのどちらでもよい理由を説明せよ。</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">セルシウス度（$^\circ\text{C}$）とケルビン（$\text{K}$）の $1\text{度}$ の変化幅（目盛り間隔）が完全に一致しているため（$\Delta T(\text{K}) = \Delta t(^\circ\text{C})$）。</div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>ケルビンはセルシウスに定数 $273.15$ を足した平行移動目盛りです。温度差 $\Delta T = T_2 - T_1 = (t_2 + 273.15) - (t_1 + 273.15) = t_2 - t_1 = \Delta t$ となり定数が相殺されるため、温度変化量は数値が完全に同一となります。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 1.3 -->
+      <h3 class="subsection-title">練習問題 1.3 温度と運動エネルギー</h3>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.3 問 1</span>
+          <div class="q-text">
+            一定温度の酸素気体試料を考える。<br>
+            a. すべての酸素粒子は同じ運動エネルギーを持つか？理由も合わせて答えよ。<br>
+            b. すべての粒子は同じ速さで運動するか？理由も合わせて答えよ。
+          </div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            a. **持たない**。粒子間のランダムな衝突によってエネルギーが常に再分配され、分布（マクスウェル–ボルツマン分布）を持つため。<br>
+            b. **運動しない**。運動エネルギー $E_k = \frac{1}{2}mv^2$ に分布があるため、各粒子の速度 $v$ にもバラツキが生じる。
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>一定温度の気体では「平均運動エネルギー」は一定に維持されますが、個々の分子は弾性衝突を繰り返してエネルギーをやり取りするため、速度や運動エネルギーはマクスウェル-ボルツマンの確率分布に従います。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.3 問 2</span>
+          <div class="q-text">
+            一定温度の窒素(N₂)とヘリウム(He)の混合気体を考える。<br>
+            a. 粒子の平均運動エネルギーが高いのはどちらの気体か？<br>
+            b. 粒子の平均速度が高いのはどちらの気体か？
+          </div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            a. **両者同じ**。平均運動エネルギーは絶対温度 $T$ のみに直接依存するため。<br>
+            b. **ヘリウム（He）**。質量 $m$ が小さい粒子ほど同じ平均運動エネルギー $\bar{E}_k = \frac{1}{2}m\bar{v}^2$ を満たすために平均速度 $\bar{v}$ が大きくなるから。
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>数式による説明:</strong> 気体分子の平均運動エネルギーは $\bar{E}_k = \frac{3}{2}k_B T$ で表され、気体の種類に関係なく温度 $T$ だけで決まります。N₂（分子量28）と He（原子量4）を比較すると、$m_{\text{He}} < m_{\text{N}_2}$ であるため、速度の自乗平均平方根 $v_{\text{rms}} = \sqrt{\frac{3R T}{M}}$ は He の方が大きくなります。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.3 問 3</span>
+          <div class="q-text">
+            気体の温度を上げたとき、次の各項目の変化を説明せよ：<br>
+            a. 粒子の平均運動エネルギー &nbsp;&nbsp; b. 粒子の平均速度 &nbsp;&nbsp; c. 粒子の最大確率運動エネルギー &nbsp;&nbsp; d. 最大確率運動エネルギーを持つ粒子の割合
+          </div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            a. **増加する** （絶対温度に比例して高くなる）。<br>
+            b. **増加する**。<br>
+            c. **増加する** （マクスウェル–ボルツマン分布曲線のピークがより高エネルギー側にシフトする）。<br>
+            d. **減少する** （高エネルギー側に分布が平坦に広がるため、ピークの高さ自体は低くなる）。
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>マクスウェル-ボルツマン分布曲線は、温度が上がると「右（高エネルギー側）に移動し、全粒子数（曲線下の面積）を一定に保つために全体的に低く平らになる」特性を持ちます。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 1.4 -->
+      <h3 class="subsection-title">練習問題 1.4 状態変化</h3>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.4 問 1 - 5</span>
+          <div class="q-text">
+            問1: 一定圧力において一定温度でのみ起こらない状態変化はどれか？<br>
+            問2: 発熱変化と吸熱変化。<br>
+            問3: 液体から固体に変化する温度の名称。<br>
+            問4: 気体と液体の間で変化する温度の名称。<br>
+            問5: 昇華の意味と逆変化の名称。
+          </div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            問1: **蒸発（Evaporation）**（沸騰と異なり、任意の温度で液表面から生じる）。<br>
+            問2: 【発熱】凝縮、凝固、凝華 &nbsp;/&nbsp; 【吸熱】融解、沸騰、蒸発、昇華<br>
+            問3: **凝固点（または融点）**<br>
+            問4: **沸点（または凝縮点）**<br>
+            問5: a. 固体が液体を経ずに直接気体になる現出。 b. **凝華（Deposition）**
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>蒸発は液体表面の運動エネルギーの高い分子が粒子間力を振り切って気相へ飛び出す現象で、あらゆる温度で起こります。沸騰は蒸気圧が外圧と等しくなった一定の沸点で液内部からも気泡が発生する現象です。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">1.4 問 6</span>
+          <div class="q-text">表を完成させ、各列の温度における物質の状態（固体・液体・気体）を答えよ。</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答 (物質の状態対照表)</div>
+          <div class="answer-content">
+            <table class="data-table">
+              <thead>
+                <tr><th>物質</th><th>融点 (℃)</th><th>沸点 (℃)</th><th>-50℃の状態</th><th>115℃の状態</th><th>245 K (-28℃) の状態</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>A</td><td>15</td><td>125</td><td>固体</td><td>液体</td><td>固体</td></tr>
+                <tr><td>B</td><td>253</td><td>578</td><td>固体</td><td>固体</td><td>固体</td></tr>
+                <tr><td>C</td><td>-83</td><td>78</td><td>液体</td><td>気体</td><td>液体</td></tr>
+                <tr><td>D</td><td>-169</td><td>-87</td><td>気体</td><td>気体</td><td>気体</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>判別基準:</strong></p>
+            <p>・指定温度 $< \text{融点}$ $
+ightarrow$ 固体</p>
+            <p>・$\text{融点} \le \text{指定温度} \le \text{沸点}$ $
+ightarrow$ 液体</p>
+            <p>・指定温度 $> \text{沸点}$ $
+ightarrow$ 気体</p>
+            <p>※ $245\text{ K} = 245 - 273 = -28^\circ\text{C}$ として判定します。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- CH1 Exam -->
+      <h3 class="subsection-title">第1章 試験形式問題</h3>
+      
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">試験問 1 - 11</span>
+          <div class="q-text">第1章 試験形式問題 全11問の正解・詳細解説一覧</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答＆解説Summary</div>
+          <div class="answer-content">
+            問1: **D** (P₄, S₈, O₃ は全て共有結合でできた単体分子)<br>
+            問2: **D** (不均一混合物は成分が観察可能な別々の相として存在)<br>
+            問3: **C** (砂糖水/紅茶は溶質が分子分散した均一混合物)<br>
+            問4: **A** (蒸留は加熱沸騰 $
+ightarrow$ 冷却凝縮の順)<br>
+            問5: **B** (再結晶は温度溶解度差を利用)<br>
+            問6: **D** (水銀: 融点 -38.9℃, 沸点 356.7℃)<br>
+            問7: **A** (二酸化炭素の昇華: $\text{CO}_2(s) 
+ightarrow \text{CO}_2(g)$)<br>
+            問8: **C** (分留塔は上部ほど低温になる温度勾配をもつ)<br>
+            問9: **B** ($R_f = \frac{\text{スポット移動距離}}{\text{溶媒先端移動距離}}$)<br>
+            問10: **A** (純物質はシャープな一定融点を示す)<br>
+            問11: 紙クロの正順: スポット打点 $
+ightarrow$ 溶媒展開 $
+ightarrow$ 乾燥 $
+ightarrow$ 発色呈色
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CHAPTER 2 -->
+    <!-- ========================================== -->
+    <section id="ch2" class="chapter-section">
+      <h2 class="chapter-title">第2章 核の原子</h2>
+
+      <h3 class="subsection-title">練習問題 2.1 原子の構造</h3>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">2.1 問 1</span>
+          <div class="q-text">表 2.1 サブアトミック粒子の性質を完成させよ。</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            <table class="data-table">
+              <thead>
+                <tr><th>粒子</th><th>相対電荷</th><th>相対質量</th><th>原子内の位置</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>陽子 (Proton)</td><td>+1</td><td>1</td><td>原子核内部</td></tr>
+                <tr><td>中性子 (Neutron)</td><td>0</td><td>1</td><td>原子核内部</td></tr>
+                <tr><td>電子 (Electron)</td><td>-1</td><td>1/1836 (約0)</td><td>原子核外の軌道</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p>陽子と中性子はほぼ等しい質量（$1.67 	imes 10^{-27}\text{ kg}$）を持ち「核子」と呼ばれます。電子の質量は陽子の約1836分の1と極めて軽いため、原子全体の質量を考える際は無視できます。</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">2.1 問 2 - 7</span>
+          <div class="q-text">陽子数・中性子数・電子数の計算ルール</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            ・原子番号 $Z = \text{陽子数} = \text{中性原子の電子数}$<br>
+            ・質量数 $A = \text{陽子数} + \text{中性子数}$ $
+ightarrow$ 中性子数 = $A - Z$<br>
+            ・陽イオン（$\text{X}^{n+}$）: 電子数 = $Z - n$<br>
+            ・陰イオン（$\text{Y}^{m-}$）: 電子数 = $Z + m$
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>例: ${}_{17}^{35}\text{Cl}^-$ の粒子数計算</strong></p>
+            <p>・原子番号 $Z=17$ より陽子数 = 17。</p>
+            <p>・質量数 $A=35$ より中性子数 = $35 - 17 = 18$。</p>
+            <p>・1価の陰イオン（$-$）なので電子1個を得ており、電子数 = $17 + 1 = 18$。</p>
+          </div>
+        </details>
+      </div>
+
+      <h3 class="subsection-title">練習問題 2.2 同位体</h3>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">2.2 問 1 - 7</span>
+          <div class="q-text">同位体（Isotopes）の定義と相対原子質量 $A_r$ の加重平均計算</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            ・同位体の定義: 原子番号（陽子数）が同じで、質量数（中性子数）が異なる同一元素の原子群。<br>
+            ・計算式: $A_r = \frac{\text{質量数}_1 	imes \%_1 + \text{質量数}_2 	imes \%_2}{100}$<br>
+            ・塩素の同位体比計算: ³⁵Cl (77.5%), ³⁷Cl (22.5%)
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>塩素 $A_r = 35.45$ の導出ステップ:</strong></p>
+            <p>³⁵Cl の存在比を $x\%$, ³⁷Cl の存在比を $(100-x)\%$ と置くと、</p>
+            $$\frac{35x + 37(100-x)}{100} = 35.45$$
+            $$35x + 3700 - 37x = 3545 \Rightarrow -2x = -155 \Rightarrow x = 77.5\%$$
+            <p>したがって ³⁵Cl が 77.5%, ³⁷Cl が 22.5% と算出されます。</p>
+          </div>
+        </details>
+      </div>
+
+      <h3 class="subsection-title">第2章 試験形式問題</h3>
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">試験問 1 - 10</span>
+          <div class="q-text">第2章 試験形式問題全問の解説</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            問1: **B** (同位体は陽子数が同じで中性子数が異なる)<br>
+            問2: **C** (${}_{26}^{56}\text{Fe}^{3+}$ の電子数は $26 - 3 = 23$)<br>
+            問3: **A** (${}_6^{12}\text{C}$ の質量を正確に12とする基準)<br>
+            問4: **D** (最外殻電子配置が同じ同位体は化学的性質が同一)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CHAPTER 3 -->
+    <!-- ========================================== -->
+    <section id="ch3" class="chapter-section">
+      <h2 class="chapter-title">第3章 電子配置</h2>
+
+      <h3 class="subsection-title">練習問題 3.1 - 3.5 電子軌道とアウフバウ原理</h3>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">3.1 - 3.5</span>
+          <div class="q-text">軌道のエネルギー順序とイオン化エネルギーの不連続性</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            ・軌道エネルギー順: $1s < 2s < 2p < 3s < 3p < 4s < 3d < 4p$<br>
+            ・例外配置: $\text{Cr} = [\text{Ar}]4s^1 3d^5$, &nbsp;&nbsp; $\text{Cu} = [\text{Ar}]4s^1 3d^{10}$<br>
+            ・第1イオン化エネルギー定義: $M(g) 
+ightarrow M^+(g) + e^-$
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>アウフバウ原理と例外:</strong> クロム（Cr, Z=24）と銅（Cu, Z=29）は、$3d$ 軌道が半満たし（$d^5$）または完全満たし（$d^{10}$）になる方がエネルギー的に格段に安定するため、$4s$ 電子が1個 $3d$ 軌道へ移動した特殊な電子配置をとります。</p>
+          </div>
+        </details>
+      </div>
+
+      <h3 class="subsection-title">第3章 試験形式問題</h3>
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">試験問 1 - 12</span>
+          <div class="q-text">第3章 試験形式問題全問の解説</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            問6: **B** ($\text{Ni}^{2+}$ の電子配置: $[\text{Ar}]3d^8$。イオン化時は $4s$ 電子から先に離脱する)<br>
+            問9: **A** ($E = h
+u = 6.63 	imes 10^{-34} 	imes 2.00 	imes 10^{14} = 1.33 	imes 10^{-19}\text{ J}$)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CHAPTER 4 -->
+    <!-- ========================================== -->
+    <section id="ch4" class="chapter-section">
+      <h2 class="chapter-title">第4章 粒子の数え方：モル</h2>
+
+      <h3 class="subsection-title">練習問題 4.1 - 4.6 モル・溶液・化学量論</h3>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">4.1 - 4.6</span>
+          <div class="q-text">モル計算の重要公式と導出</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            1. モル数: $n = \frac{m\text{ (g)}}{M\text{ (g/mol)}}$<br>
+            2. 粒子数: $N = n 	imes N_A$ ($N_A = 6.02 	imes 10^{23}\text{ mol}^{-1}$)<br>
+            3. モル濃度: $C (\text{mol dm}^{-3}) = \frac{n (\text{mol})}{V (\text{dm}^3)}$<br>
+            4. 実験式: 元素の質量比を原子量で割って最も簡単な整数比にする。
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>実験式から分子式の決定手順:</strong></p>
+            <p>例えば実験式が $\text{CH}_2\text{O}$（式量30）で、分子量が90と測定された場合、$n = \frac{90}{30} = 3$ となるため、分子式は $(\text{CH}_2\text{O})_3 = \text{C}_3\text{H}_6\text{O}_3$ と決まります。</p>
+          </div>
+        </details>
+      </div>
+
+      <h3 class="subsection-title">第4章 試験形式問題</h3>
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">試験問 1 - 12</span>
+          <div class="q-text">第4章 試験形式問題全問の解説</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            問1: **D** ($\text{Na}_2\text{B}_4\text{O}_7 \cdot 10\text{H}_2\text{O}$ モル質量: $23	imes2 + 10.8	imes4 + 16	imes7 + 10	imes18 = 381.4\text{ g/mol}$)<br>
+            問7: **B** (炭素 24g = 2mol, 水素 8g = 8mol $
+ightarrow$ 比 1:4 より $\text{CH}_4$)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CHAPTER 5 -->
+    <!-- ========================================== -->
+    <section id="ch5" class="chapter-section">
+      <h2 class="chapter-title">第5章 理想気体</h2>
+
+      <h3 class="subsection-title">練習問題 5.1 - 5.3 状態方程式</h3>
+
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">5.1 - 5.3</span>
+          <div class="q-text">理想気体の状態方程式 $PV = nRT$ の計算手順</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            ・気体状態方程式: $PV = nRT$<br>
+            ・単位の統一: $P [\text{Pa}]$, $V [\text{m}^3]$, $n [\text{mol}]$, $R = 8.31 [\text{J K}^{-1}\text{mol}^{-1}]$, $T [\text{K}]$<br>
+            ・単位換算: $1\text{ kPa} = 10^3\text{ Pa}$, &nbsp; $1\text{ dm}^3 = 10^{-3}\text{ m}^3$, &nbsp; $1\text{ cm}^3 = 10^{-6}\text{ m}^3$
+          </div>
+        </div>
+        <details class="explanation-accordion" open>
+          <summary>詳細解説を表示</summary>
+          <div class="explanation-body">
+            <p><strong>問 5.3-7 の計算導出例:</strong></p>
+            <p>$T = 298\text{ K}$, $P = 1.5 	imes 10^5\text{ Pa}$, $V = 0.4 	imes 10^{-3}\text{ m}^3$ のとき、</p>
+            $$n = \frac{PV}{RT} = \frac{1.5 	imes 10^5 	imes 0.4 	imes 10^{-3}}{8.31 	imes 298} = \frac{60}{2476.38} pprox 0.0242\text{ mol}$$
+          </div>
+        </details>
+      </div>
+
+      <h3 class="subsection-title">第5章 試験形式問題</h3>
+      <div class="q-card">
+        <div class="q-header">
+          <span class="q-num">試験問 1 - 11</span>
+          <div class="q-text">第5章 試験形式問題全問の解説</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label">模範解答</div>
+          <div class="answer-content">
+            問1: **C** ($V = 2.5\text{ mol} 	imes 22.7\text{ dm}^3/\text{mol} = 56.75\text{ dm}^3$)<br>
+            問6: **A** (水素 H₂ は極めて軽くて無極性分子のため、粒子間力・粒子体積が最も無視でき理想気体に最も近い)<br>
+            問10: **B** ($M = \frac{mRT}{PV}$ よりモル質量 32 g/mol と計算され、酸素 O₂ と特定)
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Live Search Functionality
+    const searchInput = document.getElementById('searchInput');
+    const qCards = document.querySelectorAll('.q-card');
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+
+      qCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(query)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

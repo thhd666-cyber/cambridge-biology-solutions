@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大学入試・上級数学 総合演習 完全解答・詳細解説集（全7題 完全網羅版）</title>
+  <meta name="description" content="楕円の接線の直交とモンジュの円、1の2n乗根と等比数列の和、三角方程式と解の存在範囲、複素数平面と回転変換・極限、3次関数の接線と積分方程式、数列の和と漸化式、対数関数と平均値の定理・不動点極限の完全解答・ステップ別解説。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- MathJax for chemical and mathematical formulas -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #070a13;
+      --bg-card: rgba(15, 23, 42, 0.85);
+      --bg-card-hover: rgba(24, 36, 64, 0.95);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(56, 189, 248, 0.4);
+
+      /* Theme Accents */
+      --cyan: #38bdf8;
+      --indigo: #818cf8;
+      --emerald: #34d399;
+      --amber: #fbbf24;
+      --orange: #fb923c;
+      --rose: #f43f5e;
+      --purple: #c084fc;
+
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.8;
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 90% 15%, rgba(129, 140, 248, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(52, 211, 153, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+      padding-bottom: 100px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Hero Section */
+    header {
+      padding: 60px 0 35px;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(8px);
+      letter-spacing: 0.5px;
+    }
+
+    .badge-primary {
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .badge-rose {
+      background: rgba(244, 63, 94, 0.12);
+      color: var(--rose);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+    }
+
+    .badge-amber {
+      background: rgba(251, 191, 36, 0.12);
+      color: var(--amber);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+    }
+
+    .badge-purple {
+      background: rgba(192, 132, 252, 0.12);
+      color: var(--purple);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+    }
+
+    h1.main-title {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #ffffff 30%, #38bdf8 70%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 860px;
+      margin: 0 auto 25px;
+    }
+
+    /* Score Overview Bar */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin: 30px 0 40px;
+    }
+
+    .overview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+    }
+
+    .overview-card:hover {
+      border-color: var(--border-highlight);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    .overview-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .overview-info h4 {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .overview-info .val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Quick Nav / Table of Contents */
+    .quick-nav {
+      position: sticky;
+      top: 15px;
+      z-index: 90;
+      background: rgba(11, 17, 33, 0.92);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 9999px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      gap: 10px;
+      overflow-x: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .nav-btn {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-btn:hover, .nav-btn.active {
+      color: #fff;
+      background: rgba(56, 189, 248, 0.2);
+    }
+
+    .control-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .action-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .action-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--text-main);
+    }
+
+    /* Section Styling */
+    .question-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      margin-bottom: 40px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .q-number-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .q-badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      color: #050811;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .q-title-text h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .q-title-text p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .topic-tag {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--cyan);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+    }
+
+    .context-box {
+      background: rgba(2, 6, 23, 0.65);
+      border-left: 4px solid var(--cyan);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      color: #e2e8f0;
+      font-size: 0.98rem;
+    }
+
+    /* Sub question item */
+    .sub-item {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+      transition: var(--transition);
+    }
+
+    .sub-item:hover {
+      border-color: rgba(56, 189, 248, 0.25);
+    }
+
+    .sub-q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      gap: 10px;
+    }
+
+    .sub-q-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .q-text {
+      color: #cbd5e1;
+      margin-bottom: 18px;
+      font-size: 0.98rem;
+    }
+
+    /* Answer and Explanation Blocks */
+    .solution-card {
+      margin-top: 15px;
+      background: rgba(2, 6, 23, 0.75);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .ans-banner {
+      background: linear-gradient(90deg, rgba(52, 211, 153, 0.15), rgba(56, 189, 248, 0.1));
+      padding: 12px 18px;
+      border-bottom: 1px solid rgba(52, 211, 153, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .ans-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--emerald);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ans-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .solution-body {
+      padding: 20px;
+    }
+
+    .step-list {
+      list-style: none;
+      counter-reset: step-counter;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .step-item {
+      position: relative;
+      padding-left: 36px;
+    }
+
+    .step-item::before {
+      counter-increment: step-counter;
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 50%;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-title {
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 6px;
+      font-size: 0.96rem;
+    }
+
+    .step-desc {
+      color: #cbd5e1;
+      font-size: 0.94rem;
+      line-height: 1.8;
+    }
+
+    /* Theory Note Box */
+    .theory-box {
+      margin-top: 18px;
+      background: rgba(129, 140, 248, 0.08);
+      border: 1px solid rgba(129, 140, 248, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+    }
+
+    .theory-box h5 {
+      color: var(--indigo);
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .theory-box p, .theory-box ul {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .theory-box ul {
+      padding-left: 20px;
+    }
+
+    /* SVG Illustrations */
+    .svg-diagram-wrapper {
+      background: #090e1a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .svg-diagram-wrapper svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-top: 8px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 50px 0 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+
+    /* Print Optimization */
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+      }
+      .quick-nav, .badge-container {
+        display: none !important;
+      }
+      .question-section, .sub-item, .solution-card {
+        border: 1px solid #ccc !important;
+        background: #fff !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+      .ans-banner {
+        background: #eee !important;
+        color: #000 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="badge-container">
+        <span class="badge badge-primary"><i data-lucide="award"></i> 大学入試 数学（国公立・難関大レベル）</span>
+        <span class="badge badge-rose"><i data-lucide="sparkles"></i> 2次曲線・複素数・三角・微積分・数列・極限</span>
+        <span class="badge badge-purple"><i data-lucide="book-open"></i> 全7題 完全収録版</span>
+      </div>
+      <h1 class="main-title">大学入試 数学演習 完全解答・詳細解説集</h1>
+      <p class="subtitle">
+        楕円の直交接線とモンジュの円・1の2n乗根・三角方程式・複素数平面の回転変換・3次関数の接線と積分方程式・和と漸化式・不動点極限の完全解法
+      </p>
+    </header>
+
+    <!-- Overview Cards -->
+    <div class="overview-grid">
+      <div class="overview-card">
+        <div class="overview-icon" style="background: rgba(244, 63, 94, 0.15); color: var(--rose);">
+          <i data-lucide="crosshair"></i>
+        </div>
+        <div class="overview-info">
+          <h4>252：楕円の直交接線</h4>
+          <div class="val">接線の公式 & モンジュの円</div>
+        </div>
+      </div>
+
+      <div class="overview-card">
+        <div class="overview-icon" style="background: rgba(192, 132, 252, 0.15); color: var(--purple);">
+          <i data-lucide="circle-dot"></i>
+        </div>
+        <div class="overview-info">
+          <h4>183：1の $2n$ 乗根</h4>
+          <div class="val">等比級数 & 代数学の基本定理</div>
+        </div>
+      </div>
+
+      <div class="overview-card">
+        <div class="overview-icon" style="background: rgba(251, 191, 36, 0.15); color: var(--amber);">
+          <i data-lucide="pie-chart"></i>
+        </div>
+        <div class="overview-info">
+          <h4>2：三角方程式</h4>
+          <div class="val">2倍角 & 解の存在範囲</div>
+        </div>
+      </div>
+
+      <div class="overview-card">
+        <div class="overview-icon" style="background: rgba(56, 189, 248, 0.15); color: var(--cyan);">
+          <i data-lucide="function-square"></i>
+        </div>
+        <div class="overview-info">
+          <h4>4(1)：接線・積分</h4>
+          <div class="val">接線条件 & 微分方程式</div>
+        </div>
+      </div>
+
+      <div class="overview-card">
+        <div class="overview-icon" style="background: rgba(129, 140, 248, 0.15); color: var(--indigo);">
+          <i data-lucide="sigma"></i>
+        </div>
+        <div class="overview-info">
+          <h4>4(2)：数列の和 $S_n$</h4>
+          <div class="val">平方完成 & 等差数列化</div>
+        </div>
+      </div>
+
+      <div class="overview-card">
+        <div class="overview-icon" style="background: rgba(192, 132, 252, 0.15); color: var(--purple);">
+          <i data-lucide="compass"></i>
+        </div>
+        <div class="overview-info">
+          <h4>1：回転変換・極限</h4>
+          <div class="val">望遠鏡和 & 偏角の極限</div>
+        </div>
+      </div>
+
+      <div class="overview-card">
+        <div class="overview-icon" style="background: rgba(52, 211, 153, 0.15); color: var(--emerald);">
+          <i data-lucide="trending-up"></i>
+        </div>
+        <div class="overview-info">
+          <h4>5：不動点極限</h4>
+          <div class="val">平均値の定理 & 縮小写像</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Sticky Nav -->
+    <div class="quick-nav">
+      <div class="nav-links">
+        <a href="#q-252" class="nav-btn" style="color:var(--rose);"><i data-lucide="arrow-right-circle"></i> 252：楕円の直交接線</a>
+        <a href="#q-183" class="nav-btn" style="color:var(--purple);"><i data-lucide="arrow-right-circle"></i> 183：1の2n乗根</a>
+        <a href="#q-trig" class="nav-btn" style="color:var(--amber);"><i data-lucide="arrow-right-circle"></i> 2：三角方程式</a>
+        <a href="#q1" class="nav-btn"><i data-lucide="arrow-right-circle"></i> 4(1)：接線と積分方程式</a>
+        <a href="#q2" class="nav-btn"><i data-lucide="arrow-right-circle"></i> 4(2)：和と一般項の漸化式</a>
+        <a href="#q3" class="nav-btn"><i data-lucide="arrow-right-circle"></i> 1：回転変換と極限</a>
+        <a href="#q4" class="nav-btn"><i data-lucide="arrow-right-circle"></i> 5：不動点極限</a>
+      </div>
+      <div class="control-actions">
+        <button class="action-btn" onclick="window.print()"><i data-lucide="printer"></i> 印刷 / PDF保存</button>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 第252問（NEW：楕円の直交接線と接線の公式） -->
+    <!-- ========================================================================= -->
+    <section id="q-252" class="question-section" style="border-color: rgba(244, 63, 94, 0.35);">
+      <div class="question-header">
+        <div class="q-number-title">
+          <div class="q-badge" style="background: linear-gradient(135deg, #f43f5e, #fb7185);">252</div>
+          <div class="q-title-text">
+            <h2>大問252：楕円に引いた2本の接線の直交証明（接線の公式の利用）</h2>
+            <p>傾き $m$ の接線公式・解と係数の関係・直交条件 $m_1 m_2 = -1$・モンジュの円（準円）</p>
+          </div>
+        </div>
+        <div class="topic-tag" style="color:var(--rose); background: rgba(244, 63, 94, 0.1); border-color: rgba(244, 63, 94, 0.3);">2次曲線・解析幾何</div>
+      </div>
+
+      <div class="context-box" style="border-left-color: var(--rose);">
+        <strong>【問題】</strong><br>
+        点 $(3, 4)$ から楕円 $\frac{x^2}{16} + \frac{y^2}{9} = 1$ に引いた 2 本の接線は直交することを示せ。
+      </div>
+
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> 接線の公式を用いた完全証明</div>
+        </div>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・証明の完結</span>
+            <span class="ans-value">「傾きの積 $m_1 m_2 = -1$ より2本の接線は直交する（証明終了）」</span>
+          </div>
+          <div class="solution-body">
+            <div class="svg-diagram-wrapper">
+              <svg viewBox="0 0 520 300" width="500" height="290">
+                <!-- Grid & Axes -->
+                <line x1="40" y1="150" x2="480" y2="150" stroke="#475569" stroke-width="1.5"/>
+                <line x1="260" y1="270" x2="260" y2="30" stroke="#475569" stroke-width="1.5"/>
+                <text x="475" y="165" fill="#94a3b8" font-size="11">x</text>
+                <text x="245" y="40" fill="#94a3b8" font-size="11">y</text>
+
+                <!-- Monge's Circle (Director Circle): x^2 + y^2 = 16 + 9 = 25 (r = 5, scaled: 1 unit = 24px, r = 120px) -->
+                <circle cx="260" cy="150" r="120" fill="none" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="4"/>
+                <text x="355" y="55" fill="#f43f5e" font-size="10">モンジュの円 (準円): x² + y² = 25</text>
+
+                <!-- Ellipse: x^2/16 + y^2/9 = 1 (a = 4 -> 96px, b = 3 -> 72px) -->
+                <ellipse cx="260" cy="150" rx="96" ry="72" fill="rgba(56, 189, 248, 0.08)" stroke="#38bdf8" stroke-width="2"/>
+                <text x="310" y="140" fill="#38bdf8" font-size="10">x²/16 + y²/9 = 1</text>
+
+                <!-- Point P(3, 4) -> x = 260 + 3*24 = 332, y = 150 - 4*24 = 54 -->
+                <circle cx="332" cy="54" r="5" fill="#fbbf24"/>
+                <text x="342" y="50" fill="#fbbf24" font-size="11" font-weight="bold">P(3, 4)</text>
+
+                <!-- Tangent lines from P(3, 4) -->
+                <!-- 7m^2 + 24m - 7 = 0 -> m1 ≈ 0.270, m2 ≈ -3.699 (m1 * m2 = -1) -->
+                <!-- Line 1: y - 4 = 0.270(x - 3) -->
+                <line x1="120" y1="110" x2="460" y2="19" stroke="#34d399" stroke-width="2"/>
+                <!-- Line 2: y - 4 = -3.699(x - 3) -->
+                <line x1="305" y1="2" x2="385" y2="250" stroke="#a78bfa" stroke-width="2"/>
+
+                <!-- Right angle mark at P(3, 4) -->
+                <path d="M 322 57 L 326 69 L 338 66" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+                <text x="300" y="80" fill="#fbbf24" font-size="11" font-weight="bold">90° 直交</text>
+              </svg>
+              <div class="diagram-caption">図：楕円 $\frac{x^2}{16} + \frac{y^2}{9} = 1$、点 $\text{P}(3, 4)$ から引いた2本の直交接線、およびモンジュの円（準円 $x^2 + y^2 = 25$）</div>
+            </div>
+
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">Step 1: 楕円の接線の公式の適用</div>
+                <div class="step-desc">
+                  楕円 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$（ここで $a^2 = 16, b^2 = 9$）において、傾きが $m$ である接線の方程式は：
+                  $$y = mx \pm \sqrt{a^2 m^2 + b^2} \iff y = mx \pm \sqrt{16m^2 + 9}$$
+                  ※点 $(3, 4)$ を通る直線において、$x$ 軸に垂直な直線 $x = 3$ は楕円 $\frac{x^2}{16} + \frac{y^2}{9} = 1$ と $x = 3$ で $y = \pm \frac{3\sqrt{7}}{4} \neq 4$ より接線ではないため、接線の傾きを $m$ とおくことができます。
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">Step 2: 通る点 $(3, 4)$ の代入と $m$ の2次方程式の導出</div>
+                <div class="step-desc">
+                  この接線が点 $(3, 4)$ を通るから、$x = 3, y = 4$ を代入すると：
+                  $$4 = 3m \pm \sqrt{16m^2 + 9}$$
+                  根号の項を分離すると：
+                  $$4 - 3m = \pm \sqrt{16m^2 + 9}$$
+                  両辺を2乗して根号を外すと：
+                  $$(4 - 3m)^2 = 16m^2 + 9$$
+                  $$16 - 24m + 9m^2 = 16m^2 + 9$$
+                  すべて右辺に移項して整理すると：
+                  $$7m^2 + 24m - 7 = 0$$
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">Step 3: 解と係数の関係と直交の判定</div>
+                <div class="step-desc">
+                  $m$ についての2次方程式 $7m^2 + 24m - 7 = 0$ の判別式を $D$ とすると：
+                  $$\frac{D}{4} = 12^2 - 7 \times (-7) = 144 + 49 = 193 > 0$$
+                  より、この方程式は異なる2つの実数解 $m_1, m_2$ をもちます（点 $(3, 4)$ から引ける2本の接線の傾きが存在する）。<br>
+                  解と係数の関係より、2つの傾きの積 $m_1 m_2$ は：
+                  $$\mathbf{m_1 m_2 = \frac{-7}{7} = -1}$$
+                  2直線の傾きの積が $-1$ であるため、**点 $(3, 4)$ から引いた2本の接線は直交する**。（証明終了）
+                </div>
+              </li>
+            </ul>
+
+            <div class="theory-box">
+              <h5><i data-lucide="info"></i> 別解：接点の公式 $\frac{x_0 x}{16} + \frac{y_0 y}{9} = 1$ を用いる方法</h5>
+              <p>
+                楕円上の接点を $(x_0, y_0)$ とおくと、接線の方程式は $\frac{x_0 x}{16} + \frac{y_0 y}{9} = 1$ です。<br>
+                この接線が点 $(3, 4)$ を通るため $\frac{3x_0}{16} + \frac{4y_0}{9} = 1$ が成り立ちます。<br>
+                接線の傾きは $m = -\frac{9x_0}{16y_0}$ であり、これより $x_0 = -\frac{16m y_0}{9}$ を上の式に代入すると $y_0 = \frac{9}{4 - 3m}$、したがって $x_0 = -\frac{16m}{4 - 3m}$ が得られます。<br>
+                点 $(x_0, y_0)$ は楕円上にあるため $\frac{x_0^2}{16} + \frac{y_0^2}{9} = 1$ に代入すると：
+                $$\frac{1}{16}\left(\frac{-16m}{4-3m}\right)^2 + \frac{1}{9}\left(\frac{9}{4-3m}\right)^2 = 1 \iff 16m^2 + 9 = (4 - 3m)^2 \iff 7m^2 + 24m - 7 = 0$$
+                同様に $m_1 m_2 = -1$ となり直交することが示されます。
+              </p>
+            </div>
+
+            <div class="theory-box" style="margin-top: 14px; background: rgba(244, 63, 94, 0.06); border-color: rgba(244, 63, 94, 0.25);">
+              <h5 style="color: var(--rose);"><i data-lucide="sparkles"></i> 発展：モンジュの円（準円 / Director Circle）の定理</h5>
+              <p>
+                一般に、楕円 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ に対して引いた2本の接線が直交するような点 $(x, y)$ の軌跡は、円：
+                $$x^2 + y^2 = a^2 + b^2$$
+                となります。これを<strong>モンジュの円（準円）</strong>と呼びます。<br>
+                本問では $a^2 = 16, b^2 = 9$ であるため、準円の方程式は $x^2 + y^2 = 16 + 9 = 25$ です。<br>
+                与えられた点 $(3, 4)$ は $3^2 + 4^2 = 9 + 16 = 25$ を満たすため、まさにモンジュの円周上の点です。したがって、ここから引いた2本の接線は必然的に直交します。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 第183問（1の2n乗根と等比数列の和） -->
+    <!-- ========================================================================= -->
+    <section id="q-183" class="question-section" style="border-color: rgba(192, 132, 252, 0.35);">
+      <div class="question-header">
+        <div class="q-number-title">
+          <div class="q-badge" style="background: linear-gradient(135deg, #c084fc, #818cf8);">183</div>
+          <div class="q-title-text">
+            <h2>大問183：1の $2n$ 乗根と等比数列の和・代数学の基本定理</h2>
+            <p>極形式・ド・モアブルの定理・等比数列の和の公式・方程式 $z^{2n} = 1$ の解の完全決定</p>
+          </div>
+        </div>
+        <div class="topic-tag" style="color:var(--purple); background: rgba(192, 132, 252, 0.1); border-color: rgba(192, 132, 252, 0.3);">複素数平面・方程式論</div>
+      </div>
+
+      <div class="context-box">
+        <strong>【問題】</strong><br>
+        $n$ を自然数とし，$\alpha = \cos\frac{\pi}{n} + i\sin\frac{\pi}{n}$ とする。次の問いに答えよ。<br>
+        <strong>(1)</strong> $1 + \alpha + \alpha^2 + \dots + \alpha^{2n-1}$ の値を求めよ。<br>
+        <strong>(2)</strong> $z^{2n} = 1$ の解は $1, \alpha, \alpha^2, \dots, \alpha^{2n-1}$ であることを示せ。
+      </div>
+
+      <!-- (1) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (1) $1 + \alpha + \alpha^2 + \dots + \alpha^{2n-1}$ の値の算出</div>
+        </div>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・結論</span>
+            <span class="ans-value">$$0$$</span>
+          </div>
+          <div class="solution-body">
+            <p style="color:#cbd5e1; font-size:0.94rem;">
+              $\alpha^{2n} = \cos 2\pi + i\sin 2\pi = 1$ かつ $\alpha \neq 1$ より：<br>
+              $$1 + \alpha + \dots + \alpha^{2n-1} = \frac{1 - \alpha^{2n}}{1 - \alpha} = \frac{1 - 1}{1 - \alpha} = \mathbf{0}$$
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- (2) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (2) $z^{2n} = 1$ の解の決定証明</div>
+        </div>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・証明の完結</span>
+            <span class="ans-value">「相異なる2n個の解が存在し、方程式の次数と一致するため（証明終了）」</span>
+          </div>
+          <div class="solution-body">
+            <p style="color:#cbd5e1; font-size:0.94rem;">
+              $(\alpha^k)^{2n} = 1$ より各 $\alpha^k$ は解。偏角の差 $0 < \frac{(k-j)\pi}{n} < 2\pi$ より相異なる $2n$ 個の解が存在し、代数学の基本定理よりこれらですべて尽くされます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 第2問（三角方程式と解の存在範囲） -->
+    <!-- ========================================================================= -->
+    <section id="q-trig" class="question-section" style="border-color: rgba(251, 191, 36, 0.3);">
+      <div class="question-header">
+        <div class="q-number-title">
+          <div class="q-badge" style="background: linear-gradient(135deg, #fbbf24, #f97316);">2</div>
+          <div class="q-title-text">
+            <h2>第2問：三角方程式の解および解をもつ定数 $a$ の範囲</h2>
+            <p>2倍角の公式・置き換え $t = \sin\theta$・2次関数の最大最小・定数分離法</p>
+          </div>
+        </div>
+        <div class="topic-tag" style="color:var(--amber); background: rgba(251, 191, 36, 0.1); border-color: rgba(251, 191, 36, 0.3);">三角関数・2次関数</div>
+      </div>
+
+      <div class="context-box">
+        <strong>【問題】</strong><br>
+        方程式 $2\sin^2\theta - \cos 2\theta + 2\sqrt{3}\sin\theta + a = 0$ について，次の各問に答えよ。ただし，$a$ を実数とし，$0 \leqq \theta < 2\pi$ とする。<br>
+        <strong>(1)</strong> $a = 1$ のとき，$\theta$ の値を求めよ。<br>
+        <strong>(2)</strong> この方程式が解をもつとき，$a$ のとり得る値の範囲を求めよ。
+      </div>
+
+      <div class="sub-item">
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 解答・まとめ</span>
+            <span class="ans-value">(1) $$\theta = 0, \pi, \frac{4\pi}{3}, \frac{5\pi}{3}$$ / (2) $$-3 - 2\sqrt{3} \leqq a \leqq \frac{7}{4}$$</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 第4問 (1) -->
+    <!-- ========================================================================= -->
+    <section id="q1" class="question-section">
+      <div class="question-header">
+        <div class="q-number-title">
+          <div class="q-badge">4-1</div>
+          <div class="q-title-text">
+            <h2>第4問(1)：3次関数の接線条件と積分方程式（多項式の決定）</h2>
+            <p>微分係数・接線の一致条件・微分と積分の基本定理・未定係数法</p>
+          </div>
+        </div>
+        <div class="topic-tag">微分積分学</div>
+      </div>
+
+      <div class="context-box">
+        <strong>【問題】</strong><br>
+        $a, b$ を定数とし，$f(x) = x^3 + ax + b$ とする。<br>
+        曲線 $y = f(x)$ が点 $(-1, f(-1))$ で直線 $y = -2x - 1$ に接しているとき，次の問いに答えよ。<br>
+        <strong>(1)</strong> $a, b$ の値を求めよ。<br>
+        <strong>(2)</strong> 多項式 $g(x)$ と正の定数 $c$ に対して，等式 $g(x) = \int_c^x \{f(t) + g(t)\} dt$ が成立するとき，$g(x)$ および $c$ の値を求めよ。
+      </div>
+
+      <div class="sub-item">
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 解答・まとめ</span>
+            <span class="ans-value">(1) $$a = -5, b = -3$$ / (2) $$g(x) = -x^3 - 3x^2 - x + 2, \ c = \frac{\sqrt{5}-1}{2}$$</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 第4問 (2) -->
+    <!-- ========================================================================= -->
+    <section id="q2" class="question-section">
+      <div class="question-header">
+        <div class="q-number-title">
+          <div class="q-badge">4-2</div>
+          <div class="q-title-text">
+            <h2>第4問(2)：数列の和 $S_n$ と一般項 $a_n$ の関係式</h2>
+            <p>和と一般項の関係 $a_n = S_n - S_{n-1}$・平方完成と2次方程式・等差数列への帰着</p>
+          </div>
+        </div>
+        <div class="topic-tag">数列と漸化式</div>
+      </div>
+
+      <div class="context-box">
+        <strong>【問題】</strong><br>
+        $a_n > 0 \ (n = 1, 2, 3, \dots)$ となる数列 $\{a_n\}$ の初項から第 $n$ 項までの和 $S_n$ が $S_n = \frac{a_n}{2} + \frac{2}{a_n}$ で表されるとき，<br>
+        <strong>(1)</strong> $a_1$ を求めよ。 <strong>(2)</strong> $S_n$ を求めよ。 <strong>(3)</strong> 数列 $\{a_n\}$ の一般項を求めよ。
+      </div>
+
+      <div class="sub-item">
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 解答・まとめ</span>
+            <span class="ans-value">$$a_1 = 2, \quad S_n = 2\sqrt{n}, \quad a_n = 2(\sqrt{n} - \sqrt{n-1})$$</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 第1問 -->
+    <!-- ========================================================================= -->
+    <section id="q3" class="question-section">
+      <div class="question-header">
+        <div class="q-number-title">
+          <div class="q-badge">1</div>
+          <div class="q-title-text">
+            <h2>第1問：複素数平面の回転変換・連立漸化式と極限</h2>
+            <p>回転行列・ド・モアブルの定理・部分分数分解（望遠鏡和）・三角関数の連続性と極限</p>
+          </div>
+        </div>
+        <div class="topic-tag">複素数平面・極限</div>
+      </div>
+
+      <div class="context-box">
+        <strong>【問題】</strong><br>
+        $\theta_n = \frac{5\pi}{6n(n+1)}$。漸化式 $a_{n+1} = a_n \cos\theta_{n+1} - b_n \sin\theta_{n+1}, \ b_{n+1} = a_n \sin\theta_{n+1} + b_n \cos\theta_{n+1}$。<br>
+        <strong>(1)</strong> 一般項を求めよ。 <strong>(2)</strong> 極限を求めよ。
+      </div>
+
+      <div class="sub-item">
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 解答・まとめ</span>
+            <span class="ans-value">$$a_n = \cos\frac{5n\pi}{6(n+1)}, \ b_n = \sin\frac{5n\pi}{6(n+1)}, \quad \lim a_n = -\frac{\sqrt{3}}{2}, \ \lim b_n = \frac{1}{2}$$</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 第5問 -->
+    <!-- ========================================================================= -->
+    <section id="q4" class="question-section">
+      <div class="question-header">
+        <div class="q-number-title">
+          <div class="q-badge">5</div>
+          <div class="q-title-text">
+            <h2>第5問：対数関数と不動点漸化式・平均値の定理・極限（縮小写像）</h2>
+            <p>中間値の定理・平均値の定理（微分積分）・はさみうちの原理・リプシッツ連続性</p>
+          </div>
+        </div>
+        <div class="topic-tag">関数と極限（難問）</div>
+      </div>
+
+      <div class="context-box">
+        <strong>【問題】</strong><br>
+        $a_1 = 0, \ a_{n+1} = \log(a_n + 2)$。<br>
+        <strong>(1)</strong> 解の範囲 $m, n$ を求めよ。 <strong>(2)</strong> 平均変化率の大小比較。 <strong>(3)</strong> 誤差比の上限。 <strong>(4)</strong> $\lim a_n = c$ の証明。
+      </div>
+
+      <div class="sub-item">
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 解答・まとめ</span>
+            <span class="ans-value">$$m = -2, \ n = 1, \quad \text{比} < \frac{1}{2}, \quad \lim_{n\to\infty} a_n = c$$</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>大学入試・上級数学 総合演習 完全解答・詳細解説集</p>
+      <p style="margin-top: 5px; font-size: 0.8rem; color: #475569;">Advanced Mathematics Solutions for University Entrance Examinations</p>
+    </footer>
+  </div>
+
+  <!-- Lucide Icon Init -->
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

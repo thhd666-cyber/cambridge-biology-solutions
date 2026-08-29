@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ギブズ自由エネルギー変化（Gibbs Free Energy Change）完全解説</title>
+  <meta name="description" content="IB Chemistry / A-Level 化学におけるギブズ自由エネルギー変化（ΔG）、自発性の判定、温度の影響、計算問題（Q3）の徹底解説とリアルタイム・シミュレーター。">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- MathJax for TeX formula rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: rgba(22, 31, 49, 0.7);
+      --bg-card-hover: rgba(30, 42, 66, 0.85);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(99, 102, 241, 0.4);
+      
+      --primary: #6366f1;
+      --primary-light: #818cf8;
+      --primary-glow: rgba(99, 102, 241, 0.25);
+      
+      --cyan: #06b6d4;
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.25);
+      --rose: #f4395e;
+      --rose-glow: rgba(244, 57, 94, 0.25);
+      --amber: #f59e0b;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.7;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 65%, rgba(6, 182, 212, 0.08) 0%, transparent 45%);
+      background-attachment: fixed;
+      padding-bottom: 80px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Hero */
+    header {
+      padding: 60px 0 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .badge-primary {
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--primary-light);
+      border: 1px solid var(--border-highlight);
+    }
+
+    .badge-emerald {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    h1 {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 30px;
+    }
+
+    /* Nav Table of Contents */
+    .toc-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .toc-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .toc-link:hover {
+      color: #fff;
+      border-color: var(--primary);
+      background: var(--primary-glow);
+    }
+
+    /* Section Component */
+    section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 28px;
+      background: linear-gradient(to bottom, var(--primary), var(--cyan));
+      border-radius: 4px;
+    }
+
+    /* Glass Cards */
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 24px;
+      transition: var(--transition);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .card-highlight {
+      border-color: var(--border-highlight);
+      box-shadow: 0 0 25px var(--primary-glow);
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    /* Formula Box */
+    .formula-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(6, 182, 212, 0.08) 100%);
+      border: 1px solid var(--border-highlight);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .formula-large {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .formula-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Spontaneity Criteria Cards */
+    .criteria-card {
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .criteria-negative {
+      background: rgba(16, 185, 129, 0.08);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .criteria-positive {
+      background: rgba(244, 57, 94, 0.08);
+      border-color: rgba(244, 57, 94, 0.3);
+    }
+
+    .criteria-zero {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .criteria-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .criteria-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .criteria-negative .criteria-title { color: var(--emerald); }
+    .criteria-positive .criteria-title { color: var(--rose); }
+    .criteria-zero .criteria-title { color: var(--amber); }
+
+    .analogy-box {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Interactive Simulator */
+    .sim-container {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 32px;
+    }
+
+    @media (max-width: 868px) {
+      .sim-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .control-group {
+      margin-bottom: 20px;
+    }
+
+    .control-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .control-value {
+      font-family: 'Outfit', monospace;
+      color: var(--cyan);
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      background: #1e293b;
+      border-radius: 3px;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--primary);
+      transition: transform 0.1s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .sim-result-box {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    .dg-display {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin: 10px 0;
+      transition: var(--transition);
+    }
+
+    .status-pill {
+      display: inline-block;
+      padding: 6px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+
+    .status-spontaneous {
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--emerald);
+      border: 1px solid var(--emerald);
+    }
+
+    .status-nonspontaneous {
+      background: rgba(244, 57, 94, 0.2);
+      color: var(--rose);
+      border: 1px solid var(--rose);
+    }
+
+    .status-equilibrium {
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--amber);
+      border: 1px solid var(--amber);
+    }
+
+    /* 4-Case Interactive Matrix */
+    .matrix-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .matrix-tab {
+      flex: 1;
+      min-width: 140px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-align: center;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .matrix-tab.active {
+      background: var(--primary-glow);
+      border-color: var(--primary-light);
+      color: #fff;
+    }
+
+    .matrix-content {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .matrix-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Table Styling */
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background: rgba(30, 41, 59, 0.8);
+      color: var(--text-main);
+      font-weight: 600;
+      padding: 14px 18px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-main);
+    }
+
+    /* Warning / Tip Callout Box */
+    .callout {
+      border-left: 4px solid var(--amber);
+      background: rgba(245, 158, 11, 0.08);
+      padding: 20px 24px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 24px 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Q3 Solution Accordion */
+    .accordion-item {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.6);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      padding: 18px 24px;
+      background: rgba(30, 41, 59, 0.5);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #fff;
+      transition: var(--transition);
+    }
+
+    .accordion-header:hover {
+      background: rgba(30, 41, 59, 0.9);
+    }
+
+    .accordion-body {
+      padding: 24px;
+      display: none;
+      border-top: 1px solid var(--border-color);
+      line-height: 1.8;
+    }
+
+    .accordion-body.open {
+      display: block;
+    }
+
+    .step-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-right: 10px;
+    }
+
+    /* Canvas Graph */
+    canvas {
+      width: 100%;
+      height: 220px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: var(--radius-sm);
+      margin-top: 16px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Header & Hero -->
+    <header>
+      <div class="badge-container">
+        <span class="badge badge-primary">IB Chemistry HL / A-Level</span>
+        <span class="badge badge-emerald">Chemical Energetics</span>
+      </div>
+      <h1>ギブズ自由エネルギー変化（$\Delta G$）徹底解説</h1>
+      <p class="hero-subtitle">
+        化学反応が自発的に進むかどうか（Spontaneity）を決定づける熱力学の最重要概念。<br>
+        定義・公式・温度の影響・間違えやすい単位の計算まで、視覚的シミュレーターと共にわかりやすく解説します。
+      </p>
+
+      <!-- Table of Contents -->
+      <nav class="toc-bar">
+        <a href="#concept" class="toc-link">1. 基本概念 & 公式</a>
+        <a href="#spontaneity" class="toc-link">2. 自発性の判定基準</a>
+        <a href="#temperature-effect" class="toc-link">3. 温度の影響（4パターン）</a>
+        <a href="#simulator" class="toc-link">4. リアルタイム計算機</a>
+        <a href="#unit-trap" class="toc-link">5. 単位の落とし穴</a>
+        <a href="#q3-solution" class="toc-link">6. 演習問題(Q3)解法</a>
+      </nav>
+    </header>
+
+    <!-- SECTION 1: ギブズ自由エネルギーとは？ -->
+    <section id="concept">
+      <h2 class="section-title">1. ギブズ自由エネルギー変化 ($\Delta G$) とは？</h2>
+      <div class="card">
+        <p>
+          化学反応や状態変化において、<strong>「系（System）から取り出して役に立つ仕事（Useful work）に利用できる残りのエネルギー」</strong>を<strong>ギブズ自由エネルギー（Gibbs Free Energy, $G$）</strong>と呼びます。
+        </p>
+        <p style="margin-top: 12px; color: var(--text-muted);">
+          ある反応が自発的（外部から無理にエネルギーを与えなくても自然に起こる）かどうかを判定するために、熱力学では<strong>エンタルピー変化（$\Delta H$）</strong>と<strong>エントロピー変化（$\Delta S$）</strong>を組み合わせた「自由エネルギー変化（$\Delta G$）」を用います。
+        </p>
+
+        <!-- Formula Box -->
+        <div class="formula-box">
+          <div class="formula-large">
+            $$\Delta G^\circ = \Delta H^\circ - T \Delta S^\circ$$
+          </div>
+          <div class="formula-desc">
+            標準ギブズ自由エネルギー変化の計算基本公式
+          </div>
+        </div>
+
+        <!-- Formula breakdown grid -->
+        <div class="grid-3" style="margin-top: 24px;">
+          <div style="background: rgba(255, 255, 255, 0.03); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+            <h4 style="color: var(--primary-light); margin-bottom: 6px;">$\Delta H^\circ$ : エンタルピー変化</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              反応に伴う熱の出入り（熱エネルギー）。<br>
+              ・発熱（$\Delta H < 0$）: エネルギー放出（有利）<br>
+              ・吸熱（$\Delta H > 0$）: エネルギー吸収
+            </p>
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.03); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+            <h4 style="color: var(--cyan); margin-bottom: 6px;">$T$ : 絶対温度 (Kelvin)</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              熱力学における絶対温度。単位は Kelvin [$\text{K}$]。<br>
+              $T [\text{K}] = t [^\circ\text{C}] + 273.15$<br>
+              ※必ず絶対温度（K）に換算して計算！
+            </p>
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.03); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+            <h4 style="color: var(--emerald); margin-bottom: 6px;">$\Delta S^\circ$ : エントロピー変化</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              系の乱雑さ（Disorder）の変化。<br>
+              ・乱雑さ増（$\Delta S > 0$）: 自発化を促進<br>
+              ・乱雑さ減（$\Delta S < 0$）: 秩序化
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: 自発性の判定基準 -->
+    <section id="spontaneity">
+      <h2 class="section-title">2. 反応の自発性（Spontaneity Criteria）</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">
+        $\Delta G$ の符号（正・負・ゼロ）によって、その化学反応がどちらの方向に自然に進行するかが一目で決まります。
+      </p>
+
+      <div class="grid-3">
+        <!-- Negative Delta G -->
+        <div class="criteria-card criteria-negative">
+          <div class="criteria-header">
+            <span class="criteria-title">$\Delta G < 0$ (負)</span>
+            <span class="badge badge-emerald">自発的 (Spontaneous)</span>
+          </div>
+          <p style="font-weight: 600; color: #fff; margin-bottom: 8px;">反応は自発的に進行する（Feasible）</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            系がより自由エネルギーの低い、安定な状態へと向かうため、外部からの継続的な仕事なしで反応が進みます。
+          </p>
+          <div class="analogy-box">
+            <span style="font-size: 1.4rem;">⛰️ ⚽ ↘️</span>
+            <span>ボールが坂道を自然に転がり落ちる状態</span>
+          </div>
+        </div>
+
+        <!-- Positive Delta G -->
+        <div class="criteria-card criteria-positive">
+          <div class="criteria-header">
+            <span class="criteria-title">$\Delta G > 0$ (正)</span>
+            <span class="badge" style="background: rgba(244,57,94,0.2); color: var(--rose); border: 1px solid var(--rose);">非自発的 (Non-spontaneous)</span>
+          </div>
+          <p style="font-weight: 600; color: #fff; margin-bottom: 8px;">正反応は自発的に進まない</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            系がエネルギーを吸収しなければ進みません。逆に逆反応が自発的となります。
+          </p>
+          <div class="analogy-box">
+            <span style="font-size: 1.4rem;">🏋️ ⚽ ↗️</span>
+            <span>ボールを坂の上へ押し続けなければ登らない状態</span>
+          </div>
+        </div>
+
+        <!-- Zero Delta G -->
+        <div class="criteria-card criteria-zero">
+          <div class="criteria-header">
+            <span class="criteria-title">$\Delta G = 0$</span>
+            <span class="badge" style="background: rgba(245,158,11,0.2); color: var(--amber); border: 1px solid var(--amber);">化学平衡 (Equilibrium)</span>
+          </div>
+          <p style="font-weight: 600; color: #fff; margin-bottom: 8px;">系は化学平衡状態にある</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            正反応と逆反応の速度が釣り合っており、自由エネルギーの変化がありません。相転移の温度（沸点や融点）もこの状態です。
+          </p>
+          <div class="analogy-box">
+            <span style="font-size: 1.4rem;">⚖️ ⚽</span>
+            <span>平地でボールが静止している状態</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: 温度の影響 (4ケース) -->
+    <section id="temperature-effect">
+      <h2 class="section-title">3. 温度が自発性に与える影響（4つのケース分け）</h2>
+      <div class="card">
+        <p style="color: var(--text-muted); margin-bottom: 20px;">
+          公式 $\Delta G^\circ = \Delta H^\circ - T \Delta S^\circ$ において、$\Delta H$ と $\Delta S$ の符号の組合せによって、<strong>「温度を上げ下げしたときに反応の自発性がどう変わるか」</strong>が4つのパターンに分かれます。
+        </p>
+
+        <!-- Matrix Tabs -->
+        <div class="matrix-tabs">
+          <button class="matrix-tab active" onclick="switchTab(0)">Case 1: 発熱 & エントロピー増<br>($\Delta H < 0, \Delta S > 0$)</button>
+          <button class="matrix-tab" onclick="switchTab(1)">Case 2: 発熱 & エントロピー減<br>($\Delta H < 0, \Delta S < 0$)</button>
+          <button class="matrix-tab" onclick="switchTab(2)">Case 3: 吸熱 & エントロピー増<br>($\Delta H > 0, \Delta S > 0$)</button>
+          <button class="matrix-tab" onclick="switchTab(3)">Case 4: 吸熱 & エントロピー減<br>($\Delta H > 0, \Delta S < 0$)</button>
+        </div>
+
+        <!-- Case 1 Content -->
+        <div class="matrix-content active" id="case-0">
+          <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="color: var(--emerald); margin-bottom: 10px;">Case 1: 全温度で常に自発的 (Always Spontaneous)</h3>
+            <p><strong>条件:</strong> $\Delta H < 0$（発熱）かつ $\Delta S > 0$（乱雑さ増加）</p>
+            <p style="margin-top: 8px; color: var(--text-muted);">
+              $\Delta H$ が負で、$-T\Delta S$ も必ず負になるため、温度 $T$ の値にかかわらず**常に $\Delta G < 0$** となります。熱力学的に最も有利な反応です。
+            </p>
+            <div style="margin-top: 14px; padding: 12px 16px; background: rgba(0,0,0,0.3); border-radius: var(--radius-sm);">
+              <strong>具体的な反応例:</strong> メタンの完全燃焼<br>
+              $$\text{CH}_4(g) + 2\text{O}_2(g) \rightarrow \text{CO}_2(g) + 2\text{H}_2\text{O}(g)$$
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2 Content -->
+        <div class="matrix-content" id="case-1">
+          <div style="background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="color: var(--cyan); margin-bottom: 10px;">Case 2: 低温で自発的 (Spontaneous at Low T)</h3>
+            <p><strong>条件:</strong> $\Delta H < 0$（発熱）かつ $\Delta S < 0$（乱雑さ減少）</p>
+            <p style="margin-top: 8px; color: var(--text-muted);">
+              発熱（$\Delta H < 0$）は自発化に貢献しますが、$-T\Delta S$ が正項となるため高熱になると不利になります。そのため**低温（Low Temperature）でのみ $\Delta G < 0$** となり自発的になります。
+            </p>
+            <div style="margin-top: 14px; padding: 12px 16px; background: rgba(0,0,0,0.3); border-radius: var(--radius-sm);">
+              <strong>具体的な反応例:</strong> ハーバー・ボッシュ法（アンモニア合成）<br>
+              $$\text{N}_2(g) + 3\text{H}_2(g) \rightarrow 2\text{NH}_3(g)$$
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3 Content -->
+        <div class="matrix-content" id="case-2">
+          <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="color: var(--amber); margin-bottom: 10px;">Case 3: 高温で自発的 (Spontaneous at High T)</h3>
+            <p><strong>条件:</strong> $\Delta H > 0$（吸熱）かつ $\Delta S > 0$（乱雑さ増加）</p>
+            <p style="margin-top: 8px; color: var(--text-muted);">
+              吸熱（$\Delta H > 0$）は不利ですが、エントロピー増による $-T\Delta S$（負の項）が温度 $T$ の上昇に伴って大きくなります。したがって**高温（High Temperature）でのみ $\Delta G < 0$** となります。
+            </p>
+            <div style="margin-top: 14px; padding: 12px 16px; background: rgba(0,0,0,0.3); border-radius: var(--radius-sm);">
+              <strong>具体的な反応例:</strong> 塩化アンモニウムの熱分解<br>
+              $$\text{NH}_4\text{Cl}(s) \rightarrow \text{NH}_3(g) + \text{HCl}(g)$$
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 4 Content -->
+        <div class="matrix-content" id="case-3">
+          <div style="background: rgba(244, 57, 94, 0.08); border: 1px solid rgba(244, 57, 94, 0.3); border-radius: var(--radius-md); padding: 24px;">
+            <h3 style="color: var(--rose); margin-bottom: 10px;">Case 4: 全温度で常に非自発的 (Never Spontaneous)</h3>
+            <p><strong>条件:</strong> $\Delta H > 0$（吸熱）かつ $\Delta S < 0$（乱雑さ減少）</p>
+            <p style="margin-top: 8px; color: var(--text-muted);">
+              $\Delta H$ が正で、$-T\Delta S$ も必ず正になるため、どんな温度であっても**常に $\Delta G > 0$** となり自然には進みません。
+            </p>
+            <div style="margin-top: 14px; padding: 12px 16px; background: rgba(0,0,0,0.3); border-radius: var(--radius-sm);">
+              <strong>具体的な反応例:</strong> 生石灰と三酸化硫黄の反応の逆過程など<br>
+              $$\text{CaO}(s) + \text{SO}_3(g) \rightarrow \text{CaSO}_4(s) \quad (\text{逆方向は非自発的})$$
+            </div>
+          </div>
+        </div>
+
+        <!-- Complete Summary Table -->
+        <h4 style="margin-top: 32px; margin-bottom: 16px; color: #fff;">4ケース総合対照表（スライド25ページ対応）</h4>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ケース / 性質</th>
+                <th>$\Delta H$ (エンタルピー)</th>
+                <th>$\Delta S$ (エントロピー)</th>
+                <th>自発性（Spontaneity）</th>
+                <th>温度条件 / 反応例</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong style="color: var(--emerald);">1. 発熱・乱雑化</strong></td>
+                <td>負 ($\Delta H < 0$)</td>
+                <td>正 ($\Delta S > 0$)</td>
+                <td><span style="color: var(--emerald); font-weight:700;">全温度で $\Delta G < 0$ (常に自発的)</span></td>
+                <td>常に有利<br>$\text{CH}_4 + 2\text{O}_2 \rightarrow \text{CO}_2 + 2\text{H}_2\text{O}$</td>
+              </tr>
+              <tr>
+                <td><strong style="color: var(--cyan);">2. 発熱・秩序化</strong></td>
+                <td>負 ($\Delta H < 0$)</td>
+                <td>負 ($\Delta S < 0$)</td>
+                <td><span style="color: var(--cyan); font-weight:700;">低温で $\Delta G < 0$ (低温で自発的)</span></td>
+                <td>低温が有利<br>$\text{N}_2 + 3\text{H}_2 \rightarrow 2\text{NH}_3$</td>
+              </tr>
+              <tr>
+                <td><strong style="color: var(--amber);">3. 吸熱・乱雑化</strong></td>
+                <td>正 ($\Delta H > 0$)</td>
+                <td>正 ($\Delta S > 0$)</td>
+                <td><span style="color: var(--amber); font-weight:700;">高温で $\Delta G < 0$ (高温で自発的)</span></td>
+                <td>高温が有利<br>$\text{NH}_4\text{Cl}(s) \rightarrow \text{NH}_3 + \text{HCl}$</td>
+              </tr>
+              <tr>
+                <td><strong style="color: var(--rose);">4. 吸熱・秩序化</strong></td>
+                <td>正 ($\Delta H > 0$)</td>
+                <td>負 ($\Delta S < 0$)</td>
+                <td><span style="color: var(--rose); font-weight:700;">全温度で $\Delta G > 0$ (決して起きない)</span></td>
+                <td>常に不可<br>$\text{CaO} + \text{SO}_3 \rightarrow \text{CaSO}_4$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: リアルタイム計算機 & シミュレーター -->
+    <section id="simulator">
+      <h2 class="section-title">4. リアルタイム $\Delta G$ 計算機 & 温度グラフシミュレーター</h2>
+      <div class="card card-highlight">
+        <p style="color: var(--text-muted); margin-bottom: 24px;">
+          スライダーを操作して、$\Delta H$, $\Delta S$, および温度 $T$ を変更してみてください。$\Delta G$ の値と自発性がリアルタイムで変化します！
+        </p>
+
+        <div class="sim-container">
+          <!-- Controls Left -->
+          <div>
+            <div class="control-group">
+              <div class="control-label">
+                <span>エンタルピー変化 $\Delta H^\circ$</span>
+                <span class="control-value" id="val-dh">-91.0 kJ/mol</span>
+              </div>
+              <input type="range" id="input-dh" min="-200" max="200" step="1" value="-91">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>エントロピー変化 $\Delta S^\circ$</span>
+                <span class="control-value" id="val-ds">-220.0 J/(mol·K)</span>
+              </div>
+              <input type="range" id="input-ds" min="-400" max="400" step="5" value="-220">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>温度 $t$ ($^\circ\text{C}$) / $T$ (K)</span>
+                <span class="control-value" id="val-temp">25 °C (298.15 K)</span>
+              </div>
+              <input type="range" id="input-temp" min="-100" max="800" step="5" value="25">
+            </div>
+
+            <div style="font-size: 0.85rem; color: var(--text-dim); margin-top: 10px;">
+              💡 補足: $\Delta S^\circ$ は内部で automáticamente $1000$ で割られて $\text{kJ/(mol·K)}$ に変換されて計算されます。
+            </div>
+          </div>
+
+          <!-- Result Display Right -->
+          <div class="sim-result-box">
+            <div>
+              <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">計算結果 (Calculated $\Delta G^\circ$)</div>
+              <div class="dg-display" id="val-dg">-25.41 kJ/mol</div>
+              <div id="status-pill" class="status-pill status-spontaneous">自発的 (Spontaneous)</div>
+            </div>
+
+            <!-- Temperature vs Delta G Canvas Chart -->
+            <div>
+              <div style="font-size: 0.82rem; color: var(--text-muted); text-align: left; margin-bottom: 4px;">
+                📈 温度(K) vs $\Delta G$ (kJ/mol) リアルタイムグラフ
+              </div>
+              <canvas id="chartCanvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: 単位の落とし穴 -->
+    <section id="unit-trap">
+      <h2 class="section-title">5. 試験で絶対間違えてはいけない「単位の落とし穴」</h2>
+      <div class="card">
+        <div class="callout">
+          <div class="callout-title">
+            ⚠️ 試練のポイント: 単位の不一致 (Unit Mismatch Trap)
+          </div>
+          <p style="color: var(--text-main); font-size: 0.95rem;">
+            化学の試験（IB, A-Level, 共通テストなど）で最も多い計算ミスの原因がこれです！
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div style="background: rgba(244, 57, 94, 0.1); border: 1px solid rgba(244, 57, 94, 0.3); padding: 20px; border-radius: var(--radius-md);">
+            <h4 style="color: var(--rose); margin-bottom: 8px;">❌ よくある間違い</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              $\Delta H^\circ = -91 \text{ kJ/mol}$ と $\Delta S^\circ = -220 \text{ J/(mol·K)}$ をそのまま代入してしまう：<br>
+              <code style="color: var(--rose); font-family: monospace;">-91 - (298.15 × -220) = +65,502 kJ/mol</code> 💥 <strong>大失敗！</strong>
+            </p>
+          </div>
+
+          <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 20px; border-radius: var(--radius-md);">
+            <h4 style="color: var(--emerald); margin-bottom: 8px;">⭕ 正しい計算方法</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              $\Delta S^\circ$ を $1000$ で割って $\text{J}$ から $\text{kJ}$ へ揃えてから代入する：<br>
+              $\Delta S^\circ = -220 \div 1000 = -0.220 \text{ kJ/(mol·K)}$<br>
+              <code style="color: var(--emerald); font-family: monospace;">-91 - (298.15 × -0.220) = -25.41 kJ/mol</code> ✨ <strong>大正解！</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Q3演習問題の完全解説 -->
+    <section id="q3-solution">
+      <h2 class="section-title">6. スライド演習問題 (Q3) 完全解説</h2>
+      <div class="card">
+        <h3 style="color: #fff; margin-bottom: 12px;">【問題】メタノール合成反応の熱力学</h3>
+        <p style="color: var(--text-muted); margin-bottom: 16px;">
+          以下の標準生成熱および標準エントロピーのデータを用いて、メタノール合成反応に関する問いに答えよ。
+        </p>
+
+        <!-- Reaction Formula -->
+        <div style="background: rgba(0, 0, 0, 0.4); padding: 16px; border-radius: var(--radius-sm); text-align: center; margin-bottom: 20px; font-size: 1.2rem;">
+          $$\text{CO}(g) + 2\text{H}_2(g) \rightarrow \text{CH}_3\text{OH}(g)$$
+        </div>
+
+        <!-- Given Data Table -->
+        <div class="table-wrapper" style="margin-bottom: 24px;">
+          <table>
+            <thead>
+              <tr>
+                <th>物質</th>
+                <th>標準生成エンタルピー $H^\circ$ ($\text{kJ mol}^{-1}$)</th>
+                <th>標準エントロピー $S^\circ$ ($\text{J K}^{-1}\text{ mol}^{-1}$)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$\text{CO}(g)$</td>
+                <td>$-110$</td>
+                <td>$198$</td>
+              </tr>
+              <tr>
+                <td>$\text{H}_2(g)$</td>
+                <td>$0$</td>
+                <td>$131$</td>
+              </tr>
+              <tr>
+                <td>$\text{CH}_3\text{OH}(g)$</td>
+                <td>$-201$</td>
+                <td>$240$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Accordion Steps -->
+        <!-- Step (a) -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><span class="step-badge">小問 a</span> (1) この反応の標準エントロピー変化 $\Delta S^\circ$ を求めよ。</span>
+            <span>▼</span>
+          </div>
+          <div class="accordion-body">
+            <p><strong>【解説・考え方】</strong></p>
+            <p>エントロピー変化は「生成物のエントロピーの総和」から「反応物のエントロピーの総和」を引くことで求められます。係数（量論係数）を忘れずに掛け算しましょう！</p>
+            <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: var(--radius-sm); margin: 12px 0;">
+              $$\Delta S^\circ = \sum S^\circ(\text{生成物}) - \sum S^\circ(\text{反応物})$$
+              $$\Delta S^\circ = S^\circ(\text{CH}_3\text{OH}) - \left[ S^\circ(\text{CO}) + 2 \times S^\circ(\text{H}_2) \right]$$
+              $$\Delta S^\circ = 240 - \left[ 198 + 2 \times 131 \right] = 240 - (198 + 262) = 240 - 460 = -220 \text{ J K}^{-1}\text{ mol}^{-1}$$
+            </div>
+            <p style="color: var(--amber);">💡 <strong>考察:</strong> 気体分子の数が3モル（$\text{CO}+2\text{H}_2$）から1モル（$\text{CH}_3\text{OH}$）へ減少しているため、$\Delta S^\circ$ が負（秩序化）になっていることが視覚的にも納得できます。</p>
+          </div>
+        </div>
+
+        <!-- Step (b) -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><span class="step-badge">小問 b</span> (2) この反応の標準エンタルピー変化 $\Delta H^\circ$ を求めよ。</span>
+            <span>▼</span>
+          </div>
+          <div class="accordion-body">
+            <p><strong>【解説・考え方】</strong></p>
+            <p>エンタルピー変化も同様に「生成物の生成エンタルピー」から「反応物の生成エンタルピー」を引き算します。</p>
+            <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: var(--radius-sm); margin: 12px 0;">
+              $$\Delta H^\circ = \sum H^\circ(\text{生成物}) - \sum H^\circ(\text{反応物})$$
+              $$\Delta H^\circ = H^\circ(\text{CH}_3\text{OH}) - \left[ H^\circ(\text{CO}) + 2 \times H^\circ(\text{H}_2) \right]$$
+              $$\Delta H^\circ = -201 - \left[ -110 + 2 \times 0 \right] = -201 - (-110) = -91 \text{ kJ mol}^{-1}$$
+            </div>
+            <p style="color: var(--emerald);">💡 <strong>考察:</strong> $\Delta H^\circ = -91 \text{ kJ mol}^{-1} < 0$ のため、この反応は<strong>発熱反応（Exothermic）</strong>です。</p>
+          </div>
+        </div>
+
+        <!-- Step (c) -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><span class="step-badge">小問 c</span> (3) $25^\circ\text{C}$ における標準ギブズ自由エネルギー変化 $\Delta G^\circ$ を計算せよ。</span>
+            <span>▼</span>
+          </div>
+          <div class="accordion-body">
+            <p><strong>【解説・考え方】</strong></p>
+            <p>1. 温度 $25^\circ\text{C}$ を絶対温度 Kelvin に換算: $T = 25 + 273.15 = 298.15 \text{ K}$</p>
+            <p>2. 小問(a)で求めた $\Delta S^\circ = -220 \text{ J K}^{-1}\text{ mol}^{-1}$ を $\text{kJ}$ 単位に変換: $\Delta S^\circ = -0.220 \text{ kJ K}^{-1}\text{ mol}^{-1}$</p>
+            <p>3. 公式 $\Delta G^\circ = \Delta H^\circ - T\Delta S^\circ$ に代入:</p>
+            <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: var(--radius-sm); margin: 12px 0;">
+              $$\Delta G^\circ = -91 - \left[ 298.15 \times (-0.220) \right]$$
+              $$\Delta G^\circ = -91 - (-65.593) = -25.407 \approx -25.4 \text{ kJ mol}^{-1}$$
+            </div>
+          </div>
+        </div>
+
+        <!-- Step (d) -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><span class="step-badge">小問 d</span> (4) $25^\circ\text{C}$ において、この反応は熱力学的に実現可能（自発的）か述べよ。</span>
+            <span>▼</span>
+          </div>
+          <div class="accordion-body">
+            <p><strong>【解説・解答】</strong></p>
+            <p style="font-size: 1.1rem; color: var(--emerald); font-weight:700;">
+              解答: 自発的である（Thermodynamically Feasible / Spontaneous）
+            </p>
+            <p style="margin-top: 8px; color: var(--text-muted);">
+              <strong>理由:</strong> 計算した標準ギブズ自由エネルギー変化 $\Delta G^\circ = -25.4 \text{ kJ mol}^{-1}$ が <strong>負（$\Delta G < 0$）</strong> であるため、$25^\circ\text{C}$ においてこの反応は自然に進行します。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Gibbs Free Energy Change Interactive Explanation Module &copy; IB Chemistry / A-Level Chemistry</p>
+    </footer>
+
+  </div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Tab switching for 4 cases
+    function switchTab(index) {
+      const tabs = document.querySelectorAll('.matrix-tab');
+      const contents = document.querySelectorAll('.matrix-content');
+      
+      tabs.forEach((tab, i) => {
+        if (i === index) {
+          tab.classList.add('active');
+          contents[i].classList.add('active');
+        } else {
+          tab.classList.remove('active');
+          contents[i].classList.remove('active');
+        }
+      });
+    }
+
+    // Accordion toggle
+    function toggleAccordion(headerElement) {
+      const body = headerElement.nextElementSibling;
+      const isOpen = body.classList.contains('open');
+      
+      // Close all other accordions for clean accordion UX
+      document.querySelectorAll('.accordion-body').forEach(el => el.classList.remove('open'));
+      
+      if (!isOpen) {
+        body.classList.add('open');
+      }
+    }
+
+    // Simulator Logic
+    const inputDH = document.getElementById('input-dh');
+    const inputDS = document.getElementById('input-ds');
+    const inputTemp = document.getElementById('input-temp');
+
+    const valDH = document.getElementById('val-dh');
+    const valDS = document.getElementById('val-ds');
+    const valTemp = document.getElementById('val-temp');
+    const valDG = document.getElementById('val-dg');
+    const statusPill = document.getElementById('status-pill');
+
+    const canvas = document.getElementById('chartCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function updateSimulator() {
+      const dh = parseFloat(inputDH.value); // kJ/mol
+      const ds = parseFloat(inputDS.value); // J/(mol·K)
+      const tempC = parseFloat(inputTemp.value); // °C
+      const tempK = tempC + 273.15; // K
+
+      valDH.textContent = `${dh.toFixed(1)} kJ/mol`;
+      valDS.textContent = `${ds.toFixed(1)} J/(mol·K)`;
+      valTemp.textContent = `${tempC} °C (${tempK.toFixed(2)} K)`;
+
+      // Delta G Calculation: dh - (tempK * (ds / 1000))
+      const dsInKJ = ds / 1000.0;
+      const dg = dh - (tempK * dsInKJ);
+
+      valDG.textContent = `${dg.toFixed(2)} kJ/mol`;
+
+      if (Math.abs(dg) < 0.5) {
+        statusPill.textContent = "化学平衡 (Equilibrium)";
+        statusPill.className = "status-pill status-equilibrium";
+        valDG.style.color = "var(--amber)";
+      } else if (dg < 0) {
+        statusPill.textContent = "自発的 (Spontaneous)";
+        statusPill.className = "status-pill status-spontaneous";
+        valDG.style.color = "var(--emerald)";
+      } else {
+        statusPill.textContent = "非自発的 (Non-spontaneous)";
+        statusPill.className = "status-pill status-nonspontaneous";
+        valDG.style.color = "var(--rose)";
+      }
+
+      drawChart(dh, dsInKJ, tempK);
+    }
+
+    function drawChart(dh, dsInKJ, currentTempK) {
+      // Resize canvas crispness
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * window.devicePixelRatio || 600;
+      canvas.height = rect.height * window.devicePixelRatio || 220;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+
+      const w = rect.width;
+      const h = rect.height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Temperature range: 0K to 1000K
+      const minK = 0;
+      const maxK = 1000;
+
+      // Calculate DG at minK and maxK for graph line
+      const dgMin = dh - (minK * dsInKJ);
+      const dgMax = dh - (maxK * dsInKJ);
+
+      // Find Y axis scale
+      const maxAbsDG = Math.max(Math.abs(dgMin), Math.abs(dgMax), 150);
+      const minY = -maxAbsDG;
+      const maxY = maxAbsDG;
+
+      // Coordinate mapping functions
+      const mapX = (k) => ((k - minK) / (maxK - minK)) * (w - 60) + 40;
+      const mapY = (dgVal) => h - 30 - ((dgVal - minY) / (maxY - minY)) * (h - 50);
+
+      // Draw Grid & Axes
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+      ctx.lineWidth = 1;
+
+      // Zero DG line (Horizontal)
+      const zeroY = mapY(0);
+      ctx.beginPath();
+      ctx.setLineDash([4, 4]);
+      ctx.moveTo(40, zeroY);
+      ctx.lineTo(w - 20, zeroY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Axis labels
+      ctx.fillStyle = '#64748b';
+      ctx.font = '10px Inter, sans-serif';
+      ctx.fillText('0K', mapX(0) - 10, h - 10);
+      ctx.fillText('500K', mapX(500) - 12, h - 10);
+      ctx.fillText('1000K', mapX(1000) - 15, h - 10);
+      ctx.fillText('ΔG=0', 5, zeroY + 3);
+
+      // Draw Delta G vs T Line
+      ctx.beginPath();
+      ctx.strokeStyle = '#6366f1';
+      ctx.lineWidth = 3;
+      ctx.moveTo(mapX(minK), mapY(dgMin));
+      ctx.lineTo(mapX(maxK), mapY(dgMax));
+      ctx.stroke();
+
+      // Current Temperature Dot
+      const curX = mapX(currentTempK);
+      const curDG = dh - (currentTempK * dsInKJ);
+      const curY = mapY(curDG);
+
+      // Vertical line at current temp
+      ctx.beginPath();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([2, 2]);
+      ctx.moveTo(curX, 10);
+      ctx.lineTo(curX, h - 25);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Dot
+      ctx.beginPath();
+      ctx.arc(curX, curY, 7, 0, Math.PI * 2);
+      ctx.fillStyle = curDG < 0 ? '#10b981' : '#f4395e';
+      ctx.fill();
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+
+    // Event listeners
+    inputDH.addEventListener('input', updateSimulator);
+    inputDS.addEventListener('input', updateSimulator);
+    inputTemp.addEventListener('input', updateSimulator);
+
+    // Initial load
+    window.addEventListener('load', () => {
+      updateSimulator();
+    });
+    window.addEventListener('resize', () => {
+      updateSimulator();
+    });
+  </script>
+</body>
+</html>

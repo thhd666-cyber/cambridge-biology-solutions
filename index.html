@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge &amp; IB Science Detailed Solutions Portal</title>
+  <meta name="description" content="Cambridge AS & A Level Biology (9700), Chemistry, Mathematics and IB Chemistry HL detailed solutions and Japanese translations.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8fafc;
+      
+      --border-color: #e2e8f0;
+      --border-highlight: #0284c7;
+
+      --brand-primary: #0f172a;
+      --brand-accent: #0284c7;
+      
+      --emerald: #059669;
+      --emerald-subtle: rgba(5, 150, 105, 0.08);
+      --emerald-border: rgba(5, 150, 105, 0.25);
+
+      --sky: #0284c7;
+      --sky-subtle: rgba(2, 132, 199, 0.08);
+      --sky-border: rgba(2, 132, 199, 0.25);
+
+      --indigo: #4f46e5;
+      --indigo-subtle: rgba(79, 70, 229, 0.08);
+      --indigo-border: rgba(79, 70, 229, 0.25);
+
+      --purple: #7c3aed;
+      --purple-subtle: rgba(124, 58, 237, 0.08);
+
+      --text-main: #0f172a;
+      --text-muted: #334155;
+      --text-sub: #64748b;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 14px -2px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.1);
+      
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #090d16;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: #131d31;
+      --bg-card-hover: #19263f;
+      
+      --border-color: #24344d;
+      --border-highlight: #38bdf8;
+
+      --brand-primary: #f8fafc;
+      --brand-accent: #38bdf8;
+      
+      --emerald: #10b981;
+      --emerald-subtle: rgba(16, 185, 129, 0.15);
+      --emerald-border: rgba(16, 185, 129, 0.35);
+
+      --sky: #38bdf8;
+      --sky-subtle: rgba(56, 189, 248, 0.15);
+      --sky-border: rgba(56, 189, 248, 0.35);
+
+      --indigo: #818cf8;
+      --indigo-subtle: rgba(129, 140, 248, 0.15);
+      --purple: #a78bfa;
+
+      --text-main: #f8fafc;
+      --text-muted: #cbd5e1;
+      --text-sub: #94a3b8;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 14px -2px rgba(0,0,0,0.4);
+      --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.7;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(2, 132, 199, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(5, 150, 105, 0.05) 0%, transparent 45%);
+      background-attachment: fixed;
+      padding-bottom: 80px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--sky), var(--emerald));
+      color: white;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
+
+    .btn-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .btn-icon:hover {
+      background: var(--bg-subtle);
+      color: var(--brand-accent);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+      color: #ffffff;
+      padding: 50px 0;
+      margin-bottom: 40px;
+      border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-title {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: #94a3b8;
+      max-width: 800px;
+      line-height: 1.65;
+    }
+
+    /* Portal Grid */
+    .section-heading {
+      font-size: 1.4rem;
+      font-weight: 800;
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-main);
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-highlight);
+    }
+
+    .card-featured {
+      border-top: 5px solid var(--sky);
+    }
+
+    .card-badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-primary { background: var(--sky-subtle); color: var(--sky); border: 1px solid var(--sky-border); }
+    .badge-green { background: var(--emerald-subtle); color: var(--emerald); border: 1px solid var(--emerald-border); }
+    .badge-indigo { background: var(--indigo-subtle); color: var(--indigo); border: 1px solid var(--indigo-border); }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-main);
+      line-height: 1.4;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .card-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .topic-tag {
+      background: var(--bg-subtle);
+      color: var(--text-sub);
+      font-size: 0.78rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px dashed var(--border-color);
+      padding-top: 14px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--brand-accent);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid var(--border-color);
+      margin-top: 40px;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">📚</div>
+        <div class="brand-text">
+          <h1>Science Solutions Portal</h1>
+          <p>Cambridge AS/A Level &amp; IB Diploma Detailed Solutions</p>
+        </div>
+      </a>
+
+      <button id="themeToggle" class="btn-icon" title="テーマ切り替え" aria-label="Toggle Theme">
+        <i data-lucide="moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2 class="hero-title">Cambridge &amp; IB 理科 解答解説・和訳ポータル</h2>
+      <p class="hero-subtitle">
+        Cambridge International AS &amp; A Level および IB Diploma の過去問・重要単元の完全詳細解答解説集です。<strong>全設問に問題文の日本語全訳、公式Mark Scheme模範解答の対訳、SVG図解、および思考プロセスを完全収録</strong>しています。
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- Cambridge Biology Section -->
+    <h3 class="section-heading"><i data-lucide="dna" style="color: var(--emerald);"></i> Cambridge International A-Level Biology (9700)</h3>
+    <div class="portal-grid">
+
+      <!-- 2022 FM 52 -->
+      <a href="cambridge_biology_9700_52_fm2022_solution.html" class="card card-featured">
+        <div>
+          <div class="card-badge-group">
+            <span class="card-badge badge-primary">9700 / 52</span>
+            <span class="card-badge badge-green">Feb / March 2022</span>
+            <span class="card-badge badge-indigo">全問日英対訳</span>
+          </div>
+          <h4 class="card-title">Paper 52: オオカナダモの光合成・タマリスク生態・イガイ養殖</h4>
+          <p class="card-desc">
+            光強度の影響を調べる7点満点プロトコル、飽和曲線SVGグラフ、$R_f$ 計算とクロマトグラフィー誤差要因、シンプソン多様度指数（$D=0.716$）、SEエラーバー重複の解釈、外来フネガイ駆除の妥当性評価。
+          </p>
+          <div class="card-topics">
+            <span class="topic-tag">オオカナダモ</span>
+            <span class="topic-tag">光合成速度</span>
+            <span class="topic-tag">ペーパークロマトグラフィー</span>
+            <span class="topic-tag">シンプソン多様度指数</span>
+            <span class="topic-tag">SEエラーバー</span>
+            <span class="topic-tag">t検定</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span>詳細解説を見る</span>
+          <i data-lucide="arrow-right"></i>
+        </div>
+      </a>
+
+      <!-- 2020 FM 52 -->
+      <a href="cambridge_biology_9700_52_fm2020_solution.html" class="card card-featured">
+        <div>
+          <div class="card-badge-group">
+            <span class="card-badge badge-primary">9700 / 52</span>
+            <span class="card-badge badge-green">Feb / March 2020</span>
+            <span class="card-badge badge-indigo">全問日英対訳</span>
+          </div>
+          <h4 class="card-title">Paper 52: 海藻の作用スペクトル・葉緑体調製・パーキンソン病解析</h4>
+          <p class="card-desc">
+            メチレンブルー退色法による10点満点計画記述、等張緩衝液と氷冷の役割、薄層クロマトグラフィー（TLC）、スピアマン順位相関、神経幹細胞移植と漢方薬併用の有効性評価。
+          </p>
+          <div class="card-topics">
+            <span class="topic-tag">海藻作用スペクトル</span>
+            <span class="topic-tag">メチレンブルー退色</span>
+            <span class="topic-tag">TLC</span>
+            <span class="topic-tag">スピアマン順位相関</span>
+            <span class="topic-tag">神経幹細胞移植</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span>詳細解説を見る</span>
+          <i data-lucide="arrow-right"></i>
+        </div>
+      </a>
+
+      <!-- Homeostasis -->
+      <a href="homeostasis_questionsheet_15_16_solution.html" class="card">
+        <div>
+          <div class="card-badge-group">
+            <span class="card-badge badge-primary">9700 Biology</span>
+            <span class="card-badge badge-green">Homeostasis</span>
+          </div>
+          <h4 class="card-title">ホメオスタシス（恒常性）徹底演習 &amp; 解説シート</h4>
+          <p class="card-desc">
+            血糖調節（インスリンとグルカゴン）、ネフロンの構造と浸透圧調節（ADH・集合管アクアポリン）、体温調節メカニズムの体系的解説。
+          </p>
+          <div class="card-topics">
+            <span class="topic-tag">血糖値フィードバック</span>
+            <span class="topic-tag">浸透圧調節</span>
+            <span class="topic-tag">ネフロン</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span>詳細解説を見る</span>
+          <i data-lucide="arrow-right"></i>
+        </div>
+      </a>
+
+      <!-- Photosynthesis Spectrum -->
+      <a href="photosynthesis_spectrum_explanation.html" class="card">
+        <div>
+          <div class="card-badge-group">
+            <span class="card-badge badge-primary">9700 Biology</span>
+            <span class="card-badge badge-green">Photosynthesis</span>
+          </div>
+          <h4 class="card-title">光合成吸収スペクトル・作用スペクトル &amp; 明反応</h4>
+          <p class="card-desc">
+            クロロフィルa/b・カロテノイドの吸収曲線と作用スペクトルの比較、非循環的/循環的光リン酸化、光化学系I・IIの電子伝達機構。
+          </p>
+          <div class="card-topics">
+            <span class="topic-tag">吸収スペクトル</span>
+            <span class="topic-tag">PSI / PSII</span>
+            <span class="topic-tag">光リン酸化</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span>詳細解説を見る</span>
+          <i data-lucide="arrow-right"></i>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- IB Chemistry & Other Science -->
+    <h3 class="section-heading"><i data-lucide="flask-conical" style="color: var(--sky);"></i> IB Chemistry &amp; Chemistry / Mathematics</h3>
+    <div class="portal-grid">
+
+      <!-- IB Chem 1A -->
+      <a href="ib_chemistry_hl_mock_paper_1a_solution.html" class="card">
+        <div>
+          <div class="card-badge-group">
+            <span class="card-badge badge-primary">IB Chemistry HL</span>
+            <span class="card-badge badge-indigo">Mock Paper 1A</span>
+          </div>
+          <h4 class="card-title">IB Chemistry HL 模擬試験 Paper 1A 完全解説</h4>
+          <p class="card-desc">
+            化学量論、原子構造、周期性、化学結合、熱力学（エンタルピー）、反応速度、平衡、酸・塩基、酸化還元、有機化学の全問解説。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>詳細解説を見る</span>
+          <i data-lucide="arrow-right"></i>
+        </div>
+      </a>
+
+      <!-- IB Chem 1B -->
+      <a href="ib_chemistry_hl_mock_paper_1b_solution.html" class="card">
+        <div>
+          <div class="card-badge-group">
+            <span class="card-badge badge-primary">IB Chemistry HL</span>
+            <span class="card-badge badge-indigo">Mock Paper 1B</span>
+          </div>
+          <h4 class="card-title">IB Chemistry HL 模擬試験 Paper 1B データ分析・実験問題</h4>
+          <p class="card-desc">
+            実験データの不確かさ評価、NMR・IR・質量分析スペクトル解析、反応機構の記述と考察。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>詳細解説を見る</span>
+          <i data-lucide="arrow-right"></i>
+        </div>
+      </a>
+
+      <!-- Gibbs Free Energy -->
+      <a href="gibbs_free_energy_explanation.html" class="card">
+        <div>
+          <div class="card-badge-group">
+            <span class="card-badge badge-primary">Thermodynamics</span>
+          </div>
+          <h4 class="card-title">ギブズ自由エネルギー ($\Delta G$) と反応の自発性</h4>
+          <p class="card-desc">
+            $\Delta G = \Delta H - T\Delta S$ の導出、エントロピー変化、温度による自発性の変化、平衡定数 $K$ との熱力学的関係。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>詳細解説を見る</span>
+          <i data-lucide="arrow-right"></i>
+        </div>
+      </a>
+
+      <!-- Reaction Kinetics -->
+      <a href="reaction_kinetics_explanation.html" class="card">
+        <div>
+          <div class="card-badge-group">
+            <span class="card-badge badge-primary">Chemical Kinetics</span>
+          </div>
+          <h4 class="card-title">反応速度論・アレニウスの式 &amp; 活性化エネルギー</h4>
+          <p class="card-desc">
+            反応次数（0次・1次・2次）、速度定数 $k$ の算出、アレニウスプロットによる活性化エネルギー $E_a$ の決定法。
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>詳細解説を見る</span>
+          <i data-lucide="arrow-right"></i>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p style="font-weight: 700; color: var(--text-main); margin-bottom: 6px;">
+        Cambridge &amp; IB Science Detailed Solutions Repository
+      </p>
+      <p>Hosted with GitHub Pages • Created for advanced international academic study</p>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      htmlElement.setAttribute('data-theme', newTheme);
+      themeToggleBtn.innerHTML = newTheme === 'light' ? '<i data-lucide="moon"></i>' : '<i data-lucide="sun"></i>';
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

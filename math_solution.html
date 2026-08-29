@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大学入試数学 完全解答・詳細解説集 | 内サイクロイド・アステロイド・整数</title>
+  <!-- MathJax for rendering LaTeX math formulas -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-card: #182234;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-primary: #38bdf8;
+      --accent-secondary: #818cf8;
+      --accent-success: #34d399;
+      --accent-warning: #fbbf24;
+      --accent-rose: #f43f5e;
+      --border-color: #334155;
+      --border-light: #475569;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 30px 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 980px;
+      width: 100%;
+    }
+
+    header {
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      padding: 10px 18px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(129, 140, 248, 0.2));
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 14px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.15));
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-primary);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .problem-section {
+      display: none;
+    }
+    .problem-section.active {
+      display: block;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .q-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      margin-bottom: 16px;
+    }
+
+    .q-box {
+      background-color: var(--bg-secondary);
+      border-left: 4px solid var(--accent-primary);
+      padding: 18px 20px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 1.02rem;
+      font-weight: 400;
+      line-height: 1.8;
+    }
+
+    .answer-highlight {
+      background: linear-gradient(135deg, rgba(52, 211, 153, 0.12), rgba(56, 189, 248, 0.08));
+      border: 2px solid var(--accent-success);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+
+    .answer-highlight .label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent-success);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .ans-summary-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ans-row {
+      background-color: var(--bg-secondary);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .ans-row .item-num {
+      font-weight: 700;
+      color: var(--accent-primary);
+      min-width: 60px;
+    }
+    .ans-row .item-val {
+      font-weight: 600;
+      color: #a7f3d0;
+      font-size: 1.05rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent-secondary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+
+    .sub-q-block {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .sub-q-header {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .math-block {
+      background-color: #090d16;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      margin: 12px 0;
+      overflow-x: auto;
+    }
+
+    .note-box {
+      background-color: rgba(251, 191, 36, 0.08);
+      border-left: 3px solid var(--accent-warning);
+      padding: 14px 18px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.92rem;
+      color: #fef08a;
+      margin-top: 14px;
+      line-height: 1.7;
+    }
+
+    .tab-btn {
+      padding: 8px 16px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    /* グラフシミュレータ用スタイル */
+    .graph-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background-color: var(--bg-secondary);
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      border: 1px solid var(--border-color);
+      flex-wrap: wrap;
+    }
+    .slider-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+      min-width: 240px;
+    }
+    .slider-group input[type="range"] {
+      flex: 1;
+      accent-color: var(--accent-primary);
+      cursor: pointer;
+    }
+    .n-badge {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      background: #090d16;
+      padding: 4px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+    .graph-canvas-box {
+      background-color: #060911;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      position: relative;
+    }
+    canvas {
+      display: block;
+      width: 100%;
+      height: 420px;
+    }
+    .graph-info {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .info-tile {
+      background: var(--bg-secondary);
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+    .info-tile strong {
+      color: var(--accent-primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <span class="badge">数学 完全解答・全問詳細解説集</span>
+      <h1>数学 解説ノート</h1>
+      <p class="subtitle">丁寧な導出計算・幾何学的直観・リアルタイム軌跡描画シミュレーション</p>
+    </header>
+
+    <!-- 問題切り替えナビ -->
+    <div class="main-nav">
+      <button class="nav-btn active" onclick="switchProblem('prob-cycloid', this)">
+        <span>【大問3】内サイクロイド（アステロイド・デルトイド）</span>
+      </button>
+      <button class="nav-btn" onclick="switchProblem('prob-abs', this)">
+        <span>(4) 絶対値の和の最小値 $f(x) = \sum |x-k|$</span>
+      </button>
+      <button class="nav-btn" onclick="switchProblem('prob-mod', this)">
+        <span>(5) 4桁最小の自然数（余りの問題）</span>
+      </button>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- 大問3：内サイクロイド・アステロイド・デルトイド -->
+    <!-- ============================================================ -->
+    <div id="prob-cycloid" class="problem-section active">
+      
+      <!-- 問題カード -->
+      <div class="card">
+        <div class="q-title">
+          <span>📖 大問 3（問題文）</span>
+        </div>
+        <div class="q-box">
+          以下の問いに答えよ。なお途中の式や考え方等も記入すること。<br>
+          <strong>(1)</strong> 次の $\fbox{ア} \sim \fbox{エ}$ に適当な数を入れよ。<br>
+          $$\cos 3\alpha = \fbox{ア}\cos\alpha + \fbox{イ}\cos^3\alpha, \quad \sin 3\alpha = \fbox{ウ}\sin\alpha + \fbox{エ}\sin^3\alpha$$
+          原点 $\text{O}$ を中心として、半径 $a$ の円 $\text{O}$ が固定されている。半径 $b\ (<a)$ の円 $\text{C}$ が、円 $\text{O}$ に内接しながらすべることなく時計の針と同じ向きに回り、円 $\text{C}$ の中心 $\text{C}$ は $\text{O}$ の回りに時計の針と反対向きに回転していく。はじめに円 $\text{C}$ の中心 $\text{C}$ は点 $(a-b, 0)$ にあるものとし、このとき、円 $\text{O}$ 上の点 $\text{A}(a, 0)$ に重なっている円 $\text{C}$ 上の点を $\text{P}$ とする。円 $\text{C}$ が回転して、$\angle\text{COA} = \theta$ となったときの点 $\text{P}$ の座標を $(x, y)$ とする。<br>
+          <strong>(2)</strong> 円 $\text{O}$ と円 $\text{C}$ の接点を $\text{B}$ とする。このとき、$\angle\text{BCP}$ の大きさを求めよ。<br>
+          <strong>(3)</strong> $x$ と $y$ を、それぞれ $a, b$ および $\theta$ を用いて表せ。<br>
+          <strong>(4)</strong> $a : b = 4 : 1$ の関係があるとする。このとき、$\theta$ を消去して、$x$ と $y$ の間に成り立つ関係式を求めよ。また、点 $\text{P}$ のえがく曲線の長さを $a$ で表せ。ただし、$0 \le \theta \le 2\pi$ とする。<br>
+          <strong>(5)</strong> $a : b = 3 : 1$ の関係があるとする。このとき、$0 \le \theta \le 2\pi$ として、点 $\text{P}$ のえがく曲線の長さを $a$ で表せ。また、この曲線で囲まれた部分の面積を $a$ で表せ。
+        </div>
+      </div>
+
+      <!-- 模範解答一覧ハイライト -->
+      <div class="answer-highlight">
+        <div class="label">模範解答 まとめ</div>
+        <div class="ans-summary-list">
+          <div class="ans-row">
+            <span class="item-num">(1)</span>
+            <span class="item-val">ア: $-3$,　イ: $4$,　ウ: $3$,　エ: $-4$</span>
+          </div>
+          <div class="ans-row">
+            <span class="item-num">(2)</span>
+            <span class="item-val">$\displaystyle \angle\text{BCP} = \frac{a}{b}\theta$</span>
+          </div>
+          <div class="ans-row">
+            <span class="item-num">(3)</span>
+            <span class="item-val">$\displaystyle x = (a-b)\cos\theta + b\cos\left(\frac{a-b}{b}\theta\right), \quad y = (a-b)\sin\theta - b\sin\left(\frac{a-b}{b}\theta\right)$</span>
+          </div>
+          <div class="ans-row">
+            <span class="item-num">(4)</span>
+            <span class="item-val">関係式： $\displaystyle x^{\frac{2}{3}} + y^{\frac{2}{3}} = a^{\frac{2}{3}}$ （アステロイド）<br>曲線の長さ： $\displaystyle L = 6a$</span>
+          </div>
+          <div class="ans-row">
+            <span class="item-num">(5)</span>
+            <span class="item-val">曲線の長さ： $\displaystyle L = \frac{16}{3}a$ （デルトイド）<br>囲まれた面積： $\displaystyle S = \frac{2}{9}\pi a^2$</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🌟 リアルタイム軌跡描画シミュレータ 🌟 -->
+      <div class="card">
+        <h2 class="section-title">🎨 内サイクロイド リアルタイム軌跡描画シミュレータ</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">
+          円 $\text{C}$ が転がるにつれて、<strong>点 $\text{P}$ がリアルタイムに軌跡を描いていきます</strong>。<br>
+          比率 $a : b = n : 1$ の $n$ の値をスライダーやプリセットボタンで変更して、様々な内サイクロイドの軌跡を観察できます。
+        </p>
+
+        <!-- コントロールバー -->
+        <div class="graph-controls">
+          <div class="slider-group">
+            <label for="ratioSlider" style="font-weight: 600;">半径比 $a : b = n : 1$ ($n$ の値):</label>
+            <input type="range" id="ratioSlider" min="2" max="8" step="0.5" value="3" oninput="changeN(this.value)">
+            <span class="n-badge" id="ratioBadge">n = 3.0 (a:b = 3:1 デルトイド)</span>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="tab-btn" id="animToggleBtn" onclick="toggleCycloidAnim()" style="background: rgba(56, 189, 248, 0.2); border-color: var(--accent-primary); color: #38bdf8;">⏸ 一時停止</button>
+            <button class="tab-btn" onclick="resetTrace()">🔄 軌跡リセット</button>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+          <span style="font-size: 0.88rem; color: var(--text-muted); align-self: center;">プリセット:</span>
+          <button class="tab-btn" onclick="setPresetN(2)">n = 2 (トゥーシの円: 直線)</button>
+          <button class="tab-btn active" id="preset3Btn" onclick="setPresetN(3)">n = 3 (問題(5): デルトイド)</button>
+          <button class="tab-btn" id="preset4Btn" onclick="setPresetN(4)">n = 4 (問題(4): アステロイド)</button>
+          <button class="tab-btn" onclick="setPresetN(5)">n = 5 (五芒星型)</button>
+          <button class="tab-btn" onclick="setPresetN(2.5)">n = 2.5 (星型ペンタグラム)</button>
+        </div>
+
+        <div class="graph-canvas-box">
+          <canvas id="cycloidCanvas" width="850" height="420"></canvas>
+        </div>
+
+        <div class="graph-info" id="cycloidInfo">
+          <div class="info-tile">
+            <strong>曲線の名称</strong>
+            <span id="curveNameText" style="color: #38bdf8; font-weight: 600;">デルトイド（三尖形）</span>
+          </div>
+          <div class="info-tile">
+            <strong>尖点（カプス）の数</strong>
+            <span id="cuspCountText" style="color: #fbbf24; font-weight: 600;">3 個</span>
+          </div>
+          <div class="info-tile">
+            <strong>回転角 $\theta$</strong>
+            <span id="thetaText" style="color: #a7f3d0; font-weight: 600;">0.00 rad</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 詳細解説カード -->
+      <div class="card">
+        <h2 class="section-title">💡 各問の詳細解説・計算導出</h2>
+
+        <!-- (1) -->
+        <div class="sub-q-block">
+          <div class="sub-q-header">📌 (1) 3倍角の公式の導出</div>
+          <p>加法定理と2倍角の公式より導出します。</p>
+          <div class="math-block">
+            $$\begin{aligned}
+            \cos 3\alpha &= \cos(2\alpha + \alpha) = \cos 2\alpha \cos\alpha - \sin 2\alpha \sin\alpha \\
+            &= (2\cos^2\alpha - 1)\cos\alpha - (2\sin\alpha\cos\alpha)\sin\alpha \\
+            &= 2\cos^3\alpha - \cos\alpha - 2\cos\alpha(1 - \cos^2\alpha) \\
+            &= \mathbf{-3\cos\alpha + 4\cos^3\alpha} \quad \implies \fbox{ア} = -3, \ \fbox{イ} = 4
+            \end{aligned}$$
+          </div>
+          <div class="math-block">
+            $$\begin{aligned}
+            \sin 3\alpha &= \sin(2\alpha + \alpha) = \sin 2\alpha \cos\alpha + \cos 2\alpha \sin\alpha \\
+            &= (2\sin\alpha\cos\alpha)\cos\alpha + (1 - 2\sin^2\alpha)\sin\alpha \\
+            &= 2\sin\alpha(1 - \sin^2\alpha) + \sin\alpha - 2\sin^3\alpha \\
+            &= \mathbf{3\sin\alpha - 4\sin^3\alpha} \quad \implies \fbox{ウ} = 3, \ \fbox{エ} = -4
+            \end{aligned}$$
+          </div>
+        </div>
+
+        <!-- (2) -->
+        <div class="sub-q-block">
+          <div class="sub-q-header">📌 (2) $\angle\text{BCP}$ の大きさ</div>
+          <p>円 $\text{C}$ は円 $\text{O}$ の内側を「すべることなく」転がるため、<strong>円 $\text{O}$ 上の弧 $\text{AB}$ の長さ</strong> と <strong>円 $\text{C}$ 上の弧 $\text{BP}$ の長さ</strong> は等しくなります。</p>
+          <div class="math-block">
+            $$\text{弧 AB の長さ} = a \theta$$
+            $$\text{弧 BP の長さ} = b \times \angle\text{BCP}$$
+          </div>
+          <p>$\text{弧 AB} = \text{弧 BP}$ より、</p>
+          <div class="math-block">
+            $$a\theta = b \angle\text{BCP} \implies \mathbf{\angle\text{BCP} = \frac{a}{b}\theta}$$
+          </div>
+        </div>
+
+        <!-- (3) -->
+        <div class="sub-q-block">
+          <div class="sub-q-header">📌 (3) 点 $\text{P}$ の座標 $(x, y)$ の媒介変数表示</div>
+          <p>ベクトルの和として $\vec{\text{OP}} = \vec{\text{OC}} + \vec{\text{CP}}$ を求めます。</p>
+          <p>① <strong>中心 $\text{C}$ の位置ベクトル $\vec{\text{OC}}$:</strong><br>
+          線分 $\text{OC} = a - b$ であり、$\angle\text{COA} = \theta$ であるから：</p>
+          <div class="math-block">
+            $$\vec{\text{OC}} = \big( (a-b)\cos\theta, \ (a-b)\sin\theta \big)$$
+          </div>
+          <p>② <strong>ベクトル $\vec{\text{CP}}$ の向き（偏角）:</strong><br>
+          中心 $\text{C}$ から接点 $\text{B}$ への向きの偏角は $\theta$ です。<br>
+          円 $\text{C}$ は時計回り（負の方向）に自転するため、$\vec{\text{CP}}$ は $\vec{\text{CB}}$ から時計回りに $\angle\text{BCP} = \frac{a}{b}\theta$ 回転した向きになります。<br>
+          したがって、$\vec{\text{CP}}$ の $x$ 軸正の向きとなす偏角 $\phi$ は：</p>
+          <div class="math-block">
+            $$\phi = \theta - \frac{a}{b}\theta = -\frac{a-b}{b}\theta$$
+          </div>
+          <p>$|\vec{\text{CP}}| = b$ より、</p>
+          <div class="math-block">
+            $$\vec{\text{CP}} = \left( b\cos\left(-\frac{a-b}{b}\theta\right), \ b\sin\left(-\frac{a-b}{b}\theta\right) \right) = \left( b\cos\left(\frac{a-b}{b}\theta\right), \ -b\sin\left(\frac{a-b}{b}\theta\right) \right)$$
+          </div>
+          <p>以上を足し合わせて：</p>
+          <div class="math-block">
+            $$\mathbf{x = (a-b)\cos\theta + b\cos\left(\frac{a-b}{b}\theta\right)}$$
+            $$\mathbf{y = (a-b)\sin\theta - b\sin\left(\frac{a-b}{b}\theta\right)}$$
+          </div>
+        </div>
+
+        <!-- (4) -->
+        <div class="sub-q-block">
+          <div class="sub-q-header">📌 (4) $a : b = 4 : 1$ のとき（アステロイド）</div>
+          <p>$b = \frac{a}{4}$、$a - b = \frac{3}{4}a$、$\frac{a-b}{b} = 3$ を代入します。</p>
+          <div class="math-block">
+            $$x = \frac{3}{4}a\cos\theta + \frac{1}{4}a\cos 3\theta = \frac{a}{4}(3\cos\theta + \cos 3\theta)$$
+            $$y = \frac{3}{4}a\sin\theta - \frac{1}{4}a\sin 3\theta = \frac{a}{4}(3\sin\theta - \sin 3\theta)$$
+          </div>
+          <p>(1) より $3\cos\theta + \cos 3\theta = 4\cos^3\theta$、$3\sin\theta - \sin 3\theta = 4\sin^3\theta$ であるから：</p>
+          <div class="math-block">
+            $$x = a\cos^3\theta, \quad y = a\sin^3\theta$$
+          </div>
+          <p>$\cos^2\theta + \sin^2\theta = 1$ に代入して $\theta$ を消去すると：</p>
+          <div class="math-block">
+            $$\left(\frac{x}{a}\right)^{\frac{2}{3}} + \left(\frac{y}{a}\right)^{\frac{2}{3}} = 1 \iff \mathbf{x^{\frac{2}{3}} + y^{\frac{2}{3}} = a^{\frac{2}{3}}}$$
+          </div>
+          
+          <p><strong>【曲線の長さ $L$ の計算】:</strong><br>
+          アステロイドは4つの象限で合同に対称であるため、第1象限（$0 \le \theta \le \pi/2$）の長さを4倍します。</p>
+          <div class="math-block">
+            $$\frac{dx}{d\theta} = -3a\cos^2\theta\sin\theta, \quad \frac{dy}{d\theta} = 3a\sin^2\theta\cos\theta$$
+            $$\left(\frac{dx}{d\theta}\right)^2 + \left(\frac{dy}{d\theta}\right)^2 = 9a^2\cos^2\theta\sin^2\theta(\cos^2\theta+\sin^2\theta) = 9a^2\sin^2\theta\cos^2\theta$$
+          </div>
+          <p>$0 \le \theta \le \pi/2$ では $\sin\theta\ge 0, \cos\theta\ge 0$ より：</p>
+          <div class="math-block">
+            $$L = 4 \int_{0}^{\frac{\pi}{2}} 3a\sin\theta\cos\theta \, d\theta = 12a \left[ \frac{1}{2}\sin^2\theta \right]_0^{\frac{\pi}{2}} = 12a \times \frac{1}{2} = \mathbf{6a}$$
+          </div>
+        </div>
+
+        <!-- (5) -->
+        <div class="sub-q-block">
+          <div class="sub-q-header">📌 (5) $a : b = 3 : 1$ のとき（デルトイド）</div>
+          <p>$b = \frac{a}{3}$、$a - b = \frac{2}{3}a$、$\frac{a-b}{b} = 2$ を代入します。</p>
+          <div class="math-block">
+            $$x = \frac{2}{3}a\cos\theta + \frac{1}{3}a\cos 2\theta = \frac{a}{3}(2\cos\theta + \cos 2\theta)$$
+            $$y = \frac{2}{3}a\sin\theta - \frac{1}{3}a\sin 2\theta = \frac{a}{3}(2\sin\theta - \sin 2\theta)$$
+          </div>
+          
+          <p><strong>【曲線の長さ $L$ の計算】:</strong></p>
+          <div class="math-block">
+            $$\frac{dx}{d\theta} = -\frac{2}{3}a(\sin\theta + \sin 2\theta), \quad \frac{dy}{d\theta} = \frac{2}{3}a(\cos\theta - \cos 2\theta)$$
+            $$\begin{aligned}
+            \left(\frac{dx}{d\theta}\right)^2 + \left(\frac{dy}{d\theta}\right)^2 &= \frac{4}{9}a^2 \Big[ (\sin^2\theta + 2\sin\theta\sin 2\theta + \sin^2 2\theta) + (\cos^2\theta - 2\cos\theta\cos 2\theta + \cos^2 2\theta) \Big] \\
+            &= \frac{4}{9}a^2 \Big[ 2 - 2(\cos 2\theta\cos\theta - \sin 2\theta\sin\theta) \Big] \\
+            &= \frac{4}{9}a^2 (2 - 2\cos 3\theta) = \frac{8}{9}a^2(1 - \cos 3\theta) = \frac{16}{9}a^2\sin^2\left(\frac{3\theta}{2}\right)
+            \end{aligned}$$
+          </div>
+          <p>デルトイドは周期 $\frac{2\pi}{3}$ で3つの合同な弧を持つため、$0 \le \theta \le \frac{2\pi}{3}$ の長さを3倍します（この区間で $\sin\frac{3\theta}{2}\ge 0$）。</p>
+          <div class="math-block">
+            $$L = 3 \int_{0}^{\frac{2\pi}{3}} \frac{4}{3}a \sin\left(\frac{3\theta}{2}\right) \, d\theta = 4a \left[ -\frac{2}{3}\cos\left(\frac{3\theta}{2}\right) \right]_0^{\frac{2\pi}{3}} = 4a \left( \frac{2}{3} - \left(-\frac{2}{3}\right) \right) = 4a \times \frac{4}{3} = \mathbf{\frac{16}{3}a}$$
+          </div>
+
+          <p><strong>【囲まれた部分の面積 $S$ の計算】:</strong><br>
+          媒介変数による面積公式 $S = \frac{1}{2}\int_{0}^{2\pi} \left(x \frac{dy}{d\theta} - y \frac{dx}{d\theta}\right) d\theta$ を用います。</p>
+          <div class="math-block">
+            $$\begin{aligned}
+            x\frac{dy}{d\theta} - y\frac{dx}{d\theta} &= \frac{a^2}{9} \Big[ (2\cos\theta+\cos 2\theta)(2\cos\theta-2\cos 2\theta) - (2\sin\theta-\sin 2\theta)(-2\sin\theta-2\sin 2\theta) \Big] \\
+            &= \frac{a^2}{9} \Big[ 4(\cos^2\theta+\sin^2\theta) - 2(\cos^2 2\theta+\sin^2 2\theta) - 2(\cos 2\theta\cos\theta - \sin 2\theta\sin\theta) \Big] \\
+            &= \frac{a^2}{9} (4 - 2 - 2\cos 3\theta) = \frac{2a^2}{9}(1 - \cos 3\theta)
+            \end{aligned}$$
+          </div>
+          <p>したがって、</p>
+          <div class="math-block">
+            $$S = \frac{1}{2} \int_{0}^{2\pi} \frac{2a^2}{9}(1 - \cos 3\theta) \, d\theta = \frac{a^2}{9} \left[ \theta - \frac{\sin 3\theta}{3} \right]_0^{2\pi} = \frac{a^2}{9} \times 2\pi = \mathbf{\frac{2}{9}\pi a^2}$$
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- 問題 (4) 絶対値の総和の最小値 -->
+    <!-- ============================================================ -->
+    <div id="prob-abs" class="problem-section">
+      <div class="card">
+        <div class="q-title"><span>📖 問題 (4)</span></div>
+        <div class="q-box">
+          実数 $x$ の関数 $\displaystyle f(x) = \sum_{k=1}^{N} |x - k|$ について、この関数の最小値を求めよ。<br>
+          また、そのときの $x$ を求めよ。ただし、$N$ は自然数とする。
+        </div>
+      </div>
+
+      <div class="answer-highlight">
+        <div class="label">模範解答</div>
+        <div class="ans-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div class="ans-card-sub" style="background:var(--bg-secondary); padding:16px; border-radius:8px; text-align:center;">
+            <div style="font-weight:700; color:var(--accent-primary);">① $N$ が奇数のとき</div>
+            <div>最小値：<div style="font-size:1.2rem; font-weight:700; color:#a7f3d0;">$\displaystyle \frac{N^2 - 1}{4}$</div></div>
+            <div style="margin-top:8px;">そのときの $x$：<div style="font-size:1.1rem; font-weight:700; color:#7dd3fc;">$\displaystyle x = \frac{N + 1}{2}$</div></div>
+          </div>
+          <div class="ans-card-sub" style="background:var(--bg-secondary); padding:16px; border-radius:8px; text-align:center;">
+            <div style="font-weight:700; color:var(--accent-primary);">② $N$ が偶数のとき</div>
+            <div>最小値：<div style="font-size:1.2rem; font-weight:700; color:#a7f3d0;">$\displaystyle \frac{N^2}{4}$</div></div>
+            <div style="margin-top:8px;">そのときの $x$：<div style="font-size:1.1rem; font-weight:700; color:#7dd3fc;">$\displaystyle \frac{N}{2} \le x \le \frac{N}{2} + 1$</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- 問題 (5) 余りの問題（4桁最小の自然数） -->
+    <!-- ============================================================ -->
+    <div id="prob-mod" class="problem-section">
+      <div class="card">
+        <div class="q-title"><span>📖 問題 (5)</span></div>
+        <div class="q-box"><strong>19で割ると2余り，21で割ると5余る，4桁の自然数の中で最小のものを求めよ。</strong></div>
+      </div>
+      <div class="answer-highlight" style="text-align: center;">
+        <div class="label">答え</div>
+        <div style="font-size: 2.2rem; font-weight: 700; color: #a7f3d0;">1370</div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 数学問題 完全解答・詳細解説集 | HTML & Canvas グラフ & MathJax</p>
+    </footer>
+  </div>
+
+  <script>
+    function switchProblem(probId, btn) {
+      document.querySelectorAll('.problem-section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(probId).classList.add('active');
+      btn.classList.add('active');
+      if (probId === 'prob-cycloid') {
+        if (!animRunning) {
+          animRunning = true;
+          runCycloidAnim();
+        }
+      }
+    }
+
+    // 内サイクロイド リアルタイム描画シミュレータ
+    let currentN = 3;
+    let thetaAnim = 0;
+    let animRunning = true;
+    let animId = null;
+    let tracePoints = []; // 描画された点Pの軌跡の履歴
+
+    function changeN(val) {
+      currentN = parseFloat(val);
+      document.getElementById('ratioSlider').value = currentN;
+      updateCurveInfo();
+      resetTrace();
+    }
+
+    function setPresetN(val) {
+      document.getElementById('ratioSlider').value = val;
+      changeN(val);
+    }
+
+    function updateCurveInfo() {
+      const n = currentN;
+      let badgeText = `n = ${n.toFixed(1)} (a:b = ${n}:1)`;
+      let curveName = '内サイクロイド (Hypocycloid)';
+      let cuspCount = `${Math.round(n)} 個（有理数比に応じる）`;
+
+      if (Math.abs(n - 2) < 0.01) {
+        badgeText += ' トゥーシの円';
+        curveName = 'トゥーシの円（直線分往復運動）';
+        cuspCount = '2 個（直線の両端）';
+      } else if (Math.abs(n - 3) < 0.01) {
+        badgeText += ' デルトイド';
+        curveName = 'デルトイド（三尖形）';
+        cuspCount = '3 個';
+      } else if (Math.abs(n - 4) < 0.01) {
+        badgeText += ' アステロイド';
+        curveName = 'アステロイド（星形・四尖形）';
+        cuspCount = '4 個';
+      } else if (Math.abs(n - 5) < 0.01) {
+        badgeText += ' 五尖形';
+        curveName = '内サイクロイド（五芒星様）';
+        cuspCount = '5 個';
+      } else if (Math.abs(n - 2.5) < 0.01) {
+        badgeText += ' 星型ペンタグラム';
+        curveName = '交差型ハイポサイクロイド（星型）';
+        cuspCount = '5 個（2周で閉じる）';
+      }
+
+      document.getElementById('ratioBadge').textContent = badgeText;
+      document.getElementById('curveNameText').textContent = curveName;
+      document.getElementById('cuspCountText').textContent = cuspCount;
+    }
+
+    function resetTrace() {
+      tracePoints = [];
+      thetaAnim = 0;
+      drawCycloid();
+    }
+
+    function toggleCycloidAnim() {
+      animRunning = !animRunning;
+      const btn = document.getElementById('animToggleBtn');
+      if (animRunning) {
+        btn.textContent = '⏸ 一時停止';
+        btn.style.color = '#38bdf8';
+        runCycloidAnim();
+      } else {
+        btn.textContent = '▶ アニメーション再生';
+        btn.style.color = '#34d399';
+        cancelAnimationFrame(animId);
+      }
+    }
+
+    function runCycloidAnim() {
+      if (!animRunning) return;
+      
+      // 角度を進める
+      thetaAnim += 0.025;
+      
+      // 比率に応じた最大周回数（有理数分母の考慮）
+      const maxTheta = (currentN % 1 === 0.5) ? Math.PI * 4 : Math.PI * 2;
+      if (thetaAnim > maxTheta + 0.1) {
+        // 1周期完走したら少し待って自動リセット
+        setTimeout(() => {
+          if (animRunning) resetTrace();
+        }, 800);
+        cancelAnimationFrame(animId);
+        return;
+      }
+
+      drawCycloid();
+      animId = requestAnimationFrame(runCycloidAnim);
+    }
+
+    function drawCycloid() {
+      const canvas = document.getElementById('cycloidCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+
+      const width = rect.width;
+      const height = rect.height;
+      const cx = width / 2;
+      const cy = height / 2;
+      const R = Math.min(width, height) * 0.44;
+
+      ctx.clearRect(0, 0, width, height);
+
+      // 固定大円 O
+      ctx.strokeStyle = '#334155';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(cx, cy, R, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // 座標軸
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(cx - R - 20, cy); ctx.lineTo(cx + R + 20, cy);
+      ctx.moveTo(cx, cy - R - 20); ctx.lineTo(cx, cy + R + 20);
+      ctx.stroke();
+
+      // 軸ラベル
+      ctx.fillStyle = '#64748b';
+      ctx.font = '12px sans-serif';
+      ctx.fillText('x', cx + R + 10, cy + 15);
+      ctx.fillText('y', cx + 10, cy - R - 10);
+      ctx.fillText('O', cx - 15, cy + 15);
+      ctx.fillText('A(a,0)', cx + R - 5, cy + 18);
+
+      const n = currentN;
+      const r = R / n; // 円Cの半径
+
+      // 現在の円Cの中心位置
+      const curTheta = thetaAnim;
+      const ccx = cx + (R - r) * Math.cos(curTheta);
+      const ccy = cy - (R - r) * Math.sin(curTheta);
+
+      // 現在の接点 B
+      const bx = cx + R * Math.cos(curTheta);
+      const by = cy - R * Math.sin(curTheta);
+
+      // 現在の点 P
+      const curPx = cx + (R - r) * Math.cos(curTheta) + r * Math.cos((R - r) / r * curTheta);
+      const curPy = cy - ((R - r) * Math.sin(curTheta) - r * Math.sin((R - r) / r * curTheta));
+
+      // 軌跡の履歴に追加
+      tracePoints.push({ x: curPx, y: curPy });
+
+      // ① リアルタイムに描かれた軌跡（徐々に伸びていく線）
+      if (tracePoints.length > 1) {
+        ctx.strokeStyle = '#38bdf8';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(tracePoints[0].x, tracePoints[0].y);
+        for (let i = 1; i < tracePoints.length; i++) {
+          ctx.lineTo(tracePoints[i].x, tracePoints[i].y);
+        }
+        ctx.stroke();
+
+        // 軌跡の発光エフェクト
+        ctx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
+        ctx.lineWidth = 7;
+        ctx.stroke();
+      }
+
+      // ② 中心 O から中心 C への動径 OC
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.4)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(bx, by);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // ③ 回転する小円 C
+      ctx.strokeStyle = '#fbbf24';
+      ctx.lineWidth = 2;
+      ctx.fillStyle = 'rgba(251, 191, 36, 0.05)';
+      ctx.beginPath();
+      ctx.arc(ccx, ccy, r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+
+      // ④ 円Cの半径 CP
+      ctx.strokeStyle = '#f43f5e';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(ccx, ccy);
+      ctx.lineTo(curPx, curPy);
+      ctx.stroke();
+
+      // ⑤ 各ポイントのプロット
+      // 中心 C
+      ctx.fillStyle = '#fbbf24';
+      ctx.beginPath();
+      ctx.arc(ccx, ccy, 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillText('C', ccx - 12, ccy - 8);
+
+      // 接点 B
+      ctx.fillStyle = '#94a3b8';
+      ctx.beginPath();
+      ctx.arc(bx, by, 3, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillText('B', bx + 6, by - 6);
+
+      // 点 P（描画先端）
+      ctx.fillStyle = '#34d399';
+      ctx.beginPath();
+      ctx.arc(curPx, curPy, 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.fillStyle = '#34d399';
+      ctx.font = 'bold 13px sans-serif';
+      ctx.fillText('P(x,y)', curPx + 8, curPy - 8);
+
+      // 角度テキスト更新
+      document.getElementById('thetaText').textContent = `${curTheta.toFixed(2)} rad (${((curTheta * 180) / Math.PI).toFixed(0)}°)`;
+    }
+
+    window.addEventListener('load', () => {
+      updateCurveInfo();
+      runCycloidAnim();
+    });
+  </script>
+</body>
+</html>

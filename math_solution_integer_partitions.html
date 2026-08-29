@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>整数の和への分割（組成・重複組合せ・二項係数の和）完全マスター解答解説</title>
+  <meta name="description" content="大学入試数学における整数の和への分割問題（組成・重複組合せ・仕切り棒のモデル・二項定理による総和計算）の完全解答、丁寧なステップ解説、インタラクティブシミュレーター。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- MathJax for rendering LaTeX math formulas -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: rgba(20, 29, 47, 0.78);
+      --bg-card-hover: rgba(28, 41, 66, 0.9);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(56, 189, 248, 0.4);
+
+      /* Theme Accents */
+      --cyan: #38bdf8;
+      --cyan-glow: rgba(56, 189, 248, 0.25);
+      --indigo: #818cf8;
+      --indigo-glow: rgba(129, 140, 248, 0.25);
+      --emerald: #34d399;
+      --emerald-glow: rgba(52, 211, 153, 0.25);
+      --amber: #fbbf24;
+      --amber-glow: rgba(251, 191, 36, 0.25);
+      --rose: #f43f5e;
+
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.8;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(129, 140, 248, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(52, 211, 153, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+      padding-bottom: 100px;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Hero Section */
+    header {
+      padding: 60px 0 35px;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 5px 16px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-math {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    .badge-exam {
+      background: rgba(129, 140, 248, 0.15);
+      color: #818cf8;
+      border: 1px solid rgba(129, 140, 248, 0.35);
+    }
+
+    .badge-interactive {
+      background: rgba(52, 211, 153, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.35);
+    }
+
+    h1 {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ffffff 30%, #38bdf8 70%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      max-width: 840px;
+      margin: 0 auto 30px;
+    }
+
+    /* Problem Presentation Box */
+    .problem-box {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 30px 34px;
+      margin-bottom: 40px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    .problem-badge {
+      position: absolute;
+      top: -14px;
+      left: 30px;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      color: #0f172a;
+      font-weight: 800;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      padding: 4px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
+
+    .problem-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .problem-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-size: 1.02rem;
+      color: #e2e8f0;
+    }
+
+    .problem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .q-num {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Executive Answer Summary Card */
+    .summary-card {
+      background: linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(56, 189, 248, 0.15));
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .summary-card h3 {
+      font-size: 1.25rem;
+      color: #ffffff;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .ans-box {
+      background: rgba(11, 18, 30, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ans-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .ans-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #34d399;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      margin-bottom: 38px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .section-card:hover {
+      border-color: rgba(255, 255, 255, 0.14);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #38bdf8;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    /* Step Breakdown & LaTeX Blocks */
+    .step-box {
+      background: rgba(11, 18, 32, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 22px 26px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .step-box:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .formula-card {
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 10px 0;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    .callout-tip {
+      background: rgba(56, 189, 248, 0.1);
+      border-left: 4px solid #38bdf8;
+      padding: 12px 16px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      margin-top: 8px;
+    }
+
+    .callout-insight {
+      background: rgba(129, 140, 248, 0.1);
+      border-left: 4px solid #818cf8;
+      padding: 12px 16px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      margin-top: 8px;
+    }
+
+    /* Circle & Divider Visualizer SVG */
+    .visual-model-box {
+      background: #0b1120;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      margin: 18px 0;
+      text-align: center;
+    }
+
+    .visual-model-box svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Interactive Partition Simulator */
+    .simulator-wrapper {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8));
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      margin-top: 20px;
+    }
+
+    .sim-controls {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .control-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .control-label {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #cbd5e1;
+    }
+
+    select {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #38bdf8;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .sim-result-box {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .sim-result-item {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    .sim-result-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #34d399;
+      margin-left: 6px;
+    }
+
+    .partitions-list-box {
+      max-height: 220px;
+      overflow-y: auto;
+      background: rgba(10, 16, 28, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: #94a3b8;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 8px;
+    }
+
+    .partition-tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 6px 10px;
+      border-radius: 6px;
+      color: #e2e8f0;
+      text-align: center;
+    }
+
+    /* Comparison Table (Positive Integer vs Non-Negative Integer) */
+    .table-responsive {
+      overflow-x: auto;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      margin: 20px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.94rem;
+    }
+
+    th {
+      background: rgba(15, 23, 42, 0.95);
+      padding: 16px 20px;
+      font-weight: 700;
+      color: #94a3b8;
+      border-bottom: 2px solid var(--border-color);
+      letter-spacing: 0.03em;
+    }
+
+    td {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(15, 23, 42, 0.4);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: rgba(30, 41, 59, 0.6);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="badge-container">
+        <span class="badge badge-math"><i data-lucide="calculator" style="width:14px;height:14px;"></i> 高校数学A・場合の数</span>
+        <span class="badge badge-exam"><i data-lucide="award" style="width:14px;height:14px;"></i> 整数分割 (Composition)</span>
+        <span class="badge badge-interactive"><i data-lucide="cpu" style="width:14px;height:14px;"></i> インタラクティブ解説</span>
+      </div>
+      <h1>整数の和への分割（組成）完全マスター解説</h1>
+      <p class="subtitle">
+        正の整数の和への分割方法、〇と仕切りのモデルによる組合せ記号の導出、二項定理を用いた総和計算を徹底解説。
+      </p>
+    </header>
+
+    <!-- Problem Presentation Card -->
+    <div class="problem-box">
+      <div class="problem-badge">PROBLEM 1</div>
+      <div class="problem-title">
+        <i data-lucide="help-circle" style="color: #38bdf8;"></i> 問題文
+      </div>
+      <p style="color: #cbd5e1; margin-bottom: 14px; font-size: 1.05rem;">
+        次の問いに答えよ.
+      </p>
+      <ul class="problem-list">
+        <li class="problem-item">
+          <span class="q-num">(1)</span>
+          <span>
+            $6$ を $4$ つの<strong>正の整数</strong>の和で表す方法は何通りあるか. ただし, $1+1+1+3$ と $1+3+1+1$ のように順序が異なるものは区別する.
+          </span>
+        </li>
+        <li class="problem-item">
+          <span class="q-num">(2)</span>
+          <span>
+            正の整数 $n$ を $4$ つの<strong>正の整数</strong>の和で表す方法は何通りあるか. $n$ を用いた式で表せ. ただし, $n \geqq 4$ とする.
+          </span>
+        </li>
+        <li class="problem-item">
+          <span class="q-num">(3)</span>
+          <span>
+            正の整数 $n$ を $k$ 個の<strong>正の整数</strong>の和で表す方法を $a(k)$ 通りとする. $a(k)$ を $n$ と $k$ を用いた式で表せ. ただし, $2 \leqq k \leqq n$ とする.
+          </span>
+        </li>
+        <li class="problem-item">
+          <span class="q-num">(4)</span>
+          <span>
+            $\displaystyle \sum_{k=2}^{n} a(k)$ を $n$ を用いた式で表せ. ただし, $n \geqq 2$ とする.
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Executive Summary Card (Answers at a Glance) -->
+    <div class="summary-card">
+      <h3><i data-lucide="check-check" style="color: #34d399;"></i> 【解答の結論まとめ（一目でわかる最終結果）】</h3>
+      <div class="summary-grid">
+        <div class="ans-box">
+          <div class="ans-label">(1) の答え</div>
+          <div class="ans-val">10 通り</div>
+          <div style="font-size: 0.8rem; color: #94a3b8;">${}_{5}\mathrm{C}_{3} = 10$</div>
+        </div>
+
+        <div class="ans-box">
+          <div class="ans-label">(2) の答え</div>
+          <div class="ans-val" style="font-size: 1.15rem;">$\displaystyle \frac{(n-1)(n-2)(n-3)}{6}$ 通り</div>
+          <div style="font-size: 0.8rem; color: #94a3b8;">$\displaystyle \binom{n-1}{3} = {}_{n-1}\mathrm{C}_{3}$</div>
+        </div>
+
+        <div class="ans-box">
+          <div class="ans-label">(3) の答え</div>
+          <div class="ans-val" style="font-size: 1.25rem;">$\displaystyle {}_{n-1}\mathrm{C}_{k-1}$ 通り</div>
+          <div style="font-size: 0.8rem; color: #94a3b8;">$\displaystyle \binom{n-1}{k-1} = \frac{(n-1)!}{(k-1)!(n-k)!}$</div>
+        </div>
+
+        <div class="ans-box">
+          <div class="ans-label">(4) の答え</div>
+          <div class="ans-val" style="font-size: 1.3rem;">$2^{n-1} - 1$</div>
+          <div style="font-size: 0.8rem; color: #94a3b8;">二項定理の総和から $k=1$ を除外</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1: Detailed Solution for (1) -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <h2 class="section-title">(1) の詳細解説：6 を 4 つの正の整数の和で表す</h2>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title">
+          <i data-lucide="layers" style="color: #38bdf8;"></i>
+          <span>【解法：〇と仕切りのモデル（隙間に仕切りを入れる考え方）】</span>
+        </div>
+        <p>
+          求める場合の数は、次の方程式を満たす正の整数（自然数）解の組 $(x_1, x_2, x_3, x_4)$ の個数に等しいです：
+        </p>
+        <div class="formula-card">
+          $$x_1 + x_2 + x_3 + x_4 = 6 \quad (x_1 \geqq 1,\ x_2 \geqq 1,\ x_3 \geqq 1,\ x_4 \geqq 1)$$
+        </div>
+        <p>
+          $6$ 個の〇を一列に並べると、〇と〇の間の「隙間」は全部で <strong>$6 - 1 = 5$ 箇所</strong> あります。<br>
+          これらを $4$ つのグループに分けるには、この $5$ 箇所の隙間から <strong>異なる $4 - 1 = 3$ 箇所</strong> を選んで仕切り（$|$）を入れます。
+        </p>
+
+        <!-- SVG Visualizer for 6 divided into 4 parts -->
+        <div class="visual-model-box">
+          <svg viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- 6 Circles -->
+            <circle cx="70" cy="50" r="18" fill="#38bdf8" stroke="#ffffff" stroke-width="2"/>
+            <circle cx="150" cy="50" r="18" fill="#38bdf8" stroke="#ffffff" stroke-width="2"/>
+            <circle cx="230" cy="50" r="18" fill="#38bdf8" stroke="#ffffff" stroke-width="2"/>
+            <circle cx="310" cy="50" r="18" fill="#38bdf8" stroke="#ffffff" stroke-width="2"/>
+            <circle cx="390" cy="50" r="18" fill="#38bdf8" stroke="#ffffff" stroke-width="2"/>
+            <circle cx="470" cy="50" r="18" fill="#38bdf8" stroke="#ffffff" stroke-width="2"/>
+
+            <!-- 5 Gap Markers (Arrows / Slots) -->
+            <line x1="110" y1="20" x2="110" y2="80" stroke="#f43f5e" stroke-width="3" stroke-dasharray="4,4"/>
+            <text x="110" y="102" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono'">隙間①</text>
+
+            <line x1="190" y1="15" x2="190" y2="85" stroke="#34d399" stroke-width="4"/>
+            <text x="190" y="102" text-anchor="middle" fill="#34d399" font-size="11" font-weight="bold" font-family="'JetBrains Mono'">仕切り|</text>
+
+            <line x1="270" y1="15" x2="270" y2="85" stroke="#34d399" stroke-width="4"/>
+            <text x="270" y="102" text-anchor="middle" fill="#34d399" font-size="11" font-weight="bold" font-family="'JetBrains Mono'">仕切り|</text>
+
+            <line x1="350" y1="20" x2="350" y2="80" stroke="#f43f5e" stroke-width="3" stroke-dasharray="4,4"/>
+            <text x="350" y="102" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono'">隙間④</text>
+
+            <line x1="430" y1="15" x2="430" y2="85" stroke="#34d399" stroke-width="4"/>
+            <text x="430" y="102" text-anchor="middle" fill="#34d399" font-size="11" font-weight="bold" font-family="'JetBrains Mono'">仕切り|</text>
+
+            <!-- Example label: 2 + 1 + 2 + 1 -->
+            <text x="540" y="55" fill="#fde047" font-size="13" font-weight="bold">例: 2 + 1 + 2 + 1</text>
+          </svg>
+        </div>
+
+        <p>
+          各隙間には高々1本の仕切りしか入らないため、各グループには<strong>必ず1個以上の〇が含まれます（すべて正の整数となる）</strong>。<br>
+          したがって、求める場合の数は $5$ 箇所から $3$ 箇所を選ぶ組合せ数となります：
+        </p>
+        <div class="formula-card">
+          $${}_{6-1}\mathrm{C}_{4-1} = {}_{5}\mathrm{C}_{3} = \frac{5 \times 4 \times 3}{3 \times 2 \times 1} = \mathbf{10 \text{ 通り}}$$
+        </div>
+
+        <div class="callout-tip">
+          <strong>【検算：具体的な全10通りの書き出し・分類】</strong><br>
+          6 を 4 つの自然数の和に分ける組み合わせは、以下の2パターンしかありません：<br>
+          ・<strong>$\{3, 1, 1, 1\}$ 型</strong>：$3$ が入る場所の選び方 $\frac{4!}{3!} = 4$ 通り<br>
+          　（$3+1+1+1,\ 1+3+1+1,\ 1+1+3+1,\ 1+1+1+3$）<br>
+          ・<strong>$\{2, 2, 1, 1\}$ 型</strong>：$2$ が入る2箇所の選び方 $\frac{4!}{2! 2!} = 6$ 通り<br>
+          　（$2+2+1+1,\ 2+1+2+1,\ 2+1+1+2,\ 1+2+2+1,\ 1+2+1+2,\ 1+1+2+2$）<br>
+          ➔ 合計：$4 + 6 = \mathbf{10 \text{ 通り}}$（完全一致！）
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Detailed Solution for (2) -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <h2 class="section-title">(2) の詳細解説：正の整数 $n$ を 4 つの正の整数の和で表す</h2>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title">
+          <i data-lucide="variable" style="color: #818cf8;"></i>
+          <span>【一般の $n$ への拡張（$n \geqq 4$）】</span>
+        </div>
+        <p>
+          方程式 $x_1 + x_2 + x_3 + x_4 = n$（各 $x_i \geqq 1$）を満たす整数解の組の個数を求めます。
+        </p>
+        <p>
+          (1) と同様に、$n$ 個の〇を一列に並べたとき、〇と〇の間の隙間は <strong>$n - 1$ 箇所</strong> 存在します。<br>
+          これを $4$ つのグループに分割するには、この $n - 1$ 箇所の隙間から <strong>$4 - 1 = 3$ 箇所</strong> を選んで仕切りを入れればよいです。
+        </p>
+        <div class="formula-card">
+          $${}_{n-1}\mathrm{C}_{4-1} = {}_{n-1}\mathrm{C}_{3} = \frac{(n-1)(n-2)(n-3)}{3 \times 2 \times 1} = \mathbf{\frac{(n-1)(n-2)(n-3)}{6} \text{ 通り}}$$
+        </div>
+
+        <div class="callout-insight">
+          <strong>💡 展開した式での表現：</strong><br>
+          $\displaystyle \frac{n^3 - 6n^2 + 11n - 6}{6}$ 通り（※入試の答案では積の形の $\displaystyle \frac{(n-1)(n-2)(n-3)}{6}$ または ${}_{n-1}\mathrm{C}_{3}$ の表記が最も標準的で減点の心配がありません）。<br>
+          $n=6$ を代入すると $\displaystyle \frac{5 \times 4 \times 3}{6} = 10$ となり、(1) の結果と美しく一致します。
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Detailed Solution for (3) -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <h2 class="section-title">(3) の詳細解説：正の整数 $n$ を $k$ 個の正の整数の和で表す $a(k)$</h2>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title">
+          <i data-lucide="boxes" style="color: #34d399;"></i>
+          <span>【一般の $k$ 個への拡張（$2 \leqq k \leqq n$）】</span>
+        </div>
+        <p>
+          正の整数 $n$ を $k$ 個の正の整数の和で表す方法 $a(k)$ は、次の方程式を満たす自然数解の組の総数です：
+        </p>
+        <div class="formula-card">
+          $$x_1 + x_2 + \cdots + x_k = n \quad (x_i \geqq 1,\ i=1, 2, \dots, k)$$
+        </div>
+        <p>
+          $n$ 個の〇の間の $n - 1$ 箇所の隙間から、仕切りを入れる <strong>$k - 1$ 箇所</strong> を選ぶ組合せ数に一致します。<br>
+          したがって、
+        </p>
+        <div class="formula-card">
+          $$a(k) = {}_{n-1}\mathrm{C}_{k-1} = \mathbf{\binom{n-1}{k-1} \text{ 通り}} \quad \left( = \frac{(n-1)!}{(k-1)!(n-k)!} \right)$$
+        </div>
+
+        <div class="callout-tip">
+          <strong>【別解：0以上の整数（非負整数）への変数変換による解法】</strong><br>
+          各 $x_i \geqq 1$ に対して $y_i = x_i - 1$（$y_i \geqq 0$）とおくと、
+          $$(y_1 + 1) + (y_2 + 1) + \cdots + (y_k + 1) = n \iff y_1 + y_2 + \cdots + y_k = n - k$$
+          $0$ 以上の整数解の個数は、重複組合せ ${}_{k}\mathrm{H}_{n-k}$ より、
+          $${}_{k}\mathrm{H}_{n-k} = {}_{k + (n - k) - 1}\mathrm{C}_{n - k} = {}_{n - 1}\mathrm{C}_{n - k} = {}_{n - 1}\mathrm{C}_{k - 1}$$
+          となり、同じ結論が得られます。
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Detailed Solution for (4) -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <h2 class="section-title">(4) の詳細解説：総和 $\sum_{k=2}^{n} a(k)$ の導出</h2>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title">
+          <i data-lucide="sigma" style="color: #fbbf24;"></i>
+          <span>【解法1：二項定理による二項係数の和の公式の適用】</span>
+        </div>
+        <p>
+          (3) より $a(k) = {}_{n-1}\mathrm{C}_{k-1}$ であるから、求める総和は次のようになります：
+        </p>
+        <div class="formula-card">
+          $$\sum_{k=2}^{n} a(k) = \sum_{k=2}^{n} {}_{n-1}\mathrm{C}_{k-1} = {}_{n-1}\mathrm{C}_{1} + {}_{n-1}\mathrm{C}_{2} + {}_{n-1}\mathrm{C}_{3} + \cdots + {}_{n-1}\mathrm{C}_{n-1}$$
+        </div>
+        <p>
+          ここで、二項定理 $(1 + x)^{N} = \sum_{j=0}^{N} {}_{N}\mathrm{C}_{j} x^j$ において $N = n - 1,\ x = 1$ を代入すると、
+        </p>
+        <div class="formula-card">
+          $${}_{n-1}\mathrm{C}_{0} + {}_{n-1}\mathrm{C}_{1} + {}_{n-1}\mathrm{C}_{2} + \cdots + {}_{n-1}\mathrm{C}_{n-1} = (1 + 1)^{n-1} = 2^{n-1}$$
+        </div>
+        <p>
+          求めたい和は、この全二項係数の和から初項 ${}_{n-1}\mathrm{C}_{0} = 1$（$k=1$ に相当する項）を除いたものです：
+        </p>
+        <div class="formula-card">
+          $$\sum_{k=2}^{n} a(k) = 2^{n-1} - {}_{n-1}\mathrm{C}_{0} = \mathbf{2^{n-1} - 1}$$
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title">
+          <i data-lucide="sparkles" style="color: #34d399;"></i>
+          <span>【解法2：組合せ論的・直感的解釈（数学の本質に迫る別解）】</span>
+        </div>
+        <p>
+          $n$ 個の〇の間にある <strong>$n - 1$ 箇所の隙間</strong> それぞれについて、
+          <strong>「仕切りを入れる」か「仕切りを入れない」かの 2 通り</strong> の選択肢があります。<br>
+          したがって、仕切りの配置パターンの総数は全部で <strong>$2^{n-1}$ 通り</strong> あります。
+        </p>
+        <ul style="margin-left: 20px; color: #cbd5e1; font-size: 0.95rem; line-height: 1.7;">
+          <li>仕切りを $0$ 本入れる（どこにも入れない） ➔ $k = 1$（$n$ を $1$ 個の数の和で表す：$n$ そのもの $\rightarrow 1$ 通り）</li>
+          <li>仕切りを $1$ 本以上入れる（$1 \leqq k-1 \leqq n-1$） ➔ $k$ 個の正の整数の和への分割（$2 \leqq k \leqq n$）</li>
+        </ul>
+        <p style="margin-top: 8px;">
+          よって、$2 \leqq k \leqq n$ におけるすべての分割数の総和は、全体の $2^{n-1}$ 通りから仕切りを $0$ 本入れる $1$ 通りを引くことで直ちに求まります：
+        </p>
+        <div class="formula-card">
+          $$\sum_{k=2}^{n} a(k) = 2^{n-1} - 1$$
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Interactive Simulator -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <h2 class="section-title">インタラクティブ・整数分割シミュレーター</h2>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        $n$ と $k$ の値を自由に変更して、分割数 $a(k)$ や総和 $\sum a(k)$、および具体的な分解パターンの全リストをリアルタイムに確認できます。
+      </p>
+
+      <div class="simulator-wrapper">
+        <div class="sim-controls">
+          <div class="control-group">
+            <span class="control-label">自然数 $n$：</span>
+            <select id="selectN" onchange="updateSimulator()">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6" selected>6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <span class="control-label">分割数 $k$：</span>
+            <select id="selectK" onchange="updateSimulator()">
+              <!-- dynamically populated -->
+            </select>
+          </div>
+        </div>
+
+        <div class="sim-result-box">
+          <div class="sim-result-item">
+            $a(k) = {}_{n-1}\mathrm{C}_{k-1}$：<span class="sim-result-val" id="resAk">10</span> 通り
+          </div>
+          <div class="sim-result-item">
+            $\sum_{k=2}^n a(k) = 2^{n-1} - 1$：<span class="sim-result-val" id="resSum" style="color: #fbbf24;">31</span> 通り
+          </div>
+        </div>
+
+        <div style="font-weight: 700; font-size: 0.88rem; color: #cbd5e1; margin-bottom: 8px;">
+          【$n$ を $k$ 個の正の整数の和で表す全パターン一覧】
+        </div>
+        <div class="partitions-list-box" id="partitionsList">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Exam Must-Know Patterns Comparison -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <h2 class="section-title">入試頻出！「正の整数解」vs「0以上の整数解」のパターン比較</h2>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>条件</th>
+              <th>変数の範囲</th>
+              <th>解法のモデル</th>
+              <th>公式・解の総数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color: #38bdf8; font-weight: 700;">正の整数解（自然数解）<br><span style="font-size:0.8rem;color:#94a3b8;">★ 本問のパターン</span></td>
+              <td>$x_i \geqq 1$</td>
+              <td>$n$ 個の〇の間の <strong>$n-1$ 箇所の隙間</strong> に $k-1$ 本の仕切りを入れる（隙間に重複を許さない）</td>
+              <td>
+                $$\mathbf{{}_{n-1}\mathrm{C}_{k-1}}$$
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #fbbf24; font-weight: 700;">0 以上の整数解（非負整数解）</td>
+              <td>$x_i \geqq 0$</td>
+              <td>$n$ 個の〇 と $k-1$ 本の仕切り を <strong>一列に並べる</strong>（同じ場所に複数の仕切りが入ってよい）</td>
+              <td>
+                $${}_{k}\mathrm{H}_{n} = \mathbf{{}_{n+k-1}\mathrm{C}_{k-1}}$$
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 大学入試数学 完全解答・詳細解説シリーズ | Integer Partitions & Combinatorics</p>
+    </footer>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Combination formula nCr
+    function comb(n, r) {
+      if (r < 0 || r > n) return 0;
+      if (r === 0 || r === n) return 1;
+      let res = 1;
+      for (let i = 1; i <= r; i++) {
+        res = res * (n - i + 1) / i;
+      }
+      return Math.round(res);
+    }
+
+    // Generate ordered partitions of n into k positive integers
+    function getCompositions(n, k) {
+      const results = [];
+      function helper(current, remainingSum, remainingK) {
+        if (remainingK === 1) {
+          if (remainingSum >= 1) {
+            results.push([...current, remainingSum]);
+          }
+          return;
+        }
+        for (let i = 1; i <= remainingSum - remainingK + 1; i++) {
+          helper([...current, i], remainingSum - i, remainingK - 1);
+        }
+      }
+      helper([], n, k);
+      return results;
+    }
+
+    function updateKOptions() {
+      const n = parseInt(document.getElementById('selectN').value);
+      const kSelect = document.getElementById('selectK');
+      const prevK = parseInt(kSelect.value) || 2;
+      kSelect.innerHTML = '';
+      for (let k = 1; k <= n; k++) {
+        const opt = document.createElement('option');
+        opt.value = k;
+        opt.textContent = k;
+        if (k === Math.min(prevK, n) || (prevK === 0 && k === 2)) {
+          opt.selected = true;
+        }
+      }
+      if (n >= 4 && !kSelect.querySelector('option[selected]')) {
+        kSelect.value = "4";
+      }
+    }
+
+    function updateSimulator() {
+      const n = parseInt(document.getElementById('selectN').value);
+      const kSelect = document.getElementById('selectK');
+      
+      if (kSelect.options.length === 0 || parseInt(kSelect.options[kSelect.options.length - 1].value) !== n) {
+        updateKOptions();
+      }
+
+      const k = parseInt(document.getElementById('selectK').value);
+
+      const ak = comb(n - 1, k - 1);
+      const totalSum = Math.pow(2, n - 1) - 1;
+
+      document.getElementById('resAk').textContent = ak;
+      document.getElementById('resSum').textContent = totalSum;
+
+      // Render compositions list
+      const listContainer = document.getElementById('partitionsList');
+      const comps = getCompositions(n, k);
+      listContainer.innerHTML = '';
+
+      comps.forEach(c => {
+        const item = document.createElement('div');
+        item.className = 'partition-tag';
+        item.textContent = c.join(' + ') + ` = ${n}`;
+        listContainer.appendChild(item);
+      });
+    }
+
+    // Initial setup
+    updateKOptions();
+    document.getElementById('selectK').value = "4";
+    updateSimulator();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>光非依存反応（カルビン回路）完全マスター解説 | Light-Independent Reactions</title>
+  <meta name="description" content="Photosynthesis Process（光合成の仕組み）における光非依存反応（カルビン回路・暗反応）の全ステップ、RuBisCOの炭酸固定、GPからTPへの還元、RuBPの再生、炭素数収支、有機物合成を徹底解説。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- MathJax for chemical and mathematical formulas -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #070b14;
+      --bg-card: rgba(15, 23, 42, 0.78);
+      --bg-card-hover: rgba(24, 36, 64, 0.9);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(56, 189, 248, 0.4);
+
+      /* Theme Color Accents */
+      --primary: #10b981;          /* Emerald Green (Photosynthesis) */
+      --primary-glow: rgba(16, 185, 129, 0.25);
+      --cyan: #06b6d4;             /* Cyan (Stroma/Enzyme) */
+      --cyan-glow: rgba(6, 182, 212, 0.25);
+      --amber: #f59e0b;            /* Amber (ATP Energy) */
+      --amber-glow: rgba(245, 158, 11, 0.25);
+      --indigo: #6366f1;           /* Indigo (NADPH Reducing Power) */
+      --indigo-glow: rgba(99, 102, 241, 0.25);
+      --rose: #f4395e;             /* Rose (CO2 Fixation) */
+
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.8;
+      background-image: 
+        radial-gradient(circle at 10% 15%, rgba(16, 185, 129, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 90% 25%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(245, 158, 11, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+      padding-bottom: 100px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Hero Section */
+    header {
+      padding: 60px 0 35px;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 5px 16px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-primary {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .badge-cyan {
+      background: rgba(6, 182, 212, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(6, 182, 212, 0.35);
+    }
+
+    .badge-amber {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
+    h1 {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: clamp(2.1rem, 4.2vw, 3.1rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ffffff 30%, #6ee7b7 70%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 860px;
+      margin: 0 auto 30px;
+    }
+
+    /* Hero Callout Banner */
+    .hero-callout {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(6, 182, 212, 0.15));
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-lg);
+      padding: 26px 32px;
+      margin-bottom: 45px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      text-align: left;
+    }
+
+    .hero-callout-icon {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #10b981, #06b6d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 8px 22px rgba(16, 185, 129, 0.35);
+    }
+
+    .hero-callout-text h3 {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .hero-callout-text p {
+      font-size: 0.98rem;
+      color: #cbd5e1;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      margin-bottom: 38px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .section-card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #34d399;
+    }
+
+    .section-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    /* 2-Stage Comparison Cards (Stage 1 vs Stage 2) */
+    .stages-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 850px) {
+      .stages-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stage-card {
+      background: rgba(11, 18, 30, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stage-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .stage-1::before {
+      background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    }
+
+    .stage-2::before {
+      background: linear-gradient(90deg, #10b981, #06b6d4);
+    }
+
+    .stage-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .stage-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .stage-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .stage-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.94rem;
+      color: #cbd5e1;
+    }
+
+    .stage-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .stage-list i {
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    /* 5-Step Process Interactive Flow */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .step-item {
+      background: rgba(11, 18, 32, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 80px 1fr 340px;
+      gap: 24px;
+      align-items: center;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    @media (max-width: 1024px) {
+      .step-item {
+        grid-template-columns: 70px 1fr;
+      }
+      .step-visual {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .step-item {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step-item:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      background: rgba(16, 26, 46, 0.95);
+      transform: translateY(-2px);
+    }
+
+    .step-badge-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(16, 185, 129, 0.2));
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+
+    .step-main h4 {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-en-orig {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.84rem;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .step-main p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    .step-visual {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+    }
+
+    .molecule-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin: 2px;
+    }
+
+    .mol-rubp { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); }
+    .mol-co2 { background: rgba(244, 63, 94, 0.2); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.4); }
+    .mol-gp { background: rgba(59, 130, 246, 0.2); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.4); }
+    .mol-tp { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .mol-glucose { background: rgba(245, 158, 11, 0.2); color: #fde047; border: 1px solid rgba(245, 158, 11, 0.4); }
+    .mol-energy { background: rgba(234, 179, 8, 0.25); color: #fef08a; border: 1px solid rgba(234, 179, 8, 0.5); }
+
+    /* Calvin Cycle Full Interactive Diagram Section */
+    .cycle-visualizer-card {
+      background: rgba(10, 16, 28, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-top: 24px;
+    }
+
+    .svg-cycle-box {
+      width: 100%;
+      background: #080e1a;
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .svg-cycle-box svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Dynamic Stoichiometry Calculator */
+    .calculator-wrapper {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.8));
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      margin-top: 24px;
+    }
+
+    .calc-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-turns {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #cbd5e1;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-turns:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #38bdf8;
+      color: white;
+    }
+
+    .btn-turns.active {
+      background: linear-gradient(135deg, #06b6d4, #10b981);
+      border-color: transparent;
+      color: white;
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.4);
+    }
+
+    .calc-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .stat-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .stat-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+
+    .stat-unit {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-left: 4px;
+    }
+
+    /* Limiting Factors Grid */
+    .factors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+      margin-top: 20px;
+    }
+
+    .factor-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: var(--transition);
+    }
+
+    .factor-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .factor-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .factor-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .factor-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Products of Calvin Cycle Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .product-card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .product-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .product-info h5 {
+      font-size: 1.05rem;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .product-info p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Quiz Section */
+    .quiz-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .quiz-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 22px;
+    }
+
+    .quiz-q {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .quiz-q-num {
+      background: #06b6d4;
+      color: white;
+      font-size: 0.8rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      height: fit-content;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    @media (max-width: 700px) {
+      .quiz-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .quiz-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      text-align: left;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+
+    .quiz-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .quiz-btn.correct {
+      background: rgba(16, 185, 129, 0.25) !important;
+      border-color: #10b981 !important;
+      color: #a7f3d0 !important;
+    }
+
+    .quiz-btn.incorrect {
+      background: rgba(239, 68, 68, 0.25) !important;
+      border-color: #ef4444 !important;
+      color: #fca5a5 !important;
+    }
+
+    .quiz-feedback {
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      display: none;
+    }
+
+    .quiz-feedback.show {
+      display: block;
+    }
+
+    .quiz-feedback.correct-fb {
+      background: rgba(16, 185, 129, 0.12);
+      border-left: 4px solid #10b981;
+      color: #d1fae5;
+    }
+
+    .quiz-feedback.incorrect-fb {
+      background: rgba(239, 68, 68, 0.12);
+      border-left: 4px solid #ef4444;
+      color: #fee2e2;
+    }
+
+    /* Summary Box */
+    .summary-box {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(16, 185, 129, 0.2));
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      margin-top: 30px;
+    }
+
+    .summary-box h3 {
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .summary-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .summary-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.98rem;
+      color: #e2e8f0;
+    }
+
+    .summary-icon {
+      color: #38bdf8;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="badge-container">
+        <span class="badge badge-primary"><i data-lucide="sun-medium" style="width:14px;height:14px;"></i> 光合成の第2段階</span>
+        <span class="badge badge-cyan"><i data-lucide="refresh-cw" style="width:14px;height:14px;"></i> カルビン回路 (Calvin Cycle)</span>
+        <span class="badge badge-amber"><i data-lucide="book-open" style="width:14px;height:14px;"></i> PDF教材完全日本語化</span>
+      </div>
+      <h1>光非依存反応（カルビン回路）完全解説</h1>
+      <p class="subtitle">
+        葉緑体のストロマで起こる二酸化炭素の固定、GPからTPへの還元、RuBPの再生、そしてグルコース・デンプン等の有機物合成メカニズムを徹底解説。
+      </p>
+    </header>
+
+    <!-- Hero Callout -->
+    <div class="hero-callout">
+      <div class="hero-callout-icon">
+        <i data-lucide="layers" style="width: 32px; height: 32px;"></i>
+      </div>
+      <div class="hero-callout-text">
+        <h3>光非依存反応（Light-Independent Reactions）の核心概要</h3>
+        <p>
+          光非依存反応（通称：カルビン回路 / 暗反応）は、葉緑体の<strong>ストロマ（Stroma）</strong>で行われます。
+          明反応（光依存反応）から供給された <strong>ATP（エネルギー）</strong> と <strong>還元型NADP（NADPH：還元力）</strong> を消費して、気孔から取り込んだ <strong>二酸化炭素（$CO_2$）</strong> を還元・固定し、植物の体を作る様々な有機物（グルコース・デンプン・スクロース・セルロース・アミノ酸・脂質）を合成します。
+        </p>
+      </div>
+    </div>
+
+    <!-- Section 1: 2 Stages Comparison -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <h2 class="section-title">光合成の2つの段階：明反応 vs 光非依存反応</h2>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        光合成は互いに密接に連携する2つの独立した段階から成り立っています（PDF Page 17, 18, 37, 42）。
+      </p>
+
+      <div class="stages-grid">
+        <!-- Stage 1 -->
+        <div class="stage-card stage-1">
+          <div class="stage-title-row">
+            <span class="stage-title">第1段階：光依存反応 (明反応)</span>
+            <span class="stage-badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);">
+              Thylakoids
+            </span>
+          </div>
+          <ul class="stage-list">
+            <li>
+              <i data-lucide="map-pin" style="color: #fbbf24;"></i>
+              <span><strong>場所</strong>：チラコイド膜（Thylakoid membranes）およびグラナ</span>
+            </li>
+            <li>
+              <i data-lucide="arrow-down-circle" style="color: #fbbf24;"></i>
+              <span><strong>入力（Inputs）</strong>：光エネルギー（Light）、水（$H_2O$）</span>
+            </li>
+            <li>
+              <i data-lucide="arrow-up-circle" style="color: #fbbf24;"></i>
+              <span><strong>出力（Outputs）</strong>：<strong>ATP</strong>、<strong>還元型NADP（NADPH）</strong>、酸素（$O_2$ ※副産物として排出）</span>
+            </li>
+            <li>
+              <i data-lucide="zap" style="color: #fbbf24;"></i>
+              <span><strong>役割</strong>：水の光分解（Photolysis）と光リン酸化により、カルビン回路で必要な化学エネルギーを生成する。</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="stage-card stage-2">
+          <div class="stage-title-row">
+            <span class="stage-title">第2段階：光非依存反応 (カルビン回路)</span>
+            <span class="stage-badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);">
+              Stroma
+            </span>
+          </div>
+          <ul class="stage-list">
+            <li>
+              <i data-lucide="map-pin" style="color: #34d399;"></i>
+              <span><strong>場所</strong>：葉緑体の基質（<strong>ストロマ / Stroma</strong>）</span>
+            </li>
+            <li>
+              <i data-lucide="arrow-down-circle" style="color: #34d399;"></i>
+              <span><strong>入力（Inputs）</strong>：二酸化炭素（$CO_2$）、<strong>ATP</strong>、<strong>NADPH</strong></span>
+            </li>
+            <li>
+              <i data-lucide="arrow-up-circle" style="color: #34d399;"></i>
+              <span><strong>出力（Outputs）</strong>：<strong>グルコース（糖類）</strong>、ADP、$\text{NADP}^+$、$P_i$</span>
+            </li>
+            <li>
+              <i data-lucide="cpu" style="color: #34d399;"></i>
+              <span><strong>役割</strong>：$CO_2$ を有機炭素化合物に固定・還元し、生命活動と貯蔵に必要な分子を合成する。</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: 5 Detailed Steps of the Calvin Cycle -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <h2 class="section-title">カルビン回路の5つのステップ詳細解説</h2>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        PDF Page 38〜41 で解説されているカルビン回路の全反応ステップの完全日本語化です。
+      </p>
+
+      <div class="steps-container">
+        <!-- Step 1 & 2: Carbon Fixation & GP Formation -->
+        <div class="step-item">
+          <div class="step-badge-col">
+            <div class="step-circle">01</div>
+          </div>
+          <div class="step-main">
+            <h4>
+              <span>二酸化炭素の進入と炭酸固定 (Carbon Fixation)</span>
+              <span class="molecule-tag mol-co2">$CO_2$</span>
+              <span class="molecule-tag mol-rubp">RuBP (5C)</span>
+            </h4>
+            <div class="step-en-orig">1. Carbon dioxide enters the Calvin cycle / leaf and enters the stroma.</div>
+            <p>
+              大気中から葉の気孔を通って拡散した <strong>二酸化炭素（$CO_2$: 1炭素化合物）</strong> が葉緑体のストロマに入ります。<br>
+              ストロマ内に存在する 5炭素の受容体化合物 <strong>リブロース-1,5-ビスリン酸（RuBP: Ribulose bisphosphate, 5C）</strong> と $CO_2$ が結合します。
+            </p>
+          </div>
+          <div class="step-visual">
+            <div style="color: #94a3b8; font-size: 0.75rem; margin-bottom: 6px;">【反応式】</div>
+            $\text{RuBP (5C)} + \text{CO}_2 \text{ (1C)} \rightarrow \text{不安定な中間体 (6C)}$
+            <div style="margin-top: 6px; font-size: 0.78rem; color: #38bdf8;">
+              🔑 触媒酵素：<strong>RuBisCO</strong>（ルビスコ）
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: GP Formation -->
+        <div class="step-item">
+          <div class="step-badge-col">
+            <div class="step-circle">02</div>
+          </div>
+          <div class="step-main">
+            <h4>
+              <span>グリセリン酸-3-リン酸 (GP) の生成</span>
+              <span class="molecule-tag mol-gp">2 × GP (3C)</span>
+            </h4>
+            <div class="step-en-orig">2. Formation of glycerate-3-phosphate (GP) catalysed by RuBisCO.</div>
+            <p>
+              $CO_2$ と RuBP が結合して生じる <strong>極めて不安定な6炭素化合物（Unstable 6C Intermediate）</strong> は直ちに分裂し、2分子の <strong>グリセリン酸-3-リン酸（GP: Glycerate-3-phosphate, 3C）</strong> となります。<br>
+              この炭酸固定反応は、地球上で最も豊富に存在する酵素 <strong>RuBisCO（ルビスコ）</strong> によって触媒されます。
+            </p>
+          </div>
+          <div class="step-visual">
+            <div style="color: #94a3b8; font-size: 0.75rem; margin-bottom: 6px;">【炭素数の推移】</div>
+            $1 \times 6\text{C 中間体} \xrightarrow{\text{分解}} 2 \times \text{GP (3C)}$
+            <div style="margin-top: 6px; font-size: 0.78rem; color: #a7f3d0;">
+              💡 GPは3炭素酸であるため、この型の光合成を<strong>C3光合成</strong>と呼びます。
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Reduction of GP to TP -->
+        <div class="step-item">
+          <div class="step-badge-col">
+            <div class="step-circle">03</div>
+          </div>
+          <div class="step-main">
+            <h4>
+              <span>GP から トリオースリン酸 (TP) への還元反応</span>
+              <span class="molecule-tag mol-energy">ATP</span>
+              <span class="molecule-tag mol-energy">NADPH</span>
+              <span class="molecule-tag mol-tp">2 × TP (3C)</span>
+            </h4>
+            <div class="step-en-orig">3. Reduction of GP to triose phosphate (TP). ATP provides energy; NADPH provides hydrogen.</div>
+            <p>
+              生成された GP（3C）は、明反応から送られてきた <strong>ATP</strong>（リン酸基とエネルギーを提供）と <strong>還元型NADP（NADPH）</strong>（水素イオン $H^+$ と高エネルギー電子を提供）によって<strong>還元</strong>され、高エネルギーな糖リン酸である <strong>トリオースリン酸（TP: Triose phosphate, 3C / G3P）</strong> へと変換されます。
+            </p>
+          </div>
+          <div class="step-visual">
+            <div style="color: #94a3b8; font-size: 0.75rem; margin-bottom: 6px;">【還元反応の収支】</div>
+            $2\text{GP} + 2\text{ATP} + 2\text{NADPH} \rightarrow 2\text{TP} + 2\text{ADP} + 2\text{NADP}^+ + 2\text{P}_i$
+            <div style="margin-top: 6px; font-size: 0.78rem; color: #fde047;">
+              ⚡ エネルギー消費：1分子のGPあたり 1 ATP と 1 NADPH を消費。
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Synthesis of Organic Molecules -->
+        <div class="step-item">
+          <div class="step-badge-col">
+            <div class="step-circle">04</div>
+          </div>
+          <div class="step-main">
+            <h4>
+              <span>TP からの各種有機分子の合成（全体の 1/6）</span>
+              <span class="molecule-tag mol-glucose">Glucose (6C)</span>
+              <span class="molecule-tag" style="background:rgba(234,179,8,0.2);color:#fde047;">Starch / Cellulose</span>
+            </h4>
+            <div class="step-en-orig">4. Some TP is used to make organic molecules (small proportion leaves the cycle).</div>
+            <p>
+              合成された TP のうち、<strong>ごく一部（全体の $\frac{1}{6}$）</strong> がカルビン回路から排出（離脱）します。<br>
+              この TP は細胞質や葉緑体内において、植物の生存に必要なあらゆる有機化合物の骨格として利用されます：
+              <strong>グルコース（単糖）</strong>、<strong>デンプン（貯蔵用多糖）</strong>、<strong>スクロース（維管束での輸送用糖）</strong>、<strong>セルロース（細胞壁の構築）</strong>、さらに <strong>アミノ酸</strong> や <strong>脂質（グリセロール＋脂肪酸）</strong> の合成材料となります。
+            </p>
+          </div>
+          <div class="step-visual">
+            <div style="color: #94a3b8; font-size: 0.75rem; margin-bottom: 6px;">【TPから作られる主要物質】</div>
+            ・$2 \times \text{TP (3C)} \rightarrow \text{グルコース (6C)}$<br>
+            ・グルコース $\rightarrow$ デンプン / スクロース / セルロース<br>
+            ・GPやTP $\rightarrow$ 脂質・アミノ酸・核酸
+          </div>
+        </div>
+
+        <!-- Step 5: Regeneration of RuBP -->
+        <div class="step-item">
+          <div class="step-badge-col">
+            <div class="step-circle">05</div>
+          </div>
+          <div class="step-main">
+            <h4>
+              <span>RuBP の再生（全体の 5/6）</span>
+              <span class="molecule-tag mol-energy">ATP</span>
+              <span class="molecule-tag mol-rubp">RuBP (5C) 再生</span>
+            </h4>
+            <div class="step-en-orig">5. Most TP regenerates RuBP using ATP (allowing cycle to continue).</div>
+            <p>
+              生成された TP の <strong>大部分（全体の $\frac{5}{6}$）</strong> は回路内に留まります。<br>
+              一連の複雑な酵素反応（糖リン酸再編成）と <strong>ATP（エネルギーとリン酸基）</strong> の消費を経て、最初の受容体である <strong>RuBP（5C）が再生</strong> されます。<br>
+              これにより、カルビン回路が途切れることなく連続的に回転し、$CO_2$ を固定し続けることが可能になります。
+            </p>
+          </div>
+          <div class="step-visual">
+            <div style="color: #94a3b8; font-size: 0.75rem; margin-bottom: 6px;">【RuBP再生の炭素収支】</div>
+            $5 \times \text{TP (3C: 計15炭素)} + 3\text{ATP} \rightarrow 3 \times \text{RuBP (5C: 計15炭素)}$
+            <div style="margin-top: 6px; font-size: 0.78rem; color: #c084fc;">
+              🔄 炭素数保存：$5 \times 3\text{C} = 15\text{C} \rightarrow 3 \times 5\text{C} = 15\text{C}$
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Interactive Visual Diagram of Calvin Cycle -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <h2 class="section-title">カルビン回路・全体反応サイクル図解</h2>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        PDF Page 38〜42 に掲載されているカルビン回路の循環図を完全再現したベクター図解です。
+      </p>
+
+      <div class="cycle-visualizer-card">
+        <div class="svg-cycle-box">
+          <svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Arrow marker -->
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+              </marker>
+              <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981" />
+              </marker>
+              <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#f59e0b" />
+              </marker>
+            </defs>
+
+            <!-- Background Outer Circle / Halo -->
+            <circle cx="400" cy="260" r="180" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="36" stroke-dasharray="10, 10"/>
+
+            <!-- Central Hub Label -->
+            <circle cx="400" cy="260" r="70" fill="#0f172a" stroke="rgba(56, 189, 248, 0.4)" stroke-width="2"/>
+            <text x="400" y="250" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="bold" font-family="'Outfit', sans-serif">CALVIN CYCLE</text>
+            <text x="400" y="270" text-anchor="middle" fill="#94a3b8" font-size="12" font-family="'Noto Sans JP', sans-serif">カルビン回路</text>
+            <text x="400" y="288" text-anchor="middle" fill="#34d399" font-size="10" font-family="'JetBrains Mono', monospace">in STROMA</text>
+
+            <!-- 1. Top Input: CO2 Fixation -->
+            <!-- Arrow entering -->
+            <path d="M 400 30 L 400 90" stroke="#f4395e" stroke-width="3" marker-end="url(#arrow)"/>
+            <rect x="340" y="20" width="120" height="36" rx="8" fill="rgba(244,63,94,0.2)" stroke="#f4395e" stroke-width="1.5"/>
+            <text x="400" y="43" text-anchor="middle" fill="#fb7185" font-size="13" font-weight="bold" font-family="'Outfit', sans-serif">CO2 (1C)</text>
+
+            <!-- Node: RuBisCO Enzyme Badge -->
+            <rect x="440" y="95" width="100" height="28" rx="6" fill="#06b6d4" opacity="0.9"/>
+            <text x="490" y="114" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold" font-family="sans-serif">RuBisCO 酵素</text>
+
+            <!-- Node: Unstable 6C Intermediate -->
+            <rect x="310" y="95" width="180" height="34" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+            <text x="400" y="117" text-anchor="middle" fill="#f8fafc" font-size="11" font-family="sans-serif">不安定な中間体 (6C)</text>
+
+            <!-- Curved Arrow: 6C -> GP (Right side) -->
+            <path d="M 490 120 C 580 150 620 200 620 250" fill="none" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrow)"/>
+
+            <!-- Node: 2 x GP (Right side) -->
+            <rect x="530" y="240" width="210" height="50" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+            <text x="635" y="262" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="bold" font-family="sans-serif">2 × GP (3C)</text>
+            <text x="635" y="280" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="sans-serif">グリセリン酸-3-リン酸</text>
+
+            <!-- Energy Input (ATP & NADPH -> ADP & NADP+) -->
+            <path d="M 640 300 C 640 370 560 410 490 410" fill="none" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow-amber)"/>
+            
+            <!-- Energy Callout Box -->
+            <g transform="translate(560, 330)">
+              <rect x="0" y="0" width="140" height="46" rx="6" fill="#1e1b4b" stroke="#f59e0b" stroke-width="1"/>
+              <text x="70" y="18" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="bold">2 ATP → 2 ADP + 2Pi</text>
+              <text x="70" y="34" text-anchor="middle" fill="#a5b4fc" font-size="10" font-weight="bold">2 NADPH → 2 NADP+</text>
+            </g>
+
+            <!-- Node: 2 x TP (Bottom) -->
+            <rect x="295" y="390" width="210" height="50" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+            <text x="400" y="412" text-anchor="middle" fill="#6ee7b7" font-size="13" font-weight="bold" font-family="sans-serif">2 × TP (3C)</text>
+            <text x="400" y="430" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="sans-serif">トリオースリン酸 (G3P)</text>
+
+            <!-- Branch 1 (1/6): Exit cycle to Organic Molecules -->
+            <path d="M 400 440 L 400 480" stroke="#10b981" stroke-width="3" marker-end="url(#arrow-green)"/>
+            <rect x="260" y="480" width="280" height="34" rx="8" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="1.5"/>
+            <text x="400" y="502" text-anchor="middle" fill="#a7f3d0" font-size="11" font-weight="bold" font-family="sans-serif">
+              排出 (1/6): グルコース・デンプン・セルロース・脂質
+            </text>
+
+            <!-- Branch 2 (5/6): Regeneration of RuBP (Left side) -->
+            <path d="M 295 415 C 200 400 170 340 170 270 C 170 200 200 150 280 120" fill="none" stroke="#c084fc" stroke-width="3" marker-end="url(#arrow)"/>
+            
+            <!-- ATP input for RuBP regeneration -->
+            <g transform="translate(70, 310)">
+              <rect x="0" y="0" width="115" height="32" rx="6" fill="#1e1b4b" stroke="#fbbf24" stroke-width="1"/>
+              <text x="57" y="20" text-anchor="middle" fill="#fde047" font-size="10" font-weight="bold">ATP → ADP + Pi</text>
+            </g>
+            <text x="120" y="250" text-anchor="middle" fill="#c084fc" font-size="11" font-weight="bold" font-family="sans-serif">RuBPの再生 (5/6)</text>
+
+            <!-- Node: RuBP (Left Top) -->
+            <rect x="70" y="90" width="210" height="50" rx="10" fill="#1e293b" stroke="#a855f7" stroke-width="2"/>
+            <text x="175" y="112" text-anchor="middle" fill="#c084fc" font-size="13" font-weight="bold" font-family="sans-serif">RuBP (5C)</text>
+            <text x="175" y="130" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="sans-serif">リブロース-1,5-ビスリン酸</text>
+
+            <!-- Final connection: RuBP -> Fixation -->
+            <path d="M 280 115 L 310 115" stroke="#a855f7" stroke-width="3" marker-end="url(#arrow)"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Quantitative Stoichiometry Calculator -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <h2 class="section-title">定量的炭素数＆エネルギー収支シミュレーター</h2>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        PDF Page 42 に記載されている<strong>「3分子の $CO_2$ が固定される標準的なカルビン回路の化学量論比」</strong>およびグルコース1分子（6回転）の必要エネルギーを計算します。
+      </p>
+
+      <div class="calculator-wrapper">
+        <div class="calc-controls">
+          <span style="font-weight: 700; color: #ffffff; font-size: 0.95rem;">回転数 / $CO_2$固定数の選択：</span>
+          <button class="btn-turns" onclick="setCalcTurns(1)">1 $CO_2$ (1回転)</button>
+          <button class="btn-turns active" onclick="setCalcTurns(3)">3 $CO_2$ (標準単位: 3回転)</button>
+          <button class="btn-turns" onclick="setCalcTurns(6)">6 $CO_2$ (グルコース1分子: 6回転)</button>
+        </div>
+
+        <div class="calc-stats-grid">
+          <div class="stat-box">
+            <div class="stat-label">固定される $CO_2$</div>
+            <div class="stat-num" id="statCO2" style="color: #fb7185;">3</div>
+            <span class="stat-unit">分子 (3C)</span>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-label">消費される RuBP (5C)</div>
+            <div class="stat-num" id="statRuBP" style="color: #c084fc;">3</div>
+            <span class="stat-unit">分子 (15C)</span>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-label">生成される GP (3C)</div>
+            <div class="stat-num" id="statGP" style="color: #93c5fd;">6</div>
+            <span class="stat-unit">分子 (18C)</span>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-label">生成される TP (3C)</div>
+            <div class="stat-num" id="statTP" style="color: #6ee7b7;">6</div>
+            <span class="stat-unit">分子 (18C)</span>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-label">正味の排出 TP (糖合成用)</div>
+            <div class="stat-num" id="statNetTP" style="color: #fde047;">1</div>
+            <span class="stat-unit">分子 (3C)</span>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-label">RuBP再生に使われる TP</div>
+            <div class="stat-num" id="statRegenTP" style="color: #34d399;">5</div>
+            <span class="stat-unit">分子 (15C)</span>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-label">総消費 ATP 量</div>
+            <div class="stat-num" id="statATP" style="color: #fbbf24;">9</div>
+            <span class="stat-unit">分子 ATP</span>
+          </div>
+
+          <div class="stat-box">
+            <div class="stat-label">総消費 NADPH 量</div>
+            <div class="stat-num" id="statNADPH" style="color: #a5b4fc;">6</div>
+            <span class="stat-unit">分子 NADPH</span>
+          </div>
+        </div>
+
+        <div id="calcExplText" style="margin-top: 20px; padding: 14px 18px; background: rgba(0,0,0,0.35); border-radius: var(--radius-sm); font-size: 0.92rem; color: #cbd5e1; line-height: 1.65;">
+          <strong>【3分子の $CO_2$ を固定する場合の要約 (PDF Page 42)】</strong><br>
+          ・$3 \text{CO}_2 + 3 \text{RuBP} \xrightarrow{\text{RuBisCO}} 6 \text{GP}$ が生成されます。<br>
+          ・$6 \text{GP}$ は $6 \text{ATP} + 6 \text{NADPH}$ を消費して $6 \text{TP}$ に還元されます。<br>
+          ・$6 \text{TP}$ のうち <strong>1 TP が正味の生成物（Net product）</strong> として排出され、グルコース合成等に使われます。<br>
+          ・残りの <strong>5 TP（計15炭素）</strong> は $3 \text{ATP}$ を消費して <strong>3 RuBP（計15炭素）</strong> を再生します。<br>
+          ➔ 合計で <strong>9 ATP</strong> と <strong>6 NADPH</strong> が消費されます。
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Products of the Calvin Cycle -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <h2 class="section-title">カルビン回路から合成される主要有機物</h2>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        カルビン回路から排出された TP（トリオースリン酸）や GP は、植物体内の様々な代謝経路で不可欠な有機分子へと変換されます（PDF Page 18, 40）。
+      </p>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-icon"><i data-lucide="cookie"></i></div>
+          <div class="product-info">
+            <h5>グルコース (Glucose)</h5>
+            <p>2分子のTPから合成される六炭糖。細胞呼吸（ATP生成）の直接の燃料となる。</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon"><i data-lucide="database"></i></div>
+          <div class="product-info">
+            <h5>デンプン (Starch)</h5>
+            <p>グルコースが多数重合した不溶性多糖。浸透圧に影響を与えずに葉緑体や塊茎にエネルギーを貯蔵する。</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon"><i data-lucide="truck"></i></div>
+          <div class="product-info">
+            <h5>スクロース (Sucrose)</h5>
+            <p>グルコースとフルクトースからなる二糖。師管（Phloem）を通って植物全体へ運搬（転流）される。</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon"><i data-lucide="box"></i></div>
+          <div class="product-info">
+            <h5>セルロース (Cellulose)</h5>
+            <p>強固な$\beta$-グルコース重合体。植物細胞を取り囲む頑丈な細胞壁（Cell wall）を形成する。</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon"><i data-lucide="droplet"></i></div>
+          <div class="product-info">
+            <h5>脂質 (Lipids)</h5>
+            <p>TPからグリセロールが、GPから脂肪酸が合成され、細胞膜のリン脂質や種子の油脂となる。</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon"><i data-lucide="dna"></i></div>
+          <div class="product-info">
+            <h5>アミノ酸 (Amino Acids)</h5>
+            <p>GPに根から吸収した硝酸イオン（$NO_3^-$）のアミノ基が付加され、タンパク質や酵素が作られる。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Limiting Factors Affecting Calvin Cycle -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <h2 class="section-title">光合成の限定要因（Limiting Factors）とカルビン回路</h2>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        カルビン回路の進行速度は、主に3つの環境要因によって律速（制限）されます（PDF Page 43〜46）。
+      </p>
+
+      <div class="factors-grid">
+        <!-- CO2 Concentration -->
+        <div class="factor-card">
+          <div class="factor-icon-wrap" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;">
+            <i data-lucide="wind" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h4 class="factor-title">1. 二酸化炭素濃度 ($CO_2$)</h4>
+          <p class="factor-desc">
+            $CO_2$ はカルビン回路の直接の基質です。濃度が低い領域では $CO_2$ 濃度の上昇に伴い光合成速度は直線的に増加します。しかし、RuBisCOの基質飽和や光強度・温度が別の限定要因となるとグラフは頭打ち（一定値）になります（Page 45）。
+          </p>
+        </div>
+
+        <!-- Temperature -->
+        <div class="factor-card">
+          <div class="factor-icon-wrap" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">
+            <i data-lucide="thermometer" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h4 class="factor-title">2. 温度 (Temperature)</h4>
+          <p class="factor-desc">
+            光非依存反応は <strong>RuBisCO</strong> をはじめとする多数の酵素によって触媒されるため、<strong>温度依存性が極めて高い</strong>です。最適温度までは分子の衝突頻度が増えて速度が上がりますが、最適温度を超えると酵素が<strong>熱変性（Denaturation）</strong>して光合成速度は急減します（Page 46）。
+          </p>
+        </div>
+
+        <!-- Light Intensity -->
+        <div class="factor-card">
+          <div class="factor-icon-wrap" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">
+            <i data-lucide="sun" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h4 class="factor-title">3. 光強度 (Light Intensity)</h4>
+          <p class="factor-desc">
+            カルビン回路自体は光を直接必要としませんが、明反応から供給される <strong>ATP と NADPH がなければGPの還元やRuBPの再生が停止</strong>します。そのため、光が弱いと間接的にカルビン回路全体の進行が制限されます（Page 44）。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Interactive Comprehension Quiz -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <h2 class="section-title">理解度チェック・演習クイズ (全4問)</h2>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        学習した内容を確認しましょう。選択肢をクリックすると即座に正誤判定と詳しい解説が表示されます。
+      </p>
+
+      <div class="quiz-container">
+        <!-- Q1 -->
+        <div class="quiz-card" id="q1">
+          <div class="quiz-q">
+            <span class="quiz-q-num">Q1</span>
+            <span>カルビン回路（光非依存反応）が起こる葉緑体内の場所はどこか？</span>
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="checkAnswer(1, 0, false)">チラコイド内腔（Thylakoid Lumen）</button>
+            <button class="quiz-btn" onclick="checkAnswer(1, 1, false)">チラコイド膜（Thylakoid Membrane）</button>
+            <button class="quiz-btn" onclick="checkAnswer(1, 2, true)">ストロマ（Stroma: 葉緑体基質）</button>
+            <button class="quiz-btn" onclick="checkAnswer(1, 3, false)">葉緑体外膜（Outer Membrane）</button>
+          </div>
+          <div class="quiz-feedback" id="fb1"></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-card" id="q2">
+          <div class="quiz-q">
+            <span class="quiz-q-num">Q2</span>
+            <span>$CO_2$ と RuBP（5C）の結合を触媒する酵素の名称はどれか？</span>
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="checkAnswer(2, 0, false)">ATP合成酵素（ATP Synthase）</button>
+            <button class="quiz-btn" onclick="checkAnswer(2, 1, true)">RuBisCO（ルビスコ）</button>
+            <button class="quiz-btn" onclick="checkAnswer(2, 2, false)">DNAポリメラーゼ</button>
+            <button class="quiz-btn" onclick="checkAnswer(2, 3, false)">アミラーゼ（Amylase）</button>
+          </div>
+          <div class="quiz-feedback" id="fb2"></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-card" id="q3">
+          <div class="quiz-q">
+            <span class="quiz-q-num">Q3</span>
+            <span>GP（グリセリン酸-3-リン酸）から TP（トリオースリン酸）への還元反応において、明反応から供給される物質はどれか？</span>
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="checkAnswer(3, 0, true)">ATP（エネルギー） と NADPH（水素/電子）</button>
+            <button class="quiz-btn" onclick="checkAnswer(3, 1, false)">$O_2$ と グルコース</button>
+            <button class="quiz-btn" onclick="checkAnswer(3, 2, false)">ADP と $\text{NADP}^+$</button>
+            <button class="quiz-btn" onclick="checkAnswer(3, 3, false)">水（$H_2O$）と 光子</button>
+          </div>
+          <div class="quiz-feedback" id="fb3"></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-card" id="q4">
+          <div class="quiz-q">
+            <span class="quiz-q-num">Q4</span>
+            <span>カルビン回路でグルコース1分子（6炭素）を正味合成するために必要な $CO_2$、ATP、NADPH の数はそれぞれいくつか？</span>
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-btn" onclick="checkAnswer(4, 0, false)">$1 \text{CO}_2$、3 ATP、2 NADPH</button>
+            <button class="quiz-btn" onclick="checkAnswer(4, 1, false)">$3 \text{CO}_2$、9 ATP、6 NADPH</button>
+            <button class="quiz-btn" onclick="checkAnswer(4, 2, true)">$6 \text{CO}_2$、18 ATP、12 NADPH</button>
+            <button class="quiz-btn" onclick="checkAnswer(4, 3, false)">$6 \text{CO}_2$、36 ATP、24 NADPH</button>
+          </div>
+          <div class="quiz-feedback" id="fb4"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary Box -->
+    <div class="summary-box">
+      <h3><i data-lucide="award" style="color:#38bdf8;"></i> 光非依存反応の最重要ポイント総まとめ</h3>
+      <ul class="summary-list">
+        <li>
+          <i data-lucide="check-circle-2" class="summary-icon"></i>
+          <span><strong>反応の場所</strong>：葉緑体のストロマ（Stroma）。可溶性酵素が豊富に存在する液状基質。</span>
+        </li>
+        <li>
+          <i data-lucide="check-circle-2" class="summary-icon"></i>
+          <span><strong>炭酸固定</strong>：$\text{RuBP (5C)} + \text{CO}_2 \xrightarrow{\text{RuBisCO}} 2 \times \text{GP (3C)}$。</span>
+        </li>
+        <li>
+          <i data-lucide="check-circle-2" class="summary-icon"></i>
+          <span><strong>還元反応</strong>：$\text{GP (3C)} \xrightarrow{\text{ATP} + \text{NADPH}} \text{TP (3C)}$。明反応で作られた化学エネルギーを糖の中に固定する。</span>
+        </li>
+        <li>
+          <i data-lucide="check-circle-2" class="summary-icon"></i>
+          <span><strong>糖合成とRuBP再生の比率</strong>：生成された TP の $\frac{1}{6}$ がグルコース等の有機物になり、残りの $\frac{5}{6}$ が ATP を使って RuBP へと再生される。</span>
+        </li>
+        <li>
+          <i data-lucide="check-circle-2" class="summary-icon"></i>
+          <span><strong>温度と$CO_2$依存性</strong>：酵素反応であるため最適温度を持ち、温度超過による失活や$CO_2$不足で速度が制限される。</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 植物生理学・光合成プロセス完全解説 | Light-Independent Reactions (Calvin Cycle)</p>
+    </footer>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Stoichiometry Calculator Logic
+    const statCO2 = document.getElementById('statCO2');
+    const statRuBP = document.getElementById('statRuBP');
+    const statGP = document.getElementById('statGP');
+    const statTP = document.getElementById('statTP');
+    const statNetTP = document.getElementById('statNetTP');
+    const statRegenTP = document.getElementById('statRegenTP');
+    const statATP = document.getElementById('statATP');
+    const statNADPH = document.getElementById('statNADPH');
+    const calcExplText = document.getElementById('calcExplText');
+
+    function setCalcTurns(turns) {
+      // Update active button state
+      const btns = document.querySelectorAll('.btn-turns');
+      btns.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const co2 = turns;
+      const rubp = turns;
+      const gp = turns * 2;
+      const tp = turns * 2;
+      const netTp = (turns / 3); // 1 for 3 turns, 2 for 6 turns, 0.33 for 1 turn
+      const regenTp = tp - netTp;
+      const atp = turns * 3; // 2 in reduction + 1 in regeneration per CO2
+      const nadph = turns * 2;
+
+      statCO2.textContent = co2;
+      statRuBP.textContent = rubp;
+      statGP.textContent = gp;
+      statTP.textContent = tp;
+      statNetTP.textContent = Number.isInteger(netTp) ? netTp : netTp.toFixed(2);
+      statRegenTP.textContent = Number.isInteger(regenTp) ? regenTp : regenTp.toFixed(2);
+      statATP.textContent = atp;
+      statNADPH.textContent = nadph;
+
+      if (turns === 1) {
+        calcExplText.innerHTML = `<strong>【1分子の $CO_2$ を固定する場合 (1回転)】</strong><br>
+        ・$1 \text{CO}_2 + 1 \text{RuBP (5C)} \xrightarrow{\text{RuBisCO}} 2 \text{GP (3C)}$<br>
+        ・$2 \text{GP} + 2 \text{ATP} + 2 \text{NADPH} \rightarrow 2 \text{TP (3C)}$<br>
+        ・1回転では $\\frac{1}{3}$ 分子の TP しか排出できないため、グルコースなどの完全な分子を合成するには回路が複数回回転する必要があります。`;
+      } else if (turns === 3) {
+        calcExplText.innerHTML = `<strong>【3分子の $CO_2$ を固定する場合の要約 (PDF Page 42)】</strong><br>
+        ・$3 \text{CO}_2 + 3 \text{RuBP (5C)} \xrightarrow{\text{RuBisCO}} 6 \text{GP (3C)}$<br>
+        ・$6 \text{GP}$ は $6 \text{ATP} + 6 \text{NADPH}$ を消費して $6 \text{TP}$ に還元されます。<br>
+        ・$6 \text{TP}$ のうち <strong>1 TP が正味の生成物（Net product）</strong> として排出され、グルコース合成等に使われます。<br>
+        ・残りの <strong>5 TP（計15炭素）</strong> は $3 \text{ATP}$ を消費して <strong>3 RuBP（計15炭素）</strong> を再生します。<br>
+        ➔ 合計で <strong>9 ATP</strong> と <strong>6 NADPH</strong> が消費されます。`;
+      } else if (turns === 6) {
+        calcExplText.innerHTML = `<strong>【グルコース1分子（$C_6H_{12}O_6$）を合成する場合 (6回転)】</strong><br>
+        ・グルコース（6炭素）を作るには <strong>2分子の TP（$2 \\times 3\\text{C} = 6\\text{C}$）</strong> の排出が必要です。<br>
+        ・そのためカルビン回路は <strong>6回転（$6 \\text{CO}_2$ の固定）</strong> します。<br>
+        ・全体の消費エネルギー：<strong>18 ATP</strong>（還元に12 ATP ＋ RuBP再生に6 ATP）および <strong>12 NADPH</strong>。<br>
+        ➔ 総反応式：$6\\text{CO}_2 + 18\\text{ATP} + 12\\text{NADPH} + 12\\text{H}^+ \\rightarrow \\text{C}_6\\text{H}_{12}\\text{O}_6 + 18\\text{ADP} + 18\\text{P}_i + 12\\text{NADP}^+ + 6\\text{H}_2\\text{O}$`;
+      }
+      
+      if (window.MathJax) {
+        MathJax.typesetPromise([calcExplText]);
+      }
+    }
+
+    // Quiz Checking Logic
+    const quizExplanations = {
+      1: {
+        correct: "正解です！カルビン回路（光非依存反応）は葉緑体のストロマ（基質）で行われます。チラコイド膜および内腔は光依存反応（明反応）の場です。",
+        incorrect: "不正解です。カルビン回路は葉緑体の液状基質である「ストロマ（Stroma）」で行われます。チラコイド膜や内腔は明反応（水の光分解やATP合成）の場所です。"
+      },
+      2: {
+        correct: "正解です！RuBisCO（リブロース-1,5-ビスリン酸カルボキシラーゼ/オキシゲナーゼ）は、CO2をRuBPに結合させて炭酸固定を行う中心酵素です。",
+        incorrect: "不正解です。CO2とRuBPの結合を触媒する酵素は「RuBisCO（ルビスコ）」です。"
+      },
+      3: {
+        correct: "正解です！明反応で作られた ATP（リン酸基とエネルギーの供給）と NADPH（還元用の水素イオンと高エネルギー電子の供給）がGPをTPへと還元します。",
+        incorrect: "不正解です。GPをTPに還元するためには、明反応から供給されたエネルギー通貨である「ATP」と還元剤である「NADPH」が必要です。"
+      },
+      4: {
+        correct: "正解です！グルコース1分子（6炭素）を作るには、2分子のTPを排出する必要があり、回路が6回転（6 CO2）します。このとき還元で12 ATP + 12 NADPH、RuBP再生で6 ATPを消費するため、合計で 18 ATP と 12 NADPH が必要になります。",
+        incorrect: "不正解です。グルコース（6炭素）1分子を作るには2分子のTPが必要（回路6回転）となるため、6 CO2、18 ATP、12 NADPH が消費されます。"
+      }
+    };
+
+    function checkAnswer(qNum, optIndex, isCorrect) {
+      const card = document.getElementById(`q${qNum}`);
+      const btns = card.querySelectorAll('.quiz-btn');
+      const fb = document.getElementById(`fb${qNum}`);
+
+      btns.forEach((btn, idx) => {
+        btn.disabled = true;
+        if (idx === optIndex) {
+          btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+        }
+      });
+
+      fb.className = 'quiz-feedback show ' + (isCorrect ? 'correct-fb' : 'incorrect-fb');
+      fb.innerHTML = `<strong>${isCorrect ? '⭕ 正解！' : '❌ 不正解...'}</strong> ${isCorrect ? quizExplanations[qNum].correct : quizExplanations[qNum].incorrect}`;
+    }
+  </script>
+</body>
+</html>

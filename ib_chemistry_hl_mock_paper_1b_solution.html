@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>化学 上級レベル（HL） 試験問題 1B 完全解答・詳細解説集（模擬問題 第1回 全35点）</title>
+  <meta name="description" content="化学 上級レベル（HL / IB Chemistry / A-Level）模擬問題 第1回 試験問題 1B（全35点）の完全解答、詳細な理論的解説、ステップ別立式計算、反応速度・アレニウスプロット・滴定曲線・不確かさ伝播・燃焼熱量測定の完全網羅。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- MathJax for chemical and mathematical formulas -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #070a13;
+      --bg-card: rgba(15, 23, 42, 0.85);
+      --bg-card-hover: rgba(24, 36, 64, 0.95);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(56, 189, 248, 0.4);
+
+      /* Theme Accents */
+      --cyan: #38bdf8;
+      --indigo: #818cf8;
+      --emerald: #34d399;
+      --amber: #fbbf24;
+      --rose: #f43f5e;
+      --purple: #c084fc;
+
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.8;
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 90% 15%, rgba(129, 140, 248, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(52, 211, 153, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+      padding-bottom: 100px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Hero Section */
+    header {
+      padding: 60px 0 35px;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(8px);
+      letter-spacing: 0.5px;
+    }
+
+    .badge-primary {
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .badge-success {
+      background: rgba(52, 211, 153, 0.12);
+      color: var(--emerald);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+
+    .badge-purple {
+      background: rgba(192, 132, 252, 0.12);
+      color: var(--purple);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+    }
+
+    h1.main-title {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #ffffff 30%, #38bdf8 70%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 25px;
+    }
+
+    /* Score Overview Bar */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 30px 0 45px;
+    }
+
+    .overview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+    }
+
+    .overview-card:hover {
+      border-color: var(--border-highlight);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    .overview-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .overview-info h4 {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .overview-info .val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Quick Nav / Table of Contents */
+    .quick-nav {
+      position: sticky;
+      top: 15px;
+      z-index: 90;
+      background: rgba(11, 17, 33, 0.88);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 9999px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      gap: 10px;
+      overflow-x: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .nav-btn {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-btn:hover, .nav-btn.active {
+      color: #fff;
+      background: rgba(56, 189, 248, 0.2);
+    }
+
+    .control-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .action-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .action-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--text-main);
+    }
+
+    /* Section Styling */
+    .question-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      margin-bottom: 40px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .q-number-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .q-badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      color: #050811;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .q-title-text h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .q-title-text p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .points-tag {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--cyan);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+    }
+
+    .context-box {
+      background: rgba(2, 6, 23, 0.65);
+      border-left: 4px solid var(--cyan);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      color: #cbd5e1;
+      font-size: 0.96rem;
+    }
+
+    /* Sub question item */
+    .sub-item {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+      transition: var(--transition);
+    }
+
+    .sub-item:hover {
+      border-color: rgba(56, 189, 248, 0.25);
+    }
+
+    .sub-q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      gap: 10px;
+    }
+
+    .sub-q-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sub-points {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--amber);
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      padding: 2px 10px;
+      border-radius: 9999px;
+    }
+
+    .q-text {
+      color: #e2e8f0;
+      margin-bottom: 18px;
+      font-size: 0.98rem;
+    }
+
+    /* Answer and Explanation Blocks */
+    .solution-card {
+      margin-top: 15px;
+      background: rgba(2, 6, 23, 0.75);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .ans-banner {
+      background: linear-gradient(90deg, rgba(52, 211, 153, 0.15), rgba(56, 189, 248, 0.1));
+      padding: 12px 18px;
+      border-bottom: 1px solid rgba(52, 211, 153, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .ans-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--emerald);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ans-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .solution-body {
+      padding: 20px;
+    }
+
+    .step-list {
+      list-style: none;
+      counter-reset: step-counter;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .step-item {
+      position: relative;
+      padding-left: 36px;
+    }
+
+    .step-item::before {
+      counter-increment: step-counter;
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 50%;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-title {
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .step-desc {
+      color: #94a3b8;
+      font-size: 0.92rem;
+    }
+
+    /* Theory Note Box */
+    .theory-box {
+      margin-top: 18px;
+      background: rgba(129, 140, 248, 0.08);
+      border: 1px solid rgba(129, 140, 248, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+    }
+
+    .theory-box h5 {
+      color: var(--indigo);
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .theory-box p, .theory-box ul {
+      color: #cbd5e1;
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .theory-box ul {
+      padding-left: 20px;
+    }
+
+    /* Warning / Trap Box */
+    .trap-box {
+      margin-top: 14px;
+      background: rgba(244, 63, 94, 0.08);
+      border: 1px solid rgba(244, 63, 94, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+    }
+
+    .trap-box h5 {
+      color: var(--rose);
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .trap-box p {
+      color: #fecdd3;
+      font-size: 0.86rem;
+    }
+
+    /* Data Table Styling */
+    .data-table-container {
+      overflow-x: auto;
+      margin: 16px 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: rgba(30, 41, 59, 0.8);
+      color: #f1f5f9;
+      padding: 10px 14px;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: #cbd5e1;
+    }
+
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.data-table tr:hover td {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* SVG Illustrations */
+    .svg-diagram-wrapper {
+      background: #090e1a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .svg-diagram-wrapper svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-top: 8px;
+    }
+
+    /* Interactive Simulators */
+    .sim-container {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      margin: 25px 0;
+    }
+
+    .sim-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
+    }
+
+    .sim-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sim-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .sim-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sim-ctrl-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sim-slider-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sim-slider-row label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .sim-slider-row input[type="range"] {
+      accent-color: var(--cyan);
+    }
+
+    .sim-output-box {
+      background: #060913;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .sim-result-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .sim-result-item .k {
+      color: var(--text-muted);
+    }
+
+    .sim-result-item .v {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: var(--emerald);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 50px 0 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+
+    /* Print Optimization */
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+      }
+      .quick-nav, .sim-container, .badge-container {
+        display: none !important;
+      }
+      .question-section, .sub-item, .solution-card {
+        border: 1px solid #ccc !important;
+        background: #fff !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+      .ans-banner {
+        background: #eee !important;
+        color: #000 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Quick Sticky Navigation -->
+  <div class="container">
+    <header>
+      <div class="badge-container">
+        <span class="badge badge-primary"><i data-lucide="award"></i> 化学 上級レベル (HL)</span>
+        <span class="badge badge-success"><i data-lucide="check-circle-2"></i> 模擬問題 第1回</span>
+        <span class="badge badge-purple"><i data-lucide="clock"></i> 試験問題 1B（全3問 / 35点満点）</span>
+      </div>
+      <h1 class="main-title">試験問題 1B 完全解答・理論詳細解説</h1>
+      <p class="subtitle">
+        実験データの解析・反応速度論（アレニウスプロット）・酸塩基滴定（不確かさ伝播・pH曲線・緩衝系）・アルコールの燃焼熱量測定の完全解法ガイド
+      </p>
+    </header>
+
+    <!-- Score Overview Summary -->
+    <div class="overview-grid">
+      <div class="overview-card">
+        <div class="overview-icon" style="background: rgba(56, 189, 248, 0.15); color: var(--cyan);">
+          <i data-lucide="flask-conical"></i>
+        </div>
+        <div class="overview-info">
+          <h4>第1問：反応速度と触媒</h4>
+          <div class="val">15 点 <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">/ 35点</span></div>
+        </div>
+      </div>
+
+      <div class="overview-card">
+        <div class="overview-icon" style="background: rgba(129, 140, 248, 0.15); color: var(--indigo);">
+          <i data-lucide="pipette"></i>
+        </div>
+        <div class="overview-info">
+          <h4>第2問：食酢の滴定と不確かさ</h4>
+          <div class="val">12 点 <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">/ 35点</span></div>
+        </div>
+      </div>
+
+      <div class="overview-card">
+        <div class="overview-icon" style="background: rgba(52, 211, 153, 0.15); color: var(--emerald);">
+          <i data-lucide="flame"></i>
+        </div>
+        <div class="overview-info">
+          <h4>第3問：燃焼エンタルピー測定</h4>
+          <div class="val">8 点 <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">/ 35点</span></div>
+        </div>
+      </div>
+
+      <div class="overview-card">
+        <div class="overview-icon" style="background: rgba(251, 191, 36, 0.15); color: var(--amber);">
+          <i data-lucide="calculator"></i>
+        </div>
+        <div class="overview-info">
+          <h4>試験時間＆配点合計</h4>
+          <div class="val">35 点 <span style="font-size:0.85rem; color:var(--text-muted); font-weight:normal;">(1A+1B=75点)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Navigation Bar -->
+    <div class="quick-nav">
+      <div class="nav-links">
+        <a href="#q1" class="nav-btn"><i data-lucide="arrow-right-circle"></i> 第1問：過酸化水素の分解</a>
+        <a href="#q2" class="nav-btn"><i data-lucide="arrow-right-circle"></i> 第2問：食酢の滴定とpH曲線</a>
+        <a href="#q3" class="nav-btn"><i data-lucide="arrow-right-circle"></i> 第3問：燃焼エンタルピー</a>
+      </div>
+      <div class="control-actions">
+        <button class="action-btn" onclick="window.print()"><i data-lucide="printer"></i> 印刷 / PDF保存</button>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 第1問 -->
+    <!-- ========================================================================= -->
+    <section id="q1" class="question-section">
+      <div class="question-header">
+        <div class="q-number-title">
+          <div class="q-badge">1</div>
+          <div class="q-title-text">
+            <h2>第1問：過酸化水素水の分解に対する触媒の効果・反応速度論</h2>
+            <p>反応速度・気体化学量論・アレニウスの式・エネルギープロファイル・実験誤差</p>
+          </div>
+        </div>
+        <div class="points-tag">配点：計 15 点</div>
+      </div>
+
+      <div class="context-box">
+        <strong>【問題設定】</strong><br>
+        ある生徒は，過酸化水素水の分解に対する触媒の効果を調べた。<br>
+        $0.100\text{ mol dm}^{-3}$ の過酸化水素水 $50.0\text{ cm}^3$ を三角フラスコに取り，触媒を加えて直ちに栓をし，発生した酸素の体積をガスシリンジで測定した。実験はすべて $25^\circ\text{C}$ で行った。
+        <ul>
+          <li><strong>実験1</strong>：酸化マンガン(IV) $\text{MnO}_2$ を添加</li>
+          <li><strong>実験2</strong>：レバー片（カタラーゼ）を添加</li>
+          <li><strong>実験3</strong>：触媒を添加しない</li>
+        </ul>
+      </div>
+
+      <!-- (a) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (a) 過酸化水素の分解反応式</div>
+          <span class="sub-points">1 点</span>
+        </div>
+        <p class="q-text">過酸化水素が分解する反応の化学反応式を，状態記号を含めて書きなさい。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答</span>
+            <span class="ans-value">$$2\text{H}_2\text{O}_2\text{(aq)} \longrightarrow 2\text{H}_2\text{O(l)} + \text{O}_2\text{(g)}$$</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">化学反応の同定と係数合わせ</div>
+                <div class="step-desc">
+                  過酸化水素 $\text{H}_2\text{O}_2$ は自己酸化還元反応（不均化反応）により、水 $\text{H}_2\text{O}$ と酸素ガス $\text{O}_2$ に分解します。<br>
+                  または分数の係数を用いた $\text{H}_2\text{O}_2\text{(aq)} \longrightarrow \text{H}_2\text{O(l)} + \frac{1}{2}\text{O}_2\text{(g)}$ も正解です。
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">状態記号（State symbols）の正確な付与</div>
+                <div class="step-desc">
+                  過酸化水素水は水溶液なので $\text{(aq)}$、生成する水は液体なので $\text{(l)}$、酸素は気体なので $\text{(g)}$ を付記します。状態記号の欠落や誤りは失点対象となります。
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- (b) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (b) 発生する酸素ガスの理論体積の計算</div>
+          <span class="sub-points">2 点</span>
+        </div>
+        <p class="q-text">すべての過酸化水素が分解したときに発生する酸素の体積を，25 °C，100 kPa において計算しなさい。この条件における気体のモル体積は $24.8\text{ dm}^3\text{ mol}^{-1}$ とする。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答</span>
+            <span class="ans-value">$$62.0\text{ cm}^3 \quad (\text{または } 0.0620\text{ dm}^3)$$</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">Step 1: 過酸化水素の初物質量 $n(\text{H}_2\text{O}_2)$ の算出</div>
+                <div class="step-desc">
+                  $$n(\text{H}_2\text{O}_2) = c \times V = 0.100\text{ mol dm}^{-3} \times \frac{50.0}{1000}\text{ dm}^3 = 5.00 \times 10^{-3}\text{ mol}$$
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">Step 2: 生成する $\text{O}_2$ の物質量 $n(\text{O}_2)$ の算出</div>
+                <div class="step-desc">
+                  化学反応式のモル比（$\text{H}_2\text{O}_2 : \text{O}_2 = 2 : 1$）より：
+                  $$n(\text{O}_2) = \frac{1}{2} \times n(\text{H}_2\text{O}_2) = \frac{1}{2} \times 5.00 \times 10^{-3}\text{ mol} = 2.50 \times 10^{-3}\text{ mol}$$
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">Step 3: モル体積を用いた酸素体積 $V(\text{O}_2)$ の算出</div>
+                <div class="step-desc">
+                  $$V(\text{O}_2) = n(\text{O}_2) \times V_m = 2.50 \times 10^{-3}\text{ mol} \times 24.8\text{ dm}^3\text{ mol}^{-1} = 0.0620\text{ dm}^3 = 62.0\text{ cm}^3$$
+                  ※問題文のグラフにおいて、実験1の曲線が約 $62\text{ cm}^3$ に漸近していることと完全に一致します。
+                </div>
+              </li>
+            </ul>
+            <div class="theory-box">
+              <h5><i data-lucide="info"></i> ポイント：気体のモル体積（STP vs SATP/RTP）</h5>
+              <p>IB化学や国際規格では、$25^\circ\text{C}$（$298.15\text{ K}$）、$100\text{ kPa}$ におけるモル体積は $24.8\text{ dm}^3\text{ mol}^{-1}$（SATP）を使用します（$0^\circ\text{C}$、100 kPa の STP では $22.7\text{ dm}^3\text{ mol}^{-1}$）。問題文の指定値を正確に適用しましょう。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- (c) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (c) グラフの解析（初速度の決定と最終収量）</div>
+          <span class="sub-points">3 点（(i) 2点 + (ii) 1点）</span>
+        </div>
+        
+        <p class="q-text"><strong>(i)</strong> グラフに接線を描き加え，実験1における酸素発生の初速度を決定しなさい。単位は $\text{cm}^3\text{ s}^{-1}$ を用いること。[2点]</p>
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> (i) 正解・模範解答</span>
+            <span class="ans-value">$$1.4 \sim 1.6\text{ cm}^3\text{ s}^{-1} \quad (\text{許容範囲: } 1.3 \sim 1.7\text{ cm}^3\text{ s}^{-1})$$</span>
+          </div>
+          <div class="solution-body">
+            <div class="svg-diagram-wrapper">
+              <svg viewBox="0 0 500 280" width="480" height="270">
+                <!-- Grid Lines -->
+                <line x1="50" y1="230" x2="460" y2="230" stroke="#334155" stroke-width="1.5"/>
+                <line x1="50" y1="230" x2="50" y2="20" stroke="#334155" stroke-width="1.5"/>
+                
+                <line x1="50" y1="170" x2="460" y2="170" stroke="#1e293b" stroke-dasharray="4"/>
+                <line x1="50" y1="110" x2="460" y2="110" stroke="#1e293b" stroke-dasharray="4"/>
+                <line x1="50" y1="50" x2="460" y2="50" stroke="#1e293b" stroke-dasharray="4"/>
+
+                <line x1="132" y1="230" x2="132" y2="20" stroke="#1e293b" stroke-dasharray="4"/>
+                <line x1="214" y1="230" x2="214" y2="20" stroke="#1e293b" stroke-dasharray="4"/>
+                <line x1="296" y1="230" x2="296" y2="20" stroke="#1e293b" stroke-dasharray="4"/>
+                <line x1="378" y1="230" x2="378" y2="20" stroke="#1e293b" stroke-dasharray="4"/>
+
+                <!-- Axis Labels -->
+                <text x="240" y="265" fill="#94a3b8" font-size="12" text-anchor="middle">時間 / s</text>
+                <text x="20" y="125" fill="#94a3b8" font-size="12" text-anchor="middle" transform="rotate(-90 20 125)">発生した O₂ の体積 / cm³</text>
+
+                <text x="45" y="235" fill="#64748b" font-size="10" text-anchor="end">0</text>
+                <text x="45" y="175" fill="#64748b" font-size="10" text-anchor="end">20</text>
+                <text x="45" y="115" fill="#64748b" font-size="10" text-anchor="end">40</text>
+                <text x="45" y="55" fill="#64748b" font-size="10" text-anchor="end">60</text>
+
+                <text x="50" y="245" fill="#64748b" font-size="10" text-anchor="middle">0</text>
+                <text x="132" y="245" fill="#64748b" font-size="10" text-anchor="middle">25</text>
+                <text x="214" y="245" fill="#64748b" font-size="10" text-anchor="middle">50</text>
+                <text x="296" y="245" fill="#64748b" font-size="10" text-anchor="middle">75</text>
+                <text x="378" y="245" fill="#64748b" font-size="10" text-anchor="middle">100</text>
+
+                <!-- Curve 1: MnO2 -->
+                <path d="M 50 230 Q 120 70 214 62 T 450 50" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+                <!-- Curve 2: Liver (Catalase) -->
+                <path d="M 50 230 Q 200 130 450 75" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="5 3"/>
+                <!-- Curve 3: Uncatalysed -->
+                <line x1="50" y1="230" x2="450" y2="226" stroke="#64748b" stroke-width="1.5" stroke-dasharray="2 2"/>
+
+                <!-- Tangent Line at t=0 -->
+                <line x1="50" y1="230" x2="182" y2="30" stroke="#f43f5e" stroke-width="2"/>
+                <circle cx="50" cy="230" r="4" fill="#f43f5e"/>
+                <circle cx="182" cy="30" r="4" fill="#f43f5e"/>
+
+                <text x="195" y="40" fill="#f43f5e" font-size="11" font-weight="bold">接線 (t = 0)</text>
+                <text x="260" y="80" fill="#38bdf8" font-size="11">実験1 (MnO₂)</text>
+                <text x="360" y="120" fill="#a78bfa" font-size="11">実験2 (カタラーゼ)</text>
+                <text x="320" y="215" fill="#64748b" font-size="10">実験3 (触媒なし)</text>
+              </svg>
+              <div class="diagram-caption">図1：酸素発生体積の経時変化と $t=0$ における接線の引き方</div>
+            </div>
+
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">配点基準 1：原点 $t=0$ における正確な接線の作図（1点）</div>
+                <div class="step-desc">
+                  $t=0$ の原点から曲線の初期勾配にぴったり沿うように直線を引きます。
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">配点基準 2：傾きの計算と単位（1点）</div>
+                <div class="step-desc">
+                  接線上の2点（例：$(0, 0)$ と $(40\text{ s}, 60.0\text{ cm}^3)$）から傾きを算出：
+                  $$\text{初速度} = \frac{\Delta V}{\Delta t} = \frac{60.0 - 0}{40.0 - 0} = 1.50\text{ cm}^3\text{ s}^{-1}$$
+                  ※作図の微小な誤差を考慮し、$1.3 \sim 1.7\text{ cm}^3\text{ s}^{-1}$ の範囲であれば満点となります。単位 $\text{cm}^3\text{ s}^{-1}$ が明記されていることを確認してください。
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="q-text" style="margin-top:20px;"><strong>(ii)</strong> 実験1〜実験3のすべてが，最終的に同じ体積の酸素に達する理由を述べなさい。[1点]</p>
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> (ii) 正解・模範解答</span>
+            <span class="ans-value">「触媒は反応速度を速めるだけであり、反応物の初期量（物質量）および生成物の総収量には影響を与えないため。」</span>
+          </div>
+          <div class="solution-body">
+            <p style="color:#cbd5e1; font-size:0.92rem;">
+              <strong>【理論的解説】</strong><br>
+              触媒（$\text{MnO}_2$ やカタラーゼ）は、活性化エネルギーの低い別の反応経路を提供することで<strong>反応速度（Rate of reaction）を増加</strong>させますが、<strong>化学平衡の位置や生成物の最大収量（Yield）を変化させることはありません</strong>。すべての実験において反応物である過酸化水素の初濃度（$0.100\text{ mol dm}^{-3}$）および体積（$50.0\text{ cm}^3$）が同一（物質量が等しい）であるため、反応が完全に終了した際に生成する酸素ガスの総体積はすべて等しく $62.0\text{ cm}^3$ となります。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- (d) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (d) 測定値のパーセンテージ不確かさの計算</div>
+          <span class="sub-points">1 点</span>
+        </div>
+        <p class="q-text">ガスシリンジの目盛りの読み取りの不確かさは $\pm 0.5\text{ cm}^3$ である。実験1で $100\text{ s}$ のときに読み取った体積 $60.0\text{ cm}^3$ について，パーセンテージの不確かさを計算しなさい。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答</span>
+            <span class="ans-value">$$0.83\% \quad (\text{または } 0.8\%)$$</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">計算式と立式</div>
+                <div class="step-desc">
+                  $$\text{Percentage uncertainty} = \frac{\text{絶対不確かさ}}{\text{測定値}} \times 100 = \frac{0.5\text{ cm}^3}{60.0\text{ cm}^3} \times 100 = 0.8333...\% \approx 0.83\%$$
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- (e) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (e) アレニウスの式を用いた活性化エネルギー $E_a$ の決定</div>
+          <span class="sub-points">3 点</span>
+        </div>
+        <p class="q-text">
+          この生徒は，実験1を異なる温度でくり返し，一次反応の速度定数 $k$ を求めた。<br>
+          アレニウスの式 $\ln k = -\frac{E_a}{RT} + \ln A$ を用い，$\ln k$ を $1/T$ に対してプロットしたときの傾きから，この反応の活性化エネルギー $E_a$ を $\text{kJ mol}^{-1}$ の単位で決定しなさい。『化学資料集』の第1項および第2項を用いなさい。
+        </p>
+
+        <div class="data-table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>温度 $T / \text{K}$</th>
+                <th>288</th>
+                <th>298</th>
+                <th>308</th>
+                <th>318</th>
+                <th>328</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>速度定数 $k / \text{s}^{-1}$</strong></td>
+                <td>$1.59 \times 10^{-2}$</td>
+                <td>$3.50 \times 10^{-2}$</td>
+                <td>$7.29 \times 10^{-2}$</td>
+                <td>$1.45 \times 10^{-1}$</td>
+                <td>$2.77 \times 10^{-1}$</td>
+              </tr>
+              <tr style="background: rgba(56, 189, 248, 0.05); color: var(--cyan);">
+                <td><strong>$1/T / \text{K}^{-1}$ ($\times 10^{-3}$)</strong></td>
+                <td>$3.472$</td>
+                <td>$3.356$</td>
+                <td>$3.247$</td>
+                <td>$3.145$</td>
+                <td>$3.049$</td>
+              </tr>
+              <tr style="background: rgba(56, 189, 248, 0.05); color: var(--cyan);">
+                <td><strong>$\ln k$</strong></td>
+                <td>$-4.141$</td>
+                <td>$-3.352$</td>
+                <td>$-2.619$</td>
+                <td>$-1.931$</td>
+                <td>$-1.284$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答</span>
+            <span class="ans-value">$$E_a = 56.1\text{ kJ mol}^{-1} \quad (\text{許容範囲: } 54 \sim 58\text{ kJ mol}^{-1})$$</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">Step 1: 直線の傾き（Gradient $m$）の算出（1点）</div>
+                <div class="step-desc">
+                  アレニウスの式 $\ln k = \left(-\frac{E_a}{R}\right) \frac{1}{T} + \ln A$ は、$y = mx + c$ の直線形式です。<br>
+                  傾き $m = -\frac{E_a}{R}$ となります。<br>
+                  データ点の端点（$T=288\text{ K}$ と $T=328\text{ K}$）を用いて傾きを計算：
+                  $$\Delta y = \ln k_5 - \ln k_1 = -1.284 - (-4.141) = +2.857$$
+                  $$\Delta x = \frac{1}{T_5} - \frac{1}{T_1} = (3.049 - 3.472) \times 10^{-3}\text{ K}^{-1} = -0.423 \times 10^{-3}\text{ K}^{-1}$$
+                  $$m = \frac{\Delta y}{\Delta x} = \frac{2.857}{-0.423 \times 10^{-3}\text{ K}^{-1}} \approx -6754\text{ K} \quad (\text{約 } -6700 \sim -6800\text{ K})$$
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">Step 2: 活性化エネルギー $E_a$ の計算（1点）</div>
+                <div class="step-desc">
+                  気体定数 $R = 8.31\text{ J K}^{-1}\text{ mol}^{-1}$（資料集第2項）を用いて：
+                  $$E_a = -m \times R = -(-6754\text{ K}) \times 8.314\text{ J K}^{-1}\text{ mol}^{-1} = 56153\text{ J mol}^{-1}$$
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">Step 3: 単位の変換 $\text{kJ mol}^{-1}$（1点）</div>
+                <div class="step-desc">
+                  $$E_a = \frac{56153\text{ J mol}^{-1}}{1000} \approx 56.2\text{ kJ mol}^{-1} \quad (3\text{桁で } 56.1 \sim 56.2\text{ kJ mol}^{-1})$$
+                </div>
+              </li>
+            </ul>
+            <div class="trap-box">
+              <h5><i data-lucide="alert-triangle"></i> よくあるミス・失点トラップ</h5>
+              <p>① $1/T$ の計算で $\times 10^{-3}$ を掛け忘れて傾きが1000倍ずれる。<br>
+                 ② 最終解答で $\text{kJ mol}^{-1}$ への換算（1000で割る）を忘れ、$\text{J mol}^{-1}$ のまま答えてしまう。<br>
+                 ③ $E_a$ は常に正の値であるのに、負の符号（$-56.1$）をつけてしまう。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- (f) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (f) 反応エネルギープロファイルの概形</div>
+          <span class="sub-points">2 点</span>
+        </div>
+        <p class="q-text">次の軸上に，触媒がある場合とない場合の反応経路のエネルギープロファイルの概形を描きなさい。それぞれに名称を付けること。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答（作図）</span>
+            <span class="ans-value">発熱反応プロファイル（触媒あり・なしの2経路）</span>
+          </div>
+          <div class="solution-body">
+            <div class="svg-diagram-wrapper">
+              <svg viewBox="0 0 520 300" width="500" height="280">
+                <!-- Axes -->
+                <line x1="60" y1="260" x2="480" y2="260" stroke="#475569" stroke-width="2"/>
+                <line x1="60" y1="260" x2="60" y2="30" stroke="#475569" stroke-width="2"/>
+                <text x="270" y="290" fill="#94a3b8" font-size="12" text-anchor="middle">反応の進行 (Reaction coordinate)</text>
+                <text x="25" y="145" fill="#94a3b8" font-size="12" text-anchor="middle" transform="rotate(-90 25 145)">エネルギー (Energy)</text>
+
+                <!-- Reactant Level -->
+                <line x1="60" y1="140" x2="140" y2="140" stroke="#f8fafc" stroke-width="3"/>
+                <text x="100" y="130" fill="#f8fafc" font-size="12" text-anchor="middle" font-weight="bold">2H₂O₂(aq)</text>
+
+                <!-- Product Level -->
+                <line x1="400" y1="220" x2="470" y2="220" stroke="#f8fafc" stroke-width="3"/>
+                <text x="435" y="210" fill="#f8fafc" font-size="12" text-anchor="middle" font-weight="bold">2H₂O(l) + O₂(g)</text>
+
+                <!-- Enthalpy Change Delta H -->
+                <line x1="390" y1="140" x2="390" y2="220" stroke="#34d399" stroke-width="1.5" stroke-dasharray="3"/>
+                <text x="400" y="185" fill="#34d399" font-size="11" font-weight="bold">ΔH &lt; 0 (発熱)</text>
+
+                <!-- Uncatalysed Curve (Higher peak) -->
+                <path d="M 140 140 C 190 30, 260 30, 400 220" fill="none" stroke="#f43f5e" stroke-width="2.5"/>
+                <!-- Catalysed Curve (Lower peak) -->
+                <path d="M 140 140 C 200 90, 250 90, 400 220" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="6 3"/>
+
+                <!-- Labels for Curves -->
+                <text x="240" y="45" fill="#f43f5e" font-size="11" font-weight="bold">触媒なし (Uncatalysed, Ea)</text>
+                <text x="240" y="105" fill="#38bdf8" font-size="11" font-weight="bold">触媒あり (Catalysed, Ea')</text>
+
+                <!-- Ea Arrows -->
+                <line x1="170" y1="140" x2="170" y2="45" stroke="#f43f5e" stroke-width="1.5"/>
+                <line x1="200" y1="140" x2="200" y2="92" stroke="#38bdf8" stroke-width="1.5"/>
+              </svg>
+              <div class="diagram-caption">図2：過酸化水素分解のエネルギープロファイル（触媒の有無による活性化エネルギーの比較）</div>
+            </div>
+
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">配点基準 1：発熱反応の基本形状と触媒効果（1点）</div>
+                <div class="step-desc">
+                  生成物（$2\text{H}_2\text{O} + \text{O}_2$）のエネルギー準位が反応物（$2\text{H}_2\text{O}_2$）よりも低く描かれていること（発熱反応）。<br>
+                  触媒ありの山（遷移状態）の頂点が、触媒なしの山の頂点よりも明確に低く描かれていること。
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">配点基準 2：ラベルと同一の始点・終点（1点）</div>
+                <div class="step-desc">
+                  両方の曲線に「触媒あり（Catalysed）」「触媒なし（Uncatalysed）」のラベルが正確に付与されていること。<br>
+                  反応物と生成物のエネルギー準位（始点と終点）が共通であり、反応エンタルピー変化 $\Delta H$ が触媒によって変化しないことが示されていること。
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- (g) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (g) 系統誤差の特定と実験の改良</div>
+          <span class="sub-points">2 点（系統誤差 1点 + 改良 1点）</span>
+        </div>
+        <p class="q-text">この実験において考えられる系統誤差を 1 つ特定し，それを小さくするための改良を 1 つ述べなさい。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答（代表的な解答例）</span>
+            <span class="ans-value">気体の散逸誤差と二股試験管/隔離容器による改良</span>
+          </div>
+          <div class="solution-body">
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>系統誤差の特定（1点）</th>
+                    <th>それを小さくする具体的な改良（1点）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>触媒投入から栓をするまでのガス漏れ：</strong><br>触媒（$\text{MnO}_2$ やカタラーゼ）をフラスコに入れてからゴム栓を閉めるまでの間に、初期に急激に発生した酸素ガスが大気中に逃げてしまう。</td>
+                    <td><strong>二股フラスコ / 隔離容器の使用：</strong><br>二股試験管（divided flask）や小試験管（small tube）に触媒を入れ、ゴム栓を完全に密閉した状態でフラスコを傾けて両者を混合・反応開始させる。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>酸素ガスの水溶液への溶解：</strong><br>発生した酸素ガスの一部が過酸化水素水（水）に溶解し、ガスシリンジで測定される気体体積が見かけ上小さくなる。</td>
+                    <td><strong>酸素飽和水溶液の使用：</strong><br>実験開始前に溶液にあらかじめ酸素ガスを通気して飽和させておく。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>反応熱による温度上昇：</strong><br>過酸化水素の分解は発熱反応であるため、溶液温度が上昇し、反応速度や気体体積が変化してしまう。</td>
+                    <td><strong>恒温水槽（Water bath）の使用：</strong><br>三角フラスコを一定温度（$25^\circ\text{C}$）に制御された恒温水槽に浸して実験を行う。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 第2問 -->
+    <!-- ========================================================================= -->
+    <section id="q2" class="question-section">
+      <div class="question-header">
+        <div class="q-number-title">
+          <div class="q-badge">2</div>
+          <div class="q-title-text">
+            <h2>第2問：食酢（エタン酸）の希釈と中和滴定・不確かさ伝播・滴定曲線</h2>
+            <p>酸塩基滴定・希釈計算・不確かさの合成・pH滴定曲線・緩衝溶液・指示薬の理論</p>
+          </div>
+        </div>
+        <div class="points-tag">配点：計 12 点</div>
+      </div>
+
+      <div class="context-box">
+        <strong>【問題設定】</strong><br>
+        ある生徒は，市販の食酢に含まれるエタン酸（酢酸 $\text{CH}_3\text{COOH}$）の濃度を滴定によって決定した。<br>
+        食酢 $10.00\text{ cm}^3$ をホールピペットで正確にはかり取り，$250.0\text{ cm}^3$ のメスフラスコで標線まで希釈した。この希釈液 $25.00\text{ cm}^3$ をホールピペットで取り，$0.1000\text{ mol dm}^{-3}$ の水酸化ナトリウム水溶液で滴定した。
+      </div>
+
+      <div class="data-table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>滴定回数</th>
+              <th>予備（Rough）</th>
+              <th>1回目</th>
+              <th>2回目</th>
+              <th>3回目</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>滴下量 / $\text{cm}^3$</strong></td>
+              <td>26.10</td>
+              <td>25.45</td>
+              <td>25.35</td>
+              <td>25.40</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- (a) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (a) 平均滴下量の算出と予備滴定の除外理由</div>
+          <span class="sub-points">1 点</span>
+        </div>
+        <p class="q-text">この生徒が用いるべき平均滴下量を求めなさい。また，予備滴定の値を平均に含めない理由を述べなさい。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答</span>
+            <span class="ans-value">$$25.40\text{ cm}^3$$</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">調和した滴定値（Concordant titres）の選定と平均計算</div>
+                <div class="step-desc">
+                  1回目（$25.45\text{ cm}^3$）、2回目（$25.35\text{ cm}^3$）、3回目（$25.40\text{ cm}^3$）は互いに $\pm 0.10\text{ cm}^3$ 以内に一致しています。
+                  $$\text{平均滴下量} = \frac{25.45 + 25.35 + 25.40}{3} = \frac{76.20}{3} = 25.40\text{ cm}^3$$
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">予備滴定を除外する理由</div>
+                <div class="step-desc">
+                  予備滴定（ラフ滴定）はおおよその終点位置を見積もるために滴下速度を速めて行われるため、終点を通り過ぎて過大評価（Over-titration）されている可能性が高く、精度が低いため（調和データに含まれないため）。
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- (b) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (b) 希釈前の食酢のモル濃度の計算</div>
+          <span class="sub-points">2 点</span>
+        </div>
+        <p class="q-text">希釈前の食酢に含まれるエタン酸のモル濃度を計算しなさい。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答</span>
+            <span class="ans-value">$$2.540\text{ mol dm}^{-3} \quad (\text{または } 2.54\text{ mol dm}^{-3})$$</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">中和反応と滴定に要した $\text{NaOH}$ の物質量</div>
+                <div class="step-desc">
+                  $$\text{CH}_3\text{COOH(aq)} + \text{NaOH(aq)} \longrightarrow \text{CH}_3\text{COONa(aq)} + \text{H}_2\text{O(l)}$$
+                  $$n(\text{NaOH}) = c \times V = 0.1000\text{ mol dm}^{-3} \times \frac{25.40}{1000}\text{ dm}^3 = 2.540 \times 10^{-3}\text{ mol}$$
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">希釈液（$250.0\text{ cm}^3$）および原液（$10.00\text{ cm}^3$）への逆算</div>
+                <div class="step-desc">
+                  滴定した $25.00\text{ cm}^3$ 中のエタン酸の物質量は $2.540 \times 10^{-3}\text{ mol}$。<br>
+                  希釈倍率（Dilution factor）は $\frac{250.0\text{ cm}^3}{10.00\text{ cm}^3} = 25$ 倍。<br>
+                  または、希釈液全体の物質量 $n_{\text{total}} = 2.540 \times 10^{-3}\text{ mol} \times \frac{250.0}{25.00} = 2.540 \times 10^{-2}\text{ mol}$。<br>
+                  希釈前の食酢（$10.00\text{ cm}^3 = 0.01000\text{ dm}^3$）のモル濃度 $c_{\text{orig}}$：
+                  $$c_{\text{orig}} = \frac{2.540 \times 10^{-2}\text{ mol}}{0.01000\text{ dm}^3} = 2.540\text{ mol dm}^{-3}$$
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- (c) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (c) 質量パーセント濃度の計算</div>
+          <span class="sub-points">2 点</span>
+        </div>
+        <p class="q-text">この食酢の密度は $1.01\text{ g cm}^{-3}$ である。食酢中のエタン酸の質量パーセント濃度を計算しなさい。『化学資料集』の第 7 項を用いなさい。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答</span>
+            <span class="ans-value">$$15.1\% \quad (\text{または } 15.10\%)$$</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">Step 1: エタン酸 $\text{CH}_3\text{COOH}$ のモル質量 $M$</div>
+                <div class="step-desc">
+                  $$M(\text{CH}_3\text{COOH}) = 2 \times 12.01 + 4 \times 1.01 + 2 \times 16.00 = 60.06\text{ g mol}^{-1}$$
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">Step 2: 溶液 $1.00\text{ dm}^3$（$= 1000\text{ cm}^3$）あたりの質量関係</div>
+                <div class="step-desc">
+                  食酢 $1000\text{ cm}^3$ の質量 $= 1000\text{ cm}^3 \times 1.01\text{ g cm}^{-3} = 1010\text{ g}$<br>
+                  食酢 $1000\text{ cm}^3$ 中のエタン酸の質量 $= 2.540\text{ mol} \times 60.06\text{ g mol}^{-1} = 152.55\text{ g}$
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">Step 3: 質量パーセント濃度の算出</div>
+                <div class="step-desc">
+                  $$\text{質量\%} = \frac{\text{溶質の質量}}{\text{溶液の質量}} \times 100 = \frac{152.55\text{ g}}{1010\text{ g}} \times 100 = 15.104\% \approx 15.1\%$$
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- (d) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (d) 不確かさの伝播と濃度の絶対不確かさ表記</div>
+          <span class="sub-points">2 点</span>
+        </div>
+        <p class="q-text">
+          用いた器具の不確かさは次のとおりである。<br>
+          ・$10.00\text{ cm}^3$ ホールピペット：$\pm 0.06\text{ cm}^3$<br>
+          ・$250.0\text{ cm}^3$ メスフラスコ：$\pm 0.30\text{ cm}^3$<br>
+          ・$25.00\text{ cm}^3$ ホールピペット：$\pm 0.06\text{ cm}^3$<br>
+          ・ビュレット（滴下量 $25.40\text{ cm}^3$）：$\pm 0.10\text{ cm}^3$<br>
+          (b) で求めた濃度の合計パーセンテージ不確かさを計算し，濃度を絶対不確かさとともに書きなさい。
+        </p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答</span>
+            <span class="ans-value">合計: 1.35% / 濃度表記: $$2.54 \pm 0.03\text{ mol dm}^{-3}$$</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">Step 1: 各測定器具のパーセンテージ不確かさの計算</div>
+                <div class="step-desc">
+                  乗除算における不確かさの伝播則より、各パーセンテージ不確かさを足し合わせます：
+                  $$\% U(10\text{ mL ピペット}) = \frac{0.06}{10.00} \times 100 = 0.60\%$$
+                  $$\% U(250\text{ mL フラスコ}) = \frac{0.30}{250.0} \times 100 = 0.12\%$$
+                  $$\% U(25\text{ mL ピペット}) = \frac{0.06}{25.00} \times 100 = 0.24\%$$
+                  $$\% U(\text{ビュレット}) = \frac{0.10}{25.40} \times 100 = 0.3937\% \approx 0.394\%$$
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">Step 2: 合計パーセンテージ不確かさ（1点）</div>
+                <div class="step-desc">
+                  $$\text{合計 } \% U = 0.60\% + 0.12\% + 0.24\% + 0.394\% = 1.354\% \approx 1.35\% \quad (\text{または } 1.4\%)$$
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">Step 3: 絶対不確かさの算出と最終表記（1点）</div>
+                <div class="step-desc">
+                  $$\text{絶対不確かさ } \Delta c = 2.540\text{ mol dm}^{-3} \times \frac{1.354}{100} = 0.0344\text{ mol dm}^{-3} \approx 0.03\text{ mol dm}^{-3}$$
+                  不確かさの有効桁数は通常1〜2桁とし、測定値の小数点桁数と揃えます：
+                  $$c = 2.54 \pm 0.03\text{ mol dm}^{-3} \quad (\text{または } 2.540 \pm 0.034\text{ mol dm}^{-3})$$
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- (e) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (e) 滴定曲線の解析（当量点pH・指示薬・$\text{p}K_a$ の決定）</div>
+          <span class="sub-points">3 点（(i) 1点 + (ii) 2点）</span>
+        </div>
+
+        <p class="q-text">
+          次のグラフは，この滴定を pH プローブを用いてくり返したときの滴定曲線である。
+        </p>
+
+        <div class="svg-diagram-wrapper">
+          <svg viewBox="0 0 520 300" width="500" height="280">
+            <!-- Grid Lines -->
+            <line x1="50" y1="260" x2="480" y2="260" stroke="#334155" stroke-width="1.5"/>
+            <line x1="50" y1="260" x2="50" y2="20" stroke="#334155" stroke-width="1.5"/>
+
+            <!-- Y ticks -->
+            <text x="45" y="265" fill="#64748b" font-size="10" text-anchor="end">0</text>
+            <text x="45" y="215" fill="#64748b" font-size="10" text-anchor="end">3</text>
+            <text x="45" y="180" fill="#64748b" font-size="10" text-anchor="end">5</text>
+            <text x="45" y="145" fill="#64748b" font-size="10" text-anchor="end">7</text>
+            <text x="45" y="112" fill="#64748b" font-size="10" text-anchor="end">9</text>
+            <text x="45" y="60" fill="#64748b" font-size="10" text-anchor="end">12</text>
+            <text x="45" y="30" fill="#64748b" font-size="10" text-anchor="end">14</text>
+
+            <!-- X ticks -->
+            <text x="50" y="275" fill="#64748b" font-size="10" text-anchor="middle">0</text>
+            <text x="140" y="275" fill="#64748b" font-size="10" text-anchor="middle">10</text>
+            <text x="165" y="275" fill="#a78bfa" font-size="10" text-anchor="middle" font-weight="bold">12.7</text>
+            <text x="230" y="275" fill="#64748b" font-size="10" text-anchor="middle">20</text>
+            <text x="279" y="275" fill="#38bdf8" font-size="10" text-anchor="middle" font-weight="bold">25.4</text>
+            <text x="320" y="275" fill="#64748b" font-size="10" text-anchor="middle">30</text>
+            <text x="410" y="275" fill="#64748b" font-size="10" text-anchor="middle">40</text>
+
+            <!-- Axis Title -->
+            <text x="265" y="295" fill="#94a3b8" font-size="11" text-anchor="middle">加えた NaOH(aq) の体積 / cm³</text>
+            <text x="20" y="140" fill="#94a3b8" font-size="11" text-anchor="middle" transform="rotate(-90 20 140)">pH</text>
+
+            <!-- Titration Curve for Weak Acid - Strong Base -->
+            <!-- Start at (50, 212) pH ~ 3.0 -->
+            <!-- Buffer region: pH ~ 4.76 at V = 12.7 mL (x = 164, y = 184) -->
+            <!-- Jump near V = 25.4 mL (x = 279), Equivalence point pH ~ 8.7 (y = 117) -->
+            <!-- Plateau pH ~ 12.5 (y = 52) -->
+            <path d="M 50 212 C 90 195, 140 187, 240 170 C 265 160, 275 140, 279 117 C 283 80, 295 56, 460 48" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+
+            <!-- Half-equivalence point marker -->
+            <line x1="165" y1="260" x2="165" y2="184" stroke="#a78bfa" stroke-dasharray="3"/>
+            <line x1="50" y1="184" x2="165" y2="184" stroke="#a78bfa" stroke-dasharray="3"/>
+            <circle cx="165" cy="184" r="4.5" fill="#a78bfa"/>
+            <text x="175" y="180" fill="#a78bfa" font-size="10" font-weight="bold">半当量点 (pH = pKa ≈ 4.76)</text>
+
+            <!-- Equivalence point marker -->
+            <line x1="279" y1="260" x2="279" y2="117" stroke="#34d399" stroke-dasharray="3"/>
+            <line x1="50" y1="117" x2="279" y2="117" stroke="#34d399" stroke-dasharray="3"/>
+            <circle cx="279" cy="117" r="5" fill="#34d399"/>
+            <text x="290" y="117" fill="#34d399" font-size="10" font-weight="bold">当量点 (V = 25.4 cm³, pH ≈ 8.7)</text>
+          </svg>
+          <div class="diagram-caption">図3：弱酸（エタン酸）- 強塩基（NaOH）の滴定曲線と半当量点・当量点の解析</div>
+        </div>
+
+        <p class="q-text"><strong>(i)</strong> 当量点における pH を読み取り，この滴定に適した指示薬を『化学資料集』の第 22 項から 1 つ選びなさい。[1点]</p>
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> (i) 正解・模範解答</span>
+            <span class="ans-value">当量点 pH: 8.7 (許容: 8.5〜9.0) / 指示薬: フェノールフタレイン</span>
+          </div>
+          <div class="solution-body">
+            <p style="color:#cbd5e1; font-size:0.92rem;">
+              <strong>【解説】</strong><br>
+              ・グラフの急激な pH 上昇（pH ジャンプ域 $\text{pH } 6.5 \sim 11.5$）の中央変曲点（当量点）は $\text{pH } \approx 8.7$ です。<br>
+              ・資料集第22項より、この変色域（$8.3 \sim 10.0$）に完全に一致する指示薬は<strong>フェノールフタレイン（Phenolphthalein）</strong>です（チモールブルーの塩基性変色域 $8.0 \sim 9.6$ も可）。
+            </p>
+          </div>
+        </div>
+
+        <p class="q-text" style="margin-top:20px;"><strong>(ii)</strong> このグラフを用いてエタン酸の $\text{p}K_a$ を決定しなさい。用いた方法も示すこと。[2点]</p>
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> (ii) 正解・模範解答</span>
+            <span class="ans-value">$$\text{p}K_a \approx 4.76 \quad (\text{許容範囲: } 4.7 \sim 4.9)$$</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">方法の提示：半当量点法（Half-equivalence point）（1点）</div>
+                <div class="step-desc">
+                  当量点の滴下量が $V = 25.40\text{ cm}^3$ であるため、その半分の滴下量である<strong>半当量点</strong> $V_{1/2} = \frac{25.40}{2} = 12.70\text{ cm}^3$ を特定します。<br>
+                  ヘンダーソン・ハッセルバルヒ式（Henderson-Hasselbalch equation）：
+                  $$\text{pH} = \text{p}K_a + \log\frac{[\text{CH}_3\text{COO}^-]}{[\text{CH}_3\text{COOH}]}$$
+                  半当量点では、酸の半分が中和されて未反応の酸濃度と生成した共役塩基濃度が等しくなる（$[\text{CH}_3\text{COOH}] = [\text{CH}_3\text{COO}^-]$）ため、$\log 1 = 0$ となり、<strong>$\text{pH} = \text{p}K_a$</strong> が成立します。
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">値の読み取り（1点）</div>
+                <div class="step-desc">
+                  グラフの $V = 12.7\text{ cm}^3$ における縦軸の pH を読み取ると、$\text{pH} = 4.76$（約 $4.7 \sim 4.8$）となります。したがって $\text{p}K_a = 4.76$ です。
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- (f) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (f) メチルオレンジが指示薬として適さない理由</div>
+          <span class="sub-points">1 点</span>
+        </div>
+        <p class="q-text">メチルオレンジがこの滴定の指示薬として適さない理由を説明しなさい。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答</span>
+            <span class="ans-value">「変色域（pH 3.1〜4.4）が当量点（pH ≈ 8.7）や急激なpHジャンプ域と重ならず、当量点より大幅に前で変色してしまうため。」</span>
+          </div>
+          <div class="solution-body">
+            <p style="color:#cbd5e1; font-size:0.92rem;">
+              <strong>【理論的解説】</strong><br>
+              指示薬が滴定の終点を正確に示すためには、指示薬の変色域（$\text{p}K_{In} \pm 1$）が滴定曲線の垂直な急変部（$\text{pH}$ ジャンプ域）内に完全に含まれている必要があります。<br>
+              メチルオレンジの変色域は $\text{pH } 3.1 \sim 4.4$ であり、これは弱酸-強塩基滴定の緩衝領域（Buffer region）の途中に位置します。そのため、当量点に達するずっと前に変色（赤 $\rightarrow$ 黄）が完了してしまい、正しい滴定終点を検出できません。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- (g) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (g) 実験器具の共洗い不良が計算結果に与える影響</div>
+          <span class="sub-points">1 点</span>
+        </div>
+        <p class="q-text">ビュレットを蒸留水ですすいだだけで水酸化ナトリウム水溶液を入れた場合，(b) で求めた濃度にどのような影響があるかを説明しなさい。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答</span>
+            <span class="ans-value">「食酢の計算濃度は見かけ上高くなる（過大評価される）。」</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">理由とメカニズムのステップ解説</div>
+                <div class="step-desc">
+                  1. ビュレット内に残った蒸留水の水滴によって、入れた $\text{NaOH}$ 水溶液が希釈され、実際の濃度が公称値（$0.1000\text{ mol dm}^{-3}$）より低くなります。<br>
+                  2. 一定量の食酢希釈液を中和するために、より多くの体積の $\text{NaOH}$（滴下量 $V_{\text{NaOH}}$ の増加）が必要となります。<br>
+                  3. 計算式 $c_{\text{acid}} \propto V_{\text{NaOH}}$ において、公称濃度 $0.1000\text{ mol dm}^{-3}$ と増大した滴下量を用いて計算するため、求められる食酢のエタン酸濃度は実際よりも高くなります。
+                </div>
+              </li>
+            </ul>
+            <div class="theory-box">
+              <h5><i data-lucide="info"></i> 実験器具の正しい洗浄ルール（共洗い vs 蒸留水濡れ）</h5>
+              <ul>
+                <li><strong>ビュレット・ホールピペット</strong>：中に入れる溶液で共洗い（Conditioning / Rinsing）する（希釈を防ぐため）。</li>
+                <li><strong>三角フラスコ・メスフラスコ</strong>：蒸留水ですすぎ、濡れたまま使用してよい（移し入れた溶質の物質量そのものは変化しないため）。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 第3問 -->
+    <!-- ========================================================================= -->
+    <section id="q3" class="question-section">
+      <div class="question-header">
+        <div class="q-number-title">
+          <div class="q-badge">3</div>
+          <div class="q-title-text">
+            <h2>第3問：直鎖第一級アルコールの燃焼エンタルピー測定</h2>
+            <p>熱量測定（熱化学）・同族列の燃焼熱トレンド・系統誤差・パーセンテージ誤差</p>
+          </div>
+        </div>
+        <div class="points-tag">配点：計 8 点</div>
+      </div>
+
+      <div class="context-box">
+        <strong>【問題設定】</strong><br>
+        ある生徒は，直鎖第一級アルコールの燃焼エンタルピーを，スピリットバーナーと銅製容器を用いて測定した。<br>
+        銅製容器に $100.0\text{ g}$ の水を入れ，アルコールを燃焼させて水の温度上昇と燃料の質量減少を記録した。エタノールについて得られた結果を次に示す。
+      </div>
+
+      <div class="data-table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>測定項目</th>
+              <th>測定値</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>水の質量 / $\text{g}$</td>
+              <td>100.0</td>
+            </tr>
+            <tr>
+              <td>水の初めの温度 / $^\circ\text{C}$</td>
+              <td>19.4</td>
+            </tr>
+            <tr>
+              <td>水の最後の温度 / $^\circ\text{C}$</td>
+              <td>41.9</td>
+            </tr>
+            <tr>
+              <td>燃焼前のバーナーの質量 / $\text{g}$</td>
+              <td>183.62</td>
+            </tr>
+            <tr>
+              <td>燃焼後のバーナーの質量 / $\text{g}$</td>
+              <td>183.14</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- (a) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (a) エタノールの燃焼エンタルピー $\Delta H_c$ の計算</div>
+          <span class="sub-points">3 点</span>
+        </div>
+        <p class="q-text">この結果から，エタノールの燃焼エンタルピー $\Delta H_c$ を計算しなさい。水の比熱容量は $4.18\text{ J g}^{-1}\text{ K}^{-1}$ とし，『化学資料集』の第 7 項を用いなさい。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答</span>
+            <span class="ans-value">$$\Delta H_c = -903\text{ kJ mol}^{-1} \quad (\text{または } -900\text{ kJ mol}^{-1} / -9.0 \times 10^2\text{ kJ mol}^{-1})$$</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">Step 1: 水が吸収した熱量 $q$ の算出（1点）</div>
+                <div class="step-desc">
+                  温度変化 $\Delta T = 41.9 - 19.4 = 22.5^\circ\text{C} = 22.5\text{ K}$<br>
+                  $$q = m c \Delta T = 100.0\text{ g} \times 4.18\text{ J g}^{-1}\text{ K}^{-1} \times 22.5\text{ K} = 9405\text{ J} = 9.405\text{ kJ}$$
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">Step 2: 燃焼したエタノールの物質量 $n$ の算出（1点）</div>
+                <div class="step-desc">
+                  消費されたエタノールの質量 $\Delta m = 183.62 - 183.14 = 0.48\text{ g}$<br>
+                  エタノール $\text{C}_2\text{H}_5\text{OH}$ のモル質量 $M = 2 \times 12.01 + 6 \times 1.01 + 16.00 = 46.08\text{ g mol}^{-1}$<br>
+                  $$n(\text{C}_2\text{H}_5\text{OH}) = \frac{0.48\text{ g}}{46.08\text{ g mol}^{-1}} = 0.010417\text{ mol}$$
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">Step 3: 燃焼エンタルピー $\Delta H_c$ の計算（1点）</div>
+                <div class="step-desc">
+                  燃焼反応は発熱反応であるため、**必ず負の符号（$-$）**を付けます：
+                  $$\Delta H_c = -\frac{q}{n} = -\frac{9.405\text{ kJ}}{0.010417\text{ mol}} = -902.85\text{ kJ mol}^{-1} \approx -903\text{ kJ mol}^{-1}$$
+                  ※燃焼質量 $0.48\text{ g}$（有効数字2桁）に基づく $-9.0 \times 10^2\text{ kJ mol}^{-1}$ も完全に正解です。
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- (b) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (b) 実験値が文献値より小さくなる（発熱量が低く出る）理由</div>
+          <span class="sub-points">2 点</span>
+        </div>
+        <p class="q-text">エタノールの燃焼エンタルピーの文献値は $-1367\text{ kJ mol}^{-1}$ である。実験値の絶対値がこれより小さくなる（発熱量が小さく出る）理由を 2 つ述べなさい。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答（以下のいずれか2つで各1点）</span>
+            <span class="ans-value">熱損失 / 不完全燃焼 / 燃料の自然蒸発 / 水の蒸発</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">理由 1：周囲への熱損失（Heat loss to the surroundings）</div>
+                <div class="step-desc">
+                  燃焼で発生した熱の一部が、周囲の空気、銅製ビーカー自体、三脚、風防などに逃げてしまい、水に伝わらなかった。
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">理由 2：不完全燃焼（Incomplete combustion）</div>
+                <div class="step-desc">
+                  酸素供給が不十分なため、すす（炭素 $\text{C}$）や一酸化炭素 $\text{CO}$ が発生し、完全燃焼（$\text{CO}_2$ と $\text{H}_2\text{O}$ のみ）に比べて発生熱量が少なくなった。
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">理由 3：バーナーからの燃料の蒸発（Evaporation of alcohol）</div>
+                <div class="step-desc">
+                  バーナーの炎を消してから質量を再測定するまでの間に、芯からエタノールが自然蒸発し、燃焼に使われた質量が見かけ上過大に測定された。
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- (c) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (c) 同族列の燃焼エンタルピーの傾向と外挿による推定</div>
+          <span class="sub-points">2 点（傾向 1点 + 外挿値 1点）</span>
+        </div>
+        <p class="q-text">
+          次のグラフは，この生徒が同じ方法で測定した炭素数 1〜4 の直鎖第一級アルコールの燃焼エンタルピーを示している。<br>
+          このグラフに見られる傾向を述べ，ペンタン-1-オールについてこの生徒が得るであろう $\Delta H_c$ の値を外挿によって推定しなさい。
+        </p>
+
+        <div class="svg-diagram-wrapper">
+          <svg viewBox="0 0 520 300" width="500" height="280">
+            <!-- Grid Lines -->
+            <line x1="60" y1="260" x2="480" y2="260" stroke="#334155" stroke-width="1.5"/>
+            <line x1="60" y1="40" x2="480" y2="40" stroke="#334155" stroke-width="1.5"/>
+            <line x1="60" y1="260" x2="60" y2="30" stroke="#334155" stroke-width="1.5"/>
+
+            <!-- Y ticks (Values from 0 to -2200) -->
+            <!-- 0 is at y=40, -2000 is at y=240 (scale: 100 kJ = 10px) -->
+            <text x="50" y="45" fill="#64748b" font-size="10" text-anchor="end">0</text>
+            <text x="50" y="80" fill="#64748b" font-size="10" text-anchor="end">-400</text>
+            <text x="50" y="120" fill="#64748b" font-size="10" text-anchor="end">-800</text>
+            <text x="50" y="160" fill="#64748b" font-size="10" text-anchor="end">-1200</text>
+            <text x="50" y="200" fill="#64748b" font-size="10" text-anchor="end">-1600</text>
+            <text x="50" y="240" fill="#64748b" font-size="10" text-anchor="end">-2000</text>
+
+            <!-- X ticks (1 to 6) -->
+            <!-- x1=120, x2=180, x3=240, x4=300, x5=360, x6=420 -->
+            <text x="120" y="275" fill="#64748b" font-size="10" text-anchor="middle">1</text>
+            <text x="180" y="275" fill="#64748b" font-size="10" text-anchor="middle">2</text>
+            <text x="240" y="275" fill="#64748b" font-size="10" text-anchor="middle">3</text>
+            <text x="300" y="275" fill="#64748b" font-size="10" text-anchor="middle">4</text>
+            <text x="360" y="275" fill="#38bdf8" font-size="11" text-anchor="middle" font-weight="bold">5 (ペンタノール)</text>
+            <text x="420" y="275" fill="#64748b" font-size="10" text-anchor="middle">6</text>
+
+            <text x="270" y="295" fill="#94a3b8" font-size="11" text-anchor="middle">アルコール1分子中の炭素原子の数</text>
+            <text x="20" y="140" fill="#94a3b8" font-size="11" text-anchor="middle" transform="rotate(-90 20 140)">実験で求めた ΔHc / kJ mol⁻¹</text>
+
+            <!-- Data Points -->
+            <!-- C=1 (Methanol): -550 kJ -> y = 40 + 55 = 95 -->
+            <!-- C=2 (Ethanol): -900 kJ -> y = 40 + 90 = 130 -->
+            <!-- C=3 (Propanol): -1250 kJ -> y = 40 + 125 = 165 -->
+            <!-- C=4 (Butanol): -1600 kJ -> y = 40 + 160 = 200 -->
+            <!-- C=5 (Pentanol - Extrapolated): -1950 kJ -> y = 40 + 195 = 235 -->
+
+            <!-- Solid Fit Line C=1 to 4 -->
+            <line x1="120" y1="95" x2="300" y2="200" stroke="#f43f5e" stroke-width="2.5"/>
+            <!-- Extrapolated Dashed Line to C=5 -->
+            <line x1="300" y1="200" x2="360" y2="235" stroke="#f43f5e" stroke-width="2.5" stroke-dasharray="4"/>
+
+            <circle cx="120" cy="95" r="5" fill="#38bdf8"/>
+            <circle cx="180" cy="130" r="5" fill="#38bdf8"/>
+            <circle cx="240" cy="165" r="5" fill="#38bdf8"/>
+            <circle cx="300" cy="200" r="5" fill="#38bdf8"/>
+            
+            <!-- Extrapolated Point -->
+            <circle cx="360" cy="235" r="6" fill="#34d399"/>
+            <line x1="60" y1="235" x2="360" y2="235" stroke="#34d399" stroke-dasharray="3"/>
+            <text x="375" y="240" fill="#34d399" font-size="11" font-weight="bold">推定値: ≈ -1950 kJ mol⁻¹</text>
+          </svg>
+          <div class="diagram-caption">図4：炭素数に対する燃焼エンタルピーの直線的増加と同族列の外挿法</div>
+        </div>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答</span>
+            <span class="ans-value">傾向: 直線的に減少(負に増大) / 外挿値: $$-1900 \sim -2000\text{ kJ mol}^{-1}$$</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">傾向（Trend）の記述（1点）</div>
+                <div class="step-desc">
+                  アルコールの炭素数（$-\text{CH}_2-$ 単位）が増加するにつれて、燃焼エンタルピー $\Delta H_c$ は<strong>直線的に負の方向に増大（発熱量が一定の割合で増加）</strong>します。<br>
+                  これは同族列において炭素が1個増えるごとに、燃焼で切断・形成される結合（$\text{C-C}, \text{C-H}, \text{C=O}, \text{O-H}$）の数が一定量（$-\text{CH}_2-$ あたり約 $350\text{ kJ mol}^{-1}$）ずつ増えるためです。
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-title">外挿によるペンタン-1-オールの推定値（1点）</div>
+                <div class="step-desc">
+                  直線を炭素数 5 まで延長（外挿）すると、$\Delta H_c \approx -1950\text{ kJ mol}^{-1}$（許容範囲: $-1900 \sim -2000\text{ kJ mol}^{-1}$）が得られます。負の符号を忘れずに付けてください。
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- (d) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (d) パーセンテージ誤差の計算</div>
+          <span class="sub-points">1 点</span>
+        </div>
+        <p class="q-text">(a) で求めたエタノールの $\Delta H_c$ について，文献値 $-1367\text{ kJ mol}^{-1}$ に対するパーセンテージ誤差を計算しなさい。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答</span>
+            <span class="ans-value">$$33.9\% \quad (\text{または } 34.2\% / 34\%)$$</span>
+          </div>
+          <div class="solution-body">
+            <ul class="step-list">
+              <li class="step-item">
+                <div class="step-title">パーセンテージ誤差（Percentage error）の計算式</div>
+                <div class="step-desc">
+                  $$\text{Percentage error} = \frac{|\text{実験値} - \text{文献値}|}{|\text{文献値}|} \times 100$$
+                  (a) の値 $-903\text{ kJ mol}^{-1}$ を用いる場合：
+                  $$\text{Percentage error} = \frac{|-903 - (-1367)|}{1367} \times 100 = \frac{464}{1367} \times 100 = 33.94\% \approx 33.9\%$$
+                  ※(a) で $-900\text{ kJ mol}^{-1}$ を用いた場合：$\frac{467}{1367} \times 100 = 34.16\% \approx 34.2\%$（いずれも正解）。
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- (e) -->
+      <div class="sub-item">
+        <div class="sub-q-header">
+          <div class="sub-q-title"><i data-lucide="help-circle"></i> (e) 測定値の精度（Accuracy）を高める実験装置の改良</div>
+          <span class="sub-points">1 点</span>
+        </div>
+        <p class="q-text">測定値の精度（accuracy）を高めるために装置に加えるべき改良を 1 つ述べなさい（指示用語：提案しなさい）。</p>
+
+        <div class="solution-card">
+          <div class="ans-banner">
+            <span class="ans-label"><i data-lucide="check"></i> 正解・模範解答（以下のいずれか1つ）</span>
+            <span class="ans-value">風防の設置 / 蓋の取り付け / 断熱材 / ボンブ熱量計</span>
+          </div>
+          <div class="solution-body">
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>具体的な装置の改良案</th>
+                    <th>精度の向上メカニズム</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>風防（Draft shield / Windscreen）の設置</strong></td>
+                    <td>炎の揺らぎや周囲の空気の流れを遮断し、炎から銅製容器への熱伝達効率を高め熱損失を抑える。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>容器に蓋（Lid）を取り付ける</strong></td>
+                    <td>水面からの熱放射および水の蒸発に伴う気化熱（潜熱）の損失を防ぐ。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>容器の外側を断熱ジャケットで覆う</strong></td>
+                    <td>銅製容器の側面からの放熱を防ぎ、燃焼熱を水の中に効率よく閉じ込める。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>ボンブ熱量計（Bomb calorimeter）を使用する</strong></td>
+                    <td>純酸素加圧下で完全密閉して燃焼させることで、不完全燃焼を防止し熱損失を実質的にゼロにする。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- インタラクティブ学習・自己評価セクション -->
+    <!-- ========================================================================= -->
+    <div class="sim-container">
+      <div class="sim-header">
+        <div class="sim-title"><i data-lucide="sliders"></i> インタラクティブ計算シミュレーター（熱量・アレニウス解析）</div>
+      </div>
+      <div class="sim-grid">
+        <div class="sim-ctrl-group">
+          <div class="sim-slider-row">
+            <label>水の質量 $m$: <span id="val-m" style="color:var(--cyan); font-weight:bold;">100.0 g</span></label>
+            <input type="range" id="input-m" min="50" max="200" step="10" value="100" oninput="updateCalSim()">
+          </div>
+          <div class="sim-slider-row">
+            <label>温度上昇 $\Delta T$: <span id="val-dt" style="color:var(--cyan); font-weight:bold;">22.5 °C</span></label>
+            <input type="range" id="input-dt" min="10" max="50" step="0.5" value="22.5" oninput="updateCalSim()">
+          </div>
+          <div class="sim-slider-row">
+            <label>消費燃料質量 $\Delta m$: <span id="val-fuel" style="color:var(--cyan); font-weight:bold;">0.48 g</span></label>
+            <input type="range" id="input-fuel" min="0.20" max="1.50" step="0.02" value="0.48" oninput="updateCalSim()">
+          </div>
+        </div>
+
+        <div class="sim-output-box">
+          <div class="sim-result-item">
+            <span class="k">吸収熱量 $q$:</span>
+            <span class="v" id="out-q">9.41 kJ</span>
+          </div>
+          <div class="sim-result-item">
+            <span class="k">燃焼モル数 $n$:</span>
+            <span class="v" id="out-n">0.0104 mol</span>
+          </div>
+          <div class="sim-result-item" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:6px;">
+            <span class="k" style="color:#fff; font-weight:bold;">燃焼エンタルピー $\Delta H_c$:</span>
+            <span class="v" id="out-dh" style="color:var(--rose); font-size:1.2rem;">-903 kJ/mol</span>
+          </div>
+          <div class="sim-result-item">
+            <span class="k">文献値比 誤差:</span>
+            <span class="v" id="out-err" style="color:var(--amber);">33.9 %</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>化学 上級レベル（HL） 模擬試験 1B 完全解答・解説集</p>
+      <p style="margin-top: 5px; font-size: 0.8rem; color: #475569;">Created for IB Chemistry HL / A-Level Chemistry Advanced Revision</p>
+    </footer>
+  </div>
+
+  <!-- Lucide Icon Init & Script -->
+  <script>
+    lucide.createIcons();
+
+    function updateCalSim() {
+      const m = parseFloat(document.getElementById('input-m').value);
+      const dt = parseFloat(document.getElementById('input-dt').value);
+      const fuel = parseFloat(document.getElementById('input-fuel').value);
+
+      document.getElementById('val-m').innerText = m.toFixed(1) + ' g';
+      document.getElementById('val-dt').innerText = dt.toFixed(1) + ' °C';
+      document.getElementById('val-fuel').innerText = fuel.toFixed(2) + ' g';
+
+      const q = (m * 4.18 * dt) / 1000; // in kJ
+      const molarMass = 46.08; // Ethanol
+      const n = fuel / molarMass;
+      const dh = -(q / n);
+      const lit = -1367;
+      const err = Math.abs((dh - lit) / lit) * 100;
+
+      document.getElementById('out-q').innerText = q.toFixed(2) + ' kJ';
+      document.getElementById('out-n').innerText = n.toFixed(4) + ' mol';
+      document.getElementById('out-dh').innerText = Math.round(dh) + ' kJ/mol';
+      document.getElementById('out-err').innerText = err.toFixed(1) + ' %';
+    }
+  </script>
+</body>
+</html>
