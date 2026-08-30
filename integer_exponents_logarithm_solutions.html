@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>整数・べき乗の一の位・十の位・対数の有理数条件 完全解答解説</title>
+  <meta name="description" content="2以上100以下の自然数に関する指数の一の位・十の位の周期性、および対数が有理数となる条件に関する詳細な解答解説。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- MathJax for mathematical equations -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      /* Light Theme */
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --bg-card: #ffffff;
+      
+      --border-color: #e2e8f0;
+      --border-subtle: #cbd5e1;
+      --border-highlight: #0284c7;
+
+      --brand-primary: #0f172a;
+      --brand-accent: #0284c7;
+      
+      --emerald: #059669;
+      --emerald-subtle: rgba(5, 150, 105, 0.08);
+      --emerald-border: rgba(5, 150, 105, 0.25);
+
+      --sky: #0284c7;
+      --sky-subtle: rgba(2, 132, 199, 0.08);
+      --sky-border: rgba(2, 132, 199, 0.25);
+
+      --indigo: #4f46e5;
+      --indigo-subtle: rgba(79, 70, 229, 0.08);
+      --indigo-border: rgba(79, 70, 229, 0.25);
+
+      --purple: #7c3aed;
+      --purple-subtle: rgba(124, 58, 237, 0.08);
+      --purple-border: rgba(124, 58, 237, 0.25);
+
+      --amber: #d97706;
+      --amber-subtle: rgba(217, 119, 6, 0.08);
+      --amber-border: rgba(217, 119, 6, 0.25);
+
+      --rose: #e11d48;
+      --rose-subtle: rgba(225, 29, 72, 0.08);
+      --rose-border: rgba(225, 29, 72, 0.25);
+
+      --text-main: #0f172a;
+      --text-muted: #334155;
+      --text-sub: #64748b;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 14px -2px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.1);
+      
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #090d16;
+      --bg-surface: #0f172a;
+      --bg-subtle: #1e293b;
+      --bg-card: #131d31;
+      
+      --border-color: #24344d;
+      --border-subtle: #334b6e;
+      --border-highlight: #38bdf8;
+
+      --brand-primary: #f8fafc;
+      --brand-accent: #38bdf8;
+      
+      --emerald: #10b981;
+      --emerald-subtle: rgba(16, 185, 129, 0.15);
+      --emerald-border: rgba(16, 185, 129, 0.35);
+
+      --sky: #38bdf8;
+      --sky-subtle: rgba(56, 189, 248, 0.15);
+      --sky-border: rgba(56, 189, 248, 0.35);
+
+      --indigo: #818cf8;
+      --indigo-subtle: rgba(129, 140, 248, 0.15);
+      --indigo-border: rgba(129, 140, 248, 0.35);
+
+      --purple: #a78bfa;
+      --purple-subtle: rgba(167, 139, 250, 0.15);
+      --purple-border: rgba(167, 139, 250, 0.35);
+
+      --amber: #fbbf24;
+      --amber-subtle: rgba(251, 191, 36, 0.15);
+      --amber-border: rgba(251, 191, 36, 0.35);
+
+      --rose: #fb7185;
+      --rose-subtle: rgba(251, 113, 133, 0.15);
+      --rose-border: rgba(251, 113, 133, 0.35);
+
+      --text-main: #f8fafc;
+      --text-muted: #cbd5e1;
+      --text-sub: #94a3b8;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 14px -2px rgba(0,0,0,0.4);
+      --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.75;
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(2, 132, 199, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 90% 15%, rgba(79, 70, 229, 0.05) 0%, transparent 45%);
+      background-attachment: fixed;
+      padding-bottom: 80px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--sky), var(--indigo));
+      color: white;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+    }
+
+    .brand-text h1 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 0.78rem;
+      color: var(--text-sub);
+    }
+
+    .btn-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .btn-icon:hover {
+      background: var(--bg-subtle);
+      color: var(--brand-accent);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+      color: #ffffff;
+      padding: 40px 0;
+      margin-bottom: 36px;
+      border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .exam-badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .exam-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-sky { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); }
+    .badge-indigo { background: rgba(129, 140, 248, 0.2); color: #818cf8; border: 1px solid rgba(129, 140, 248, 0.4); }
+    .badge-emerald { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+
+    .hero-title {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: #94a3b8;
+      max-width: 800px;
+      line-height: 1.65;
+    }
+
+    /* Original Problem Box */
+    .problem-box {
+      background: var(--bg-card);
+      border: 2px solid var(--border-highlight);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .problem-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--brand-accent);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .problem-text {
+      font-size: 1.02rem;
+      line-height: 1.9;
+      color: var(--text-main);
+    }
+
+    .problem-list {
+      list-style: none;
+      margin-top: 10px;
+      padding-left: 6px;
+    }
+
+    .problem-list li {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .q-num {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: var(--brand-accent);
+      min-width: 32px;
+    }
+
+    /* Answers Summary Card */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    .summary-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .summary-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 5px;
+    }
+
+    .summary-card.q1::before { background: var(--sky); }
+    .summary-card.q2::before { background: var(--indigo); }
+    .summary-card.q3::before { background: var(--emerald); }
+
+    .summary-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .summary-ans {
+      font-size: 1.8rem;
+      font-weight: 800;
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .summary-detail {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* Detail Sections */
+    .detail-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .detail-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .detail-badge {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--sky), var(--indigo));
+      color: white;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+
+    .detail-title h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .detail-title p {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    /* Final Answer Box */
+    .final-ans-box {
+      background: var(--emerald-subtle);
+      border: 1px solid var(--emerald-border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .ans-tag {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ans-value {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--emerald);
+    }
+
+    /* Step-by-Step Box */
+    .step-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      margin: 16px 0;
+    }
+
+    .step-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--brand-accent);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-content {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* Period Table */
+    .math-table-wrap {
+      overflow-x: auto;
+      margin: 16px 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .math-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: center;
+      background: var(--bg-surface);
+    }
+
+    .math-table th {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+      font-weight: 700;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .math-table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    .math-table tr:last-child td { border-bottom: none; }
+    .math-table .highlight td { background: var(--sky-subtle); font-weight: 700; color: var(--sky); }
+
+    /* Point Card */
+    .point-card {
+      background: var(--purple-subtle);
+      border: 1px solid var(--purple-border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .point-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--purple);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .point-content {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid var(--border-color);
+      margin-top: 50px;
+      color: var(--text-sub);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">$\mathbb{N}$</div>
+        <div class="brand-text">
+          <h1>大学入試・数学詳細解説</h1>
+          <p>整数論・べき乗の末位周期性 &amp; 対数の有理数条件</p>
+        </div>
+      </a>
+
+      <button id="themeToggle" class="btn-icon" title="テーマ切り替え" aria-label="Toggle Theme">
+        <i data-lucide="moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-banner">
+    <div class="container">
+      <div class="exam-badge-group">
+        <span class="exam-badge badge-sky"><i data-lucide="sparkles"></i> 整数論 &amp; 対数関数</span>
+        <span class="exam-badge badge-indigo"><i data-lucide="repeat"></i> 合同式・周期性解析</span>
+        <span class="exam-badge badge-emerald"><i data-lucide="check-circle-2"></i> 完全解答解説</span>
+      </div>
+      <h2 class="hero-title">整数・べき乗の一の位/十の位 &amp; 対数の有理数条件</h2>
+      <p class="hero-subtitle">
+        $2 \le n, m \le 100$ の自然数における、べき乗の周期性の導出および対数 $\log_n m$ が有理数となる条件の厳密な分類と数え上げ解説。
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- Problem Box -->
+    <div class="problem-box">
+      <div class="problem-header">
+        <i data-lucide="file-question"></i>
+        <span>問題（問題文）</span>
+      </div>
+      <div class="problem-text">
+        <p><strong>$n, m$ は $2$ 以上 $100$ 以下の自然数とする。</strong></p>
+        <ul class="problem-list">
+          <li>
+            <span class="q-num">(1)</span>
+            <span>$2^n$ の一の位が $2$ となる $n$ はいくつあるか。</span>
+          </li>
+          <li>
+            <span class="q-num">(2)</span>
+            <span>$6^n$ の十の位が $3$ となる $n$ はいくつあるか。</span>
+          </li>
+          <li>
+            <span class="q-num">(3)</span>
+            <span>$\log_n m$ が有理数となる $(n, m)$ の組はいくつあるか。</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Quick Answers Summary -->
+    <div class="summary-grid">
+      <div class="summary-card q1">
+        <div class="summary-title">
+          <span>(1) $2^n$ の一の位が 2</span>
+          <i data-lucide="check" style="color:var(--sky);"></i>
+        </div>
+        <div class="summary-ans">24 個</div>
+        <div class="summary-detail">$n \equiv 1 \pmod 4$（$n = 5, 9, \dots, 97$）</div>
+      </div>
+
+      <div class="summary-card q2">
+        <div class="summary-title">
+          <span>(2) $6^n$ の十の位が 3</span>
+          <i data-lucide="check" style="color:var(--indigo);"></i>
+        </div>
+        <div class="summary-ans">20 個</div>
+        <div class="summary-detail">$n \equiv 2 \pmod 5$（$n = 2, 7, \dots, 97$）</div>
+      </div>
+
+      <div class="summary-card q3">
+        <div class="summary-title">
+          <span>(3) $\log_n m$ が有理数</span>
+          <i data-lucide="check" style="color:var(--emerald);"></i>
+        </div>
+        <div class="summary-ans">149 組</div>
+        <div class="summary-detail">同一の底 $a$ の累乗の組（$68 + 81$）</div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- (1) 詳細解説 -->
+    <!-- ============================================================ -->
+    <div class="detail-card" id="q1">
+      <div class="detail-header">
+        <div class="detail-badge">1</div>
+        <div class="detail-title">
+          <h3>(1) $2^n$ の一の位が 2 となる $n$ の個数</h3>
+          <p>一の位の周期性（合同式 $\pmod{10}$）の利用</p>
+        </div>
+      </div>
+
+      <div class="final-ans-box">
+        <div class="ans-tag"><i data-lucide="check-circle-2"></i> 正解</div>
+        <div class="ans-value">24 個</div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title"><i data-lucide="list-ordered"></i> ステップ 1: 一の位（$\pmod{10}$）の周期性を調べる</div>
+        <div class="step-content">
+          $2^n$ の一の位は、$\pmod{10}$ での余りを計算することで求められます。
+          <div class="math-table-wrap">
+            <table class="math-table">
+              <thead>
+                <tr>
+                  <th>$n$</th>
+                  <th>$2^n$ の値</th>
+                  <th>一の位 ($2^n \pmod{10}$)</th>
+                  <th>判定</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="highlight">
+                  <td>$n = 1$</td>
+                  <td>$2$</td>
+                  <td>$2$</td>
+                  <td>一の位が 2（※ただし $n \ge 2$ のため範囲外）</td>
+                </tr>
+                <tr>
+                  <td>$n = 2$</td>
+                  <td>$4$</td>
+                  <td>$4$</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>$n = 3$</td>
+                  <td>$8$</td>
+                  <td>$8$</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>$n = 4$</td>
+                  <td>$16$</td>
+                  <td>$6$</td>
+                  <td>-</td>
+                </tr>
+                <tr class="highlight">
+                  <td>$n = 5$</td>
+                  <td>$32$</td>
+                  <td>$2$</td>
+                  <td>一の位が 2</td>
+                </tr>
+                <tr>
+                  <td>$n = 6$</td>
+                  <td>$64$</td>
+                  <td>$4$</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          上記より、$2^n$ の一の位は <strong>$2 \to 4 \to 8 \to 6$ の 4 つの数字が周期 4 で循環</strong>します。
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title"><i data-lucide="list-ordered"></i> ステップ 2: 条件を満たす $n$ の一般形と範囲</div>
+        <div class="step-content">
+          $2^n$ の一の位が $2$ となるのは、<strong>$n \equiv 1 \pmod 4$</strong>、すなわち
+          $$n = 4k + 1 \quad (k \text{ は整数})$$
+          と表されるときです。
+          <br><br>
+          問題の条件は <strong>$2 \le n \le 100$</strong> であるため、$k$ の範囲を求めます：
+          $$2 \le 4k + 1 \le 100$$
+          各辺から $1$ を引いて $4$ で割ると：
+          $$1 \le 4k \le 99 \implies 0.25 \le k \le 24.75$$
+          $k$ は整数なので、
+          $$k = 1, 2, 3, \dots, 24$$
+          の <strong>$24$ 個</strong>存在します。
+          <br><br>
+          該当する $n$ の具体例：
+          $$n \in \{5, 9, 13, 17, 21, 25, \dots, 97\}$$
+        </div>
+      </div>
+
+      <div class="point-card">
+        <div class="point-title"><i data-lucide="alert-triangle"></i> 注意すべきトラップ</div>
+        <div class="point-content">
+          問題文の定義域が「<strong>$2 \le n \le 100$</strong>」である点に注意が必要です。$n = 1$ のときも $2^1 = 2$ で一の位は $2$ ですが、$n \ge 2$ の条件から除外されます（$k=0$ を含めない）。
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- (2) 詳細解説 -->
+    <!-- ============================================================ -->
+    <div class="detail-card" id="q2">
+      <div class="detail-header">
+        <div class="detail-badge">2</div>
+        <div class="detail-title">
+          <h3>(2) $6^n$ の十の位が 3 となる $n$ の個数</h3>
+          <p>下2桁の周期性（合同式 $\pmod{100}$）の利用</p>
+        </div>
+      </div>
+
+      <div class="final-ans-box">
+        <div class="ans-tag"><i data-lucide="check-circle-2"></i> 正解</div>
+        <div class="ans-value">20 個</div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title"><i data-lucide="list-ordered"></i> ステップ 1: 下2桁（$\pmod{100}$）の推移を計算する</div>
+        <div class="step-content">
+          $6^n$ の十の位の数字を調べるため、下2桁（$\pmod{100}$）の合同式を計算します。
+          <div class="math-table-wrap">
+            <table class="math-table">
+              <thead>
+                <tr>
+                  <th>$n$</th>
+                  <th>計算 ($6^n \pmod{100}$)</th>
+                  <th>下2桁</th>
+                  <th>十の位</th>
+                  <th>判定</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>$n = 1$</td>
+                  <td>$6^1 = 6$</td>
+                  <td>$06$</td>
+                  <td>$0$</td>
+                  <td>-</td>
+                </tr>
+                <tr class="highlight">
+                  <td>$n = 2$</td>
+                  <td>$6^2 = 36$</td>
+                  <td>$36$</td>
+                  <td><strong>3</strong></td>
+                  <td>十の位が 3</td>
+                </tr>
+                <tr>
+                  <td>$n = 3$</td>
+                  <td>$36 \times 6 = 216 \equiv 16$</td>
+                  <td>$16$</td>
+                  <td>$1$</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>$n = 4$</td>
+                  <td>$16 \times 6 = 96$</td>
+                  <td>$96$</td>
+                  <td>$9$</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>$n = 5$</td>
+                  <td>$96 \times 6 = 576 \equiv 76$</td>
+                  <td>$76$</td>
+                  <td>$7$</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>$n = 6$</td>
+                  <td>$76 \times 6 = 456 \equiv 56$</td>
+                  <td>$56$</td>
+                  <td>$5$</td>
+                  <td>-</td>
+                </tr>
+                <tr class="highlight">
+                  <td>$n = 7$</td>
+                  <td>$56 \times 6 = 336 \equiv 36$</td>
+                  <td>$36$</td>
+                  <td><strong>3</strong></td>
+                  <td>十の位が 3</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          上記より、$n \ge 2$ において $6^n$ の下2桁は
+          $$\mathbf{36 \to 16 \to 96 \to 76 \to 56} \to 36 \to \dots$$
+          という <strong>周期 5 のサイクルで循環</strong> します。
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title"><i data-lucide="list-ordered"></i> ステップ 2: 条件を満たす $n$ の個数を求める</div>
+        <div class="step-content">
+          十の位が $3$ となるのは、下2桁が $36$ のとき、すなわち
+          $$n \equiv 2 \pmod 5 \quad (n \ge 2)$$
+          のときです。
+          <br><br>
+          $n = 5k + 2$（$k$ は整数）とおくと、$2 \le n \le 100$ より：
+          $$2 \le 5k + 2 \le 100$$
+          $$0 \le 5k \le 98 \implies 0 \le k \le 19.6$$
+          $k$ は非負整数なので、
+          $$k = 0, 1, 2, 3, \dots, 19$$
+          の <strong>$19 - 0 + 1 = 20$ 個</strong>存在します。
+          <br><br>
+          該当する $n$ の集合：
+          $$n \in \{2, 7, 12, 17, 22, 27, 32, 37, 42, 47, 52, 57, 62, 67, 72, 77, 82, 87, 92, 97\}$$
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- (3) 詳細解説 -->
+    <!-- ============================================================ -->
+    <div class="detail-card" id="q3">
+      <div class="detail-header">
+        <div class="detail-badge">3</div>
+        <div class="detail-title">
+          <h3>(3) $\log_n m$ が有理数となる組 $(n, m)$ の個数</h3>
+          <p>底の共通表現と累乗数（同値類）の厳密な数え上げ</p>
+        </div>
+      </div>
+
+      <div class="final-ans-box">
+        <div class="ans-tag"><i data-lucide="check-circle-2"></i> 正解</div>
+        <div class="ans-value">149 組</div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title"><i data-lucide="list-ordered"></i> ステップ 1: $\log_n m$ が有理数となる必要十分条件</div>
+        <div class="step-content">
+          $\log_n m$ が有理数であるとする。このとき、互いに素な正の整数 $p, q$ を用いて
+          $$\log_n m = \frac{p}{q} \iff n^{p/q} = m \iff n^p = m^q$$
+          と表せます。
+          <br><br>
+          素因数分解の一意性より、$n$ と $m$ に含まれる素因数の種類とその指数の比率は完全に一致しなければなりません。
+          したがって、<strong>ある「累乗数でない自然数 $a \ge 2$」</strong>（2以上の自然数で、$b^k$ ($k \ge 2$) の形で表せない数）と、自然数 $x, y \ge 1$ が存在して、
+          $$n = a^x, \quad m = a^y$$
+          と表せることが必要十分条件となります。
+          <br>
+          このとき、$\log_n m = \log_{a^x} a^y = \frac{y}{x} \in \mathbb{Q}$ となり、常に有理数です。
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title"><i data-lucide="list-ordered"></i> ステップ 2: 累乗の底 $a$ によるグループ分け（類別）</div>
+        <div class="step-content">
+          $2 \le n, m \le 100$ の範囲にある整数全体 $U = \{2, 3, 4, \dots, 100\}$（要素数 $99$ 個）は、一意な「累乗数でない底 $a$」によって互いに素なグループに分類されます。
+          <br><br>
+          ある底 $a$ のグループに含まれる要素数が $k$ 個であるとき、そのグループ内から $n, m$ を自由に選ぶ組み合わせは <strong>$k \times k = k^2$ 組</strong> となります。
+          <br><br>
+          100以下で <strong>2乗以上の累乗を持つ底 $a$</strong>（$a^2 \le 100$ を満たす累乗数でない数）をすべて列挙します：
+          <div class="math-table-wrap">
+            <table class="math-table">
+              <thead>
+                <tr>
+                  <th>底 $a$</th>
+                  <th>含まれる数 ($a^x \le 100$)</th>
+                  <th>要素数 $k$</th>
+                  <th>組数 ($k^2$)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>$a = 2$</strong></td>
+                  <td>$2^1=2, 2^2=4, 2^3=8, 2^4=16, 2^5=32, 2^6=64$</td>
+                  <td>$6$ 個</td>
+                  <td>$6^2 = \mathbf{36}$</td>
+                </tr>
+                <tr>
+                  <td><strong>$a = 3$</strong></td>
+                  <td>$3^1=3, 3^2=9, 3^3=27, 3^4=81$</td>
+                  <td>$4$ 個</td>
+                  <td>$4^2 = \mathbf{16}$</td>
+                </tr>
+                <tr>
+                  <td><strong>$a = 5$</strong></td>
+                  <td>$5^1=5, 5^2=25$</td>
+                  <td>$2$ 個</td>
+                  <td>$2^2 = \mathbf{4}$</td>
+                </tr>
+                <tr>
+                  <td><strong>$a = 6$</strong></td>
+                  <td>$6^1=6, 6^2=36$</td>
+                  <td>$2$ 個</td>
+                  <td>$2^2 = \mathbf{4}$</td>
+                </tr>
+                <tr>
+                  <td><strong>$a = 7$</strong></td>
+                  <td>$7^1=7, 7^2=49$</td>
+                  <td>$2$ 個</td>
+                  <td>$2^2 = \mathbf{4}$</td>
+                </tr>
+                <tr>
+                  <td><strong>$a = 10$</strong></td>
+                  <td>$10^1=10, 10^2=100$</td>
+                  <td>$2$ 個</td>
+                  <td>$2^2 = \mathbf{4}$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <em>※注意：$a = 4, 8$ は底 $2$ のグループに含まれ、$a = 9$ は底 $3$ のグループに含まれるため、二重カウントされません。</em>
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title"><i data-lucide="list-ordered"></i> ステップ 3: 要素が 1 つだけのグループと総数の計算</div>
+        <div class="step-content">
+          <strong>① 2個以上の累乗をもつグループの要素数と組数:</strong>
+          <ul>
+            <li>要素数の合計: $6 + 4 + 2 + 2 + 2 + 2 = \mathbf{18}$ 個</li>
+            <li>組数の小計: $36 + 16 + 4 + 4 + 4 + 4 = \mathbf{68}$ 組</li>
+          </ul>
+          <br>
+          <strong>② 要素が 1 つだけのグループ（累乗数でないかつ2乗が100を超える数）:</strong>
+          <ul>
+            <li>全体の個数: $100 - 2 + 1 = 99$ 個</li>
+            <li>残りの単独要素数: $99 - 18 = \mathbf{81}$ 個（例: $11, 12, 13, \dots, 99$ など）</li>
+            <li>各単独要素について、$n = m$ のときのみ $\log_n n = 1 \in \mathbb{Q}$ となるため、組数は各 $1^2 = 1$ 組。</li>
+            <li>組数の小計: $81 \times 1 = \mathbf{81}$ 組</li>
+          </ul>
+          <br>
+          <strong>③ 総組数の合計:</strong>
+          $$\text{合計組数} = 68 + 81 = \mathbf{149} \text{ 組}$$
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p style="font-weight: 700; color: var(--text-main); margin-bottom: 4px;">
+        大学入試数学 整数・指数対数 完全攻略シリーズ
+      </p>
+      <p>Created for advanced mathematical clarity and deep conceptual understanding.</p>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      htmlElement.setAttribute('data-theme', newTheme);
+      themeToggleBtn.innerHTML = newTheme === 'light' ? '<i data-lucide="moon"></i>' : '<i data-lucide="sun"></i>';
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
