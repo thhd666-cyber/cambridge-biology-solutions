@@ -1,0 +1,2353 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge A2 Chemistry (9701) 2023年 電気化学・熱力学・酸化還元 完全詳細解答解説（日英併記）</title>
+  <meta name="description" content="Cambridge International A-Level Chemistry 9701 (2023年) の電気化学 (Electrochemistry)、ネルンストの式、ギブズ自由エネルギー、酸化還元滴定、電極構造に関する詳細な日本語訳・公式英語模範解答・ステップ解説。">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- MathJax for High Quality TeX Rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root, [data-theme="light"] {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-alt: #f1f5f9;
+      --bg-card-subtle: #f8fafc;
+      --bg-highlight: rgba(2, 132, 199, 0.05);
+      --border-color: #e2e8f0;
+      --border-subtle: #cbd5e1;
+      --border-accent: rgba(2, 132, 199, 0.35);
+      
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-subtle: rgba(2, 132, 199, 0.08);
+      --secondary: #4f46e5;
+      --secondary-subtle: rgba(79, 70, 229, 0.08);
+      --accent: #e11d48;
+      --emerald: #059669;
+      --emerald-subtle: rgba(5, 150, 105, 0.08);
+      --amber: #d97706;
+      --amber-subtle: rgba(217, 119, 6, 0.08);
+      --purple: #7c3aed;
+      --purple-subtle: rgba(124, 58, 237, 0.08);
+      
+      --text-main: #0f172a;
+      --text-muted: #334155;
+      --text-sub: #64748b;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 0 1px 1px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 12px 28px -4px rgba(0, 0, 0, 0.1);
+      --transition: all 0.25s ease-in-out;
+
+      /* SVG dynamic colors */
+      --svg-bg: #f8fafc;
+      --svg-glass: #64748b;
+      --svg-liquid-blue: rgba(2, 132, 199, 0.15);
+      --svg-liquid-amber: rgba(217, 119, 6, 0.15);
+      --svg-liquid-green: rgba(5, 150, 105, 0.15);
+      --svg-text: #0f172a;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0a0f1d;
+      --bg-card: rgba(18, 26, 46, 0.85);
+      --bg-card-alt: rgba(26, 38, 66, 0.7);
+      --bg-card-subtle: rgba(0, 0, 0, 0.25);
+      --bg-highlight: rgba(56, 189, 248, 0.08);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --border-subtle: rgba(255, 255, 255, 0.15);
+      --border-accent: rgba(56, 189, 248, 0.4);
+      
+      --primary: #38bdf8;
+      --primary-dark: #0284c7;
+      --primary-subtle: rgba(56, 189, 248, 0.15);
+      --secondary: #818cf8;
+      --secondary-subtle: rgba(129, 140, 248, 0.15);
+      --accent: #f43f5e;
+      --emerald: #10b981;
+      --emerald-subtle: rgba(16, 185, 129, 0.15);
+      --amber: #f59e0b;
+      --amber-subtle: rgba(245, 158, 11, 0.15);
+      --purple: #c084fc;
+      --purple-subtle: rgba(192, 132, 252, 0.15);
+      
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-sub: #cbd5e1;
+      
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+      --shadow-hover: 0 15px 35px -5px rgba(0, 0, 0, 0.6);
+
+      /* SVG dynamic colors */
+      --svg-bg: rgba(10, 16, 30, 0.9);
+      --svg-glass: #cbd5e1;
+      --svg-liquid-blue: rgba(56, 189, 248, 0.2);
+      --svg-liquid-amber: rgba(245, 158, 11, 0.2);
+      --svg-liquid-green: rgba(16, 185, 129, 0.2);
+      --svg-text: #f1f5f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.8;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding-bottom: 100px;
+    }
+
+    /* Top bar */
+    .top-bar {
+      border-bottom: 1px solid var(--border-color);
+      background: var(--bg-card);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+    }
+
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .portal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: var(--transition);
+    }
+
+    .portal-link:hover {
+      color: var(--primary);
+    }
+
+    .theme-toggle-btn {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 7px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      padding: 50px 0 32px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 36px;
+    }
+
+    .badge-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
+    .badge-primary {
+      background: var(--primary-subtle);
+      color: var(--primary);
+      border: 1px solid var(--border-accent);
+    }
+
+    .badge-secondary {
+      background: var(--secondary-subtle);
+      color: var(--secondary);
+      border: 1px solid rgba(79, 70, 229, 0.25);
+    }
+
+    .badge-emerald {
+      background: var(--emerald-subtle);
+      color: var(--emerald);
+      border: 1px solid rgba(5, 150, 105, 0.25);
+    }
+
+    .badge-purple {
+      background: var(--purple-subtle);
+      color: var(--purple);
+      border: 1px solid rgba(124, 58, 237, 0.25);
+    }
+
+    h1 {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .header-sub {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 840px;
+      margin: 0 auto 16px;
+    }
+
+    /* Quick Nav */
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+      padding: 8px 14px;
+      background: var(--bg-card);
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-btn {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 999px;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-btn:hover {
+      background: var(--primary-subtle);
+      color: var(--primary);
+    }
+
+    /* Overview Box */
+    .overview-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 26px 30px;
+      margin-bottom: 44px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .overview-item {
+      background: var(--bg-card-subtle);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--primary);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .overview-item strong {
+      display: block;
+      color: var(--text-main);
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .overview-item span {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    /* Section Cards */
+    .problem-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 34px 38px;
+      margin-bottom: 44px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+
+    .problem-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 18px;
+      margin-bottom: 26px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .problem-title-group h2 {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .problem-source {
+      display: inline-block;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.84rem;
+      color: var(--primary-dark);
+      background: var(--primary-subtle);
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    .total-marks {
+      font-family: 'Outfit', sans-serif;
+      background: rgba(225, 29, 72, 0.08);
+      border: 1px solid rgba(225, 29, 72, 0.25);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.92rem;
+    }
+
+    /* Sub questions */
+    .sub-q {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px 26px;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .sub-q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .sub-q-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .marks-badge {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-color);
+      padding: 2px 10px;
+      border-radius: 999px;
+      color: var(--text-sub);
+    }
+
+    /* Question text boxes */
+    .q-text-box {
+      margin-bottom: 18px;
+    }
+
+    .q-original {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      background: var(--bg-card-alt);
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--secondary);
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .q-japanese {
+      font-size: 1rem;
+      color: var(--text-main);
+      background: var(--primary-subtle);
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--primary);
+      font-weight: 500;
+    }
+
+    /* Answer box with Japanese & English Bilingual Layout */
+    .answer-box {
+      background: var(--emerald-subtle);
+      border: 1px solid rgba(5, 150, 105, 0.3);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      margin-top: 18px;
+      margin-bottom: 20px;
+    }
+
+    .answer-label-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(5, 150, 105, 0.2);
+      padding-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .answer-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 800;
+      color: var(--emerald);
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .answer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .answer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .ans-col {
+      background: var(--bg-card);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ans-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .ans-tag-ja {
+      background: var(--primary-subtle);
+      color: var(--primary-dark);
+      border: 1px solid var(--border-accent);
+    }
+
+    .ans-tag-en {
+      background: var(--emerald-subtle);
+      color: var(--emerald);
+      border: 1px solid rgba(5, 150, 105, 0.3);
+    }
+
+    .final-val {
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--emerald);
+      background: var(--emerald-subtle);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-top: 4px;
+      border-left: 4px solid var(--emerald);
+    }
+
+    /* Detailed explanation */
+    .explanation {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      border: 1px solid var(--border-color);
+    }
+
+    .explanation h4 {
+      color: var(--secondary);
+      font-size: 0.98rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .step-list {
+      list-style: none;
+      counter-reset: step-counter;
+    }
+
+    .step-list > li {
+      counter-increment: step-counter;
+      position: relative;
+      padding-left: 32px;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .step-list > li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 22px;
+      height: 22px;
+      background: var(--secondary-subtle);
+      color: var(--secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: 1px solid rgba(79, 70, 229, 0.3);
+    }
+
+    /* Callout & Pitfall boxes */
+    .pitfall-box {
+      background: rgba(225, 29, 72, 0.06);
+      border: 1px solid rgba(225, 29, 72, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: #9f1239;
+    }
+
+    [data-theme="dark"] .pitfall-box {
+      background: rgba(244, 63, 94, 0.08);
+      border-color: rgba(244, 63, 94, 0.3);
+      color: #fecdd3;
+    }
+
+    .pitfall-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Tables */
+    .chem-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      background: var(--bg-card);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      font-size: 0.94rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .chem-table th, .chem-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border-color);
+      text-align: left;
+    }
+
+    .chem-table th {
+      background: var(--primary-subtle);
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .chem-table tr:hover {
+      background: var(--bg-card-subtle);
+    }
+
+    /* SVG Graphics Container */
+    .svg-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--svg-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin: 18px 0;
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+    }
+
+    svg text {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    }
+
+    /* Formula display block */
+    .formula-card {
+      background: var(--bg-card-alt);
+      border: 1px dashed var(--border-accent);
+      border-radius: var(--radius-sm);
+      padding: 12px 18px;
+      margin: 10px 0;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 0 20px;
+      border-top: 1px solid var(--border-color);
+      margin-top: 40px;
+      color: var(--text-sub);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation & Theme Toggle Bar -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <a href="index.html" class="portal-link">
+        <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
+        <span>ポータル画面へ戻る (Science Portal)</span>
+      </a>
+      <button id="themeToggle" class="theme-toggle-btn" title="テーマ切り替え">
+        <i data-lucide="moon" style="width: 16px; height: 16px;"></i>
+        <span>ダークモードに切替</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="badge-bar">
+        <span class="badge badge-primary">Cambridge International A-Level</span>
+        <span class="badge badge-secondary">Chemistry 9701 / 2023 Past Papers</span>
+        <span class="badge badge-emerald">Electrochemistry &amp; Thermodynamics</span>
+        <span class="badge badge-purple">日英併記 (Bilingual)</span>
+      </div>
+      <h1>電気化学・熱力学・酸化還元滴定<br>全問詳細解答解説</h1>
+      <p class="header-sub">
+        2023年 A2 Chemistry (9701) で出題された電気化学・標準電極電位・ネルンストの式・ギブズエネルギー・酸化還元滴定・アボガドロ定数算出問題の完全解説。<br>
+        すべての設問に<strong>日本語訳</strong>、<strong>公式Mark Scheme模範解答の英語併記</strong>、<strong>ステップ解説</strong>、<strong>電極装置のSVG図解</strong>を網羅しています。
+      </p>
+    </header>
+
+    <!-- Quick Navigation -->
+    <nav class="nav-bar">
+      <a href="#q1" class="nav-btn">Q1 (Nov 41/Q3)</a>
+      <a href="#q2" class="nav-btn">Q2 (Nov 42/Q3)</a>
+      <a href="#q3" class="nav-btn">Q3 (Jun 42/Q1)</a>
+      <a href="#q4" class="nav-btn">Q4 (Jun 42/Q9)</a>
+      <a href="#q5" class="nav-btn">Q5 (Mar 42/Q2)</a>
+    </nav>
+
+    <!-- Overview Card -->
+    <div class="overview-box">
+      <h3 style="color: var(--primary-dark); font-family: 'Outfit'; font-size: 1.2rem;">📌 本問題セットの学習テーマと重要ポイント</h3>
+      <div class="overview-grid">
+        <div class="overview-item">
+          <strong>ネルンストの式（Nernst Equation）</strong>
+          <span>非標準状態における電極電位 $E$ の算出、濃度変化による正極・負極の逆転現象の理解</span>
+        </div>
+        <div class="overview-item">
+          <strong>自由エネルギーと起電力 ($\Delta G^\ominus$)</strong>
+          <span>$\Delta G^\ominus = -nFE^\ominus_{\text{cell}}$ および $\Delta G = \Delta H - T\Delta S$ による自発性の予測</span>
+        </div>
+        <div class="overview-item">
+          <strong>電極装置（SHE & ハーフセル）</strong>
+          <span>標準水素電極（SHE）の構成、溶液・気体圧・白金電極・塩橋・外部回路の正しい図解</span>
+        </div>
+        <div class="overview-item">
+          <strong>ファラデーの法則とアボガドロ定数</strong>
+          <span>$Q = It$、移動電子モル数、析出質量からのアボガドロ定数 $L = F/e$ の導出</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         QUESTION 1: Nov/2023/Paper_9701/41/No.3(e, f)
+         ========================================== -->
+    <section id="q1" class="problem-section">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <h2>問題 1</h2>
+          <span class="problem-source">Nov/2023/Paper_9701/41/No.3(e, f) [全6点]</span>
+        </div>
+        <div class="total-marks">合計 6 Marks</div>
+      </div>
+
+      <!-- Part (e) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(e) 過酸化水素とクロムの標準電池起電力および $\Delta G^\ominus$</span>
+          <span class="marks-badge">[3 marks]</span>
+        </div>
+
+        <div class="q-text-box">
+          <div class="q-original">
+            The $E^\ominus$ values for two electrode reactions are given.<br>
+            $\text{H}_2\text{O}_2 + 2\text{H}^+ + 2\text{e}^- \rightleftharpoons 2\text{H}_2\text{O} \quad E^\ominus = +1.77\text{ V}$<br>
+            $\text{Cr}^{3+} + \text{e}^- \rightleftharpoons \text{Cr}^{2+} \quad E^\ominus = -0.41\text{ V}$<br><br>
+            An electrochemical cell is constructed with the following half-cells (electrodes):<br>
+            • an acidified solution of $\text{H}_2\text{O}_2$, a platinum wire<br>
+            • $\text{Cr}^{2+}$ mixed with $\text{Cr}^{3+}$, a platinum wire.
+          </div>
+          <div class="q-japanese">
+            2つの電極反応の標準電極電位 $E^\ominus$ が与えられている：<br>
+            $\text{H}_2\text{O}_2 + 2\text{H}^+ + 2\text{e}^- \rightleftharpoons 2\text{H}_2\text{O} \quad E^\ominus = +1.77\text{ V}$<br>
+            $\text{Cr}^{3+} + \text{e}^- \rightleftharpoons \text{Cr}^{2+} \quad E^\ominus = -0.41\text{ V}$<br><br>
+            次の半電池（電極）を用いて化学電池を構築した：<br>
+            ・酸性化された $\text{H}_2\text{O}_2$ 溶液と白金線<br>
+            ・$\text{Cr}^{2+}$ と $\text{Cr}^{3+}$ の混合溶液と白金線
+          </div>
+        </div>
+
+        <!-- e(i) -->
+        <div style="margin-top: 18px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(i) 正極（positive half-cell）の特定と標準電池起電力 $E^\ominus_{\text{cell}}$ の算出 [1 mark]</h4>
+          <div class="q-original">Identify the positive half-cell and calculate the standard cell potential, $E^\ominus_{\text{cell}}$.</div>
+          <div class="q-japanese">正極となる半電池を特定し、標準電池起電力 $E^\ominus_{\text{cell}}$ を計算せよ。</div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>• 正極: <strong>$\text{H}_2\text{O}_2$ / $\text{H}_2\text{O}$ 半電池</strong>（または酸性化 $\text{H}_2\text{O}_2$）</div>
+                <div style="margin-top: 8px;">• $E^\ominus_{\text{cell}} = $ <span class="final-val">+2.18 V</span></div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>• positive half-cell: <strong>$\text{H}_2\text{O}_2$ / $\text{H}_2\text{O}$</strong> (or <strong>acidified $\text{H}_2\text{O}_2$</strong> / $\text{H}_2\text{O}_2 + 2\text{H}^+ + 2\text{e}^- \rightleftharpoons 2\text{H}_2\text{O}$)</div>
+                <div style="margin-top: 8px;">• $E^\ominus_{\text{cell}} = \mathbf{+2.18\text{ V}}$ (or $2.18\text{ V}$)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explanation">
+            <h4>💡 解説と導出プロセス</h4>
+            <ul class="step-list">
+              <li>
+                <strong>正極の判定：</strong> より高い（正の大きい）標準電極電位を持つ半電池が還元反応を起こすカソード（正極、positive electrode）となります。<br>
+                $E^\ominus(\text{H}_2\text{O}_2/\text{H}_2\text{O}) = +1.77\text{ V} > E^\ominus(\text{Cr}^{3+}/\text{Cr}^{2+}) = -0.41\text{ V}$ であるため、$\text{H}_2\text{O}_2$ 半電池が正極です。
+              </li>
+              <li>
+                <strong>標準起電力の計算：</strong>
+                $$E^\ominus_{\text{cell}} = E^\ominus(\text{positive}) - E^\ominus(\text{negative}) = (+1.77\text{ V}) - (-0.41\text{ V}) = \mathbf{+2.18\text{ V}}$$
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- e(ii) -->
+        <div style="margin-top: 24px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(ii) $\text{H}_2\text{O}_2$ 1 mol あたりの $\Delta G^\ominus$ の計算 [2 marks]</h4>
+          <div class="q-original">Calculate the value of $\Delta G^\ominus$ for the cell reaction that occurs, per mole of $\text{H}_2\text{O}_2$.</div>
+          <div class="q-japanese">生じる電池反応について、$\text{H}_2\text{O}_2$ 1 mol あたりのギブズ自由エネルギー変化 $\Delta G^\ominus$ ($\text{kJ mol}^{-1}$) を計算せよ。</div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[2 Marks]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>$\Delta G^\ominus = $ <span class="final-val">-421 kJ mol⁻¹</span></div>
+                <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">（許容範囲: -420.7 〜 -421 kJ mol⁻¹）</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>$\Delta G^\ominus = \mathbf{-421\text{ kJ mol}^{-1}}$ (or $\mathbf{-420.7\text{ kJ mol}^{-1}}$)</div>
+                <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">[M1: $\Delta G^\ominus = -nFE^\ominus_{\text{cell}}$, $n=2$, $F=96500$; M2: value with correct sign and unit]</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explanation">
+            <h4>💡 解説と計算手順</h4>
+            <ul class="step-list">
+              <li>
+                <strong>電池全体の反応式と移動電子数 $n$ の決定：</strong><br>
+                正極（還元）：$\text{H}_2\text{O}_2 + 2\text{H}^+ + 2\text{e}^- \rightarrow 2\text{H}_2\text{O}$<br>
+                負極（酸化）：$2\text{Cr}^{2+} \rightarrow 2\text{Cr}^{3+} + 2\text{e}^-$<br>
+                全体反応：$\text{H}_2\text{O}_2 + 2\text{H}^+ + 2\text{Cr}^{2+} \rightarrow 2\text{H}_2\text{O} + 2\text{Cr}^{3+}$<br>
+                したがって、$\text{H}_2\text{O}_2$ 1 mol が反応するとき移動する電子物質量は $n = 2\text{ mol}$。
+              </li>
+              <li>
+                <strong>公式への代入：</strong><br>
+                $\Delta G^\ominus = -n F E^\ominus_{\text{cell}}$ を用いる（ファラデー定数 $F = 96500\text{ C mol}^{-1}$）。
+                $$\Delta G^\ominus = -2 \times 96500\text{ C mol}^{-1} \times 2.18\text{ V} = -420740\text{ J mol}^{-1} = \mathbf{-421\text{ kJ mol}^{-1}}$$
+              </li>
+            </ul>
+            <div class="pitfall-box">
+              <strong>⚠️ 注意・落とし穴</strong>
+              単位は $\text{kJ mol}^{-1}$ を要求されているため、計算結果の $\text{J}$ を $1000$ で割ることを絶対に忘れないでください。また、自発的反応であるため符号は必ずマイナス（$-$）になります。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part (f) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(f) ネルンストの式による電位計算と非標準状態での電池反応</span>
+          <span class="marks-badge">[3 marks]</span>
+        </div>
+
+        <div class="q-text-box">
+          <div class="q-original">
+            The $E^\ominus$ values for two electrode reactions are given.<br>
+            $\text{H}_2\text{O}_2 + 2\text{H}^+ + 2\text{e}^- \rightleftharpoons 2\text{H}_2\text{O} \quad E^\ominus = +1.77\text{ V}$<br>
+            $\text{Co}^{3+} + \text{e}^- \rightleftharpoons \text{Co}^{2+} \quad E^\ominus = +1.82\text{ V}$<br><br>
+            An electrochemical cell is constructed with the following half-cells.<br>
+            half-cell 1: an acidified solution of $\text{H}_2\text{O}_2$ under standard conditions, a platinum wire<br>
+            half-cell 2: a solution containing $0.020\text{ mol dm}^{-3}\text{ Co}^{3+}$ and $2.0\text{ mol dm}^{-3}\text{ Co}^{2+}$, a platinum wire
+          </div>
+          <div class="q-japanese">
+            2つの電極反応の標準電極電位が与えられている：<br>
+            $\text{H}_2\text{O}_2 + 2\text{H}^+ + 2\text{e}^- \rightleftharpoons 2\text{H}_2\text{O} \quad E^\ominus = +1.77\text{ V}$<br>
+            $\text{Co}^{3+} + \text{e}^- \rightleftharpoons \text{Co}^{2+} \quad E^\ominus = +1.82\text{ V}$<br><br>
+            次の半電池からなる化学電池を構築した：<br>
+            半電池 1: 標準状態における酸性 $\text{H}_2\text{O}_2$ 溶液、白金線<br>
+            半電池 2: $0.020\text{ mol dm}^{-3}$ の $\text{Co}^{3+}$ と $2.0\text{ mol dm}^{-3}$ の $\text{Co}^{2+}$ を含む溶液、白金線
+          </div>
+        </div>
+
+        <!-- f(i) -->
+        <div style="margin-top: 18px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(i) ネルンストの式による半電池 2 の電極電位 $E$ の算出 [2 marks]</h4>
+          <div class="q-original">Use the Nernst equation to calculate the value of $E$, the electrode potential of half-cell 2 under these conditions.</div>
+          <div class="q-japanese">ネルンストの式を用いて、この条件下における半電池 2 の電極電位 $E$ を計算せよ。</div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[2 Marks]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>$E = $ <span class="final-val">+1.70 V</span> （または +1.702 V）</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>$E = \mathbf{+1.70\text{ V}}$ (or $\mathbf{+1.702\text{ V}}$)</div>
+                <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">[M1: $\log_{10}(0.020 / 2.0) = -2$; M2: $1.82 + 0.059(-2) = +1.70\text{ V}$]</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explanation">
+            <h4>💡 解説と計算手順</h4>
+            <div class="formula-card">
+              ネルンストの式（Cambridgeシラバス形式）：<br>
+              $$E = E^\ominus + \frac{0.059}{z} \log_{10} \frac{[\text{oxidised species}]}{[\text{reduced species}]}$$
+            </div>
+            <ul class="step-list">
+              <li>
+                電極反応：$\text{Co}^{3+} + \text{e}^- \rightleftharpoons \text{Co}^{2+}$ なので、酸化型は $\text{Co}^{3+}$、還元型は $\text{Co}^{2+}$、電子数 $z = 1$ です。
+              </li>
+              <li>
+                数値を代入：
+                $$E = +1.82 + \frac{0.059}{1} \log_{10}\left(\frac{0.020}{2.0}\right)$$
+              </li>
+              <li>
+                対数部分の計算：
+                $$\frac{0.020}{2.0} = 0.010 = 10^{-2} \implies \log_{10}(10^{-2}) = -2$$
+              </li>
+              <li>
+                最終電位：
+                $$E = +1.82 + 0.059 \times (-2) = +1.82 - 0.118 = \mathbf{+1.702\text{ V} \approx +1.70\text{ V}}$$
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- f(ii) -->
+        <div style="margin-top: 24px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(ii) この条件下で起こる電池反応の化学反応式 [1 mark]</h4>
+          <div class="q-original">Write an equation for the cell reaction that occurs in this cell under these conditions.</div>
+          <div class="q-japanese">この条件下において、この電池内で起こる電池反応の反応式を記せ。</div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div class="final-val" style="font-size: 1.05rem;">$\text{H}_2\text{O}_2 + 2\text{H}^+ + 2\text{Co}^{2+} \rightarrow 2\text{H}_2\text{O} + 2\text{Co}^{3+}$</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div class="final-val" style="font-size: 1.05rem;">$\text{H}_2\text{O}_2 + 2\text{H}^+ + 2\text{Co}^{2+} \rightarrow 2\text{H}_2\text{O} + 2\text{Co}^{3+}$</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explanation">
+            <h4>💡 最重要ポイント：濃度の影響による自発性の「逆転」</h4>
+            <ul class="step-list">
+              <li>
+                <strong>標準状態（Standard conditions）の場合：</strong><br>
+                $E^\ominus(\text{Co}^{3+}/\text{Co}^{2+}) = +1.82\text{ V} > E^\ominus(\text{H}_2\text{O}_2/\text{H}_2\text{O}) = +1.77\text{ V}$<br>
+                標準状態であれば $\text{Co}^{3+}$ が還元され、$\text{H}_2\text{O}_2$ が酸化されて $\text{O}_2$ を生じるはずでした。
+              </li>
+              <li>
+                <strong>今回の非標準状態の場合：</strong><br>
+                半電池 2 の電位は濃度変化により $E_2 = \mathbf{+1.70\text{ V}}$ に低下しました！<br>
+                一方、半電池 1 は標準状態なので $E_1 = \mathbf{+1.77\text{ V}}$ のままです。<br>
+                電位を比較すると、$E_1 (+1.77\text{ V}) > E_2 (+1.70\text{ V})$ となり、<strong>電位の大小関係が逆転</strong>しています！
+              </li>
+              <li>
+                したがって、電位の高い半電池 1（$\text{H}_2\text{O}_2$）が還元を受け、半電池 2（$\text{Co}^{2+}$）が酸化されます：<br>
+                還元（正極）：$\text{H}_2\text{O}_2 + 2\text{H}^+ + 2\text{e}^- \rightarrow 2\text{H}_2\text{O}$<br>
+                酸化（負極）：$2\text{Co}^{2+} \rightarrow 2\text{Co}^{3+} + 2\text{e}^-$<br>
+                全反応式：$$\mathbf{\text{H}_2\text{O}_2 + 2\text{H}^+ + 2\text{Co}^{2+} \rightarrow 2\text{H}_2\text{O} + 2\text{Co}^{3+}}$$
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         QUESTION 2: Nov/2023/Paper_9701/42/No.3
+         ========================================== -->
+    <section id="q2" class="problem-section">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <h2>問題 2</h2>
+          <span class="problem-source">Nov/2023/Paper_9701/42/No.3 [全18点]</span>
+        </div>
+        <div class="total-marks">合計 18 Marks</div>
+      </div>
+
+      <div class="q-text-box">
+        <p style="margin-bottom: 12px; color: var(--text-muted);">
+          <strong>Table 3.1（与えられた標準電極電位データ）：</strong>
+        </p>
+        <table class="chem-table">
+          <thead>
+            <tr>
+              <th>電極反応 (electrode reaction)</th>
+              <th>$E^\ominus$ / V</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>$\text{V}^{2+} + 2\text{e}^- \rightleftharpoons \text{V}$</td><td>$-1.20$</td></tr>
+            <tr><td>$\text{V}^{3+} + \text{e}^- \rightleftharpoons \text{V}^{2+}$</td><td>$-0.26$</td></tr>
+            <tr><td>$\text{VO}^{2+} + 2\text{H}^+ + \text{e}^- \rightleftharpoons \text{V}^{3+} + \text{H}_2\text{O}$</td><td>$+0.34$</td></tr>
+            <tr><td>$\text{VO}_2^+ + 2\text{H}^+ + \text{e}^- \rightleftharpoons \text{VO}^{2+} + \text{H}_2\text{O}$</td><td>$+1.00$</td></tr>
+            <tr><td>$\text{Fe}^{2+} + 2\text{e}^- \rightleftharpoons \text{Fe}$</td><td>$-0.44$</td></tr>
+            <tr><td>$\text{Fe}^{3+} + 3\text{e}^- \rightleftharpoons \text{Fe}$</td><td>$-0.04$</td></tr>
+            <tr><td>$\text{Fe}^{3+} + \text{e}^- \rightleftharpoons \text{Fe}^{2+}$</td><td>$+0.77$</td></tr>
+            <tr><td>$2\text{H}^+ + 2\text{e}^- \rightleftharpoons \text{H}_2$</td><td>$0.00$</td></tr>
+            <tr><td>$\text{ClO}^- + \text{H}_2\text{O} + 2\text{e}^- \rightleftharpoons \text{Cl}^- + 2\text{OH}^-$</td><td>$+0.89$</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- (a) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(a) 標準水素電極（SHE）の図の完成と電子の流れ</span>
+          <span class="marks-badge">[2 marks]</span>
+        </div>
+
+        <!-- a(i) -->
+        <div>
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(i) 標準水素電極の図の完成とラベル付け [1 mark]</h4>
+          <div class="q-original">Complete the diagram to show a standard hydrogen electrode. Label your diagram. Identify all substances. You do not need to state standard conditions.</div>
+          <div class="q-japanese">図を完成させて標準水素電極（SHE）を示せ。図にラベルを付け、すべての物質を明示せよ（標準条件の数値を書く必要はない）。</div>
+
+          <!-- SVG Diagram of SHE -->
+          <div class="svg-container">
+            <svg viewBox="0 0 500 320" width="480" height="300">
+              <!-- Beaker -->
+              <rect x="130" y="80" width="240" height="200" rx="8" fill="var(--svg-bg)" stroke="var(--svg-glass)" stroke-width="3"/>
+              <!-- Acid Solution -->
+              <rect x="135" y="130" width="230" height="145" fill="var(--svg-liquid-blue)" rx="4"/>
+              
+              <!-- Glass Tube / Bell -->
+              <path d="M 225 30 L 225 210 L 275 210 L 275 30" fill="none" stroke="var(--svg-glass)" stroke-width="2.5"/>
+              <!-- Side arm for H2 inlet -->
+              <path d="M 170 60 L 225 60" fill="none" stroke="var(--svg-glass)" stroke-width="2.5"/>
+              <path d="M 170 80 L 225 80" fill="none" stroke="var(--svg-glass)" stroke-width="2.5"/>
+              
+              <!-- Pt Wire & Foil -->
+              <line x1="250" y1="20" x2="250" y2="230" stroke="#b45309" stroke-width="2"/>
+              <rect x="240" y="230" width="20" height="24" fill="#334155" stroke="#64748b" stroke-width="2"/>
+              
+              <!-- Bubbles -->
+              <circle cx="235" cy="200" r="4" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+              <circle cx="265" cy="180" r="5" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+              <circle cx="240" cy="160" r="3" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+              
+              <!-- Labels -->
+              <!-- H2 gas label -->
+              <line x1="100" y1="70" x2="165" y2="70" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <text x="25" y="75" fill="#0284c7" font-size="13" font-weight="bold">H₂(g) 導入部</text>
+              
+              <!-- Pt wire & foil label -->
+              <line x1="265" y1="242" x2="385" y2="242" stroke="#b45309" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <text x="395" y="246" fill="#b45309" font-size="13" font-weight="bold">白金電極 (Pt foil)</text>
+              
+              <!-- Solution label -->
+              <line x1="160" y1="230" x2="70" y2="230" stroke="#059669" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <text x="15" y="225" fill="#059669" font-size="13" font-weight="bold">H⁺(aq) 溶液</text>
+              <text x="15" y="242" fill="var(--text-sub)" font-size="11">(例: 1.0 mol dm⁻³ HCl)</text>
+            </svg>
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語採点基準</span>
+                <div>図中に以下の<strong>3点</strong>が正しく描かれ、ラベル付けされていること：</div>
+                <div>1. 水素ガス導入用のガラス管および <strong>$\text{H}_2(\text{g})$</strong> のラベル</div>
+                <div>2. 溶液に浸された白金電極および <strong>$\text{Pt}$</strong> のラベル</div>
+                <div>3. ビーカー内の水素イオン溶液および <strong>$\text{H}^+(\text{aq})$</strong>（または $\text{HCl}(\text{aq})$ など）のラベル</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>All three components correctly drawn and labelled:</div>
+                <div>1. <strong>$\text{H}_2(\text{g})$ / hydrogen gas</strong> (delivery tube into solution)</div>
+                <div>2. <strong>$\text{Pt}$ / platinum (wire and foil)</strong> immersed in solution</div>
+                <div>3. <strong>$\text{H}^+(\text{aq})$ / $\text{HCl}(\text{aq})$ / acid solution</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- a(ii) -->
+        <div style="margin-top: 24px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(ii) $\text{Fe}^{3+}/\text{Fe}^{2+}$ 電極と SHE からなる電池の正極と電子の流れ [1 mark]</h4>
+          <div class="q-original">
+            An electrochemical cell is set up using an $\text{Fe}^{3+}/\text{Fe}^{2+}$ electrode and a standard hydrogen electrode.<br>
+            Identify the positive electrode in the electrochemical cell and the direction of electron flow in the external circuit.<br>
+            positive electrode: .................................<br>
+            Electrons flow from the ................................. electrode to the ................................. electrode.
+          </div>
+          <div class="q-japanese">
+            $\text{Fe}^{3+}/\text{Fe}^{2+}$ 電極と標準水素電極（SHE）を用いて電池を組んだ。正極を特定し、外部回路における電子の流れの向きを答えよ。
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>• 正極: <strong>$\text{Fe}^{3+}/\text{Fe}^{2+}$ 電極</strong>（または $\text{Pt}$ 電極）</div>
+                <div>• 電子の流れ: <strong>水素電極（SHE / 負極） $\rightarrow$ $\text{Fe}^{3+}/\text{Fe}^{2+}$ 電極（正極）</strong></div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>• positive electrode: <strong>$\text{Fe}^{3+}/\text{Fe}^{2+}$ electrode</strong> (or <strong>$\text{Pt}$ electrode</strong>)</div>
+                <div>• Electrons flow from the <strong>hydrogen / SHE / negative</strong> electrode to the <strong>$\text{Fe}^{3+}/\text{Fe}^{2+}$ / positive</strong> electrode.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explanation">
+            <h4>💡 解説</h4>
+            $E^\ominus(\text{Fe}^{3+}/\text{Fe}^{2+}) = +0.77\text{ V} > E^\ominus(\text{H}^+/\text{H}_2) = 0.00\text{ V}$ なので、より電位の高い $\text{Fe}^{3+}/\text{Fe}^{2+}$ 側が正極（カソード、電子を受け取る側）になります。<br>
+            水素電極側では酸化（$\text{H}_2 \rightarrow 2\text{H}^+ + 2\text{e}^-$）が起こり電子が放出されるため、外部回路では<strong>水素電極（負極）から鉄電極（正極）へ</strong>電子が流れます。
+          </div>
+        </div>
+      </div>
+
+      <!-- (b) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(b) バナジウム種と $\text{Fe}^{2+}$ の反応性の予測</span>
+          <span class="marks-badge">[3 marks]</span>
+        </div>
+
+        <div class="q-text-box">
+          <div class="q-original">
+            The vanadium-containing species in the electrode reactions given in Table 3.1 are $\text{V}$, $\text{V}^{2+}$, $\text{V}^{3+}$, $\text{VO}^{2+}$ and $\text{VO}_2^+$.
+          </div>
+          <div class="q-japanese">
+            Table 3.1 に示された電極反応中のバナジウム含有種は、$\text{V}$, $\text{V}^{2+}$, $\text{V}^{3+}$, $\text{VO}^{2+}$, $\text{VO}_2^+$ である。
+          </div>
+        </div>
+
+        <!-- b(i) -->
+        <div>
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(i) 標準状態で $\text{Fe}^{2+}$ と反応しないバナジウム種の特定と理由 [1 mark]</h4>
+          <div class="q-original">Identify one vanadium-containing species that does not react with $\text{Fe}^{2+}$ ions under standard conditions. Use data from Table 3.1 to explain your answer.</div>
+          <div class="q-japanese">標準状態で $\text{Fe}^{2+}$ イオンと反応しないバナジウム種を1つ挙げ、Table 3.1 のデータを用いて説明せよ。</div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>• 特定した種：<strong>$\text{VO}^{2+}$</strong> （または $\text{V}^{3+}$, $\text{V}^{2+}$）</div>
+                <div style="margin-top: 6px;">• 理由：$\text{VO}^{2+}$ を還元する電位 $E^\ominus(\text{VO}^{2+}/\text{V}^{3+}) = +0.34\text{ V}$ は、$E^\ominus(\text{Fe}^{3+}/\text{Fe}^{2+}) = +0.77\text{ V}$ よりも低いため、起電力 $E^\ominus_{\text{cell}} = 0.34 - 0.77 = -0.43\text{ V} < 0$ となり自発的に反応しない。</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>• Species: <strong>$\text{VO}^{2+}$</strong> (or <strong>$\text{V}^{3+}$</strong> / <strong>$\text{V}^{2+}$</strong>)</div>
+                <div style="margin-top: 6px;">• Explanation: <strong>$E^\ominus(\text{VO}^{2+}/\text{V}^{3+}) = +0.34\text{ V}$ is less positive / lower than $E^\ominus(\text{Fe}^{3+}/\text{Fe}^{2+}) = +0.77\text{ V}$ (so $E^\ominus_{\text{cell}} = -0.43\text{ V} < 0$ / not feasible).</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- b(ii) -->
+        <div style="margin-top: 24px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(ii) 標準状態で $\text{Fe}^{2+}$ と反応するすべてのバナジウム種 [1 mark]</h4>
+          <div class="q-original">Identify all the vanadium-containing species that will react with $\text{Fe}^{2+}$ ions under standard conditions.</div>
+          <div class="q-japanese">標準状態で $\text{Fe}^{2+}$ イオンと反応するすべてのバナジウム種を挙げよ。</div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div class="final-val">$\text{VO}_2^+$ および $\text{V}$ (バナジウム金属)</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div class="final-val">$\text{VO}_2^+$ and $\text{V}$ (vanadium metal)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explanation">
+            <h4>💡 電位データによる判定の仕組み</h4>
+            $\text{Fe}^{2+}$ は酸化剤（電子を受け取って $\text{Fe}$ になる）としても、還元剤（電子を放出して $\text{Fe}^{3+}$ になる）としても作用し得ます：
+            <ul class="step-list">
+              <li>
+                <strong>$\text{Fe}^{2+}$ が還元剤として働く場合（$\text{Fe}^{2+} \rightarrow \text{Fe}^{3+} + \text{e}^-$, $E^\ominus = +0.77\text{ V}$）：</strong><br>
+                これより高い電位を持つ酸化剤と反応可能 $\implies \mathbf{\text{VO}_2^+}$ ($E^\ominus = +1.00\text{ V}$)。<br>
+                $E^\ominus_{\text{cell}} = 1.00 - 0.77 = +0.23\text{ V} > 0$（反応可能）。
+              </li>
+              <li>
+                <strong>$\text{Fe}^{2+}$ が酸化剤として働く場合（$\text{Fe}^{2+} + 2\text{e}^- \rightarrow \text{Fe}$, $E^\ominus = -0.44\text{ V}$）：</strong><br>
+                これより低い電位を持つ還元剤と反応可能 $\implies \mathbf{\text{V}}$ 金属 ($\text{V}^{2+} + 2\text{e}^- \rightleftharpoons \text{V}$, $E^\ominus = -1.20\text{ V}$)。<br>
+                $E^\ominus_{\text{cell}} = -0.44 - (-1.20) = +0.76\text{ V} > 0$（反応可能）。
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- b(iii) -->
+        <div style="margin-top: 24px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(iii) 起こりうる反応の1つの化学反応式 [1 mark]</h4>
+          <div class="q-original">Write an equation for one of the possible reactions identified in (ii).</div>
+          <div class="q-japanese">(ii) で特定した反応のうち、1つの反応式を記せ。</div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme) - いずれか1つで正解</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>• $\text{VO}_2^+$ との反応式：<br><span class="final-val" style="font-size: 1.05rem;">$\text{VO}_2^+ + 2\text{H}^+ + \text{Fe}^{2+} \rightarrow \text{VO}^{2+} + \text{H}_2\text{O} + \text{Fe}^{3+}$</span></div>
+                <div style="margin-top: 10px;">• $\text{V}$ との反応式：<br><span class="final-val" style="font-size: 1.05rem;">$\text{V} + \text{Fe}^{2+} \rightarrow \text{V}^{2+} + \text{Fe}$</span></div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>• Either:<br><span class="final-val" style="font-size: 1.05rem;">$\text{VO}_2^+ + 2\text{H}^+ + \text{Fe}^{2+} \rightarrow \text{VO}^{2+} + \text{H}_2\text{O} + \text{Fe}^{3+}$</span></div>
+                <div style="margin-top: 10px;">• Or:<br><span class="final-val" style="font-size: 1.05rem;">$\text{V} + \text{Fe}^{2+} \rightarrow \text{V}^{2+} + \text{Fe}$</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- (c) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(c) 非標準状態における鉄電極のネルンスト計算と全反応式</span>
+          <span class="marks-badge">[3 marks]</span>
+        </div>
+
+        <div class="q-text-box">
+          <div class="q-original">
+            Another electrochemical cell is set up using an $\text{Fe}^{3+}/\text{Fe}^{2+}$ electrode and an alkaline $\text{ClO}^-/\text{Cl}^-$ electrode.<br>
+            The concentration of $\text{Fe}^{3+}$ is 1000 times greater than the concentration of $\text{Fe}^{2+}$ in the $\text{Fe}^{3+}/\text{Fe}^{2+}$ electrode. All other conditions are standard.
+          </div>
+          <div class="q-japanese">
+            $\text{Fe}^{3+}/\text{Fe}^{2+}$ 電極とアルカリ性の $\text{ClO}^-/\text{Cl}^-$ 電極を用いて別の電池を構成した。鉄電極において、$\text{Fe}^{3+}$ の濃度は $\text{Fe}^{2+}$ の濃度の1000倍である。他の条件はすべて標準状態である。
+          </div>
+        </div>
+
+        <!-- c(i) -->
+        <div>
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(i) ネルンストの式による $\text{Fe}^{3+}/\text{Fe}^{2+}$ 電極の電位計算 [2 marks]</h4>
+          <div class="q-original">Use the Nernst equation to calculate the $E$ value of the $\text{Fe}^{3+}/\text{Fe}^{2+}$ electrode. Show your working.</div>
+          <div class="q-japanese">ネルンストの式を用いて $\text{Fe}^{3+}/\text{Fe}^{2+}$ 電極の電位 $E$ を計算せよ。計算過程も示せ。</div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[2 Marks]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>$E = $ <span class="final-val">+0.95 V</span> （または +0.947 V）</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>$E = \mathbf{+0.95\text{ V}}$ (or $\mathbf{+0.947\text{ V}}$)</div>
+                <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">[M1: $\log_{10}(1000) = 3$; M2: $0.77 + 0.059(3) = +0.95\text{ V}$]</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explanation">
+            <h4>💡 計算手順</h4>
+            $$E = E^\ominus + \frac{0.059}{z} \log_{10} \frac{[\text{Fe}^{3+}]}{[\text{Fe}^{2+}]}$$
+            $E^\ominus = +0.77\text{ V}$, $z = 1$, $\frac{[\text{Fe}^{3+}]}{[\text{Fe}^{2+}]} = 1000 = 10^3$<br>
+            $$E = +0.77 + \frac{0.059}{1} \log_{10}(10^3) = +0.77 + 0.059 \times 3 = +0.77 + 0.177 = \mathbf{+0.947\text{ V} \approx +0.95\text{ V}}$$
+          </div>
+        </div>
+
+        <!-- c(ii) -->
+        <div style="margin-top: 24px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(ii) この条件下で起こる電池反応の反応式 [1 mark]</h4>
+          <div class="q-original">Write an equation for the reaction that occurs in the cell, under these conditions.</div>
+          <div class="q-japanese">この条件下において、電池内で生じる反応の反応式を記せ。</div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div class="final-val" style="font-size: 1.05rem;">$2\text{Fe}^{3+} + \text{Cl}^- + 2\text{OH}^- \rightarrow 2\text{Fe}^{2+} + \text{ClO}^- + \text{H}_2\text{O}$</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div class="final-val" style="font-size: 1.05rem;">$2\text{Fe}^{3+} + \text{Cl}^- + 2\text{OH}^- \rightarrow 2\text{Fe}^{2+} + \text{ClO}^- + \text{H}_2\text{O}$</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explanation">
+            <h4>💡 電位比較による反応方向の決定</h4>
+            <ul class="step-list">
+              <li>アルカリ性 $\text{ClO}^-/\text{Cl}^-$ 電極は標準状態であるため、$E = E^\ominus = \mathbf{+0.89\text{ V}}$ です。</li>
+              <li>非標準状態の $\text{Fe}^{3+}/\text{Fe}^{2+}$ 電極の電位は $E = \mathbf{+0.947\text{ V}}$ に上昇しています。</li>
+              <li>電位を比較すると、$E(\text{Fe}^{3+}/\text{Fe}^{2+}) = +0.947\text{ V} > E(\text{ClO}^-/\text{Cl}^-) = +0.89\text{ V}$ です。</li>
+              <li>したがって、電位の高い $\text{Fe}^{3+}$ が還元されて正極となり、電位の低い $\text{Cl}^-$ 側が酸化されて負極となります！</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- (d) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(d) $\text{Fe}^{2+}/\text{Fe}$ と $\text{ClO}^-/\text{Cl}^-$ 電池の $\Delta G^\ominus$ 計算</span>
+          <span class="marks-badge">[3 marks]</span>
+        </div>
+
+        <div class="q-text-box">
+          <div class="q-original">
+            Another electrochemical cell is set up using an $\text{Fe}^{2+}/\text{Fe}$ electrode and an alkaline $\text{ClO}^-/\text{Cl}^-$ electrode under standard conditions.<br>
+            Calculate the value of $\Delta G^\ominus$ for the cell.
+          </div>
+          <div class="q-japanese">
+            標準状態において、$\text{Fe}^{2+}/\text{Fe}$ 電極とアルカリ性の $\text{ClO}^-/\text{Cl}^-$ 電極を用いて別の電池を構成した。この電池の $\Delta G^\ominus$ ($\text{kJ mol}^{-1}$) を計算せよ。
+          </div>
+        </div>
+
+        <div class="answer-box">
+          <div class="answer-label-bar">
+            <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+            <span class="marks-badge">[3 Marks]</span>
+          </div>
+          <div class="answer-grid">
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-ja">日本語解答</span>
+              <div>$\Delta G^\ominus = $ <span class="final-val">-257 kJ mol⁻¹</span></div>
+              <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">（許容範囲: -256.7 〜 -257 kJ mol⁻¹）</div>
+            </div>
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+              <div>$\Delta G^\ominus = \mathbf{-257\text{ kJ mol}^{-1}}$ (or $\mathbf{-256.7\text{ kJ mol}^{-1}}$)</div>
+              <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">[M1: $E^\ominus_{\text{cell}} = 0.89 - (-0.44) = +1.33\text{ V}$; M2: $n = 2$; M3: $\Delta G^\ominus = -2 \times 96500 \times 1.33$]</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="explanation">
+          <h4>💡 計算手順</h4>
+          <ul class="step-list">
+            <li>
+              標準電極電位の確認（Table 3.1）：<br>
+              $\text{ClO}^- + \text{H}_2\text{O} + 2\text{e}^- \rightleftharpoons \text{Cl}^- + 2\text{OH}^- \quad (+0.89\text{ V})$<br>
+              $\text{Fe}^{2+} + 2\text{e}^- \rightleftharpoons \text{Fe} \quad (-0.44\text{ V})$
+            </li>
+            <li>
+              起電力 $E^\ominus_{\text{cell}}$：
+              $$E^\ominus_{\text{cell}} = (+0.89) - (-0.44) = \mathbf{+1.33\text{ V}}$$
+            </li>
+            <li>
+              移動電子数 $n = 2\text{ mol}$（反応式：$\text{ClO}^- + \text{H}_2\text{O} + \text{Fe} \rightarrow \text{Cl}^- + 2\text{OH}^- + \text{Fe}^{2+}$）。
+            </li>
+            <li>
+              $\Delta G^\ominus = -n F E^\ominus_{\text{cell}}$ の計算：
+              $$\Delta G^\ominus = -2 \times 96500 \times 1.33 = -256690\text{ J mol}^{-1} = \mathbf{-257\text{ kJ mol}^{-1}}$$
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- (e) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(e) 電気分解実験からのアボガドロ定数 $L$ の算出</span>
+          <span class="marks-badge">[3 marks]</span>
+        </div>
+
+        <div class="q-text-box">
+          <div class="q-original">
+            A solution of iron(II) sulfate, $\text{FeSO}_4(\text{aq})$ is electrolysed with iron electrodes. Under the conditions used, no gas is evolved at the cathode.<br>
+            A current of $0.640\text{ A}$ is passed for $17.0\text{ minutes}$. The mass of the cathode increases by $0.185\text{ g}$.<br>
+            Use these results to calculate an experimental value for the Avogadro constant, $L$. Show your working.
+          </div>
+          <div class="q-japanese">
+            硫酸鉄(II) $\text{FeSO}_4$ 水溶液を鉄電極を用いて電気分解した。この条件下では陰極で気体は発生しなかった。<br>
+            $0.640\text{ A}$ の電流を $17.0\text{ 分間}$ 通電したところ、陰極の質量が $0.185\text{ g}$ 増加した。<br>
+            これらの結果を用いて、アボガドロ定数 $L$ の実験値を計算せよ。計算過程も示せ。
+          </div>
+        </div>
+
+        <div class="answer-box">
+          <div class="answer-label-bar">
+            <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+            <span class="marks-badge">[3 Marks]</span>
+          </div>
+          <div class="answer-grid">
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-ja">日本語解答</span>
+              <div>$L = $ <span class="final-val">6.15 × 10²³ mol⁻¹</span></div>
+              <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">（$A_r = 55.85$ 使用時: $6.16 \times 10^{23}\text{ mol}^{-1}$）</div>
+            </div>
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+              <div>$L = \mathbf{6.15 \times 10^{23}\text{ mol}^{-1}}$ (using $A_r = 55.8$)</div>
+              <div>or $\mathbf{6.16 \times 10^{23}\text{ mol}^{-1}}$ (using $A_r = 55.85$)</div>
+              <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">[M1: $Q = 652.8\text{ C}$; M2: $n(\text{e}^-) = 2 \times (0.185/55.8) = 6.63 \times 10^{-3}$; M3: $L = Q / (n(\text{e}^-) \times 1.60 \times 10^{-19})$]</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="explanation">
+          <h4>💡 ステップごとの詳細計算</h4>
+          <ul class="step-list">
+            <li>
+              <strong>通電した電気量 $Q$ の計算：</strong><br>
+              時間 $t = 17.0\text{ min} = 17.0 \times 60\text{ s} = 1020\text{ s}$<br>
+              $$Q = I \times t = 0.640\text{ A} \times 1020\text{ s} = 652.8\text{ C}$$
+            </li>
+            <li>
+              <strong>析出した $\text{Fe}$ の物質量の計算：</strong><br>
+              $\text{Fe}$ のモル質量 $A_r = 55.8\text{ g mol}^{-1}$ を用いて：
+              $$n(\text{Fe}) = \frac{0.185\text{ g}}{55.8\text{ g mol}^{-1}} = 3.3154 \times 10^{-3}\text{ mol}$$
+            </li>
+            <li>
+              <strong>流れた電子の物質量 $n(\text{e}^-)$：</strong><br>
+              陰極反応は $\text{Fe}^{2+} + 2\text{e}^- \rightarrow \text{Fe}$ なので、$\text{Fe}$ 1 mol 析出に 2 mol の電子が必要：
+              $$n(\text{e}^-) = 2 \times n(\text{Fe}) = 2 \times 3.3154 \times 10^{-3}\text{ mol} = 6.6308 \times 10^{-3}\text{ mol}$$
+            </li>
+            <li>
+              <strong>ファラデー定数 $F$ の実験値：</strong>
+              $$F = \frac{Q}{n(\text{e}^-)} = \frac{652.8\text{ C}}{6.6308 \times 10^{-3}\text{ mol}} = 98449\text{ C mol}^{-1}$$
+            </li>
+            <li>
+              <strong>アボガドロ定数 $L$ の計算：</strong><br>
+              素電荷 $e = 1.60 \times 10^{-19}\text{ C}$ より：
+              $$L = \frac{F}{e} = \frac{98449\text{ C mol}^{-1}}{1.60 \times 10^{-19}\text{ C}} = \mathbf{6.15 \times 10^{23}\text{ mol}^{-1}}$$
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- (f) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(f) エントロピー・ギブズ自由エネルギー計算と温度の影響</span>
+          <span class="marks-badge">[4 marks]</span>
+        </div>
+
+        <div class="q-text-box">
+          <div class="q-original">
+            Iron(II) chloride, $\text{FeCl}_2$, is oxidised by chlorine to form iron(III) chloride, $\text{FeCl}_3$, under standard conditions.<br>
+            $2\text{FeCl}_2(\text{s}) + \text{Cl}_2(\text{g}) \rightarrow 2\text{FeCl}_3(\text{s}) \quad \Delta H^\ominus = -128\text{ kJ mol}^{-1}$<br>
+            Table 3.2: $S^\ominus(\text{Cl}_2(\text{g})) = 223$, $S^\ominus(\text{FeCl}_2(\text{s})) = 120$, $S^\ominus(\text{FeCl}_3(\text{s})) = 142\text{ J K}^{-1}\text{ mol}^{-1}$
+          </div>
+          <div class="q-japanese">
+            標準状態において、塩化鉄(II) $\text{FeCl}_2$ は塩素によって酸化され、塩化鉄(III) $\text{FeCl}_3$ を生成する。<br>
+            $2\text{FeCl}_2(\text{s}) + \text{Cl}_2(\text{g}) \rightarrow 2\text{FeCl}_3(\text{s}) \quad \Delta H^\ominus = -128\text{ kJ mol}^{-1}$<br>
+            Table 3.2 標準エントロピー：$\text{Cl}_2(\text{g}) = 223$, $\text{FeCl}_2(\text{s}) = 120$, $\text{FeCl}_3(\text{s}) = 142\text{ J K}^{-1}\text{ mol}^{-1}$
+          </div>
+        </div>
+
+        <!-- f(i) -->
+        <div>
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(i) $\Delta G^\ominus$ の計算 [3 marks]</h4>
+          <div class="q-original">Use Table 3.2 and other data to calculate the Gibbs free energy change, $\Delta G^\ominus$, for this reaction. Show your working.</div>
+          <div class="q-japanese">Table 3.2 とその他のデータを用いて、この反応のギブズ自由エネルギー変化 $\Delta G^\ominus$ ($\text{kJ mol}^{-1}$) を計算せよ。</div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[3 Marks]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>$\Delta G^\ominus = $ <span class="final-val">-74.7 kJ mol⁻¹</span></div>
+                <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">（許容範囲: -74.66 〜 -74.7 kJ mol⁻¹）</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>$\Delta G^\ominus = \mathbf{-74.7\text{ kJ mol}^{-1}}$ (or $\mathbf{-74.66\text{ kJ mol}^{-1}}$)</div>
+                <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">[M1: $\Delta S^\ominus = 2(142) - (2(120) + 223) = -179\text{ J K}^{-1}\text{ mol}^{-1}$; M2: $T\Delta S = 298 \times (-0.179) = -53.34\text{ kJ}$; M3: $\Delta G^\ominus = -128 - (-53.34) = -74.7\text{ kJ mol}^{-1}$]</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explanation">
+            <h4>💡 正しい計算手順と手書きメモの誤り分析</h4>
+            <ul class="step-list">
+              <li>
+                <strong>標準エントロピー変化 $\Delta S^\ominus$ の計算：</strong><br>
+                公式：$\Delta S^\ominus = \sum S^\ominus(\text{products}) - \sum S^\ominus(\text{reactants})$
+                $$\Delta S^\ominus = 2 \times S^\ominus(\text{FeCl}_3) - [2 \times S^\ominus(\text{FeCl}_2) + S^\ominus(\text{Cl}_2)]$$
+                $$\Delta S^\ominus = 2(142) - [2(120) + 223] = 284 - 463 = \mathbf{-179\text{ J K}^{-1}\text{ mol}^{-1}}$$
+              </li>
+              <li>
+                <strong>$\Delta G^\ominus = \Delta H^\ominus - T\Delta S^\ominus$ の計算：</strong><br>
+                標準温度 $T = 298\text{ K}$、$\Delta H^\ominus = -128\text{ kJ mol}^{-1}$
+                $$\Delta G^\ominus = -128\text{ kJ mol}^{-1} - 298\text{ K} \times \left(\frac{-179}{1000}\text{ kJ K}^{-1}\text{ mol}^{-1}\right)$$
+                $$\Delta G^\ominus = -128 - (-53.342) = -128 + 53.342 = \mathbf{-74.658\text{ kJ mol}^{-1} \approx -74.7\text{ kJ mol}^{-1}}$$
+              </li>
+            </ul>
+
+            <div class="pitfall-box">
+              <strong>🔍 試験用紙の手書きメモにあった重大な誤り：</strong>
+              手書きメモでは「$\Delta S^\ominus = 2 \times 120 + 223 - 2 \times 142 = +179$」と【反応物 $-$ 生成物】の順で引き算してしまい、符号が正（$+179$）になっていました。<br>
+              気体 1 mol を含む反応物から固体のみが生成するため、<strong>エントロピーは必ず減少（$\Delta S^\ominus < 0$）</strong>しなければなりません！符号ミスにより、手書きメモの最終答え $-181.3$ は誤りとなります。
+            </div>
+          </div>
+        </div>
+
+        <!-- f(ii) -->
+        <div style="margin-top: 24px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(ii) 高温における自発性（feasibility）の変化の予測と説明 [1 mark]</h4>
+          <div class="q-original">
+            Predict whether this reaction becomes more or less feasible at a higher temperature. Explain your answer.<br>
+            The reaction becomes ................................. feasible.<br>
+            explanation .................................
+          </div>
+          <div class="q-japanese">
+            高温において、この反応の実現可能性（feasibility、自発性）が増大するか低下するか予測し、その理由を説明せよ。
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>• 反応の自発性: <strong>低下する (less feasible)</strong></div>
+                <div style="margin-top: 6px;">• 理由: $\Delta S^\ominus < 0$（負）であるため、$-T\Delta S^\ominus$ の項は正の値（$+T|\Delta S^\ominus|$）となる。温度 $T$ が上昇すると $-T\Delta S^\ominus$ の正の値が大きくなり、$\Delta G$ はより正（less negative）になるため。</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>• The reaction becomes <strong>less</strong> feasible.</div>
+                <div style="margin-top: 6px;">• Explanation: <strong>$\Delta S^\ominus$ is negative, so $-T\Delta S^\ominus$ is positive. As $T$ increases, $-T\Delta S^\ominus$ becomes more positive, making $\Delta G$ less negative / more positive.</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         QUESTION 3: June/2023/Paper_9701/42/No.1(c_d)
+         ========================================== -->
+    <section id="q3" class="problem-section">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <h2>問題 3</h2>
+          <span class="problem-source">June/2023/Paper_9701/42/No.1(c, d) [全5点]</span>
+        </div>
+        <div class="total-marks">合計 5 Marks</div>
+      </div>
+
+      <!-- Part (c) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(c) 亜硫酸カリウム $\text{K}_2\text{SO}_3$ の過マンガン酸滴定と純度計算</span>
+          <span class="marks-badge">[4 marks]</span>
+        </div>
+
+        <div class="q-text-box">
+          <div class="q-original">
+            Potassium sulfite, $\text{K}_2\text{SO}_3$, is used as a food additive.<br>
+            The concentration of sulfite ions, $\text{SO}_3^{2-}$, can be determined by titration using aqueous acidified manganate(VII) ions, $\text{MnO}_4^-$.<br>
+            • A $250\text{ cm}^3$ solution contains $3.40\text{ g}$ of impure $\text{K}_2\text{SO}_3$.<br>
+            • $25.0\text{ cm}^3$ of this solution requires $22.40\text{ cm}^3$ of $0.0250\text{ mol dm}^{-3}$ acidified $\text{MnO}_4^-$ to reach the end-point. All the $\text{SO}_3^{2-}$ ions are oxidised. None of the other species in the impure $\text{K}_2\text{SO}_3$ are oxidised.<br><br>
+            The reaction occurs as shown by the two half-equations.<br>
+            $\text{H}_2\text{O} + \text{SO}_3^{2-} \rightarrow \text{SO}_4^{2-} + 2\text{H}^+ + 2\text{e}^-$<br>
+            $\text{MnO}_4^- + 8\text{H}^+ + 5\text{e}^- \rightarrow \text{Mn}^{2+} + 4\text{H}_2\text{O}$
+          </div>
+          <div class="q-japanese">
+            食品添加物として用いられる亜硫酸カリウム $\text{K}_2\text{SO}_3$ 中の亜硫酸イオン $\text{SO}_3^{2-}$ の濃度は、酸性過マンガン酸イオン $\text{MnO}_4^-$ を用いた滴定によって求めることができる。<br>
+            ・不純物を含む $\text{K}_2\text{SO}_3$ $3.40\text{ g}$ を水に溶かして $250\text{ cm}^3$ の溶液を調製した。<br>
+            ・この溶液 $25.0\text{ cm}^3$ を滴定したところ、終点までに $0.0250\text{ mol dm}^{-3}$ の酸性 $\text{MnO}_4^-$ 溶液が $22.40\text{ cm}^3$ 必要であった。すべての $\text{SO}_3^{2-}$ が酸化され、試料中の他の不純物は酸化されなかった。
+          </div>
+        </div>
+
+        <!-- c(i) -->
+        <div>
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(i) $\text{SO}_3^{2-}$ と酸性 $\text{MnO}_4^-$ のイオン反応式 [1 mark]</h4>
+          <div class="q-original">Give the ionic equation for the reaction between $\text{SO}_3^{2-}$ and acidified $\text{MnO}_4^-$.</div>
+          <div class="q-japanese">$\text{SO}_3^{2-}$ と酸性 $\text{MnO}_4^-$ の間のイオン反応式を記せ。</div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div class="final-val" style="font-size: 1.05rem;">$2\text{MnO}_4^- + 5\text{SO}_3^{2-} + 6\text{H}^+ \rightarrow 2\text{Mn}^{2+} + 5\text{SO}_4^{2-} + 3\text{H}_2\text{O}$</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div class="final-val" style="font-size: 1.05rem;">$2\text{MnO}_4^- + 5\text{SO}_3^{2-} + 6\text{H}^+ \rightarrow 2\text{Mn}^{2+} + 5\text{SO}_4^{2-} + 3\text{H}_2\text{O}$</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explanation">
+            <h4>💡 半反応式の合成手順</h4>
+            電子の数を最小公倍数の $10$ に揃えます：<br>
+            $\text{SO}_3^{2-}$ の式を5倍：$5\text{H}_2\text{O} + 5\text{SO}_3^{2-} \rightarrow 5\text{SO}_4^{2-} + 10\text{H}^+ + 10\text{e}^-$<br>
+            $\text{MnO}_4^-$ の式を2倍：$2\text{MnO}_4^- + 16\text{H}^+ + 10\text{e}^- \rightarrow 2\text{Mn}^{2+} + 8\text{H}_2\text{O}$<br>
+            両辺を足し合わせて両側の $\text{H}^+$ と $\text{H}_2\text{O}$ を相殺すると、上記の式が得られます。
+          </div>
+        </div>
+
+        <!-- c(ii) -->
+        <div style="margin-top: 24px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(ii) $\text{K}_2\text{SO}_3$ 試料の純度（% purity）の計算 [3 marks]</h4>
+          <div class="q-original">Calculate the percentage purity of the sample of $\text{K}_2\text{SO}_3$. Show your working.</div>
+          <div class="q-japanese">$\text{K}_2\text{SO}_3$ 試料の純度（質量パーセント）を計算せよ。計算過程も示せ。</div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[3 Marks]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>純度: <span class="final-val">65.2 %</span> （または 65.18 %）</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>percentage purity of $\text{K}_2\text{SO}_3 = \mathbf{65.2\%}$ (or $\mathbf{65.18\%}$)</div>
+                <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">[M1: $n(\text{MnO}_4^-) = 5.60 \times 10^{-4}\text{ mol}$; M2: $n(\text{K}_2\text{SO}_3)_{\text{total}} = 0.0140\text{ mol}$; M3: mass $= 2.216\text{ g} \implies 65.2\%$]</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explanation">
+            <h4>💡 詳細な計算ステップ</h4>
+            <ul class="step-list">
+              <li>
+                <strong>滴定に消費された $\text{MnO}_4^-$ の物質量：</strong>
+                $$n(\text{MnO}_4^-) = 0.0250\text{ mol dm}^{-3} \times \frac{22.40}{1000}\text{ dm}^3 = 5.60 \times 10^{-4}\text{ mol}$$
+              </li>
+              <li>
+                <strong>$25.0\text{ cm}^3$ 中の $\text{SO}_3^{2-}$ の物質量：</strong><br>
+                モル比は $\text{MnO}_4^- : \text{SO}_3^{2-} = 2 : 5$ より：
+                $$n(\text{SO}_3^{2-})_{25\text{mL}} = 5.60 \times 10^{-4}\text{ mol} \times \frac{5}{2} = 1.40 \times 10^{-3}\text{ mol}$$
+              </li>
+              <li>
+                <strong>調製した全溶液 $250\text{ cm}^3$ 中の $\text{K}_2\text{SO}_3$ の全物質量：</strong>
+                $$n(\text{K}_2\text{SO}_3)_{\text{total}} = 1.40 \times 10^{-3}\text{ mol} \times \frac{250\text{ cm}^3}{25.0\text{ cm}^3} = 1.40 \times 10^{-2}\text{ mol}$$
+              </li>
+              <li>
+                <strong>$\text{K}_2\text{SO}_3$ のモル質量の算出：</strong><br>
+                $M_r(\text{K}_2\text{SO}_3) = 2(39.1) + 32.1 + 3(16.0) = 78.2 + 32.1 + 48.0 = 158.3\text{ g mol}^{-1}$
+              </li>
+              <li>
+                <strong>純粋な $\text{K}_2\text{SO}_3$ の質量：</strong>
+                $$m(\text{K}_2\text{SO}_3) = 1.40 \times 10^{-2}\text{ mol} \times 158.3\text{ g mol}^{-1} = 2.2162\text{ g}$$
+              </li>
+              <li>
+                <strong>試料の純度（%）：</strong>
+                $$\text{Percentage purity} = \frac{2.2162\text{ g}}{3.40\text{ g}} \times 100 = \mathbf{65.18\% \approx 65.2\%}$$
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part (d) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(d) 二亜硫酸イオン $\text{S}_2\text{O}_5^{2-}$ の $\text{S}(\alpha)$ 原子の幾何構造</span>
+          <span class="marks-badge">[1 mark]</span>
+        </div>
+
+        <div class="q-text-box">
+          <div class="q-original">
+            Potassium disulfite, $\text{K}_2\text{S}_2\text{O}_5$, is another food additive. The disulfite ion, $\text{S}_2\text{O}_5^{2-}$, has the displayed formula shown in Fig. 1.2.<br>
+            Deduce the geometry (shape) around the $\text{S}(\alpha)$ atom in $\text{S}_2\text{O}_5^{2-}$.
+          </div>
+          <div class="q-japanese">
+            二亜硫酸カリウム $\text{K}_2\text{S}_2\text{O}_5$ も食品添加物である。二亜硫酸イオン $\text{S}_2\text{O}_5^{2-}$ の構造式が図 1.2 に示されている。$\text{S}_2\text{O}_5^{2-}$ 中の $\text{S}(\alpha)$ 原子の周りの幾何構造（立体形状）を導け。
+          </div>
+
+          <!-- SVG Structure of S2O5^2- -->
+          <div class="svg-container">
+            <svg viewBox="0 0 460 220" width="440" height="210">
+              <!-- Left S: SO3^- group -->
+              <text x="140" y="115" fill="#d97706" font-size="24" font-weight="bold">S</text>
+              <!-- Left O atoms -->
+              <line x1="130" y1="95" x2="90" y2="50" stroke="#64748b" stroke-width="2.5"/>
+              <line x1="138" y1="90" x2="98" y2="45" stroke="#64748b" stroke-width="2.5"/>
+              <text x="75" y="45" fill="#0284c7" font-size="20" font-weight="bold">O</text>
+
+              <line x1="130" y1="125" x2="90" y2="170" stroke="#64748b" stroke-width="2.5"/>
+              <line x1="138" y1="130" x2="98" y2="175" stroke="#64748b" stroke-width="2.5"/>
+              <text x="75" y="190" fill="#0284c7" font-size="20" font-weight="bold">O</text>
+
+              <line x1="135" y1="110" x2="70" y2="110" stroke="#64748b" stroke-width="2.5"/>
+              <text x="45" y="115" fill="#0284c7" font-size="20" font-weight="bold">O⁻</text>
+
+              <!-- S-S bond -->
+              <line x1="160" y1="110" x2="260" y2="110" stroke="#334155" stroke-width="3"/>
+
+              <!-- Right S: S(alpha) -->
+              <text x="270" y="115" fill="#d97706" font-size="24" font-weight="bold">S(α)</text>
+
+              <!-- Lone pair on S(alpha) -->
+              <ellipse cx="270" cy="80" rx="6" ry="12" fill="rgba(124, 58, 237, 0.2)" stroke="#7c3aed" stroke-width="1.5" transform="rotate(-30 270 80)"/>
+              <circle cx="266" cy="77" r="2" fill="#7c3aed"/>
+              <circle cx="272" cy="83" r="2" fill="#7c3aed"/>
+              <text x="230" y="60" fill="#7c3aed" font-size="12" font-weight="bold">孤立電子対 (1 pair)</text>
+
+              <!-- S(alpha) bonds -->
+              <!-- Double bond to O -->
+              <line x1="290" y1="105" x2="350" y2="105" stroke="#64748b" stroke-width="2.5"/>
+              <line x1="290" y1="115" x2="350" y2="115" stroke="#64748b" stroke-width="2.5"/>
+              <text x="360" y="115" fill="#0284c7" font-size="20" font-weight="bold">O</text>
+
+              <!-- Single bond to O- -->
+              <line x1="280" y1="125" x2="280" y2="180" stroke="#64748b" stroke-width="2.5"/>
+              <text x="273" y="205" fill="#0284c7" font-size="20" font-weight="bold">O⁻</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="answer-box">
+          <div class="answer-label-bar">
+            <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+            <span class="marks-badge">[1 Mark]</span>
+          </div>
+          <div class="answer-grid">
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-ja">日本語解答</span>
+              <div>幾何構造: <span class="final-val">三角錐形</span> （三角ピラミッド形）</div>
+            </div>
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+              <div>geometry around $\text{S}(\alpha)$: <span class="final-val">trigonal pyramidal</span></div>
+              <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">(3 bonding regions + 1 lone pair = tetrahedral arrangement, pyramidal shape)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="explanation">
+          <h4>💡 VSEPR（価電子対相互反発則）による導出</h4>
+          <ul class="step-list">
+            <li>硫黄原子（S）の価電子数は 6 です。</li>
+            <li>
+              $\text{S}(\alpha)$ は、$=\text{O}$ に2個、$-\text{O}^-$ に1個、$-\text{S}$ に1個の合計4個の価電子を結合に提供しています。
+            </li>
+            <li>
+              したがって、結合に関与していない価電子は $6 - 4 = 2$ 個、すなわち<strong>孤立電子対（lone pair）が1組</strong>存在します。
+            </li>
+            <li>
+              中心原子 $\text{S}(\alpha)$ の周りには、3つの結合領域（$1 \times \text{S}$, $1 \times \text{O}^-$, $1 \times =\text{O}$）と1つの孤立電子対があり、電子対の基本配置は四面体（tetrahedral）です。
+            </li>
+            <li>
+              孤立電子対を1つ含むため、実際の原子の幾何配置（分子の形状）は<strong>三角錐形（trigonal pyramidal）</strong>となります。
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         QUESTION 4: June/2023/Paper_9701/42/No.9
+         ========================================== -->
+    <section id="q4" class="problem-section">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <h2>問題 4</h2>
+          <span class="problem-source">June/2023/Paper_9701/42/No.9 [全8点]</span>
+        </div>
+        <div class="total-marks">合計 8 Marks</div>
+      </div>
+
+      <!-- (a) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(a) 標準電池起電力 $E^\ominus_{\text{cell}}$ の定義</span>
+          <span class="marks-badge">[1 mark]</span>
+        </div>
+        <div class="q-text-box">
+          <div class="q-original">Define standard cell potential, $E^\ominus_{\text{cell}}$.</div>
+          <div class="q-japanese">標準電池起電力 $E^\ominus_{\text{cell}}$ を定義せよ。</div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label-bar">
+            <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+            <span class="marks-badge">[1 Mark]</span>
+          </div>
+          <div class="answer-grid">
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-ja">日本語解答</span>
+              <div><strong>標準状態（298 K, 100 kPa / 1 atm, 溶液濃度 1.0 mol dm⁻³）における2つの半電池（電極）間の電位差（または起電力）。</strong></div>
+            </div>
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+              <div><strong>The potential difference / electromotive force (emf) between two half-cells (electrodes) under standard conditions (298 K, 100 kPa / 1 atm, 1.0 mol dm⁻³).</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- (b) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(b) $\text{Fe}^{3+}/\text{Fe}^{2+}$ と $\text{Cl}_2/\text{Cl}^-$ 電池の完全な構成図</span>
+          <span class="marks-badge">[3 marks]</span>
+        </div>
+        <div class="q-text-box">
+          <div class="q-original">
+            An electrochemical cell is set up to measure $E^\ominus_{\text{cell}}$ of a cell consisting of an $\text{Fe}^{3+}/\text{Fe}^{2+}$ half-cell and a $\text{Cl}_2/\text{Cl}^-$ half-cell.<br>
+            Draw a labelled diagram of this electrochemical cell. Include all necessary substances. It is not necessary to state conditions used.
+          </div>
+          <div class="q-japanese">
+            $\text{Fe}^{3+}/\text{Fe}^{2+}$ 半電池と $\text{Cl}_2/\text{Cl}^-$ 半電池からなる電池の標準電池起電力を測定するための実験装置図を描け。必要なすべての物質にラベルを付けよ（測定条件の数値を記す必要はない）。
+          </div>
+        </div>
+
+        <!-- SVG Diagram of Fe/Cl2 Electrochemical Cell -->
+        <div class="svg-container">
+          <svg viewBox="0 0 680 340" width="660" height="330">
+            <!-- Left Beaker (Fe3+/Fe2+) -->
+            <rect x="70" y="100" width="200" height="190" rx="8" fill="var(--svg-bg)" stroke="var(--svg-glass)" stroke-width="3"/>
+            <rect x="75" y="150" width="190" height="135" fill="var(--svg-liquid-amber)" rx="4"/>
+            <!-- Pt electrode left -->
+            <line x1="170" y1="60" x2="170" y2="230" stroke="#b45309" stroke-width="3"/>
+            <rect x="162" y="230" width="16" height="24" fill="#334155" stroke="#64748b" stroke-width="2"/>
+
+            <!-- Right Beaker (Cl2/Cl-) -->
+            <rect x="410" y="100" width="200" height="190" rx="8" fill="var(--svg-bg)" stroke="var(--svg-glass)" stroke-width="3"/>
+            <rect x="415" y="150" width="190" height="135" fill="var(--svg-liquid-blue)" rx="4"/>
+            <!-- Glass bell tube right -->
+            <path d="M 480 50 L 480 230 L 530 230 L 530 50" fill="none" stroke="var(--svg-glass)" stroke-width="2"/>
+            <path d="M 440 80 L 480 80" fill="none" stroke="var(--svg-glass)" stroke-width="2"/>
+            <path d="M 440 95 L 480 95" fill="none" stroke="var(--svg-glass)" stroke-width="2"/>
+            <!-- Pt electrode inside bell tube -->
+            <line x1="505" y1="40" x2="505" y2="220" stroke="#b45309" stroke-width="2.5"/>
+            <rect x="497" y="220" width="16" height="20" fill="#334155" stroke="#64748b" stroke-width="2"/>
+            <!-- Gas bubbles -->
+            <circle cx="495" cy="205" r="3" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+            <circle cx="515" cy="190" r="4" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+
+            <!-- Salt Bridge (U-tube) -->
+            <path d="M 230 210 L 230 110 Q 230 85 255 85 L 425 85 Q 450 85 450 110 L 450 210" fill="none" stroke="#059669" stroke-width="10" stroke-linecap="round"/>
+            <path d="M 230 210 L 230 110 Q 230 85 255 85 L 425 85 Q 450 85 450 110 L 450 210" fill="none" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
+
+            <!-- External Circuit with Voltmeter -->
+            <line x1="170" y1="60" x2="170" y2="25" stroke="#334155" stroke-width="2"/>
+            <line x1="170" y1="25" x2="315" y2="25" stroke="#334155" stroke-width="2"/>
+            <line x1="365" y1="25" x2="505" y2="25" stroke="#334155" stroke-width="2"/>
+            <line x1="505" y1="25" x2="505" y2="40" stroke="#334155" stroke-width="2"/>
+            <!-- Voltmeter Circle -->
+            <circle cx="340" cy="25" r="18" fill="var(--bg-card)" stroke="#0284c7" stroke-width="2.5"/>
+            <text x="333" y="32" fill="#0284c7" font-size="18" font-weight="bold">V</text>
+
+            <!-- Text Labels -->
+            <text x="70" y="315" fill="#d97706" font-size="13" font-weight="bold">Fe³⁺(aq) + Fe²⁺(aq) 混合溶液</text>
+            <text x="120" y="80" fill="var(--text-sub)" font-size="12">Pt 電極</text>
+            <text x="305" y="115" fill="#059669" font-size="13" font-weight="bold">塩橋 (Salt bridge)</text>
+            <text x="440" y="315" fill="#0284c7" font-size="13" font-weight="bold">Cl⁻(aq) 溶液</text>
+            <text x="360" y="90" fill="#0284c7" font-size="12">Cl₂(g) 吹込</text>
+            <text x="525" y="60" fill="var(--text-sub)" font-size="12">Pt 電極</text>
+          </svg>
+        </div>
+
+        <div class="answer-box">
+          <div class="answer-label-bar">
+            <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+            <span class="marks-badge">[3 Marks]</span>
+          </div>
+          <div class="answer-grid">
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-ja">日本語採点ポイント</span>
+              <div>1. 両方の半電池に白金電極（Pt）が正しく配置されている [1]</div>
+              <div>2. 溶液が正しくラベル付けされている（左：$\text{Fe}^{3+}(\text{aq})$ と $\text{Fe}^{2+}(\text{aq})$、右：$\text{Cl}^-(\text{aq})$ と $\text{Cl}_2(\text{g})$ 導入管）[1]</div>
+              <div>3. 外部回路（電圧計 V 付き）および塩橋（salt bridge）が描かれている [1]</div>
+            </div>
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+              <div>1. <strong>Pt electrode</strong> in both half-cells [1]</div>
+              <div>2. <strong>Both solutions correctly labelled</strong>: $\text{Fe}^{3+}(\text{aq}) + \text{Fe}^{2+}(\text{aq})$; and $\text{Cl}^-(\text{aq})$ with $\text{Cl}_2(\text{g})$ bubbled into tube [1]</div>
+              <div>3. <strong>Complete circuit with salt bridge and voltmeter</strong> [1]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- (c) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(c) $\Delta G^\ominus$ の計算</span>
+          <span class="marks-badge">[2 marks]</span>
+        </div>
+        <div class="q-text-box">
+          <div class="q-original">
+            The cell reaction for the electrochemical cell in (b) is shown.<br>
+            $\text{Cl}_2 + 2\text{Fe}^{2+} \rightarrow 2\text{Fe}^{3+} + 2\text{Cl}^- \quad E^\ominus_{\text{cell}} = +0.59\text{ V}$<br>
+            Calculate $\Delta G^\ominus$, in $\text{kJ mol}^{-1}$, for this cell reaction.
+          </div>
+          <div class="q-japanese">
+            (b) の電池反応は次の通りである：<br>
+            $\text{Cl}_2 + 2\text{Fe}^{2+} \rightarrow 2\text{Fe}^{3+} + 2\text{Cl}^- \quad E^\ominus_{\text{cell}} = +0.59\text{ V}$<br>
+            この反応の $\Delta G^\ominus$ ($\text{kJ mol}^{-1}$) を計算せよ。
+          </div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label-bar">
+            <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+            <span class="marks-badge">[2 Marks]</span>
+          </div>
+          <div class="answer-grid">
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-ja">日本語解答</span>
+              <div>$\Delta G^\ominus = $ <span class="final-val">-114 kJ mol⁻¹</span></div>
+              <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">（許容範囲: -113.87 〜 -114 kJ mol⁻¹）</div>
+            </div>
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+              <div>$\Delta G^\ominus = \mathbf{-114\text{ kJ mol}^{-1}}$ (or $\mathbf{-113.87\text{ kJ mol}^{-1}}$)</div>
+              <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">[M1: $\Delta G^\ominus = -nFE^\ominus_{\text{cell}}$ with $n=2$; M2: value with negative sign]</div>
+            </div>
+          </div>
+        </div>
+        <div class="explanation">
+          <h4>💡 計算手順</h4>
+          反応式より移動電子物質量は $n = 2\text{ mol}$。
+          $$\Delta G^\ominus = -n F E^\ominus_{\text{cell}} = -2 \times 96500\text{ C mol}^{-1} \times 0.59\text{ V} = -113870\text{ J mol}^{-1} = \mathbf{-114\text{ kJ mol}^{-1}}$$
+        </div>
+      </div>
+
+      <!-- (d) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(d) ネルンストの式による電位と非標準電池起電力の算出</span>
+          <span class="marks-badge">[2 marks]</span>
+        </div>
+        <div class="q-text-box">
+          <div class="q-original">
+            Another experiment is set up using the same electrochemical cell.<br>
+            In this experiment the $\text{Fe}^{2+}$ concentration is $0.15\text{ mol dm}^{-3}$. All other concentrations remain at their standard values.<br>
+            The Nernst equation is shown: $E = E^\ominus + (0.059/z) \log ([\text{oxidised species}]/[\text{reduced species}])$
+          </div>
+          <div class="q-japanese">
+            同じ電池を用いて別の実験を行った。この実験では、$\text{Fe}^{2+}$ の濃度のみを $0.15\text{ mol dm}^{-3}$ とし、他の濃度はすべて標準値（$1.0\text{ mol dm}^{-3}$）のままとした。
+          </div>
+        </div>
+
+        <!-- d(i) -->
+        <div>
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(i) $\text{Fe}^{3+}/\text{Fe}^{2+}$ 半電池の電極電位 $E$ の計算 [1 mark]</h4>
+          <div class="q-original">Use the Nernst equation to calculate the electrode potential, $E$, for the $\text{Fe}^{3+}/\text{Fe}^{2+}$ half-cell in this experiment. [$E^\ominus: \text{Fe}^{3+}/\text{Fe}^{2+} = +0.77\text{ V}$]</div>
+          <div class="q-japanese">ネルンストの式を用いて、この実験における $\text{Fe}^{3+}/\text{Fe}^{2+}$ 半電池の電極電位 $E$ を計算せよ。</div>
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>$E = $ <span class="final-val">+0.82 V</span> （または +0.819 V）</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>$E = \mathbf{+0.82\text{ V}}$ (or $\mathbf{+0.819\text{ V}}$)</div>
+                <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">[$E = +0.77 + 0.059 \log_{10}(1.0 / 0.15) = +0.8186\text{ V}$]</div>
+              </div>
+            </div>
+          </div>
+          <div class="explanation">
+            <h4>💡 計算手順</h4>
+            $[\text{Fe}^{3+}] = 1.0\text{ mol dm}^{-3}$, $[\text{Fe}^{2+}] = 0.15\text{ mol dm}^{-3}$, $z = 1$
+            $$E = +0.77 + \frac{0.059}{1} \log_{10}\left(\frac{1.0}{0.15}\right) = +0.77 + 0.059 \times \log_{10}(6.6667)$$
+            $$\log_{10}(6.6667) \approx 0.8239 \implies E = +0.77 + 0.059 \times 0.8239 = +0.77 + 0.0486 = \mathbf{+0.8186\text{ V} \approx +0.82\text{ V}}$$
+          </div>
+        </div>
+
+        <!-- d(ii) -->
+        <div style="margin-top: 24px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(ii) この電池の起電力 $E_{\text{cell}}$ の計算 [1 mark]</h4>
+          <div class="q-original">Use your answer to (d)(i) to calculate $E_{\text{cell}}$ for this electrochemical cell.</div>
+          <div class="q-japanese">(d)(i) の答えを用いて、この化学電池の起電力 $E_{\text{cell}}$ を計算せよ。</div>
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>$E_{\text{cell}} = $ <span class="final-val">+0.54 V</span> （または +0.541 V）</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>$E_{\text{cell}} = \mathbf{+0.54\text{ V}}$ (or $\mathbf{+0.541\text{ V}}$)</div>
+                <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">[$E_{\text{cell}} = E(\text{positive}) - E(\text{negative}) = 1.36 - 0.819 = +0.54\text{ V}$]</div>
+              </div>
+            </div>
+          </div>
+          <div class="explanation">
+            <h4>💡 計算手順</h4>
+            塩素電極は標準状態であるため、$E(\text{Cl}_2/\text{Cl}^-) = E^\ominus = +1.36\text{ V}$ です。<br>
+            （※問題 (c) より $E^\ominus_{\text{cell}} = +0.59\text{ V} = E^\ominus(\text{Cl}_2/\text{Cl}^-) - 0.77\text{ V}$ なので $E^\ominus(\text{Cl}_2/\text{Cl}^-) = 0.59 + 0.77 = +1.36\text{ V}$）<br>
+            $$E_{\text{cell}} = E(\text{positive}) - E(\text{negative}) = 1.36\text{ V} - 0.8186\text{ V} = \mathbf{+0.5414\text{ V} \approx +0.54\text{ V}}$$
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         QUESTION 5: March/2023/Paper_9701/42/No.2(a, b)
+         ========================================== -->
+    <section id="q5" class="problem-section">
+      <div class="problem-header">
+        <div class="problem-title-group">
+          <h2>問題 5</h2>
+          <span class="problem-source">March/2023/Paper_9701/42/No.2(a, b) [全9点]</span>
+        </div>
+        <div class="total-marks">合計 9 Marks</div>
+      </div>
+
+      <!-- (a) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(a) 次亜リン酸（hypophosphorous acid）の化学式</span>
+          <span class="marks-badge">[1 mark]</span>
+        </div>
+        <div class="q-text-box">
+          <div class="q-original">
+            Hypophosphorous acid is an inorganic acid. The conjugate base of hypophosphorous acid is $\text{H}_2\text{PO}_2^-$.<br>
+            Give the formula of hypophosphorous acid.
+          </div>
+          <div class="q-japanese">
+            次亜リン酸は無機酸である。次亜リン酸の共役塩基は $\text{H}_2\text{PO}_2^-$ である。次亜リン酸の化学式を記せ。
+          </div>
+        </div>
+        <div class="answer-box">
+          <div class="answer-label-bar">
+            <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+            <span class="marks-badge">[1 Mark]</span>
+          </div>
+          <div class="answer-grid">
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-ja">日本語解答</span>
+              <div class="final-val">$\text{H}_3\text{PO}_2$</div>
+            </div>
+            <div class="ans-col">
+              <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+              <div class="final-val">$\text{H}_3\text{PO}_2$</div>
+            </div>
+          </div>
+        </div>
+        <div class="explanation">
+          <h4>💡 解説</h4>
+          共役塩基 $\text{H}_2\text{PO}_2^-$ にプロトン $\text{H}^+$ を1つ付加したものが酸の本体であるため、$\mathbf{\text{H}_3\text{PO}_2}$（ホスフィン酸）となります。
+        </div>
+      </div>
+
+      <!-- (b) -->
+      <div class="sub-q">
+        <div class="sub-q-header">
+          <span class="sub-q-label">(b) 強力な還元剤 $\text{H}_2\text{PO}_2^-$ の電気化学的挙動</span>
+          <span class="marks-badge">[8 marks]</span>
+        </div>
+        <div class="q-text-box">
+          <div class="q-original">
+            $\text{H}_2\text{PO}_2^-$ is a strong reducing agent. It can be used to reduce metal cations without the need for electrolysis.<br>
+            equation 1: $\text{HPO}_3^{2-} + 2\text{H}_2\text{O} + 2\text{e}^- \rightleftharpoons \text{H}_2\text{PO}_2^- + 3\text{OH}^- \quad E^\ominus = -1.57\text{ V}$
+          </div>
+          <div class="q-japanese">
+            $\text{H}_2\text{PO}_2^-$ は強力な還元剤であり、電気分解を要することなく金属陽イオンを還元することができる（無電解めっき等）。<br>
+            式 1：$\text{HPO}_3^{2-} + 2\text{H}_2\text{O} + 2\text{e}^- \rightleftharpoons \text{H}_2\text{PO}_2^- + 3\text{OH}^- \quad E^\ominus = -1.57\text{ V}$
+          </div>
+        </div>
+
+        <!-- b(i) -->
+        <div>
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(i) 濃度変化に伴う電極電位 $E$ の変化予測と理由 [2 marks]</h4>
+          <div class="q-original">
+            In an experiment, an alkaline $\text{HPO}_3^{2-}/\text{H}_2\text{PO}_2^-$ half-cell is constructed with $[\text{H}_2\text{PO}_2^-] = 0.050\text{ mol dm}^{-3}$. All other ions are at their standard concentration.<br>
+            Predict how the value of $E$ of this half-cell differs from its $E^\ominus$ value. Explain your answer.
+          </div>
+          <div class="q-japanese">
+            ある実験で、$[\text{H}_2\text{PO}_2^-] = 0.050\text{ mol dm}^{-3}$ としたアルカリ性 $\text{HPO}_3^{2-}/\text{H}_2\text{PO}_2^-$ 半電池を作製した。他のすべてのイオンは標準濃度である。<br>
+            この半電池の電極電位 $E$ の値が標準値 $E^\ominus$（$-1.57\text{ V}$）とどのように異なるか予測し、その理由を説明せよ。
+          </div>
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[2 Marks]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>• 予測: <strong>より正の値になる（more positive / less negative / increases）</strong></div>
+                <div style="margin-top: 6px;">• 理由: 生成物である $[\text{H}_2\text{PO}_2^-]$ の濃度が標準（$1.0\text{ mol dm}^{-3}$）より低いため、ルシャトリエの原理により平衡が右向き（電子を受け取る還元方向）にシフトし、電子を受け取りやすくなるため。あるいはネルンストの式において $[\text{oxidised}]/[\text{reduced}]$ の比が大きくなるため。</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>• Prediction: <strong>more positive / less negative / increases</strong></div>
+                <div style="margin-top: 6px;">• Explanation: <strong>$[\text{H}_2\text{PO}_2^-]$ decreases, so by Le Chatelier's principle, equilibrium (1) shifts to the right / forwards (towards reduction) to oppose the change, making reduction more favorable / electron uptake easier.</strong> (or: $[\text{oxidised}]/[\text{reduced}]$ ratio increases).</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- b(ii) -->
+        <div style="margin-top: 24px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(ii) $\text{Cr}^{3+}/\text{Cr}$ 半電池との組み合わせにおける標準電池起電力 [1 mark]</h4>
+          <div class="q-original">
+            The $\text{Cr}^{3+}/\text{Cr}$ half-cell has a standard electrode potential of $-0.74\text{ V}$.<br>
+            An electrochemical cell consists of an alkaline $\text{HPO}_3^{2-}/\text{H}_2\text{PO}_2^-$ half-cell and a $\text{Cr}^{3+}/\text{Cr}$ half-cell.<br>
+            Calculate the standard cell potential, $E^\ominus_{\text{cell}}$.
+          </div>
+          <div class="q-japanese">
+            $\text{Cr}^{3+}/\text{Cr}$ 半電池の標準電極電位は $-0.74\text{ V}$ である。<br>
+            アルカリ性 $\text{HPO}_3^{2-}/\text{H}_2\text{PO}_2^-$ 半電池と $\text{Cr}^{3+}/\text{Cr}$ 半電池からなる電池の標準電池起電力 $E^\ominus_{\text{cell}}$ を計算せよ。
+          </div>
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>$E^\ominus_{\text{cell}} = $ <span class="final-val">+0.83 V</span></div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>$E^\ominus_{\text{cell}} = \mathbf{+0.83\text{ V}}$ (or $0.83\text{ V}$)</div>
+                <div style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">[$E^\ominus_{\text{cell}} = (-0.74\text{ V}) - (-1.57\text{ V}) = +0.83\text{ V}$]</div>
+              </div>
+            </div>
+          </div>
+          <div class="explanation">
+            <h4>💡 計算手順</h4>
+            電位の高い方が正極：$-0.74\text{ V} > -1.57\text{ V}$ より、正極は $\text{Cr}^{3+}/\text{Cr}$、負極は $\text{HPO}_3^{2-}/\text{H}_2\text{PO}_2^-$ です。
+            $$E^\ominus_{\text{cell}} = E^\ominus(\text{positive}) - E^\ominus(\text{negative}) = (-0.74\text{ V}) - (-1.57\text{ V}) = \mathbf{+0.83\text{ V}}$$
+          </div>
+        </div>
+
+        <!-- b(iii & iv) -->
+        <div style="margin-top: 24px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(iii) & (iv) Fig 2.1 の完成と電極の特定・電子の移動方向 [4 marks]</h4>
+          <div class="q-original">
+            (iii) Complete the diagram in Fig. 2.1 to show how the standard electrode potential of the $\text{Cr}^{3+}/\text{Cr}$ half-cell can be measured relative to that of the standard hydrogen electrode. Identify the chemicals, conditions and relevant pieces of apparatus. [3 marks]<br><br>
+            (iv) Label Fig. 2.1 to show: which is the positive electrode, and the direction of electron flow in the external circuit. [1 mark]
+          </div>
+          <div class="q-japanese">
+            (iii) 図 2.1 を完成させて、標準水素電極（SHE）に対して $\text{Cr}^{3+}/\text{Cr}$ 半電池の標準電極電位を測定する方法を示せ。薬品、条件、関連器具をすべて特定せよ。[3点]<br><br>
+            (iv) 図 2.1 に、どちらが正極であるかと、外部回路における電子の移動方向をラベル表示せよ。[1点]
+          </div>
+
+          <!-- SVG Diagram for Fig 2.1 Solution -->
+          <div class="svg-container">
+            <svg viewBox="0 0 680 360" width="660" height="350">
+              <!-- Left: Standard Hydrogen Electrode (SHE) -->
+              <rect x="70" y="110" width="200" height="190" rx="8" fill="var(--svg-bg)" stroke="var(--svg-glass)" stroke-width="3"/>
+              <rect x="75" y="160" width="190" height="135" fill="var(--svg-liquid-blue)" rx="4"/>
+              <!-- SHE bell & Pt -->
+              <path d="M 140 60 L 140 240 L 190 240 L 190 60" fill="none" stroke="var(--svg-glass)" stroke-width="2"/>
+              <path d="M 100 90 L 140 90" fill="none" stroke="var(--svg-glass)" stroke-width="2"/>
+              <path d="M 100 105 L 140 105" fill="none" stroke="var(--svg-glass)" stroke-width="2"/>
+              <line x1="165" y1="50" x2="165" y2="230" stroke="#b45309" stroke-width="2.5"/>
+              <rect x="157" y="230" width="16" height="20" fill="#334155" stroke="#64748b" stroke-width="2"/>
+
+              <!-- Right: Cr3+/Cr half-cell -->
+              <rect x="410" y="110" width="200" height="190" rx="8" fill="var(--svg-bg)" stroke="var(--svg-glass)" stroke-width="3"/>
+              <rect x="415" y="160" width="190" height="135" fill="var(--svg-liquid-green)" rx="4"/>
+              <!-- Chromium metal electrode strip -->
+              <rect x="495" y="70" width="24" height="180" rx="2" fill="#64748b" stroke="#334155" stroke-width="2.5"/>
+
+              <!-- Salt Bridge -->
+              <path d="M 230 220 L 230 120 Q 230 95 255 95 L 425 95 Q 450 95 450 120 L 450 220" fill="none" stroke="#059669" stroke-width="10" stroke-linecap="round"/>
+              <path d="M 230 220 L 230 120 Q 230 95 255 95 L 425 95 Q 450 95 450 120 L 450 220" fill="none" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
+
+              <!-- External Circuit with Voltmeter -->
+              <line x1="165" y1="50" x2="165" y2="25" stroke="#334155" stroke-width="2"/>
+              <line x1="165" y1="25" x2="315" y2="25" stroke="#334155" stroke-width="2"/>
+              <line x1="365" y1="25" x2="507" y2="25" stroke="#334155" stroke-width="2"/>
+              <line x1="507" y1="25" x2="507" y2="70" stroke="#334155" stroke-width="2"/>
+              <!-- Voltmeter -->
+              <circle cx="340" cy="25" r="18" fill="var(--bg-card)" stroke="#0284c7" stroke-width="2.5"/>
+              <text x="333" y="32" fill="#0284c7" font-size="18" font-weight="bold">V</text>
+
+              <!-- Electron flow arrow (From Cr on right to SHE on left) -->
+              <line x1="460" y1="12" x2="220" y2="12" stroke="#e11d48" stroke-width="3" marker-end="url(#arrow)"/>
+              <polygon points="215,12 225,7 225,17" fill="#e11d48"/>
+              <text x="235" y="-3" fill="#e11d48" font-size="13" font-weight="bold">電子の流れ (Electron flow: Cr → SHE)</text>
+
+              <!-- Electrode labels (Positive vs Negative) -->
+              <rect x="75" y="70" width="70" height="26" rx="4" fill="rgba(5, 150, 105, 0.15)" stroke="#059669" stroke-width="1.5"/>
+              <text x="82" y="88" fill="#059669" font-size="13" font-weight="bold">正極 (+)</text>
+
+              <rect x="535" y="70" width="70" height="26" rx="4" fill="rgba(225, 29, 72, 0.15)" stroke="#e11d48" stroke-width="1.5"/>
+              <text x="542" y="88" fill="#e11d48" font-size="13" font-weight="bold">負極 (−)</text>
+
+              <!-- Substance labels -->
+              <text x="60" y="325" fill="#0284c7" font-size="12" font-weight="bold">1.0 mol dm⁻³ H⁺(aq), H₂(g) (100 kPa)</text>
+              <text x="430" y="325" fill="#059669" font-size="12" font-weight="bold">1.0 mol dm⁻³ Cr³⁺(aq) 溶液</text>
+              <text x="490" y="270" fill="var(--text-sub)" font-size="12">Cr 電極</text>
+              <text x="305" y="125" fill="#059669" font-size="12" font-weight="bold">塩橋 (Salt bridge)</text>
+            </svg>
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[4 Marks]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div>• <strong>(iii) の必要要素 [3点]：</strong><br>
+                  1. クロム電極（$\text{Cr}$ electrode）が溶液に浸されている<br>
+                  2. 溶液が $1.0\text{ mol dm}^{-3}\text{ Cr}^{3+}(\text{aq})$ である<br>
+                  3. 塩橋、高抵抗電圧計、標準条件（$298\text{ K}$, $100\text{ kPa}$）の明記
+                </div>
+                <div style="margin-top: 10px;">• <strong>(iv) の特定 [1点]：</strong><br>
+                  - 正極: <strong>水素電極（SHE / Pt電極）</strong><br>
+                  - 電子の移動方向: <strong>$\text{Cr}$ 電極 $\rightarrow$ 水素電極（左向き）</strong>
+                </div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div>• <strong>(iii) Essential apparatus &amp; conditions [3 marks]:</strong><br>
+                  1. <strong>Chromium ($\text{Cr}$) electrode</strong> in right beaker<br>
+                  2. <strong>$1.0\text{ mol dm}^{-3}\text{ Cr}^{3+}(\text{aq})$</strong> solution<br>
+                  3. <strong>Salt bridge, voltmeter</strong>, and standard conditions ($298\text{ K}$, $100\text{ kPa}$)
+                </div>
+                <div style="margin-top: 10px;">• <strong>(iv) Electrode &amp; current flow [1 mark]:</strong><br>
+                  - Positive electrode: <strong>Hydrogen electrode (SHE / Pt)</strong><br>
+                  - Electron flow: <strong>from $\text{Cr}$ electrode to hydrogen electrode</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explanation">
+            <h4>💡 正極と電子の向きの考え方</h4>
+            標準電極電位は、SHE が $0.00\text{ V}$、$\text{Cr}^{3+}/\text{Cr}$ が $-0.74\text{ V}$ です。<br>
+            $0.00\text{ V} > -0.74\text{ V}$ であるため、<strong>水素電極の方が電位が高く正極（カソード）</strong>となります！<br>
+            負極であるクロム電極では $\text{Cr} \rightarrow \text{Cr}^{3+} + 3\text{e}^-$ の酸化が起こり電子が放出されるため、外部回路では<strong>クロム電極から水素電極へ</strong>電子が流れます。
+          </div>
+        </div>
+
+        <!-- b(v) -->
+        <div style="margin-top: 24px;">
+          <h4 style="color: var(--text-muted); margin-bottom: 8px;">(v) アルカリ性における $\text{H}_2\text{PO}_2^-$ による $\text{Ni}^{2+}$ の還元のイオン反応式 [1 mark]</h4>
+          <div class="q-original">
+            $\text{H}_2\text{PO}_2^-$ reduces $\text{Ni}^{2+}$ to $\text{Ni}$ in alkaline conditions.<br>
+            Use equation 1 to construct the ionic equation for this reaction.<br>
+            equation 1: $\text{HPO}_3^{2-} + 2\text{H}_2\text{O} + 2\text{e}^- \rightleftharpoons \text{H}_2\text{PO}_2^- + 3\text{OH}^-$
+          </div>
+          <div class="q-japanese">
+            アルカリ性条件下において、$\text{H}_2\text{PO}_2^-$ は $\text{Ni}^{2+}$ を $\text{Ni}$ に還元する。式 1 を用いて、この反応のイオン反応式を組み立てよ。
+          </div>
+          <div class="answer-box">
+            <div class="answer-label-bar">
+              <span class="answer-label"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 正解 (Answer &amp; Official Mark Scheme)</span>
+              <span class="marks-badge">[1 Mark]</span>
+            </div>
+            <div class="answer-grid">
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-ja">日本語解答</span>
+                <div class="final-val" style="font-size: 1.05rem;">$\text{H}_2\text{PO}_2^- + 3\text{OH}^- + \text{Ni}^{2+} \rightarrow \text{HPO}_3^{2-} + 2\text{H}_2\text{O} + \text{Ni}$</div>
+              </div>
+              <div class="ans-col">
+                <span class="ans-tag ans-tag-en">Official English Mark Scheme</span>
+                <div class="final-val" style="font-size: 1.05rem;">$\text{H}_2\text{PO}_2^- + 3\text{OH}^- + \text{Ni}^{2+} \rightarrow \text{HPO}_3^{2-} + 2\text{H}_2\text{O} + \text{Ni}$</div>
+              </div>
+            </div>
+          </div>
+          <div class="explanation">
+            <h4>💡 反応式の組み立て</h4>
+            酸化半反応（式 1 の逆）：$\text{H}_2\text{PO}_2^- + 3\text{OH}^- \rightarrow \text{HPO}_3^{2-} + 2\text{H}_2\text{O} + 2\text{e}^-$<br>
+            還元半反応：$\text{Ni}^{2+} + 2\text{e}^- \rightarrow \text{Ni}$<br>
+            電子の移動数（$2\text{e}^-$）が一致しているため、両辺をそのまま足し合わせることで上記の方程式が得られます。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Cambridge International A-Level Chemistry (9701) Detailed Solutions</p>
+      <p style="margin-top: 4px; font-size: 0.8rem; color: var(--text-sub);">Published via GitHub Pages • Bilingual (Japanese &amp; English Mark Scheme)</p>
+    </footer>
+  </div>
+
+  <!-- Theme toggle script -->
+  <script>
+    lucide.createIcons();
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme') || 'light';
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      htmlElement.setAttribute('data-theme', newTheme);
+      
+      const icon = newTheme === 'light' ? 'moon' : 'sun';
+      const label = newTheme === 'light' ? 'ダークモードに切替' : 'ライトモードに切替';
+      themeToggleBtn.innerHTML = `<i data-lucide="${icon}" style="width: 16px; height: 16px;"></i><span>${label}</span>`;
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
