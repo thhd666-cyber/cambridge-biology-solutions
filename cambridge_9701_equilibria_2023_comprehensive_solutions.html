@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge A2 Chemistry 9701 (2023) - Equilibria 完全解答・詳細解説集</title>
+  <meta name="description" content="Cambridge International AS & A Level Chemistry 9701 2023年過去問（Paper 41 / 42）平衡（Equilibria）分野全問（Kw, pH/pOH, 酸解離定数Ka/pKa, 緩衝液, 溶解度積Ksp, 分配係数Kpc, 薄層クロマトグラフィーTLC）の完全バイリンガル詳細解答解説。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- MathJax Configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root, [data-theme="light"] {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-alt: #f1f5f9;
+      --bg-card-subtle: #f8fafc;
+      --border-color: #e2e8f0;
+      --border-subtle: #cbd5e1;
+      --border-accent: rgba(14, 165, 233, 0.4);
+      
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-subtle: rgba(2, 132, 199, 0.08);
+      --secondary: #6366f1;
+      --secondary-subtle: rgba(99, 102, 241, 0.08);
+      --accent: #e11d48;
+      --accent-subtle: rgba(225, 29, 72, 0.08);
+      --emerald: #059669;
+      --emerald-subtle: rgba(5, 150, 105, 0.08);
+      --amber: #d97706;
+      --amber-subtle: rgba(217, 119, 6, 0.08);
+      --purple: #7c3aed;
+      --purple-subtle: rgba(124, 58, 237, 0.08);
+      
+      --text-main: #0f172a;
+      --text-muted: #334155;
+      --text-sub: #64748b;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 0 1px 1px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 12px 28px -4px rgba(0, 0, 0, 0.1);
+      --transition: all 0.25s ease-in-out;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0a0f1d;
+      --bg-card: rgba(18, 26, 46, 0.85);
+      --bg-card-alt: rgba(26, 38, 66, 0.7);
+      --bg-card-subtle: rgba(0, 0, 0, 0.25);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --border-subtle: rgba(255, 255, 255, 0.15);
+      --border-accent: rgba(56, 189, 248, 0.4);
+      
+      --primary: #38bdf8;
+      --primary-dark: #0284c7;
+      --primary-subtle: rgba(56, 189, 248, 0.15);
+      --secondary: #818cf8;
+      --secondary-subtle: rgba(129, 140, 248, 0.15);
+      --accent: #fb7185;
+      --accent-subtle: rgba(251, 113, 133, 0.15);
+      --emerald: #34d399;
+      --emerald-subtle: rgba(52, 211, 153, 0.15);
+      --amber: #fbbf24;
+      --amber-subtle: rgba(251, 191, 36, 0.15);
+      --purple: #c084fc;
+      --purple-subtle: rgba(192, 132, 252, 0.15);
+      
+      --text-main: #f1f5f9;
+      --text-muted: #cbd5e1;
+      --text-sub: #94a3b8;
+      
+      --shadow-card: 0 6px 24px -2px rgba(0, 0, 0, 0.4);
+      --shadow-hover: 0 16px 36px -4px rgba(0, 0, 0, 0.6);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.7;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.12), rgba(99, 102, 241, 0.08));
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      border: 1px solid transparent;
+    }
+
+    .badge-primary { background: var(--primary-subtle); color: var(--primary); border-color: var(--border-accent); }
+    .badge-secondary { background: var(--secondary-subtle); color: var(--secondary); }
+    .badge-emerald { background: var(--emerald-subtle); color: var(--emerald); }
+
+    h1.title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 900px;
+      line-height: 1.6;
+    }
+
+    /* Sticky Nav Bar */
+    .nav-bar {
+      position: sticky;
+      top: 1rem;
+      z-index: 50;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(10px);
+      margin-bottom: 2.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 2px;
+    }
+
+    .nav-link {
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-subtle);
+      color: var(--primary);
+    }
+
+    .theme-toggle {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.45rem 0.8rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-main);
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary-subtle);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Section & Cards */
+    .section-block {
+      margin-bottom: 4rem;
+      scroll-margin-top: 5.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-num {
+      width: 2.3rem;
+      height: 2.3rem;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .paper-tag {
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--border-accent);
+    }
+
+    .card-header-sub {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .sub-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sub-mark {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-subtle);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    /* Bilingual Boxes */
+    .bilingual-box {
+      background: var(--bg-card-alt);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .lang-row { margin-bottom: 0.6rem; }
+    .lang-row:last-child { margin-bottom: 0; }
+
+    .lang-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+    }
+
+    .tag-en { background: rgba(2, 132, 199, 0.15); color: var(--primary); }
+    .tag-ja { background: rgba(124, 58, 237, 0.15); color: var(--purple); }
+    .tag-ans { background: rgba(5, 150, 105, 0.18); color: var(--emerald); }
+
+    .text-en {
+      font-family: 'Inter', sans-serif;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .text-ja {
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    /* Answer Highlight Box */
+    .answer-box {
+      background: linear-gradient(135deg, var(--emerald-subtle), rgba(5, 150, 105, 0.02));
+      border: 1px solid rgba(5, 150, 105, 0.35);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .answer-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--emerald);
+      margin-bottom: 0.6rem;
+    }
+
+    .answer-value {
+      font-size: 1.15rem;
+      font-weight: 800;
+      font-family: 'Fira Code', monospace;
+      color: var(--text-main);
+      padding: 0.4rem 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      display: inline-block;
+      margin: 0.3rem 0;
+    }
+
+    /* Steps Breakdown */
+    .steps-container { margin-top: 1.25rem; }
+
+    .step-item {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-item:last-child { margin-bottom: 0; }
+
+    .step-item::before {
+      content: '';
+      position: absolute;
+      left: 0.55rem;
+      top: 1.8rem;
+      bottom: -1rem;
+      width: 2px;
+      background: var(--border-color);
+    }
+
+    .step-item:last-child::before { display: none; }
+
+    .step-bullet {
+      position: absolute;
+      left: 0;
+      top: 0.2rem;
+      width: 1.35rem;
+      height: 1.35rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .step-desc {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .math-block {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1.1rem;
+      margin: 0.6rem 0;
+      overflow-x: auto;
+      text-align: center;
+      font-size: 1.02rem;
+    }
+
+    .callout {
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem;
+      margin: 1.2rem 0;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      font-size: 0.92rem;
+    }
+
+    .callout-warning {
+      background: var(--amber-subtle);
+      border: 1px solid rgba(217, 119, 6, 0.3);
+      color: var(--text-main);
+    }
+    .callout-warning i { color: var(--amber); }
+
+    .callout-tip {
+      background: var(--primary-subtle);
+      border: 1px solid rgba(2, 132, 199, 0.3);
+      color: var(--text-main);
+    }
+    .callout-tip i { color: var(--primary); }
+
+    .callout-key {
+      background: var(--purple-subtle);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      color: var(--text-main);
+    }
+    .callout-key i { color: var(--purple); }
+
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 1.2rem 0;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    thead {
+      background: var(--bg-card-alt);
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    th { font-weight: 700; color: var(--text-main); }
+    tbody tr:hover { background: var(--primary-subtle); }
+
+    .diagram-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.25rem;
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      margin: 1rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem 1.5rem;
+      color: var(--text-sub);
+      font-size: 0.88rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 1.2rem 1rem 3rem; }
+      h1.title { font-size: 1.7rem; }
+      .section-title { font-size: 1.25rem; }
+      .nav-bar { flex-direction: column; align-items: stretch; }
+      .nav-links { justify-content: flex-start; }
+      .card { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-badge-row">
+        <span class="badge badge-primary"><i data-lucide="award"></i> Cambridge International A2 Chemistry (9701)</span>
+        <span class="badge badge-secondary"><i data-lucide="calendar"></i> 2023 Series (June & Nov & March)</span>
+        <span class="badge badge-emerald"><i data-lucide="languages"></i>日英完全対照 (Bilingual)</span>
+      </div>
+      <h1 class="title">Equilibria (平衡) 2023 A2 Chemistry 9701<br>全問完全解答・詳細ステップ解説集</h1>
+      <p class="subtitle">
+        Cambridge A2 Level Chemistry (9701) 2023年の「Equilibria（化学平衡・イオン平衡）」分野の全出題（水和イオン積 $K_{\mathrm{w}}$、強酸強塩基のpH計算、電子供与/求引性誘起効果、共役酸塩基対、分配係数 $K_{\mathrm{pc}}$、安息香酸緩衝液、共通イオン効果、イソシアン酸、亜硫酸銀の溶解度積 $K_{\mathrm{sp}}$、フタル酸水素カリウム緩衝液）を網羅した完全解説集です。
+      </p>
+      <div style="display: flex; gap: 0.8rem; margin-top: 1.25rem; flex-wrap: wrap;">
+        <a href="2023-Equilibria-A2-Chemistry-9701.pdf" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.55rem 1.1rem; background: var(--primary); color: white; border-radius: var(--radius-sm); text-decoration: none; font-weight: 700; font-size: 0.9rem; box-shadow: var(--shadow-sm);">
+          <i data-lucide="file-text"></i> 問題PDFを開く (View Original PDF)
+        </a>
+        <a href="index.html" style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.55rem 1.1rem; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); border-radius: var(--radius-sm); text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+          <i data-lucide="arrow-left"></i> ポータルへ戻る
+        </a>
+      </div>
+    </header>
+
+    <!-- Sticky Nav -->
+    <nav class="nav-bar">
+      <div class="nav-links">
+        <a href="#prob1" class="nav-link"><i data-lucide="hash"></i> 1. Nov/2023 41/Q2 (Kw, pH, 誘起効果, Kpc)</a>
+        <a href="#prob2" class="nav-link"><i data-lucide="hash"></i> 2. Nov/2023 42/Q2 (安息香酸, 緩衝液, Ksp)</a>
+        <a href="#prob3" class="nav-link"><i data-lucide="hash"></i> 3. June/2023 41/Q5 (シアヌル酸, HNCO)</a>
+        <a href="#prob4" class="nav-link"><i data-lucide="hash"></i> 4. June/2023 42/Q3 (Ag₂SO₃ Ksp)</a>
+        <a href="#prob5" class="nav-link"><i data-lucide="hash"></i> 5. March/2023 42/Q6 (TLC, C₈H₅O₄K 緩衝液)</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+        <i data-lucide="moon" id="themeIcon"></i>
+        <span id="themeText">ダークモード</span>
+      </button>
+    </nav>
+
+    <!-- ========================================================================= -->
+    <!-- PROBLEM 1: Nov/2023/Paper_9701/41/No.2 -->
+    <!-- ========================================================================= -->
+    <section class="section-block" id="prob1">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-num">1</div>
+          <h2 class="section-title">Nov/2023/Paper_9701/41/No.2</h2>
+        </div>
+        <span class="paper-tag">[Total: 14 Marks]</span>
+      </div>
+
+      <!-- 1 (a) -->
+      <div class="card">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="droplets"></i> (a) 水のイオン積 $K_{\mathrm{w}}$ の数学的定義</h3>
+          <span class="sub-mark">[1 Mark]</span>
+        </div>
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Question (EN)</span>
+            <p class="text-en">Define $K_{\mathrm{w}}$ mathematically by completing the expression.<br>$K_{\mathrm{w}} = \text{.................................................................................................................}$</p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+            <p class="text-ja">式を完成させることにより、水のイオン積 $K_{\mathrm{w}}$ を数学的に定義せよ。</p>
+          </div>
+        </div>
+
+        <div class="answer-box">
+          <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+          <div class="answer-value">$K_{\mathrm{w}} = [\mathrm{H^+}][\mathrm{OH^-}]$</div>
+          <p style="margin-top: 0.4rem; font-size: 0.9rem; color: var(--text-muted);">
+            （またはオキソニウムイオン表記：<strong>$K_{\mathrm{w}} = [\mathrm{H_3O^+}][\mathrm{OH^-}]$</strong> も満点）
+          </p>
+        </div>
+        <div class="callout callout-tip">
+          <i data-lucide="info"></i>
+          <div>
+            <strong>注意点:</strong> 分母に $[\mathrm{H_2O}]$ を入れてはいけません。平衡定数 $K_c = \frac{[\mathrm{H^+}][\mathrm{OH^-}]}{[\mathrm{H_2O}]}$ において、大過剰に存在する溶媒水 $[\mathrm{H_2O}]$ の濃度を定数とみなして組み込んだものが $K_{\mathrm{w}} = K_c [\mathrm{H_2O}] = [\mathrm{H^+}][\mathrm{OH^-}]$ です。
+          </div>
+        </div>
+      </div>
+
+      <!-- 1 (b) -->
+      <div class="card">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="scale"></i> (b) 強酸 $\mathrm{HCl}$ と強塩基 $\mathrm{NaOH}$ のpH差・中和・強酸塩基添加</h3>
+          <span class="sub-mark">[4 Marks]</span>
+        </div>
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Premise (EN)</span>
+            <p class="text-en">
+              Two solutions, $\mathbf{V}$ and $\mathbf{W}$, are described.<br>
+              • $\mathbf{V}$ is $\mathrm{HCl(aq)}$.<br>
+              • $\mathbf{W}$ is $\mathrm{NaOH(aq)}$.<br>
+              • The concentration of $\mathrm{HCl}$ in $\mathbf{V}$ is the same as the concentration of $\mathrm{NaOH}$ in $\mathbf{W}$.<br>
+              • The pH values of $\mathbf{V}$ and $\mathbf{W}$ differ by exactly 11.00 at 298 K.
+            </p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">前提条件 (JA)</span>
+            <p class="text-ja">
+              2つの溶液 $\mathbf{V}$ および $\mathbf{W}$ がある。<br>
+              • $\mathbf{V}$ は $\mathrm{HCl(aq)}$（塩酸）である。<br>
+              • $\mathbf{W}$ は $\mathrm{NaOH(aq)}$（水酸化ナトリウム水溶液）である。<br>
+              • $\mathbf{V}$ 中の $\mathrm{HCl}$ 濃度と、$\mathbf{W}$ 中の $\mathrm{NaOH}$ 濃度は等しい。<br>
+              • $298\text{ K}$ において、$\mathbf{V}$ と $\mathbf{W}$ の pH の差はちょうど 11.00 である。
+            </p>
+          </div>
+        </div>
+
+        <!-- 1 (b)(i) -->
+        <div style="margin-bottom: 1.8rem;">
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.5rem;">
+            (i) $\mathrm{HCl}$ 溶液 $\mathbf{V}$ の濃度計算 [2 Marks]
+          </h4>
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div class="answer-value">concentration of HCl = 3.16 × 10⁻² mol dm⁻³ (or 0.0316 mol dm⁻³)</div>
+          </div>
+          <div class="steps-container">
+            <div class="step-item">
+              <div class="step-bullet">1</div>
+              <div class="step-title">濃度 $c$ とそれぞれの pH の関係式を立てる</div>
+              <div class="step-desc">
+                共通の濃度を $c\text{ [mol dm}^{-3}]$ とする。<br>
+                $\mathbf{V}$ は1価の強酸なので：$[\mathrm{H^+}]_{\mathbf{V}} = c \implies \mathrm{pH}_{\mathbf{V}} = -\log_{10} c$<br>
+                $\mathbf{W}$ は1価の強塩基なので：$[\mathrm{OH^-}]_{\mathbf{W}} = c \implies \mathrm{pOH}_{\mathbf{W}} = -\log_{10} c = \mathrm{pH}_{\mathbf{V}}$<br>
+                $298\text{ K}$ では $\mathrm{pH} + \mathrm{pOH} = 14.00$ であるため：
+                $$\mathrm{pH}_{\mathbf{W}} = 14.00 - \mathrm{pOH}_{\mathbf{W}} = 14.00 - \mathrm{pH}_{\mathbf{V}}$$
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-bullet">2</div>
+              <div class="step-title">pHの差の方程式を解いて濃度を求める</div>
+              <div class="step-desc">
+                $$\mathrm{pH}_{\mathbf{W}} - \mathrm{pH}_{\mathbf{V}} = (14.00 - \mathrm{pH}_{\mathbf{V}}) - \mathrm{pH}_{\mathbf{V}} = 14.00 - 2\mathrm{pH}_{\mathbf{V}} = 11.00$$
+                $$2\mathrm{pH}_{\mathbf{V}} = 3.00 \implies \mathrm{pH}_{\mathbf{V}} = 1.50$$
+                $$c = [\mathrm{H^+}] = 10^{-\mathrm{pH}} = 10^{-1.50} = 0.03162\dots \approx \mathbf{3.16 \times 10^{-2}\text{ mol dm}^{-3}}$$
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1 (b)(ii) -->
+        <div style="margin-bottom: 1.8rem;">
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.5rem;">
+            (ii) 等体積混合溶液 $\mathbf{X}$ の名称と pH [1 Mark]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">Equal volumes of the two solutions $\mathbf{V}$ and $\mathbf{W}$ are mixed, giving solution $\mathbf{X}$.<br>Name solution $\mathbf{X}$ and state its pH.</p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">2つの溶液 $\mathbf{V}$ と $\mathbf{W}$ を等体積混合して溶液 $\mathbf{X}$ を得た。溶液 $\mathbf{X}$ の名称と pH を記せ。</p>
+            </div>
+          </div>
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <p><strong>solution $\mathbf{X}$ :</strong> <span class="answer-value">sodium chloride (aqueous) / NaCl(aq)</span> （塩化ナトリウム水溶液）</p>
+            <p><strong>pH :</strong> <span class="answer-value">7</span> (or 7.00) （中性）</p>
+          </div>
+        </div>
+
+        <!-- 1 (b)(iii) -->
+        <div>
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.5rem;">
+            (iii) 強酸・強塩基添加後の pH 見積もり [1 Mark]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">
+                A $1\text{ cm}^3$ sample of $1.0\text{ mol dm}^{-3}\ \mathrm{HNO_3}$ is added to $100\text{ cm}^3$ of solution $\mathbf{X}$, forming mixture $\mathbf{Y}$.<br>
+                A $1\text{ cm}^3$ sample of $1.0\text{ mol dm}^{-3}\ \mathrm{KOH}$ is added to $100\text{ cm}^3$ of solution $\mathbf{X}$, forming mixture $\mathbf{Z}$.<br>
+                Estimate the pH of mixtures $\mathbf{Y}$ and $\mathbf{Z}$. No calculations are required.
+              </p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">
+                $100\text{ cm}^3$ の溶液 $\mathbf{X}$ に $1.0\text{ mol dm}^{-3}\ \mathrm{HNO_3}$ を $1\text{ cm}^3$ 加えて混合液 $\mathbf{Y}$ を調製した。<br>
+                $100\text{ cm}^3$ の溶液 $\mathbf{X}$ に $1.0\text{ mol dm}^{-3}\ \mathrm{KOH}$ を $1\text{ cm}^3$ 加えて混合液 $\mathbf{Z}$ を調製した。<br>
+                混合液 $\mathbf{Y}$ および $\mathbf{Z}$ の pH を見積もれ（計算過程は不要）。
+              </p>
+            </div>
+          </div>
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <p><strong>mixture $\mathbf{Y}$ :</strong> <span class="answer-value">2</span> (allow 1 to 3)</p>
+            <p><strong>mixture $\mathbf{Z}$ :</strong> <span class="answer-value">12</span> (allow 11 to 13)</p>
+            <p style="margin-top:0.4rem; font-size:0.88rem; color:var(--text-muted);">
+              <strong>解説:</strong> 食塩水 $\mathbf{X}$ は緩衝能を持たないため、$1.0\text{ mol dm}^{-3}$ の強酸や強塩基を約100倍希釈すると濃度は約 $0.01\text{ mol dm}^{-3} = 10^{-2}\text{ mol dm}^{-3}$ となり、$\mathbf{Y}$ では $[\mathrm{H^+}] \approx 10^{-2} \implies \mathrm{pH} \approx 2$、$\mathbf{Z}$ では $[\mathrm{OH^-}] \approx 10^{-2} \implies \mathrm{pOH} \approx 2 \implies \mathrm{pH} \approx 12$ と激変します。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1 (c) -->
+      <div class="card">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="flame"></i> (c) 相対的酸強度の序列と誘起効果、硫酸の共役酸塩基対</h3>
+          <span class="sub-mark">[5 Marks]</span>
+        </div>
+
+        <!-- (c)(i) -->
+        <div style="margin-bottom: 2rem;">
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.5rem;">
+            (i) 3つの化合物の酸強度の序列と理由説明 [3 Marks]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">
+                $\mathrm{CH_3CH_2COOH}$, $\mathrm{CH_3CCl_2COOH}$ and $\mathrm{H_2SO_4}$ are all acidic.<br>
+                Suggest the trend in the relative acid strength of these three compounds. Explain your answer.
+              </p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">
+                $\mathrm{CH_3CH_2COOH}$（プロパン酸）、$\mathrm{CH_3CCl_2COOH}$（2,2-ジクロロプロパン酸）、$\mathrm{H_2SO_4}$（硫酸）はすべて酸性である。<br>
+                これら3つの化合物の相対的な酸の強さの傾向（順序）を提案し、その理由を説明せよ。
+              </p>
+            </div>
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div class="answer-value">$\mathrm{H_2SO_4} > \mathrm{CH_3CCl_2COOH} > \mathrm{CH_3CH_2COOH}$</div>
+            <div style="margin-top: 0.8rem;">
+              <span class="lang-tag tag-ans">EN Explanation</span>
+              <p class="text-en" style="display: inline; font-size: 0.92rem;">
+                $\mathrm{H_2SO_4}$ is a strong mineral acid and fully/completely ionises in aqueous solution.<br>
+                The two carboxylic acids are weak acids (partially ionised).<br>
+                $\mathrm{CH_3CCl_2COOH}$ is stronger than $\mathrm{CH_3CH_2COOH}$ because the two highly electronegative chlorine atoms exert a strong electron-withdrawing inductive effect (-I effect), which delocalises and stabilises the negative charge on the carboxylate ion ($\mathrm{CH_3CCl_2COO^-}$) and weakens the O–H bond, making $\mathrm{H^+}$ release easier.<br>
+                In contrast, the ethyl group in $\mathrm{CH_3CH_2COOH}$ is electron-donating (+I effect), which intensifies the negative charge on the carboxylate anion, making it less stable and the acid weakest.
+              </p>
+            </div>
+            <div style="margin-top: 0.8rem;">
+              <span class="lang-tag tag-ans">JA 理由説明</span>
+              <p class="text-ja" style="display: inline; font-size: 0.92rem;">
+                • $\mathrm{H_2SO_4}$ は無機強酸であり、水溶液中で完全に電離（解離）するため最も強い。<br>
+                • 2つのカルボン酸は不完全電離の弱酸である。<br>
+                • $\mathrm{CH_3CCl_2COOH}$ には2つの電気陰性度の高い塩素原子が存在し、強い<strong>電子求引性誘起効果（-I効果）</strong>を及ぼす。これによりカルボキシラート陰イオン（$\mathrm{CH_3CCl_2COO^-}$）の負電荷が非局在化・安定化され、$\mathrm{O-H}$ 結合が弱まってプロトン（$\mathrm{H^+}$）を放出しやすくなる。<br>
+                • $\mathrm{CH_3CH_2COOH}$ のエチル基は<strong>電子供与性誘起効果（+I効果）</strong>を持ち、カルボキシラート基の負電荷を集中させて不安定化するため、最も酸性が弱い。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- (c)(ii) -->
+        <div>
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.5rem;">
+            (ii) 濃硫酸が水に加えられた際の3組の共役酸塩基対 [2 Marks]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">
+                When concentrated $\mathrm{H_2SO_4}$ is added to water a series of acid-base reactions occurs.<br>
+                There are three conjugate acid-base pairs that can be identified during this series of reactions.<br>
+                Write the formulae of these three conjugate acid-base pairs.
+              </p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">
+                濃硫酸が水に加えられたとき、一連の酸塩基反応が起こる。<br>
+                この一連の反応中に特定できる3組の共役酸塩基対の化学式を記せ。
+              </p>
+            </div>
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Pair #</th>
+                    <th>共役酸 (Conjugate Acid)</th>
+                    <th>共役塩基 (Conjugate Base)</th>
+                    <th>反応の役割</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Pair 1</strong></td>
+                    <td><span class="answer-value">$\mathrm{H_2SO_4}$</span></td>
+                    <td><span class="answer-value">$\mathrm{HSO_4^-}$</span></td>
+                    <td>第1電離：$\mathrm{H_2SO_4} + \mathrm{H_2O} \rightarrow \mathrm{HSO_4^-} + \mathrm{H_3O^+}$</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Pair 2</strong></td>
+                    <td><span class="answer-value">$\mathrm{HSO_4^-}$</span></td>
+                    <td><span class="answer-value">$\mathrm{SO_4^{2-}}$</span></td>
+                    <td>第2電離：$\mathrm{HSO_4^-} + \mathrm{H_2O} \rightleftharpoons \mathrm{SO_4^{2-}} + \mathrm{H_3O^+}$</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Pair 3</strong></td>
+                    <td><span class="answer-value">$\mathrm{H_3O^+}$</span></td>
+                    <td><span class="answer-value">$\mathrm{H_2O}$</span></td>
+                    <td>水がプロトンを受け取ってオキソニウムイオンを生成</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1 (d) -->
+      <div class="card">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="split"></i> (d) 分配係数 $K_{\mathrm{pc}}$（ヘキサン/水）の定義・計算・同定</h3>
+          <span class="sub-mark">[4 Marks]</span>
+        </div>
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Premise (EN)</span>
+            <p class="text-en">
+              The partition coefficient, $K_{\mathrm{pc}}$, of a substance, Q, between hexane and water is 7.84 at 298 K.<br>
+              Q is more soluble in hexane than it is in water.
+            </p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">前提条件 (JA)</span>
+            <p class="text-ja">
+              $298\text{ K}$ において、物質 Q のヘキサンと水の間での分配係数 $K_{\mathrm{pc}}$ は 7.84 である。Q は水よりもヘキサンによく溶ける。
+            </p>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>設問</th>
+                <th>問題内容 (EN / JA)</th>
+                <th>正解 (Answer)</th>
+                <th>配点・要点</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>(i)</strong></td>
+                <td>
+                  <strong>Define partition coefficient, $K_{\mathrm{pc}}$.</strong><br>
+                  分配係数 $K_{\mathrm{pc}}$ を定義せよ。
+                </td>
+                <td>
+                  <strong>The ratio of the concentrations of a solute in two immiscible solvents at equilibrium at a stated / constant temperature.</strong><br>
+                  （一定温度における、互いに混ざり合わない2溶媒間の平衡時溶質濃度比）
+                </td>
+                <td>[1 Mark]<br>「2つの不混和溶媒」「平衡時」「濃度比」「一定温度」</td>
+              </tr>
+              <tr>
+                <td><strong>(ii)</strong></td>
+                <td>
+                  $5.00\text{ g}$ of Q shaken with $100.0\text{ cm}^3$ water & $100.0\text{ cm}^3$ hexane.<br>
+                  水に溶解した Q の質量を計算せよ。
+                </td>
+                <td>
+                  <span class="answer-value">mass of Q = 0.566 g</span><br>
+                  $\frac{(5.00 - x)/100}{x/100} = 7.84 \implies 8.84x = 5.00 \implies x = 0.566\text{ g}$
+                </td>
+                <td>[1 Mark]<br>有効数字3桁（0.566 g）または2桁（0.57 g）</td>
+              </tr>
+              <tr>
+                <td><strong>(iii)</strong></td>
+                <td>
+                  両相に溶解した Q の質量が等しくなる体積を提案せよ。<br>
+                  volume of water / hexane used.
+                </td>
+                <td>
+                  <span class="answer-value">water = 784 cm³, hexane = 100 cm³</span><br>
+                  （または $78.4\text{ cm}^3$ と $10\text{ cm}^3$ など、$\frac{V_{\text{water}}}{V_{\text{hexane}}} = 7.84$ の任意のペア）
+                </td>
+                <td>[1 Mark]<br>$\frac{m/V_{\text{hex}}}{m/V_{\text{water}}} = \frac{V_{\text{water}}}{V_{\text{hex}}} = 7.84$</td>
+              </tr>
+              <tr>
+                <td><strong>(iv)</strong></td>
+                <td>
+                  Q は $\mathrm{KCl}$, $\mathrm{CH_3(CH_2)_4OH}$, $\mathrm{HCOOH}$ のいずれか。同定し理由を説明せよ。
+                </td>
+                <td>
+                  <strong>Q is $\mathrm{CH_3(CH_2)_4OH}$ (1-pentanol).</strong><br>
+                  長い非極性アルキル鎖（疎水鎖）を持ち、無極性のヘキサン分子と効果的なロンドン分散力を形成するため水よりヘキサンによく溶ける（$\mathrm{KCl}$ はイオン性でヘキサン不溶、$\mathrm{HCOOH}$ は短い炭素鎖で水に易溶）。
+                </td>
+                <td>[1 Mark]<br>同定と分子間力に基づく正当な理由</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PROBLEM 2: Nov/2023/Paper_9701/42/No.2 -->
+    <!-- ========================================================================= -->
+    <section class="section-block" id="prob2">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-num">2</div>
+          <h2 class="section-title">Nov/2023/Paper_9701/42/No.2</h2>
+        </div>
+        <span class="paper-tag">[Total: 11 Marks]</span>
+      </div>
+
+      <!-- 2 (a) & (b) -->
+      <div class="card">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="shield"></i> (a), (b) 安息香酸緩衝液の定義と緩衝作用反応式</h3>
+          <span class="sub-mark">[3 Marks]</span>
+        </div>
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Premise (EN)</span>
+            <p class="text-en">
+              Benzoic acid, $\mathrm{C_6H_5COOH}$, is a weak acid. The $K_{\mathrm{a}}$ of benzoic acid is $6.31 \times 10^{-5}\text{ mol dm}^{-3}$ at 298 K.<br>
+              A $1.00\text{ dm}^3$ buffer solution is made at 298 K containing $1.00\text{ g}$ of $\mathrm{C_6H_5COOH}$ and a slightly greater mass of sodium benzoate, $\mathrm{C_6H_5COO^-Na^+}$.<br>
+              This buffer solution has a pH of 4.15.
+            </p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">前提条件 (JA)</span>
+            <p class="text-ja">
+              安息香酸 $\mathrm{C_6H_5COOH}$ は弱酸である。$298\text{ K}$ における安息香酸の $K_{\mathrm{a}}$ は $6.31 \times 10^{-5}\text{ mol dm}^{-3}$ である。<br>
+              $298\text{ K}$ において、$1.00\text{ g}$ の $\mathrm{C_6H_5COOH}$ とそれよりわずかに大きな質量の安息香酸ナトリウム $\mathrm{C_6H_5COO^-Na^+}$ を含む $1.00\text{ dm}^3$ の緩衝液を調製した。この緩衝液の pH は 4.15 である。
+            </p>
+          </div>
+        </div>
+
+        <!-- (a) -->
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.4rem;">
+            (a) 緩衝液の定義 (Define buffer solution) [1 Mark]
+          </h4>
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <p>
+              <span class="lang-tag tag-ans">EN</span>
+              <strong>"A solution that resists changes in pH when small amounts of acid or alkali / base are added."</strong>
+            </p>
+            <p style="margin-top: 0.3rem;">
+              <span class="lang-tag tag-ans">JA</span>
+              <strong>「少量の酸またはアルカリ（塩基）が加えられたときに、pHの変化を抑制する（ほとんど一定に保つ）溶液。」</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- (b) -->
+        <div>
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.4rem;">
+            (b) 酸・塩基添加時の緩衝作用の化学反応式 [2 Marks]
+          </h4>
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答反応式 / Answer Equations</div>
+            <div style="margin-bottom: 0.75rem;">
+              <strong>(i) dilute aqueous sodium hydroxide (水酸化ナトリウム水溶液を加えたとき) [1]:</strong>
+              <div class="answer-value">$\mathrm{C_6H_5COOH} + \mathrm{OH^-} \longrightarrow \mathrm{C_6H_5COO^-} + \mathrm{H_2O}$</div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
+                （未解離の安息香酸分子が $\mathrm{OH^-}$ を中和）
+              </p>
+            </div>
+            <div>
+              <strong>(ii) dilute aqueous nitric acid (希硝酸を加えたとき) [1]:</strong>
+              <div class="answer-value">$\mathrm{C_6H_5COO^-} + \mathrm{H^+} \longrightarrow \mathrm{C_6H_5COOH}$</div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
+                （または $\mathrm{C_6H_5COO^-} + \mathrm{H_3O^+} \longrightarrow \mathrm{C_6H_5COOH} + \mathrm{H_2O}$。安息香酸イオンがプロトンを受容）
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 (c) -->
+      <div class="card">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="calculator"></i> (c) 緩衝液中のイオンおよび分子濃度の計算</h3>
+          <span class="sub-mark">[3 Marks]</span>
+        </div>
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Question (EN)</span>
+            <p class="text-en">
+              Calculate the $\mathrm{H^+}$ concentration and the $\mathrm{C_6H_5COOH}$ concentration in the buffer solution described.<br>
+              Use the expression for the $K_{\mathrm{a}}$ of $\mathrm{C_6H_5COOH}$ to calculate the concentration of $\mathrm{C_6H_5COO^-Na^+}$ in the buffer solution.<br>
+              Show your working and give each answer to a minimum of three significant figures.
+            </p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+            <p class="text-ja">
+              緩衝液中の $[\mathrm{H^+}]$ 濃度および $[\mathrm{C_6H_5COOH}]$ 濃度を計算せよ。<br>
+              $\mathrm{C_6H_5COOH}$ の $K_{\mathrm{a}}$ の表式を用いて、緩衝液中の $[\mathrm{C_6H_5COO^-Na^+}]$ 濃度を計算せよ。<br>
+              計算過程を示し、各解答を最小3桁の有効数字で答えよ。
+            </p>
+          </div>
+        </div>
+
+        <div class="answer-box">
+          <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer (3 significant figures)</div>
+          <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+            <div>$[H⁺] =$ <span class="answer-value">7.08 × 10⁻⁵ mol dm⁻³</span></div>
+            <div>$[C₆H₅COOH] =$ <span class="answer-value">8.19 × 10⁻³ mol dm⁻³</span> (or 8.20 × 10⁻³)</div>
+            <div>$[C₆H₅COO⁻Na⁺] =$ <span class="answer-value">7.30 × 10⁻³ mol dm⁻³</span> (or 7.31 × 10⁻³)</div>
+          </div>
+        </div>
+
+        <div class="steps-container">
+          <div class="step-item">
+            <div class="step-bullet">1</div>
+            <div class="step-title">$[\mathrm{H^+}]$ の計算</div>
+            <div class="step-desc">
+              $$\mathrm{pH} = 4.15 \implies [\mathrm{H^+}] = 10^{-\mathrm{pH}} = 10^{-4.15} = 7.0795 \times 10^{-5}\text{ mol dm}^{-3} \approx \mathbf{7.08 \times 10^{-5}\text{ mol dm}^{-3}}$$
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-bullet">2</div>
+            <div class="step-title">$[\mathrm{C_6H_5COOH}]$ のモル濃度計算</div>
+            <div class="step-desc">
+              安息香酸 $\mathrm{C_7H_6O_2}$ の分子量：$M_{\mathrm{r}} = 7 \times 12.01 + 6 \times 1.008 + 2 \times 16.00 = 122.12\text{ g mol}^{-1}$（または $122.0$）<br>
+              体積 $1.00\text{ dm}^3$ 中に $1.00\text{ g}$ 溶解しているので：
+              $$[\mathrm{C_6H_5COOH}] = \frac{1.00\text{ g}}{122.12\text{ g mol}^{-1} \times 1.00\text{ dm}^3} = 8.189 \times 10^{-3} \approx \mathbf{8.19 \times 10^{-3}\text{ mol dm}^{-3}}$$
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-bullet">3</div>
+            <div class="step-title">$K_{\mathrm{a}}$ 式から $[\mathrm{C_6H_5COO^-Na^+}]$ を算出</div>
+            <div class="step-desc">
+              $$K_{\mathrm{a}} = \frac{[\mathrm{H^+}][\mathrm{C_6H_5COO^-}]}{[\mathrm{C_6H_5COOH}]} = 6.31 \times 10^{-5}\text{ mol dm}^{-3}$$
+              $$[\mathrm{C_6H_5COO^-Na^+}] = [\mathrm{C_6H_5COO^-}] = \frac{K_{\mathrm{a}} \times [\mathrm{C_6H_5COOH}]}{[\mathrm{H^+}]}$$
+              $$= \frac{6.31 \times 10^{-5} \times 8.189 \times 10^{-3}}{7.0795 \times 10^{-5}} = \frac{6.31}{7.0795} \times 8.189 \times 10^{-3} \approx \mathbf{7.30 \times 10^{-3}\text{ mol dm}^{-3}}$$
+              ※検算：$M_{\mathrm{r}}(\mathrm{C_6H_5COONa}) = 144.1\text{ g mol}^{-1}$ より、塩の質量は $7.30 \times 10^{-3} \times 144.1 = 1.05\text{ g}$。問題文の「$1.00\text{ g}$ よりわずかに大きい質量」と完全に一致します。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 (d) -->
+      <div class="card">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="thermometer"></i> (d) 大過剰強塩基添加時の2つの観察結果の説明</h3>
+          <span class="sub-mark">[2 Marks]</span>
+        </div>
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Question (EN)</span>
+            <p class="text-en">
+              A $10.0\text{ cm}^3$ sample of the buffer solution is mixed with $10.0\text{ cm}^3$ of $1.00\text{ mol dm}^{-3}\ \mathrm{KOH}$. Both solutions are at 298 K. A reaction is allowed to occur without stirring.<br>
+              Two observations are recorded:<br>
+              • the temperature, after the reaction is complete, is fractionally above 298 K.<br>
+              • the pH, after the reaction is complete, is greater than 13.<br>
+              Explain these two observations.
+            </p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+            <p class="text-ja">
+              緩衝液サンプル $10.0\text{ cm}^3$ に $1.00\text{ mol dm}^{-3}\ \mathrm{KOH}$ を $10.0\text{ cm}^3$ 混合した。両液とも $298\text{ K}$ であり、撹拌せずに反応させた。<br>
+              次の2つの観察結果が記録された：<br>
+              • 反応完了後の温度は、$298\text{ K}$ よりわずかに高い。<br>
+              • 反応完了後の pH は 13 より大きい。<br>
+              これら2つの観察結果の理由を説明せよ。
+            </p>
+          </div>
+        </div>
+
+        <div class="answer-box">
+          <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+          <div style="margin-bottom: 0.8rem;">
+            <strong>1. 温度がわずかに上昇した理由 (Temperature observation):</strong><br>
+            <span class="lang-tag tag-ans">EN</span> Neutralisation is an exothermic reaction ($\Delta H < 0$). However, the amount of acid in $10.0\text{ cm}^3$ of buffer is very small ($\approx 8.2 \times 10^{-5}\text{ mol}$), so only a very small amount of reaction occurs and little heat is released, resulting in only a fractional temperature rise.<br>
+            <span class="lang-tag tag-ans">JA</span> 中和反応は発熱反応（$\Delta H < 0$）であるため熱が発生する。ただし緩衝液 $10.0\text{ cm}^3$ 中に含まれる安息香酸の物質量が非常に少ない（約 $8.2 \times 10^{-5}\text{ mol}$）ため、反応熱の総量がごくわずかであり、温度上昇がごくわずかにとどまる。
+          </div>
+          <div>
+            <strong>2. pH が 13 を超える理由 (pH observation):</strong><br>
+            <span class="lang-tag tag-ans">EN</span> Added $\mathrm{KOH}$ has a high concentration and is in large excess ($0.0100\text{ mol}$ $\mathrm{OH^-}$ vs $8.2 \times 10^{-5}\text{ mol}$ acid), which completely exceeds the buffer capacity. The unreacted $[\mathrm{OH^-}]$ in the $20.0\text{ cm}^3$ mixture is $\approx 0.50\text{ mol dm}^{-3}$, giving $\mathrm{pOH} \approx 0.30$ and $\mathrm{pH} \approx 13.7 > 13$.<br>
+            <span class="lang-tag tag-ans">JA</span> 加えた $\mathrm{KOH}$ は $0.0100\text{ mol}$ と大過剰であり、緩衝能（buffer capacity）を完全に超えて安息香酸が全消費される。混合液中の未反応 $\mathrm{OH^-}$ 濃度が約 $0.50\text{ mol dm}^{-3}$ と非常に高濃度で残存するため、$\mathrm{pOH} \approx 0.3 \implies \mathrm{pH} \approx 13.7$ となり 13 を上回る。
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 (e) -->
+      <div class="card">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="layers"></i> (e) 安息香酸マグネシウムの溶解度計算と共通イオン効果</h3>
+          <span class="sub-mark">[3 Marks]</span>
+        </div>
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Premise (EN)</span>
+            <p class="text-en">
+              Magnesium benzoate, $\mathrm{Mg(C_6H_5COO)_2}$, has a solubility in water of less than $1.00\text{ g dm}^{-3}$ at 298 K.<br>
+              $K_{\mathrm{sp}} = [\mathrm{Mg}^{2+}][\mathrm{C_6H_5COO^-}]^2 = 1.76 \times 10^{-7}\text{ at 298 K}$
+            </p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">前提条件 (JA)</span>
+            <p class="text-ja">
+              $298\text{ K}$ における安息香酸マグネシウム $\mathrm{Mg(C_6H_5COO)_2}$ の水に対する溶解度は $1.00\text{ g dm}^{-3}$ 未満である。<br>
+              $K_{\mathrm{sp}} = [\mathrm{Mg}^{2+}][\mathrm{C_6H_5COO^-}]^2 = 1.76 \times 10^{-7}$ ($298\text{ K}$)
+            </p>
+          </div>
+        </div>
+
+        <!-- (e)(i) -->
+        <div style="margin-bottom: 1.8rem;">
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.5rem;">
+            (i) 溶解度の計算（$\text{g dm}^{-3}$ 単位）[2 Marks]
+          </h4>
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div class="answer-value">solubility = 0.940 g dm⁻³</div>
+          </div>
+          <div class="steps-container">
+            <div class="step-item">
+              <div class="step-bullet">1</div>
+              <div class="step-title">モル溶解度 $s$ と $K_{\mathrm{sp}}$ の関係式</div>
+              <div class="step-desc">
+                $\mathrm{Mg(C_6H_5COO)_2(s)} \rightleftharpoons \mathrm{Mg}^{2+}(aq) + 2\mathrm{C_6H_5COO^-}(aq)$<br>
+                モル溶解度を $s\text{ [mol dm}^{-3}]$ とおくと、$[\mathrm{Mg}^{2+}] = s$、$[\mathrm{C_6H_5COO^-}] = 2s$
+                $$K_{\mathrm{sp}} = s \times (2s)^2 = 4s^3 = 1.76 \times 10^{-7}$$
+                $$s^3 = \frac{1.76 \times 10^{-7}}{4} = 4.40 \times 10^{-8}$$
+                $$s = \sqrt[3]{4.40 \times 10^{-8}} = 3.5303 \times 10^{-3}\text{ mol dm}^{-3}$$
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-bullet">2</div>
+              <div class="step-title">モル質量 $M_{\mathrm{r}}$ を掛けて $\text{g dm}^{-3}$ に換算する</div>
+              <div class="step-desc">
+                与えられた式量 $M_{\mathrm{r}} = 266.3\text{ g mol}^{-1}$ より：
+                $$\text{solubility} = 3.5303 \times 10^{-3}\text{ mol dm}^{-3} \times 266.3\text{ g mol}^{-1} = 0.9401\dots\text{ g dm}^{-3} \approx \mathbf{0.940\text{ g dm}^{-3}}$$
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- (e)(ii) -->
+        <div>
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.5rem;">
+            (ii) $\mathrm{MgSO_4}$ 溶液中での溶解度比較と理由説明 [1 Mark]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">
+                An excess of $\mathrm{Mg(C_6H_5COO)_2}$ is added to a sample of $0.50\text{ mol dm}^{-3}\ \mathrm{MgSO_4}$ at 298 K.<br>
+                State whether the equilibrium concentration of $\mathrm{Mg(C_6H_5COO)_2}$ is higher than, the same as, or lower than your answer to (i). Explain your answer.
+              </p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">
+                過剰の $\mathrm{Mg(C_6H_5COO)_2}$ を $0.50\text{ mol dm}^{-3}\ \mathrm{MgSO_4}$ のサンプルに加えた。<br>
+                $\mathrm{Mg(C_6H_5COO)_2}$ の平衡濃度は (i) の答えと比べて高いか、同じか、低いかを答えよ。理由も説明せよ。
+              </p>
+            </div>
+          </div>
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <p>The concentration is <span class="answer-value">lower than</span> the concentration in (i).</p>
+            <div style="margin-top: 0.5rem;">
+              <span class="lang-tag tag-ans">理由説明</span>
+              <p style="display:inline; font-size:0.92rem;">
+                <strong>共通イオン効果（Common ion effect）:</strong> 溶液中にすでに $\mathrm{MgSO_4}$ 由来の $\mathrm{Mg}^{2+}$ イオンが高濃度（$0.50\text{ mol dm}^{-3}$）で存在している。ルシャトリエの原理により、共通イオンである $\mathrm{Mg}^{2+}$ が平衡系を左側（固体の沈殿方向 $\mathrm{Mg(C_6H_5COO)_2(s)}$）へ移動させるため、溶解度は大幅に低下する。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PROBLEM 3: June/2023/Paper_9701/41/No.5(d, e) -->
+    <!-- ========================================================================= -->
+    <section class="section-block" id="prob3">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-num">3</div>
+          <h2 class="section-title">June/2023/Paper_9701/41/No.5(d, e)</h2>
+        </div>
+        <span class="paper-tag">[Total: 5 Marks]</span>
+      </div>
+
+      <!-- 3 (d) -->
+      <div class="card">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="hexagon"></i> (d) シアヌル酸 $\mathrm{C_3H_3N_3O_3}$ の環状構造の提案</h3>
+          <span class="sub-mark">[1 Mark]</span>
+        </div>
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Question (EN)</span>
+            <p class="text-en">
+              Isocyanic acid, $\mathrm{HNCO}$, can form cyanuric acid, $\mathrm{C_3H_3N_3O_3}$, under certain conditions.<br>
+              $\mathrm{C_3H_3N_3O_3}$ has a cyclic structure containing alternating carbon and nitrogen atoms in the ring system.<br>
+              Suggest a structure for cyanuric acid.
+            </p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+            <p class="text-ja">
+              イソシアン酸 $\mathrm{HNCO}$ は、特定の条件下でシアヌル酸 $\mathrm{C_3H_3N_3O_3}$ を形成する。<br>
+              $\mathrm{C_3H_3N_3O_3}$ は、環系内に炭素原子と窒素原子が交互に並んだ環状構造を有する。<br>
+              シアヌル酸の構造を提案せよ。
+            </p>
+          </div>
+        </div>
+
+        <div class="answer-box">
+          <div class="answer-title"><i data-lucide="check-circle-2"></i> 構造の提案 / Suggested Structure (Both Tautomers Accepted)</div>
+          <div class="diagram-wrap">
+            <svg width="420" height="200" viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg">
+              <!-- Keto form (Left) -->
+              <g transform="translate(10, 10)">
+                <text x="100" y="20" font-family="'Outfit', sans-serif" font-weight="700" font-size="14" fill="#0284c7" text-anchor="middle">ケト型 (イソシアヌル酸型)</text>
+                <!-- Ring vertices: top N, top-right C, bot-right N, bot C, bot-left N, top-left C -->
+                <!-- Hexagon centered at (100, 105), radius 45 -->
+                <!-- C=O at top-right (139, 82), bot (100, 150), top-left (61, 82) -->
+                <!-- N-H at top (100, 60), bot-right (139, 127), bot-left (61, 127) -->
+                <polygon points="100,60 139,82 139,127 100,150 61,127 61,82" fill="none" stroke="#334155" stroke-width="2.5" />
+                <!-- Atoms labels -->
+                <rect x="88" y="48" width="24" height="24" fill="#ffffff" rx="4"/>
+                <text x="100" y="65" font-family="'Fira Code', monospace" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">NH</text>
+                
+                <rect x="127" y="115" width="24" height="24" fill="#ffffff" rx="4"/>
+                <text x="139" y="132" font-family="'Fira Code', monospace" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">HN</text>
+                
+                <rect x="49" y="115" width="24" height="24" fill="#ffffff" rx="4"/>
+                <text x="61" y="132" font-family="'Fira Code', monospace" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">NH</text>
+
+                <!-- C=O bonds -->
+                <line x1="139" y1="82" x2="168" y2="65" stroke="#e11d48" stroke-width="3"/>
+                <line x1="136" y1="87" x2="165" y2="70" stroke="#e11d48" stroke-width="1.5"/>
+                <text x="178" y="68" font-family="'Fira Code', monospace" font-size="14" font-weight="700" fill="#e11d48">O</text>
+
+                <line x1="100" y1="150" x2="100" y2="182" stroke="#e11d48" stroke-width="3"/>
+                <line x1="96" y1="150" x2="96" y2="182" stroke="#e11d48" stroke-width="1.5"/>
+                <text x="100" y="196" font-family="'Fira Code', monospace" font-size="14" font-weight="700" fill="#e11d48" text-anchor="middle">O</text>
+
+                <line x1="61" y1="82" x2="32" y2="65" stroke="#e11d48" stroke-width="3"/>
+                <line x1="64" y1="87" x2="35" y2="70" stroke="#e11d48" stroke-width="1.5"/>
+                <text x="22" y="68" font-family="'Fira Code', monospace" font-size="14" font-weight="700" fill="#e11d48">O</text>
+              </g>
+
+              <!-- Enol form (Right) -->
+              <g transform="translate(220, 10)">
+                <text x="100" y="20" font-family="'Outfit', sans-serif" font-weight="700" font-size="14" fill="#059669" text-anchor="middle">エノール型 (対称トリアジン型)</text>
+                <polygon points="100,60 139,82 139,127 100,150 61,127 61,82" fill="none" stroke="#334155" stroke-width="2.5" />
+                <circle cx="100" cy="105" r="22" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="4,4"/>
+                
+                <rect x="88" y="48" width="24" height="24" fill="#ffffff" rx="4"/>
+                <text x="100" y="65" font-family="'Fira Code', monospace" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">N</text>
+                
+                <rect x="127" y="115" width="24" height="24" fill="#ffffff" rx="4"/>
+                <text x="139" y="132" font-family="'Fira Code', monospace" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">N</text>
+                
+                <rect x="49" y="115" width="24" height="24" fill="#ffffff" rx="4"/>
+                <text x="61" y="132" font-family="'Fira Code', monospace" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">N</text>
+
+                <!-- OH groups -->
+                <line x1="139" y1="82" x2="168" y2="65" stroke="#059669" stroke-width="2.5"/>
+                <text x="175" y="68" font-family="'Fira Code', monospace" font-size="13" font-weight="700" fill="#059669">OH</text>
+
+                <line x1="100" y1="150" x2="100" y2="180" stroke="#059669" stroke-width="2.5"/>
+                <text x="100" y="194" font-family="'Fira Code', monospace" font-size="13" font-weight="700" fill="#059669" text-anchor="middle">OH</text>
+
+                <line x1="61" y1="82" x2="32" y2="65" stroke="#059669" stroke-width="2.5"/>
+                <text x="12" y="68" font-family="'Fira Code', monospace" font-size="13" font-weight="700" fill="#059669">HO</text>
+              </g>
+            </svg>
+          </div>
+          <p style="font-size:0.9rem; color:var(--text-muted); text-align:center;">
+            炭素と窒素が交互に並ぶ6員環（1,3,5-トリアジン骨格）を持ち、3つの炭素に酸素（$\mathrm{=O}$ または $-\mathrm{OH}$）が、3つの窒素に水素（または環内二重結合）が結合している構造です（ケト型・エノール型のいずれも正解）。
+          </p>
+        </div>
+      </div>
+
+      <!-- 3 (e) -->
+      <div class="card">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="percent"></i> (e) イソシアン酸 $\mathrm{HNCO}$ の定義式・pH計算・電離度</h3>
+          <span class="sub-mark">[4 Marks]</span>
+        </div>
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Premise (EN)</span>
+            <p class="text-en">
+              Isocyanic acid, $\mathrm{HNCO}$, is a weak acid.<br>
+              $$\mathrm{HNCO} + \mathrm{H_2O} \rightleftharpoons \mathrm{H_3O^+} + \mathrm{NCO}^- \quad \mathrm{p}K_{\mathrm{a}} = 3.70\text{ at }25^\circ\mathrm{C}$$
+            </p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">前提条件 (JA)</span>
+            <p class="text-ja">
+              イソシアン酸 $\mathrm{HNCO}$ は弱酸である。<br>
+              $$\mathrm{HNCO} + \mathrm{H_2O} \rightleftharpoons \mathrm{H_3O^+} + \mathrm{NCO}^- \quad \mathrm{p}K_{\mathrm{a}} = 3.70\ (25^\circ\mathrm{C})$$
+            </p>
+          </div>
+        </div>
+
+        <!-- (e)(i) -->
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.4rem;">
+            (i) $\mathrm{p}K_{\mathrm{a}}$ と $\mathrm{pH}$ の数学的定義式 [1 Mark]
+          </h4>
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <p>$\mathrm{p}K_{\mathrm{a}} =$ <span class="answer-value">$-\log_{10} K_{\mathrm{a}}$</span></p>
+            <p>$\mathrm{pH} =$ <span class="answer-value">$-\log_{10} [\mathrm{H^+}]$</span> (or $-\log_{10} [\mathrm{H_3O^+}]$)</p>
+          </div>
+        </div>
+
+        <!-- (e)(ii) -->
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.4rem;">
+            (ii) $0.120\text{ mol dm}^{-3}\ \mathrm{HNCO}$ の pH 計算（有効数字3桁）[2 Marks]
+          </h4>
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div class="answer-value">pH = 2.31</div>
+          </div>
+          <div class="steps-container">
+            <div class="step-item">
+              <div class="step-bullet">1</div>
+              <div class="step-title">$\mathrm{p}K_{\mathrm{a}}$ から $K_{\mathrm{a}}$ を求める</div>
+              <div class="step-desc">
+                $$K_{\mathrm{a}} = 10^{-\mathrm{p}K_{\mathrm{a}}} = 10^{-3.70} = 1.9953 \times 10^{-4}\text{ mol dm}^{-3}$$
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-bullet">2</div>
+              <div class="step-title">弱酸の電離平衡から $[\mathrm{H^+}]$ を算出</div>
+              <div class="step-desc">
+                $c = 0.120\text{ mol dm}^{-3}$ とすると、$K_{\mathrm{a}} = \frac{[\mathrm{H^+}]^2}{c - [\mathrm{H^+}]} \approx \frac{[\mathrm{H^+}]^2}{c}$
+                $$[\mathrm{H^+}] \approx \sqrt{K_{\mathrm{a}} \times c} = \sqrt{1.9953 \times 10^{-4} \times 0.120} = \sqrt{2.394 \times 10^{-5}} = 4.893 \times 10^{-3}\text{ mol dm}^{-3}$$
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-bullet">3</div>
+              <div class="step-title">$\mathrm{pH}$ を計算する</div>
+              <div class="step-desc">
+                $$\mathrm{pH} = -\log_{10}(4.893 \times 10^{-3}) = 3 - \log_{10}(4.893) = 3 - 0.6896 = 2.3104 \approx \mathbf{2.31}$$
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- (e)(iii) -->
+        <div>
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.4rem;">
+            (iii) 電離パーセント（電離度）の計算 [1 Mark]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">Calculate the percentage of $\mathrm{HNCO}$ molecules that are ionised in $0.120\text{ mol dm}^{-3}\ \mathrm{HNCO}$.</p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">$0.120\text{ mol dm}^{-3}\ \mathrm{HNCO}$ 中で電離している $\mathrm{HNCO}$ 分子の割合（百分率 %）を計算せよ。</p>
+            </div>
+          </div>
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div class="answer-value">percentage ionisation = 4.08 % (or 4.1 %)</div>
+            <p style="margin-top:0.4rem; font-size:0.9rem; color:var(--text-muted);">
+              $$\text{percentage ionisation} = \frac{[\mathrm{H^+}]}{[\mathrm{HNCO}]_{\text{initial}}} \times 100\% = \frac{4.893 \times 10^{-3}\text{ mol dm}^{-3}}{0.120\text{ mol dm}^{-3}} \times 100\% = \mathbf{4.078\%} \approx \mathbf{4.08\%}$$
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PROBLEM 4: June/2023/Paper_9701/42/No.3(e) -->
+    <!-- ========================================================================= -->
+    <section class="section-block" id="prob4">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-num">4</div>
+          <h2 class="section-title">June/2023/Paper_9701/42/No.3(e)</h2>
+        </div>
+        <span class="paper-tag">[Total: 2 Marks]</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="sparkles"></i> (e) 亜硫酸銀 $\mathrm{Ag_2SO_3}$ の溶解度積 $K_{\mathrm{sp}}$ と銀イオン濃度</h3>
+          <span class="sub-mark">[2 Marks]</span>
+        </div>
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Premise (EN)</span>
+            <p class="text-en">Silver sulfite, $\mathrm{Ag_2SO_3(s)}$, is sparingly soluble in water.</p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">前提条件 (JA)</span>
+            <p class="text-ja">亜硫酸銀 $\mathrm{Ag_2SO_3(s)}$ は水に難溶性である。</p>
+          </div>
+        </div>
+
+        <!-- (i) -->
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.4rem;">
+            (i) 溶解度積 $K_{\mathrm{sp}}$ の表式 [1 Mark]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">Give an expression for the solubility product, $K_{\mathrm{sp}}$, of $\mathrm{Ag_2SO_3}$.</p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">$\mathrm{Ag_2SO_3}$ の溶解度積 $K_{\mathrm{sp}}$ の表式を記せ。</p>
+            </div>
+          </div>
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div class="answer-value">$K_{\mathrm{sp}} = [\mathrm{Ag^+}]^2[\mathrm{SO_3^{2-}}]$</div>
+            <p style="margin-top:0.4rem; font-size:0.88rem; color:var(--text-muted);">
+              溶解平衡：$\mathrm{Ag_2SO_3(s)} \rightleftharpoons 2\mathrm{Ag}^+(aq) + \mathrm{SO_3^{2-}}(aq)$
+            </p>
+          </div>
+        </div>
+
+        <!-- (ii) -->
+        <div>
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.4rem;">
+            (ii) 飽和溶液中の $[\mathrm{Ag^+}]$ 平衡濃度の計算 [1 Mark]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">
+                Calculate the equilibrium concentration of $\mathrm{Ag}^+$ in a saturated solution of $\mathrm{Ag_2SO_3}$ at 298 K.<br>
+                $[K_{\mathrm{sp}}\text{: }\mathrm{Ag_2SO_3},\ 1.50 \times 10^{-14}\text{ mol}^3\text{dm}^{-9}\text{ at 298 K}]$
+              </p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">
+                $298\text{ K}$ における $\mathrm{Ag_2SO_3}$ の飽和水溶液中における $\mathrm{Ag}^+$ の平衡濃度を計算せよ。<br>
+                $[K_{\mathrm{sp}}\text{: }\mathrm{Ag_2SO_3} = 1.50 \times 10^{-14}\text{ mol}^3\text{dm}^{-9}\ (298\text{ K})]$
+              </p>
+            </div>
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div class="answer-value">$[\mathrm{Ag^+}] = 3.11 \times 10^{-5}\text{ mol dm}^{-3}$</div>
+          </div>
+
+          <div class="steps-container">
+            <div class="step-item">
+              <div class="step-bullet">1</div>
+              <div class="step-title">モル溶解度 $s$ とイオン濃度の関係</div>
+              <div class="step-desc">
+                $\mathrm{Ag_2SO_3}$ の溶解度を $s\text{ [mol dm}^{-3}]$ とすると、$[\mathrm{SO_3^{2-}}] = s$、$[\mathrm{Ag^+}] = 2s$ となります。
+                $$K_{\mathrm{sp}} = [\mathrm{Ag^+}]^2[\mathrm{SO_3^{2-}}] = (2s)^2 \times s = 4s^3 = 1.50 \times 10^{-14}$$
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-bullet">2</div>
+              <div class="step-title">$s$ を求めて $[\mathrm{Ag^+}]$ を算出（注意：$s$ ではなく $2s$）</div>
+              <div class="step-desc">
+                $$s^3 = \frac{1.50 \times 10^{-14}}{4} = 3.75 \times 10^{-15}$$
+                $$s = \sqrt[3]{3.75 \times 10^{-15}} = 1.5536 \times 10^{-5}\text{ mol dm}^{-3}$$
+                問われているのは $[\mathrm{Ag^+}]$ なので：
+                $$[\mathrm{Ag^+}] = 2s = 2 \times 1.5536 \times 10^{-5} = 3.107 \times 10^{-5} \approx \mathbf{3.11 \times 10^{-5}\text{ mol dm}^{-3}}$$
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PROBLEM 5: March/2023/Paper_9701/42/No.6(d) -->
+    <!-- ========================================================================= -->
+    <section class="section-block" id="prob5">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-num">5</div>
+          <h2 class="section-title">March/2023/Paper_9701/42/No.6(d)</h2>
+        </div>
+        <span class="paper-tag">[Total: 5 Marks]</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="test-tube"></i> (d) フタル酸水素カリウム緩衝液の中和反応式と pH 計算</h3>
+          <span class="sub-mark">[5 Marks]</span>
+        </div>
+
+        <!-- TLC Intro and Diagram -->
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Context & Experiment (EN)</span>
+            <p class="text-en">
+              A student uses thin-layer chromatography (TLC) to analyse a mixture containing different metal cations. The student repeats the experiment using different solvents.<br>
+              Fig. 6.1 shows the chromatogram obtained by the student using water as a solvent.<br>
+              In a third experiment, the pH of the mixture of metal ions is kept constant using a buffer solution.<br>
+              The student prepares the buffer solution by mixing $20.0\text{ cm}^3$ of $0.150\text{ mol dm}^{-3}\ \mathrm{KOH(aq)}$ and $50.0\text{ cm}^3$ of $0.100\text{ mol dm}^{-3}\ \mathrm{C_8H_5O_4K(aq)}$.<br>
+              $\mathrm{C_8H_5O_4K}$ is a weak carboxylic acid that has $\mathrm{p}K_{\mathrm{a}} = 5.40$.
+            </p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">実験背景と条件 (JA)</span>
+            <p class="text-ja">
+              金属陽イオン混合物を分析するために薄層クロマトグラフィー（TLC）を行った（Fig. 6.1）。<br>
+              第3の実験では、緩衝液を用いて金属イオン混合液の pH を一定に保持した。<br>
+              $20.0\text{ cm}^3$ の $0.150\text{ mol dm}^{-3}\ \mathrm{KOH(aq)}$ と、$50.0\text{ cm}^3$ の $0.100\text{ mol dm}^{-3}\ \mathrm{C_8H_5O_4K(aq)}$（フタル酸水素カリウム）を混合して緩衝液を調製した。<br>
+              $\mathrm{C_8H_5O_4K}$ は $\mathrm{p}K_{\mathrm{a}} = 5.40$ の弱カルボン酸である（Fig. 6.2）。
+            </p>
+          </div>
+        </div>
+
+        <!-- Diagram of KHP -->
+        <div class="diagram-wrap">
+          <svg width="240" height="150" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg">
+            <text x="120" y="16" font-family="'Outfit', sans-serif" font-weight="700" font-size="13" fill="#0284c7" text-anchor="middle">Fig. 6.2 C₈H₅O₄K (フタル酸水素カリウム)</text>
+            <!-- Benzene ring centered at (75, 80) -->
+            <polygon points="75,50 97,63 97,89 75,102 53,89 53,63" fill="none" stroke="#334155" stroke-width="2.5" />
+            <circle cx="75" cy="76" r="14" fill="none" stroke="#64748b" stroke-width="1.8"/>
+            <!-- Top group: -COOH -->
+            <line x1="97" y1="63" x2="125" y2="55" stroke="#334155" stroke-width="2.5"/>
+            <text x="128" y="58" font-family="'Fira Code', monospace" font-size="12" font-weight="700">C</text>
+            <line x1="133" y1="48" x2="133" y2="30" stroke="#e11d48" stroke-width="2.5"/>
+            <text x="133" y="26" font-family="'Fira Code', monospace" font-size="12" font-weight="700" fill="#e11d48" text-anchor="middle">O</text>
+            <line x1="140" y1="55" x2="158" y2="60" stroke="#059669" stroke-width="2"/>
+            <text x="162" y="65" font-family="'Fira Code', monospace" font-size="12" font-weight="700" fill="#059669">OH</text>
+            
+            <!-- Bottom group: -COO⁻K⁺ -->
+            <line x1="97" y1="89" x2="125" y2="97" stroke="#334155" stroke-width="2.5"/>
+            <text x="128" y="100" font-family="'Fira Code', monospace" font-size="12" font-weight="700">C</text>
+            <line x1="133" y1="104" x2="133" y2="124" stroke="#e11d48" stroke-width="2.5"/>
+            <text x="133" y="136" font-family="'Fira Code', monospace" font-size="12" font-weight="700" fill="#e11d48" text-anchor="middle">O</text>
+            <line x1="140" y1="97" x2="158" y2="92" stroke="#7c3aed" stroke-width="2"/>
+            <text x="162" y="96" font-family="'Fira Code', monospace" font-size="12" font-weight="700" fill="#7c3aed">O⁻K⁺</text>
+          </svg>
+        </div>
+
+        <!-- (d)(i) -->
+        <div style="margin-bottom: 2rem;">
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.5rem;">
+            (i) $\mathrm{C_8H_5O_4K(aq)}$ と $\mathrm{KOH(aq)}$ の反応式の完成 [1 Mark]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">Complete the equation for the reaction of $\mathrm{C_8H_5O_4K(aq)}$ with $\mathrm{KOH(aq)}$.<br>$\mathrm{C_8H_5O_4K} + \text{.................................................................................................................}$</p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">$\mathrm{C_8H_5O_4K(aq)}$ と $\mathrm{KOH(aq)}$ の反応の化学反応式を完成させよ。</p>
+            </div>
+          </div>
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div class="answer-value">$\mathrm{C_8H_5O_4K} + \mathrm{KOH} \longrightarrow \mathrm{C_8H_4O_4K_2} + \mathrm{H_2O}$</div>
+            <p style="margin-top:0.4rem; font-size:0.88rem; color:var(--text-muted);">
+              生成物：フタル酸二カリウム $\mathrm{C_8H_4O_4K_2}$（または $\mathrm{K_2C_8H_4O_4}$）および水 $\mathrm{H_2O}$。<br>
+              （イオン反応式表記：$\mathrm{C_8H_5O_4^-} + \mathrm{OH^-} \longrightarrow \mathrm{C_8H_4O_4^{2-}} + \mathrm{H_2O}$ も正解）
+            </p>
+          </div>
+        </div>
+
+        <!-- (d)(ii) -->
+        <div>
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.5rem;">
+            (ii) 緩衝液の pH の計算（全計算過程を含む）[4 Marks]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">Calculate the pH of the buffer solution. Show all your working.</p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">緩衝液の pH を計算せよ。すべての計算過程を示せ。</p>
+            </div>
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div class="answer-value">pH = 5.58</div>
+            <p style="margin-top:0.4rem; font-size:0.88rem; color:var(--text-muted);">
+              （または 5.576）
+            </p>
+          </div>
+
+          <div class="steps-container">
+            <div class="step-item">
+              <div class="step-bullet">1</div>
+              <div class="step-title">混合前の各物質の物質量（モル数）を計算する</div>
+              <div class="step-desc">
+                • $\mathrm{C_8H_5O_4K}$ の物質量：
+                $$n(\text{acid})_{\text{initial}} = 50.0\text{ cm}^3 \times 0.100\text{ mol dm}^{-3} \times 10^{-3} = 5.00 \times 10^{-3}\text{ mol}$$
+                • 加えた $\mathrm{KOH}$ の物質量：
+                $$n(\mathrm{KOH}) = 20.0\text{ cm}^3 \times 0.150\text{ mol dm}^{-3} \times 10^{-3} = 3.00 \times 10^{-3}\text{ mol}$$
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-bullet">2</div>
+              <div class="step-title">中和反応後の弱酸と共役塩基の残存モル数を求める</div>
+              <div class="step-desc">
+                強塩基 $\mathrm{OH^-}$ はすべて反応して消費されます。
+                $$\mathrm{C_8H_5O_4K} + \mathrm{KOH} \longrightarrow \mathrm{C_8H_4O_4K_2} + \mathrm{H_2O}$$
+                • 反応後に残る未解離の酸 $\mathrm{C_8H_5O_4K}$ の物質量：
+                $$n(\text{acid})_{\text{final}} = 5.00 \times 10^{-3} - 3.00 \times 10^{-3} = 2.00 \times 10^{-3}\text{ mol}$$
+                • 反応で生成した共役塩基 $\mathrm{C_8H_4O_4K_2}$ の物質量：
+                $$n(\text{salt})_{\text{final}} = 3.00 \times 10^{-3}\text{ mol}$$
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-bullet">3</div>
+              <div class="step-title">ヘンダーソン・ハッセルバルヒの式で pH を算出</div>
+              <div class="step-desc">
+                全溶液体積は $V = 70.0\text{ cm}^3$ で共通のため、濃度比はモル比と等しくなります。
+                $$\mathrm{pH} = \mathrm{p}K_{\mathrm{a}} + \log_{10}\left(\frac{[\text{salt}]}{[\text{acid}]}\right) = \mathrm{p}K_{\mathrm{a}} + \log_{10}\left(\frac{n(\text{salt})}{n(\text{acid})}\right)$$
+                $$\mathrm{pH} = 5.40 + \log_{10}\left(\frac{3.00 \times 10^{-3}}{2.00 \times 10^{-3}}\right) = 5.40 + \log_{10}(1.50)$$
+                $$\log_{10}(1.50) \approx 0.1761$$
+                $$\mathrm{pH} = 5.40 + 0.1761 = 5.5761 \approx \mathbf{5.58}$$
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-bullet">別</div>
+              <div class="step-title">別解：$K_{\mathrm{a}}$ 式から $[\mathrm{H^+}]$ を経由する方法</div>
+              <div class="step-desc">
+                $$K_{\mathrm{a}} = 10^{-5.40} = 3.981 \times 10^{-6}\text{ mol dm}^{-3}$$
+                $$[\mathrm{H^+}] = K_{\mathrm{a}} \times \frac{n(\text{acid})}{n(\text{salt})} = 3.981 \times 10^{-6} \times \frac{2.00 \times 10^{-3}}{3.00 \times 10^{-3}} = 2.654 \times 10^{-6}\text{ mol dm}^{-3}$$
+                $$\mathrm{pH} = -\log_{10}(2.654 \times 10^{-6}) = 6 - \log_{10}(2.654) = 6 - 0.4239 = \mathbf{5.58}$$
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Cambridge International AS & A Level Chemistry (9701) - 2023 Topical Past Papers: Equilibria</p>
+      <p style="margin-top: 0.3rem; font-size: 0.82rem; color: var(--text-sub);">
+        Rigorous analytical chemistry explanations, full derivation steps, and bilingual Japanese/English reference.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // Lucide Icons
+    lucide.createIcons();
+
+    // Dark/Light Mode Switcher
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+    const htmlEl = document.documentElement;
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlEl.getAttribute('data-theme');
+      const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      htmlEl.setAttribute('data-theme', targetTheme);
+      
+      if (targetTheme === 'dark') {
+        themeText.textContent = 'ライトモード';
+        themeIcon.setAttribute('data-lucide', 'sun');
+      } else {
+        themeText.textContent = 'ダークモード';
+        themeIcon.setAttribute('data-lucide', 'moon');
+      }
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

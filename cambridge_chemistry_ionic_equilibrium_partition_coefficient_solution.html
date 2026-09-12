@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A-Level / Cambridge Chemistry - イオン平衡・溶解度積・緩衝液・分配係数 完全解答解説 (Ionic Equilibrium & Partition Coefficient)</title>
+  <meta name="description" content="ケンブリッジ A-Level / IB Chemistry スタイルの化学問題（強塩基のpHと質量計算、水酸化鉄(II)の溶解度積Ksp、シュウ酸水素イオン緩衝液の作用機構、分配係数Kpcの定義と計算・分子構造からの同定）の完全バイリンガル詳細解説。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- MathJax Configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root, [data-theme="light"] {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-alt: #f1f5f9;
+      --bg-card-subtle: #f8fafc;
+      --border-color: #e2e8f0;
+      --border-subtle: #cbd5e1;
+      --border-accent: rgba(14, 165, 233, 0.4);
+      
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-subtle: rgba(2, 132, 199, 0.08);
+      --secondary: #6366f1;
+      --secondary-subtle: rgba(99, 102, 241, 0.08);
+      --accent: #e11d48;
+      --accent-subtle: rgba(225, 29, 72, 0.08);
+      --emerald: #059669;
+      --emerald-subtle: rgba(5, 150, 105, 0.08);
+      --amber: #d97706;
+      --amber-subtle: rgba(217, 119, 6, 0.08);
+      --purple: #7c3aed;
+      --purple-subtle: rgba(124, 58, 237, 0.08);
+      
+      --text-main: #0f172a;
+      --text-muted: #334155;
+      --text-sub: #64748b;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 0 1px 1px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 12px 28px -4px rgba(0, 0, 0, 0.1);
+      --transition: all 0.25s ease-in-out;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0a0f1d;
+      --bg-card: rgba(18, 26, 46, 0.85);
+      --bg-card-alt: rgba(26, 38, 66, 0.7);
+      --bg-card-subtle: rgba(0, 0, 0, 0.25);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --border-subtle: rgba(255, 255, 255, 0.15);
+      --border-accent: rgba(56, 189, 248, 0.4);
+      
+      --primary: #38bdf8;
+      --primary-dark: #0284c7;
+      --primary-subtle: rgba(56, 189, 248, 0.15);
+      --secondary: #818cf8;
+      --secondary-subtle: rgba(129, 140, 248, 0.15);
+      --accent: #fb7185;
+      --accent-subtle: rgba(251, 113, 133, 0.15);
+      --emerald: #34d399;
+      --emerald-subtle: rgba(52, 211, 153, 0.15);
+      --amber: #fbbf24;
+      --amber-subtle: rgba(251, 191, 36, 0.15);
+      --purple: #c084fc;
+      --purple-subtle: rgba(192, 132, 252, 0.15);
+      
+      --text-main: #f1f5f9;
+      --text-muted: #cbd5e1;
+      --text-sub: #94a3b8;
+      
+      --shadow-card: 0 6px 24px -2px rgba(0, 0, 0, 0.4);
+      --shadow-hover: 0 16px 36px -4px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.7;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    /* Layout & Header */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    header {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.12), rgba(99, 102, 241, 0.08));
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      border: 1px solid transparent;
+    }
+
+    .badge-primary {
+      background: var(--primary-subtle);
+      color: var(--primary);
+      border-color: var(--border-accent);
+    }
+
+    .badge-secondary {
+      background: var(--secondary-subtle);
+      color: var(--secondary);
+    }
+
+    .badge-emerald {
+      background: var(--emerald-subtle);
+      color: var(--emerald);
+    }
+
+    h1.title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 850px;
+      line-height: 1.6;
+    }
+
+    /* Quick Nav Sticky Bar */
+    .nav-bar {
+      position: sticky;
+      top: 1rem;
+      z-index: 50;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(10px);
+      margin-bottom: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 2px;
+    }
+
+    .nav-link {
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-subtle);
+      color: var(--primary);
+    }
+
+    .theme-toggle {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.45rem 0.8rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-main);
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary-subtle);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Section & Cards */
+    .section-block {
+      margin-bottom: 3.5rem;
+      scroll-margin-top: 5.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-num {
+      width: 2.2rem;
+      height: 2.2rem;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .total-marks {
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--border-accent);
+    }
+
+    .card-header-sub {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .sub-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sub-mark {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-subtle);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    /* Bilingual Boxes */
+    .bilingual-box {
+      background: var(--bg-card-alt);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .lang-row {
+      margin-bottom: 0.6rem;
+    }
+
+    .lang-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .lang-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+    }
+
+    .tag-en {
+      background: rgba(2, 132, 199, 0.15);
+      color: var(--primary);
+    }
+
+    .tag-ja {
+      background: rgba(124, 58, 237, 0.15);
+      color: var(--purple);
+    }
+
+    .tag-ans {
+      background: rgba(5, 150, 105, 0.18);
+      color: var(--emerald);
+    }
+
+    .text-en {
+      font-family: 'Inter', sans-serif;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .text-ja {
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    /* Final Answer Highlight Box */
+    .answer-box {
+      background: linear-gradient(135deg, var(--emerald-subtle), rgba(5, 150, 105, 0.02));
+      border: 1px solid rgba(5, 150, 105, 0.35);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .answer-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--emerald);
+      margin-bottom: 0.6rem;
+    }
+
+    .answer-value {
+      font-size: 1.25rem;
+      font-weight: 800;
+      font-family: 'Fira Code', monospace;
+      color: var(--text-main);
+      padding: 0.5rem 0.8rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      display: inline-block;
+      margin: 0.3rem 0;
+    }
+
+    /* Steps Breakdown */
+    .steps-container {
+      margin-top: 1.25rem;
+    }
+
+    .step-item {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-item::before {
+      content: '';
+      position: absolute;
+      left: 0.55rem;
+      top: 1.8rem;
+      bottom: -1rem;
+      width: 2px;
+      background: var(--border-color);
+    }
+
+    .step-item:last-child::before {
+      display: none;
+    }
+
+    .step-bullet {
+      position: absolute;
+      left: 0;
+      top: 0.2rem;
+      width: 1.35rem;
+      height: 1.35rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .step-desc {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Calculation Formula Block */
+    .math-block {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem;
+      margin: 0.75rem 0;
+      overflow-x: auto;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    /* Alert / Note Callouts */
+    .callout {
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem;
+      margin: 1.2rem 0;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      font-size: 0.92rem;
+    }
+
+    .callout-warning {
+      background: var(--amber-subtle);
+      border: 1px solid rgba(217, 119, 6, 0.3);
+      color: var(--text-main);
+    }
+    .callout-warning i { color: var(--amber); }
+
+    .callout-tip {
+      background: var(--primary-subtle);
+      border: 1px solid rgba(2, 132, 199, 0.3);
+      color: var(--text-main);
+    }
+    .callout-tip i { color: var(--primary); }
+
+    .callout-key {
+      background: var(--purple-subtle);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      color: var(--text-main);
+    }
+    .callout-key i { color: var(--purple); }
+
+    /* Comparison Table */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 1.2rem 0;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    thead {
+      background: var(--bg-card-alt);
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    th {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    tbody tr:hover {
+      background: var(--primary-subtle);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 1rem 1.5rem;
+      color: var(--text-sub);
+      font-size: 0.88rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 1.2rem 1rem 3rem; }
+      h1.title { font-size: 1.7rem; }
+      .section-title { font-size: 1.3rem; }
+      .nav-bar { flex-direction: column; align-items: stretch; }
+      .nav-links { justify-content: flex-start; }
+      .card { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Main Header -->
+    <header>
+      <div class="header-badge-row">
+        <span class="badge badge-primary"><i data-lucide="award"></i> Cambridge A-Level / IB Chemistry HL</span>
+        <span class="badge badge-secondary"><i data-lucide="flask-conical"></i> Topic: Ionic Equilibrium</span>
+        <span class="badge badge-emerald"><i data-lucide="languages"></i> Bilingual (日英完全対照)</span>
+      </div>
+      <h1 class="title">イオン平衡・溶解度積・緩衝液・分配係数<br>精選試験問題 完全解答・詳細解説</h1>
+      <p class="subtitle">
+        手書き回答が書き込まれた試験プリントの全問（Question 1: 強塩基のpH計算＆質量・水酸化鉄(II)の$K_{\mathrm{sp}}$、Question 2: 両性シュウ酸水素緩衝液・分配係数$K_{\mathrm{pc}}$の定義＆質量計算＆有機溶媒抽出と分子構造分析）を論理的ステップ・英和バイリンガル対照で徹底解説します。
+      </p>
+    </header>
+
+    <!-- Navigation Sticky Bar -->
+    <nav class="nav-bar">
+      <div class="nav-links">
+        <a href="#q1a" class="nav-link"><i data-lucide="hash"></i> Q1(a) Ba(OH)₂ pH計算</a>
+        <a href="#q1b" class="nav-link"><i data-lucide="hash"></i> Q1(b) Fe(OH)₂ Ksp</a>
+        <a href="#q2a" class="nav-link"><i data-lucide="hash"></i> Q2(a) HC₂O₄⁻ 緩衝作用</a>
+        <a href="#q2b" class="nav-link"><i data-lucide="hash"></i> Q2(b) 分配係数 Kpc</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+        <i data-lucide="moon" id="themeIcon"></i>
+        <span id="themeText">ダークモード</span>
+      </button>
+    </nav>
+
+    <!-- ========================================================================= -->
+    <!-- QUESTION 1 -->
+    <!-- ========================================================================= -->
+    <section class="section-block" id="q1">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-num">1</div>
+          <h2 class="section-title">Question 1: 強塩基のpHと溶解度積 $K_{\mathrm{sp}}$</h2>
+        </div>
+        <span class="total-marks">Total: 7 Marks</span>
+      </div>
+
+      <!-- 1 (a) -->
+      <div class="card" id="q1a">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="beaker"></i> 1 (a) 水酸化バリウム水溶液のpHと必要質量の計算</h3>
+          <span class="sub-mark">[4 Marks]</span>
+        </div>
+
+        <!-- Problem Statement Bilingual -->
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Question (EN)</span>
+            <p class="text-en">
+              Barium hydroxide, $\mathrm{Ba(OH)_2}$, is a strong base.<br>
+              A $250.0\text{ cm}^3$ solution of $\mathrm{Ba(OH)_2}$ with a $\mathrm{pH}$ of $12.2$ is made by dissolving $\mathrm{Ba(OH)_2}$ in distilled water.<br>
+              Calculate the mass of $\mathrm{Ba(OH)_2}$ required to make this solution.<br>
+              Show your working.<br>
+              $[M_{\mathrm{r}}\text{: }\mathrm{Ba(OH)_2},\ 171.3]$
+            </p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+            <p class="text-ja">
+              水酸化バリウム $\mathrm{Ba(OH)_2}$ は強塩基である。<br>
+              蒸留水に $\mathrm{Ba(OH)_2}$ を溶解させることにより、$\mathrm{pH} = 12.2$ の $\mathrm{Ba(OH)_2}$ 水溶液 $250.0\text{ cm}^3$ を調製した。<br>
+              この溶液を調製するのに必要な $\mathrm{Ba(OH)_2}$ の質量を計算せよ。計算過程も示せ。<br>
+              $[M_{\mathrm{r}}\text{: }\mathrm{Ba(OH)_2} = 171.3]$
+            </p>
+          </div>
+        </div>
+
+        <!-- Answer Bilingual -->
+        <div class="answer-box">
+          <div class="answer-title"><i data-lucide="check-circle-2"></i> 最終解答 / Final Answer</div>
+          <div>
+            <span class="lang-tag tag-ans">EN</span> <strong>mass of $\mathrm{Ba(OH)_2} = 0.339\text{ g}$</strong> (or $0.34\text{ g}$ to 2 s.f.)<br>
+            <span class="lang-tag tag-ans">JA</span> <strong>$\mathrm{Ba(OH)_2}$ の質量 $= 0.339\text{ g}$</strong>（有効数字2桁なら $0.34\text{ g}$）
+          </div>
+          <div class="answer-value">mass of Ba(OH)₂ = 0.339 g</div>
+        </div>
+
+        <!-- Step-by-Step Breakdown -->
+        <div class="steps-container">
+          <h4 style="margin-bottom: 1rem; font-weight:700;"><i data-lucide="list-ordered"></i> 詳細導出ステップ (Step-by-Step Derivation)</h4>
+
+          <div class="step-item">
+            <div class="step-bullet">1</div>
+            <div class="step-title">$\mathrm{pH}$ から水酸化物イオン濃度 $[\mathrm{OH}^-]$ を求める</div>
+            <div class="step-desc">
+              室温（$298\text{ K}$）における水のイオン積を $K_{\mathrm{w}} = 1.00 \times 10^{-14}\text{ mol}^2\text{dm}^{-6}$（$\mathrm{pH} + \mathrm{pOH} = 14.00$）とします。<br>
+              <strong>解法A（$\mathrm{pOH}$ 経由）:</strong>
+              $$\mathrm{pOH} = 14.00 - \mathrm{pH} = 14.00 - 12.20 = 1.80$$
+              $$[\mathrm{OH}^-] = 10^{-\mathrm{pOH}} = 10^{-1.80} \approx 1.5849 \times 10^{-2}\text{ mol dm}^{-3}$$
+              <strong>解法B（$[\mathrm{H}^+]$ 経由）:</strong>
+              $$[\mathrm{H}^+] = 10^{-\mathrm{pH}} = 10^{-12.20} \approx 6.3096 \times 10^{-13}\text{ mol dm}^{-3}$$
+              $$[\mathrm{OH}^-] = \frac{K_{\mathrm{w}}}{[\mathrm{H}^+]} = \frac{1.00 \times 10^{-14}}{6.3096 \times 10^{-13}} \approx 1.5849 \times 10^{-2}\text{ mol dm}^{-3}$$
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-bullet">2</div>
+            <div class="step-title">二価の強塩基としての電離比率（重要トラップ！）</div>
+            <div class="step-desc">
+              $\mathrm{Ba(OH)_2}$ は完全電離する強塩基ですが、<strong>1分子から2個の $\mathrm{OH}^-$ を放出</strong>します。
+              $$\mathrm{Ba(OH)_2(aq)} \longrightarrow \mathrm{Ba}^{2+}(aq) + 2\mathrm{OH}^-(aq)$$
+              したがって、水酸化バリウム自体のモル濃度 $[\mathrm{Ba(OH)_2}]$ は $[\mathrm{OH}^-]$ の<strong>半分</strong>になります。
+              $$[\mathrm{Ba(OH)_2}] = \frac{[\mathrm{OH}^-]}{2} = \frac{1.5849 \times 10^{-2}\text{ mol dm}^{-3}}{2} = 7.9244 \times 10^{-3}\text{ mol dm}^{-3}$$
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-bullet">3</div>
+            <div class="step-title">溶液中の物質量（モル数）$n$ を計算する</div>
+            <div class="step-desc">
+              溶液の体積 $V = 250.0\text{ cm}^3 = \frac{250.0}{1000}\text{ dm}^3 = 0.2500\text{ dm}^3$ です。
+              $$n(\mathrm{Ba(OH)_2}) = [\mathrm{Ba(OH)_2}] \times V = 7.9244 \times 10^{-3}\text{ mol dm}^{-3} \times 0.2500\text{ dm}^3 = 1.9811 \times 10^{-3}\text{ mol}$$
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-bullet">4</div>
+            <div class="step-title">モル質量 $M_{\mathrm{r}}$ から質量 $m$ を求める</div>
+            <div class="step-desc">
+              与えられた式量 $M_{\mathrm{r}} = 171.3\text{ g mol}^{-1}$ を乗じます。
+              $$m = n \times M_{\mathrm{r}} = 1.9811 \times 10^{-3}\text{ mol} \times 171.3\text{ g mol}^{-1} = 0.33936\dots\text{ g} \approx \mathbf{0.339\text{ g}}$$
+              ※$\mathrm{pH} = 12.2$（有効数字2桁）に基づく場合は $\mathbf{0.34\text{ g}}$、3桁表記なら $\mathbf{0.339\text{ g}}$ となり、採点基準（Mark scheme）ではどちらも正解となります。
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-warning">
+          <i data-lucide="alert-triangle"></i>
+          <div>
+            <strong>試験での典型的な減点ポイント (Examiner's Warning):</strong><br>
+            $\mathrm{Ba(OH)_2}$ が2価の塩基であることを失念し、$[\mathrm{Ba(OH)_2}] = [\mathrm{OH}^-]$ としてしまうミスが非常に多発します。その場合、質量が2倍の $0.679\text{ g}$ になってしまい2点失点となります。必ず化学反応式の係数比を確認してください。
+          </div>
+        </div>
+      </div>
+
+      <!-- 1 (b)(i) & (ii) -->
+      <div class="card" id="q1b">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="sparkles"></i> 1 (b) 水酸化鉄(II) $\mathrm{Fe(OH)_2}$ の溶解度積 $K_{\mathrm{sp}}$</h3>
+          <span class="sub-mark">[1 + 2 = 3 Marks]</span>
+        </div>
+
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Premise (EN)</span>
+            <p class="text-en">The solubility of iron(II) hydroxide, $\mathrm{Fe(OH)_2}$, is $5.85 \times 10^{-6}\text{ mol dm}^{-3}$ at $298\text{ K}$.</p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">問題の前提 (JA)</span>
+            <p class="text-ja">$298\text{ K}$ における水酸化鉄(II) $\mathrm{Fe(OH)_2}$ の溶解度は $5.85 \times 10^{-6}\text{ mol dm}^{-3}$ である。</p>
+          </div>
+        </div>
+
+        <!-- 1 (b)(i) -->
+        <div style="margin-top: 1.5rem; margin-bottom: 2rem;">
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.6rem;">
+            (i) 溶解度積 $K_{\mathrm{sp}}$ の平衡発現式 [1 Mark]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">Write the expression for the solubility product, $K_{\mathrm{sp}}$, of $\mathrm{Fe(OH)_2}$.</p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">$\mathrm{Fe(OH)_2}$ の溶解度積 $K_{\mathrm{sp}}$ の表式を記せ。</p>
+            </div>
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div class="answer-value">$K_{\mathrm{sp}} = [\mathrm{Fe}^{2+}][\mathrm{OH^-}]^2$</div>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">
+              <strong>平衡反応式:</strong> $\mathrm{Fe(OH)_2(s)} \rightleftharpoons \mathrm{Fe}^{2+}(aq) + 2\mathrm{OH}^-(aq)$<br>
+              ※沈殿平衡において純粋な固体の活量は 1（一定）とみなすため、分母の $[\mathrm{Fe(OH)_2(s)}]$ は式中に含めません。手書き答案の通り、<strong>$K_{\mathrm{sp}} = [\mathrm{Fe}^{2+}][\mathrm{OH}^-]^2$</strong> が完全正解です。
+            </p>
+          </div>
+        </div>
+
+        <!-- 1 (b)(ii) -->
+        <div>
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.6rem;">
+            (ii) $K_{\mathrm{sp}}$ の数値計算および単位の決定 [2 Marks]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">Calculate the value of $K_{\mathrm{sp}}$ of $\mathrm{Fe(OH)_2}$. Include its units.</p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">$\mathrm{Fe(OH)_2}$ の $K_{\mathrm{sp}}$ の値を計算せよ。単位も含めること。</p>
+            </div>
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: baseline;">
+              <div>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">数値 (Value):</span><br>
+                <span class="answer-value">$K_{\mathrm{sp}} = 8.01 \times 10^{-16}$</span>
+              </div>
+              <div>
+                <span style="font-size: 0.88rem; color: var(--text-muted);">単位 (Units):</span><br>
+                <span class="answer-value">$\mathrm{mol^3 dm^{-9}}$</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="steps-container">
+            <div class="step-item">
+              <div class="step-bullet">1</div>
+              <div class="step-title">溶解度 $s$ とイオン濃度の関係を立てる</div>
+              <div class="step-desc">
+                飽和溶液中で $\mathrm{Fe(OH)_2}$ がモル溶解度 $s = 5.85 \times 10^{-6}\text{ mol dm}^{-3}$ だけ解離すると：
+                $$[\mathrm{Fe}^{2+}] = s = 5.85 \times 10^{-6}\text{ mol dm}^{-3}$$
+                $$[\mathrm{OH}^-] = 2s = 2 \times (5.85 \times 10^{-6}) = 1.17 \times 10^{-5}\text{ mol dm}^{-3}$$
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-bullet">2</div>
+              <div class="step-title">$K_{\mathrm{sp}}$ 式へ代入して計算する</div>
+              <div class="step-desc">
+                $$K_{\mathrm{sp}} = [\mathrm{Fe}^{2+}][\mathrm{OH}^-]^2 = s \times (2s)^2 = 4s^3$$
+                $$K_{\mathrm{sp}} = 4 \times (5.85 \times 10^{-6})^3 = 4 \times 2.0020 \times 10^{-16} = \mathbf{8.008 \times 10^{-16}} \approx \mathbf{8.01 \times 10^{-16}}$$
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-bullet">3</div>
+              <div class="step-title">単位の導出 (Deriving Units)</div>
+              <div class="step-desc">
+                各モル濃度の単位は $\text{mol dm}^{-3}$ なので：
+                $$\text{Units} = (\text{mol dm}^{-3}) \times (\text{mol dm}^{-3})^2 = \mathbf{\text{mol}^3\text{dm}^{-9}}$$
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- QUESTION 2 -->
+    <!-- ========================================================================= -->
+    <section class="section-block" id="q2">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-num">2</div>
+          <h2 class="section-title">Question 2: 緩衝液の機構と分配係数 $K_{\mathrm{pc}}$</h2>
+        </div>
+        <span class="total-marks">Total: 6 Marks</span>
+      </div>
+
+      <!-- 2 (a) -->
+      <div class="card" id="q2a">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="shield-check"></i> 2 (a) シュウ酸水素イオン $\mathrm{HC_2O_4^-}$ の緩衝作用</h3>
+          <span class="sub-mark">[2 Marks]</span>
+        </div>
+
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Question (EN)</span>
+            <p class="text-en">
+              Buffer solutions are used to regulate pH.<br>
+              Write two equations to describe how a solution containing $\mathrm{HC_2O_4^-}$ ions acts as a buffer solution when small amounts of acid or alkali are added.<br>
+              Add acid: ........................................................................................................................<br>
+              Add base: ........................................................................................................................
+            </p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+            <p class="text-ja">
+              緩衝液はpHを一定に保つ（調節する）ために用いられる。<br>
+              少量の酸またはアルカリ（塩基）が加えられたとき、$\mathrm{HC_2O_4^-}$（シュウ酸水素イオン）を含む溶液がどのように緩衝液として機能するかを説明する2つの化学反応式を記せ。<br>
+              酸を加えた場合 (Add acid): ...................................................................................................<br>
+              塩基を加えた場合 (Add base): ...................................................................................................
+            </p>
+          </div>
+        </div>
+
+        <!-- Answer Bilingual -->
+        <div class="answer-box">
+          <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答化学反応式 / Answer Equations</div>
+          <div style="margin-bottom: 0.75rem;">
+            <strong>Add acid（酸を加えたとき）:</strong>
+            <div class="answer-value">$\mathrm{HC_2O_4^-} + \mathrm{H^+} \longrightarrow \mathrm{H_2C_2O_4}$</div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.2rem;">
+              またはオキソニウムイオン表記: $\mathrm{HC_2O_4^-} + \mathrm{H_3O^+} \longrightarrow \mathrm{H_2C_2O_4} + \mathrm{H_2O}$
+            </p>
+          </div>
+          <div>
+            <strong>Add base / alkali（塩基・アルカリを加えたとき）:</strong>
+            <div class="answer-value">$\mathrm{HC_2O_4^-} + \mathrm{OH^-} \longrightarrow \mathrm{C_2O_4^{2-}} + \mathrm{H_2O}$</div>
+          </div>
+        </div>
+
+        <div class="callout callout-key">
+          <i data-lucide="info"></i>
+          <div>
+            <strong>両性プロトン性化学種（Amphiprotic species）の解説:</strong><br>
+            $\mathrm{HC_2O_4^-}$ はシュウ酸 $\mathrm{H_2C_2O_4}$（二価の弱酸）の第一電離で生じる陰イオンです。プロトン（$\mathrm{H}^+$）を受け取る塩基としても、プロトンを放出する酸としても振る舞うことができる<strong>両性プロトン性（amphiprotic）</strong>の性質を持ちます。
+            <ul>
+              <li><strong>酸（$\mathrm{H}^+$）の添加:</strong> $\mathrm{HC_2O_4^-}$ がブレンステッド・ローリー塩基として働き、過剰の $\mathrm{H}^+$ を結合して未解離のシュウ酸分子 $\mathrm{H_2C_2O_4}$ に変化させるため、pHの低下を防ぎます。</li>
+              <li><strong>塩基（$\mathrm{OH}^-$）の添加:</strong> $\mathrm{HC_2O_4^-}$ がブレンステッド・ローリー酸として働き、$\mathrm{OH}^-$ にプロトンを与えて中和し、シュウ酸イオン $\mathrm{C_2O_4^{2-}}$ と $\mathrm{H_2O}$ に変化させるため、pHの上昇を防ぎます。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 (b) Partition Coefficient -->
+      <div class="card" id="q2b">
+        <div class="card-header-sub">
+          <h3 class="sub-title"><i data-lucide="split"></i> 2 (b) 分配係数 $K_{\mathrm{pc}}$（ヘキサン／水系）の定義・計算・同定</h3>
+          <span class="sub-mark">[4 Marks]</span>
+        </div>
+
+        <div class="bilingual-box">
+          <div class="lang-row">
+            <span class="lang-tag tag-en">Premise (EN)</span>
+            <p class="text-en">
+              The partition coefficient, $K_{\mathrm{pc}}$, of a substance, Q, between hexane and water is 7.84 at $298\text{ K}$.<br>
+              Q is more soluble in hexane than it is in water.
+            </p>
+          </div>
+          <div class="lang-row">
+            <span class="lang-tag tag-ja">前提条件 (JA)</span>
+            <p class="text-ja">
+              $298\text{ K}$ において、ある物質 Q のヘキサンと水の間における分配係数 $K_{\mathrm{pc}}$ は 7.84 である。<br>
+              Q は水よりもヘキサンによく溶ける。
+            </p>
+          </div>
+        </div>
+
+        <!-- 2 (b)(i) -->
+        <div style="margin-bottom: 2rem;">
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.6rem;">
+            (i) 分配係数 $K_{\mathrm{pc}}$ の定義 [1 Mark]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">Define partition coefficient, $K_{\mathrm{pc}}$.</p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">分配係数 $K_{\mathrm{pc}}$ を定義せよ。</p>
+            </div>
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 標準定義 / Standard Definition</div>
+            <p style="margin-bottom: 0.5rem;">
+              <span class="lang-tag tag-ans">EN</span>
+              <strong>"The ratio of the concentrations of a solute in two immiscible solvents at equilibrium at a specified / constant temperature."</strong><br>
+              （または手書きの解答：<em>The equilibrium constant that relates the concentration of a solute partitioned between two immiscible solvents at a particular temperature.</em> も満点基準です）
+            </p>
+            <p>
+              <span class="lang-tag tag-ans">JA</span>
+              <strong>「一定の温度において、互いに混ざり合わない2種類の溶媒間に分配された溶質の、平衡状態における濃度の比（またはその平衡定数）。」</strong>
+            </p>
+            <div class="math-block">
+              $$K_{\mathrm{pc}} = \frac{[\text{solute}]_{\text{solvent A}}}{[\text{solute}]_{\text{solvent B}}} = \frac{[\text{Q}]_{\text{hexane}}}{[\text{Q}]_{\text{water}}}$$
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 (b)(ii) -->
+        <div style="margin-bottom: 2rem;">
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.6rem;">
+            (ii) 抽出平衡における水相中残存質量の計算 [1 Mark]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">
+                $5.00\text{ g}$ of Q is shaken with a mixture of $100.0\text{ cm}^3$ of water and $100.0\text{ cm}^3$ of hexane at $298\text{ K}$ and left until there is no further change in concentrations.<br>
+                Calculate the mass of Q dissolved in the water.
+              </p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">
+                $298\text{ K}$ において、$5.00\text{ g}$ の Q を $100.0\text{ cm}^3$ の水と $100.0\text{ cm}^3$ のヘキサンの混合液とともに振り混ぜ、濃度変化がなくなる（平衡に達する）まで放置した。<br>
+                水に溶解している Q の質量を計算せよ。
+              </p>
+            </div>
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div class="answer-value">mass of Q = 0.566 g</div>
+            <p style="margin-top: 0.5rem; font-size: 0.88rem; color: var(--text-muted);">
+              （有効数字3桁: $0.566\text{ g}$、または2桁なら $0.57\text{ g}$）
+            </p>
+          </div>
+
+          <div class="steps-container">
+            <div class="step-item">
+              <div class="step-bullet">1</div>
+              <div class="step-title">未知数を設定し、各相の濃度を立式する</div>
+              <div class="step-desc">
+                水に溶解した Q の質量を $x\text{ [g]}$ とおきます。<br>
+                溶質 Q の総質量は $5.00\text{ g}$ なので、ヘキサン相に溶解した Q の質量は $(5.00 - x)\text{ [g]}$ となります。<br>
+                水相の体積 $V_{\text{water}} = 100.0\text{ cm}^3$、ヘキサン相の体積 $V_{\text{hexane}} = 100.0\text{ cm}^3$ です。<br>
+                Q のモル質量を $M$ とすると、各相のモル濃度は：
+                $$[\text{Q}]_{\text{water}} = \frac{x / M}{100.0\text{ cm}^3} \propto \frac{x}{100.0}$$
+                $$[\text{Q}]_{\text{hexane}} = \frac{(5.00 - x) / M}{100.0\text{ cm}^3} \propto \frac{5.00 - x}{100.0}$$
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-bullet">2</div>
+              <div class="step-title">分配係数の定義式に代入して解く</div>
+              <div class="step-desc">
+                問題文より「Q is more soluble in hexane than it is in water（Qは水よりヘキサンに溶けやすい）」かつ $K_{\mathrm{pc}} = 7.84 > 1$ であるため、
+                $$K_{\mathrm{pc}} = \frac{[\text{Q}]_{\text{hexane}}}{[\text{Q}]_{\text{water}}} = 7.84$$
+                両相の体積がともに $100.0\text{ cm}^3$ で等しいため、体積とモル質量 $M$ は完全に約分されます。
+                $$\frac{\frac{5.00 - x}{100.0}}{\frac{x}{100.0}} = \frac{5.00 - x}{x} = 7.84$$
+                $$5.00 - x = 7.84 x$$
+                $$8.84 x = 5.00$$
+                $$x = \frac{5.00}{8.84} = 0.56561\dots\text{ g} \approx \mathbf{0.566\text{ g}}$$
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 (b)(iii) -->
+        <div style="margin-bottom: 2rem;">
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.6rem;">
+            (iii) 溶質量が等しくなる溶媒体積の推定 [1 Mark]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">
+                A sample of Q is shaken with a different mixture of water and hexane and left until there is no further change in concentrations.<br>
+                It is found that the mass of Q dissolved in each solvent is the same.<br>
+                Use the $K_{\mathrm{pc}}$ value to suggest possible values for the volume of water used and the volume of hexane used.<br>
+                volume of water = ......................................... $\text{cm}^3$<br>
+                volume of hexane = ........................................ $\text{cm}^3$
+              </p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">
+                Q のサンプルを、水とヘキサンの別の混合液とともに振り混ぜ、濃度変化がなくなるまで放置した。<br>
+                その結果、それぞれの溶媒に溶解した Q の質量が等しいことが判明した。<br>
+                $K_{\mathrm{pc}}$ の値を用いて、使用された水の体積およびヘキサンの体積として考えられる値を提示せよ。<br>
+                水の体積 (volume of water) = ......................................... $\text{cm}^3$<br>
+                ヘキサンの体積 (volume of hexane) = ........................................ $\text{cm}^3$
+              </p>
+            </div>
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答例 / Example Answers</div>
+            <p style="font-size: 0.92rem; margin-bottom: 0.5rem;">
+              <strong>体積比の条件:</strong> $\displaystyle \frac{\text{volume of water}}{\text{volume of hexane}} = 7.84$（水がヘキサンの 7.84 倍）
+            </p>
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+              <div>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">代表的な解答例1:</span><br>
+                <span class="answer-value">water = 784 cm³, hexane = 100 cm³</span>
+              </div>
+              <div>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">代表的な解答例2:</span><br>
+                <span class="answer-value">water = 78.4 cm³, hexane = 10 cm³</span>
+              </div>
+              <div>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">代表的な解答例3:</span><br>
+                <span class="answer-value">water = 7.84 cm³, hexane = 1 cm³</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="steps-container">
+            <div class="step-item">
+              <div class="step-bullet">1</div>
+              <div class="step-title">「各溶媒中の溶解質量が等しい」という条件を数式化</div>
+              <div class="step-desc">
+                ヘキサン中の質量 $m_{\text{hex}}$ と水中の質量 $m_{\text{aq}}$ が等しい（$m_{\text{hex}} = m_{\text{aq}} = m$）。<br>
+                各相の濃度は、体積を $V_{\text{hex}}, V_{\text{aq}}$ とすると：
+                $$[\text{Q}]_{\text{hexane}} = \frac{m / M}{V_{\text{hex}}},\quad [\text{Q}]_{\text{water}} = \frac{m / M}{V_{\text{aq}}}$$
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-bullet">2</div>
+              <div class="step-title">分配係数の式に代入して体積比を導出する</div>
+              <div class="step-desc">
+                $$K_{\mathrm{pc}} = \frac{[\text{Q}]_{\text{hexane}}}{[\text{Q}]_{\text{water}}} = \frac{\frac{m / M}{V_{\text{hex}}}}{\frac{m / M}{V_{\text{aq}}}} = \frac{V_{\text{aq}}}{V_{\text{hex}}} = 7.84$$
+                したがって、<strong>$V_{\text{aq}} = 7.84 \times V_{\text{hex}}$（水の体積 $=$ ヘキサンの体積 $\times 7.84$）</strong> となる任意の正の実数ペアが正解となります。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 (b)(iv) -->
+        <div>
+          <h4 style="font-size: 1.05rem; font-weight:700; color:var(--primary); margin-bottom: 0.6rem;">
+            (iv) 物質 Q の同定と分子間力に基づく理由説明 [1 Mark]
+          </h4>
+          <div class="bilingual-box">
+            <div class="lang-row">
+              <span class="lang-tag tag-en">Question (EN)</span>
+              <p class="text-en">
+                Q is more soluble in hexane than it is in water.<br>
+                It is suggested that Q is one of $\mathrm{KCl}$, $\mathrm{CH_3(CH_2)_4OH}$ or $\mathrm{HCOOH}$.<br>
+                Identify Q. Explain your answer.
+              </p>
+            </div>
+            <div class="lang-row">
+              <span class="lang-tag tag-ja">問題文和訳 (JA)</span>
+              <p class="text-ja">
+                Q は水よりもヘキサンによく溶ける。<br>
+                Q は $\mathrm{KCl}$、$\mathrm{CH_3(CH_2)_4OH}$（1-ペンタノール）、$\mathrm{HCOOH}$（ギ酸）のいずれかであると示唆されている。<br>
+                Q を同定し、その理由を説明せよ。
+              </p>
+            </div>
+          </div>
+
+          <div class="answer-box">
+            <div class="answer-title"><i data-lucide="check-circle-2"></i> 解答 / Answer</div>
+            <div style="margin-bottom: 0.6rem;">
+              <span class="lang-tag tag-ans">同定 (Identity)</span>
+              <span class="answer-value">Q = CH₃(CH₂)₄OH (1-pentanol)</span>
+            </div>
+            <div>
+              <span class="lang-tag tag-ans">EN Explanation</span>
+              <p style="display:inline; font-size: 0.92rem;">
+                <strong>Identity:</strong> $\mathrm{CH_3(CH_2)_4OH}$<br>
+                <strong>Reason:</strong> $\mathrm{CH_3(CH_2)_4OH}$ has a long non-polar hydrocarbon chain (alkyl tail) which can form strong London dispersion (van der Waals) forces with non-polar hexane molecules, making it more soluble in hexane than in polar water. In contrast, $\mathrm{KCl}$ is an ionic compound that is insoluble in hexane, and $\mathrm{HCOOH}$ is highly polar with a very short hydrocarbon chain and forms extensive hydrogen bonding with water, making it far more soluble in water.
+              </p>
+            </div>
+            <div style="margin-top: 0.6rem;">
+              <span class="lang-tag tag-ans">JA 理由説明</span>
+              <p style="display:inline; font-size: 0.92rem;">
+                <strong>同定:</strong> $\mathrm{CH_3(CH_2)_4OH}$（1-ペンタノール）<br>
+                <strong>理由:</strong> $\mathrm{CH_3(CH_2)_4OH}$ は炭素数5の長い非極性炭化水素基（疎水性アルキル鎖）を持っており、無極性溶媒であるヘキサン分子と効果的なロンドン分散力（ファンデルワールス力）を形成できるため、水よりもヘキサンに優先して溶解する。一方、$\mathrm{KCl}$ はイオン結合物質でありヘキサンには溶けず、$\mathrm{HCOOH}$ はアルキル基が極めて小さく水分子と強い水素結合を形成するため水に極めて溶けやすい。
+              </p>
+            </div>
+          </div>
+
+          <!-- Comparative Summary Table -->
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>候補物質</th>
+                  <th>物質の分類・構造</th>
+                  <th>水（極性溶媒）への親和性</th>
+                  <th>ヘキサン（無極性）への親和性</th>
+                  <th>判定</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>$\mathrm{KCl}$</strong><br>(塩化カリウム)</td>
+                  <td>イオン結晶<br>($\mathrm{K}^+, \mathrm{Cl}^-$)</td>
+                  <td>◎ 非常に大<br>(強いイオン-双極子相互作用)</td>
+                  <td>× 不溶<br>(無極性溶媒とは相互作用しない)</td>
+                  <td><span style="color:var(--accent); font-weight:700;">不適</span> ($K_{\mathrm{pc}} \approx 0$)</td>
+                </tr>
+                <tr>
+                  <td><strong>$\mathrm{HCOOH}$</strong><br>(ギ酸)</td>
+                  <td>低分子カルボン酸<br>(強い極性 $-\mathrm{COOH}$)</td>
+                  <td>◎ 水と任意比率で混和<br>(水素結合を多数形成)</td>
+                  <td>△ 小<br>(炭化水素鎖が短く非極性親和性が弱い)</td>
+                  <td><span style="color:var(--accent); font-weight:700;">不適</span> ($K_{\mathrm{pc}} \ll 1$)</td>
+                </tr>
+                <tr style="background: var(--emerald-subtle);">
+                  <td><strong>$\mathrm{CH_3(CH_2)_4OH}$</strong><br>(1-ペンタノール)</td>
+                  <td>長鎖アルコール<br>(長い無極性アルキル鎖)</td>
+                  <td>△ やや難溶<br>(長い疎水鎖が水構造を壊す)</td>
+                  <td>◎ 非常に可溶<br>(ヘキサンと強い分散力を形成)</td>
+                  <td><span style="color:var(--emerald); font-weight:800;">✓ 正解 (Q)</span> ($K_{\mathrm{pc}} = 7.84 > 1$)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Cambridge International AS & A Level / IB Chemistry Higher Level Preparation Materials</p>
+      <p style="margin-top: 0.3rem; font-size: 0.8rem; color: var(--text-sub);">
+        Generated with rigorous mathematical & physical chemistry derivations with complete Japanese-English bilingual references.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Dark/Light Mode Switcher
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+    const htmlEl = document.documentElement;
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlEl.getAttribute('data-theme');
+      const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      htmlEl.setAttribute('data-theme', targetTheme);
+      
+      if (targetTheme === 'dark') {
+        themeText.textContent = 'ライトモード';
+        themeIcon.setAttribute('data-lucide', 'sun');
+      } else {
+        themeText.textContent = 'ダークモード';
+        themeIcon.setAttribute('data-lucide', 'moon');
+      }
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
